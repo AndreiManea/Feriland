@@ -1,6 +1,7 @@
 # Feriland - Luxury Nature Retreats
 
 ## Overview
+OS
 
 **Feriland** is a harmonious blend of luxury and nature, an exclusive retreat offering an escape into the tranquility of the Romanian hillsides. Drawing inspiration from the idyllic charm of fairy tales and the unspoiled beauty of Toscana's landscapes, Feriland is a family-run venture that aspires to provide unforgettable experiences through its bespoke accommodations. Our signature cabins, hexagonal domes, and wood-fired hot tubs are designed for those seeking solace and luxury amidst nature's splendor.
 
@@ -24,7 +25,8 @@ Feriland is poised for growth, with plans to expand the land and diversify the e
 - `docs/`: Documentation on the vision, construction plans, environmental impact assessments, and guest experience outlines.
 - `site-plans/`: Detailed architectural and landscape designs for the cabins, domes, and communal areas.
 - `marketing/`: Strategies, campaigns, and promotional materials aimed at introducing Feriland to the world.
-- `feedback/`: Guest feedback and testimonials that shape our continuous improvement and growth.
+XX- `feedback/`: Guest feedback and testimonials that shape our continuous 
+improvement and growth.
 
 ## Contribution
 
