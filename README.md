@@ -22,7 +22,7 @@ Feriland is poised for growth, with plans to expand the land and diversify the e
 - `docs/`: Documentation on the vision, construction plans, environmental impact assessments, and guest experience outlines.
 - `site-plans/`: Detailed architectural and landscape designs for the cabins, domes, and communal areas.
 - `marketing/`: Strategies, campaigns, and promotional materials aimed at introducing Feriland to the world.
-XX- `feedback/`: Guest feedback and testimonials that shape our continuous 
+- `feedback/`: Guest feedback and testimonials that shape our continuous 
 improvement and growth.
 
 ## Contribution
