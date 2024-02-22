@@ -1,4 +1,5 @@
 import './App.css'
+import GallerySection from './components/GallerySection/GallerySection'
 import HeroSection from './components/HeroSection/HeroSection'
 import Navbar from './components/Navbar/Navbar'
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <Navbar />
       <HeroSection />
+      <GallerySection />
     </>
   )
 }
