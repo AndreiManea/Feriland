@@ -1,3 +1,10 @@
+.gallery-section {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10.68em;
+  padding-bottom: 10.68em;
+}
+
 .container {
   width: 100%;
   max-width: none;
@@ -5,6 +12,18 @@
   margin-right: auto;
   padding-left: 2.08em;
   padding-right: 2.08em;
+}
+
+.w-layout-grid {
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+.grid-3col {
+  grid-column-gap: 3em;
+  grid-row-gap: 3em;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .img-col-wrapper {
@@ -24,19 +43,19 @@
   display: flex;
 }
 
-.image-small {
-  width: 12em;
+.image-big {
+  width: 22em;
   border-radius: 1.3em;
 }
 
-img {
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
+.img-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
 }
 
-.image-big {
-  width: 22em;
+.image-small {
+  width: 12em;
   border-radius: 1.3em;
 }
 
@@ -76,6 +95,6 @@ p {
   margin-bottom: 10px;
 }
 
-#firstId, #secondId, #thirdId, #fourthId {
+#firstID, #secondID, #thirdID, #fourthID, #fifthID {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }

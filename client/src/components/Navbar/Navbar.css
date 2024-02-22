@@ -174,12 +174,6 @@ a {
   /* z-index: 110; */
 }
 
-img {
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
-}
-
 .button.is-icon.cta {
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
