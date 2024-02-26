@@ -7,12 +7,17 @@
 body {
   display: block;
   min-height: 100%;
-  color: rgb(234, 229, 223);
-  background-color: rgb(46, 42, 39);
+  color: rgb(46, 42, 39);
+  background-color: rgb(234, 229, 223);
   margin: 0;
   font-family: 'Kaftan';
   font-size: 14px;
   line-height: 20px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 img {
@@ -20,7 +25,22 @@ img {
   max-width: 100%;
   vertical-align: middle;
   display: inline-block;
-  }
+}
+
+button {
+  text-transform: none;
+  overflow: visible;
+  margin: 0;
+  font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 10px;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
 
 @font-face {
   font-family: "Kaftan";   /*Can be any text*/
