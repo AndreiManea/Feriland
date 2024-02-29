@@ -42,6 +42,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+audio, canvas, progress, video {
+  vertical-align: baseline;
+  display: inline-block;
+}
+
 @font-face {
   font-family: "Kaftan";   /*Can be any text*/
   src: local("Kaftan"),
