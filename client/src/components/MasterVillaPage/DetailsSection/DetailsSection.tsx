@@ -584,8 +584,18 @@ const DetailsSection: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>{' '}
-        <div className="menu-divider"></div>
+          <div
+          id="calendarId"
+          className="sticky-calendar"
+        >
+          <img
+            src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dc7e041117f3c346ca772b_calendarrr.png"
+            loading="lazy"
+            alt=""
+            className="calendar-temp"
+          />
+        </div>
+        </div>
       </div>
     </div>
   );

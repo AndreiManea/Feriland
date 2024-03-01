@@ -350,10 +350,32 @@
   width: 24px;
 }
 
+.sticky-calendar {
+  border: 1px solid rgba(0, 0, 0, .16);
+  border-radius: 1.5em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  display: flex;
+  position: sticky;
+  top: 5%;
+  box-shadow: 0 9px 20px rgba(0, 0, 0, .2);
+}
+
+.calendar-temp {
+  min-width: auto;
+}
+
 #firstInfoId,
 #secondInfoId,
 #thirdInfoId,
 #fourthInfoId,
 #fifthInfoId {
   grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+#calendarId {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+  align-self: start;
 }
