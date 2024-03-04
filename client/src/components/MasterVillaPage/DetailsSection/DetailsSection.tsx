@@ -4,6 +4,12 @@ import './DetailsSection.css';
 const DetailsSection: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const [currentTab, setCurrentTab] = useState('Tab 1');
+
+  const handleTabClick = (tab: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault()
+    setCurrentTab(tab);
+  };
 
   const toggleDetails = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -212,35 +218,157 @@ const DetailsSection: React.FC = () => {
               </div>
             </div>
             <div className="menu-divider"></div>
-            <div className="description">
-              <p className="text-size_regular">
-                Galbino is a stunning 16th century castle in the midst of nature
-                just a few kilometres from the enchanting village of Anghiari.
-                On a hill surrounded by woods and fields, Galbino Castle is a
-                private and exclusive place to relax, explore nature, visit the
-                cultural attractions of the area and enjoy the Tuscan delights
-                of food and wine. The castle is naturally cool thanks to its
-                thick walls and features an infinity pool with spectacular
-                countryside views...
-              </p>
-              <a
-                href="#"
-                className="text-link"
-                data-w-id="33f0b6da-142b-7c0f-aa6c-865a3200a22e"
-                style={{ display: 'inline' }}
-              >
-                <div className="link-wrapper">
+            <div className="container-w3 gutter-outside">
+              <div className="second-example-with-underline">
+                <div
+                  className="tabs w-tabs"
+                  data-current={currentTab}
+                  data-easing="ease-in-out"
+                  data-duration-in="300"
+                  data-duration-out="300"
+                >
                   <div
-                    style={{ opacity: 0 }}
-                    className="text-size_tiny medium weight-light link-line"
+                    className="tabs-menu-underline-wrapper w-tab-menu"
+                    role="tablist"
                   >
-                    —
+                    <a
+                      data-w-tab="Tab 1"
+                      className={`tabs-nav-item-underline _01 w-inline-block w-tab-link ${currentTab === 'Tab 1' ? 'w--current' : ''}`}
+                      id="w-tabs-0-data-w-tab-0"
+                      href="#w-tabs-0-data-w-pane-0"
+                      role="tab"
+                      aria-controls="w-tabs-0-data-w-pane-0"
+                      aria-selected={currentTab === 'Tab 1' ? 'true' : 'false'}
+                      onClick={(event) => handleTabClick('Tab 1', event)}
+                      tabIndex={currentTab === 'Tab 1' ? 0 : -1}
+                    >
+                      <div className="tabs-nav-text">Description</div>
+                    </a>
+                    <a
+                      data-w-tab="Tab 2"
+                      className={`tabs-nav-item-underline _02 w-inline-block w-tab-link ${currentTab === 'Tab 2' ? 'w--current' : ''}`}
+                      id="w-tabs-0-data-w-tab-1"
+                      href="#w-tabs-0-data-w-pane-1"
+                      role="tab"
+                      aria-controls="w-tabs-0-data-w-pane-1"
+                      aria-selected={currentTab === 'Tab 2' ? 'true' : 'false'}
+                      onClick={(event) => handleTabClick('Tab 2', event)}
+                      tabIndex={currentTab === 'Tab 2' ? 0 : -1}
+                    >
+                      <div className="tabs-nav-text">Rules</div>
+                    </a>
                   </div>
-                  <p className="text-size_tiny medium weight-light">
-                    View More
-                  </p>
+                  <div className="tabs-content-wrapper w-tab-content">
+                    <div
+                      data-w-tab="Tab 1"
+                      className={`tab-content-item w-tab-pane ${currentTab === 'Tab 1' ? 'w--tab-active' : ''}`}
+                      id="w-tabs-0-data-w-pane-0"
+                      role="tabpanel"
+                      aria-labelledby="w-tabs-0-data-w-tab-0"
+                    >
+                      <div className="tab-content">
+                        <div className="description">
+                          <p className="text-size_regular">
+                            Galbino is a stunning 16th century castle in the
+                            midst of nature just a few kilometres from the
+                            enchanting village of Anghiari.
+                            <br />
+                            On a hill surrounded by woods and fields, Galbino
+                            Castle is a private and exclusive place to relax,
+                            explore nature, visit the cultural attractions of
+                            the area and enjoy the Tuscan delights of food and
+                            wine. The castle is naturally cool thanks to its
+                            thick walls and features an infinity pool with
+                            spectacular countryside views...
+                          </p>
+                          <p className="text-size_large bold">
+                            The Space - Keep it relatively short
+                          </p>
+                          <p className="text-size_regular">
+                            The Castle, which is rented out for private use, has
+                            ten bedrooms on two floors, a huge games room with
+                            billiards and a ping pong table, a large kitchen
+                            with a fireplace, two dining rooms, a library, a
+                            living room with walls covered in frescos and a
+                            small chapel which is still consecrated.
+                            <br />
+                            <br />
+                            The castle is surrounded by a large garden, also for
+                            the exclusive use of guests, housing the spectacular
+                            infinity pool overlooking the Tuscan countryside.A
+                            few steps from the pool there is a comfortable
+                            changing room with a bathroom and shower.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      data-w-tab="Tab 2"
+                      className={`tab-content-item w-tab-pane ${currentTab === 'Tab 2' ? 'w--tab-active' : ''}`}
+                      id="w-tabs-0-data-w-pane-1"
+                      role="tabpanel"
+                      aria-labelledby="w-tabs-0-data-w-tab-1"
+                      style={{ opacity: '1' }}
+                    >
+                      <div className="tab-content">
+                        <div className="description">
+                          <div className="icon-details">
+                            <img
+                              loading="lazy"
+                              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e1d71c9a41d0ccd77af64d_time_6862163.svg"
+                              alt=""
+                              className="property-icon"
+                            />
+                            <div className="icon-details-text">
+                              <p className="text-size-tiny dark">
+                                Check-in: 3:00 PM - 6:00 PM
+                                <br />
+                              </p>
+                            </div>
+                          </div>
+                          <div className="icon-details">
+                            <img
+                              loading="lazy"
+                              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e1d71c9a41d0ccd77af64d_time_6862163.svg"
+                              alt=""
+                              className="property-icon"
+                            />
+                            <div className="icon-details-text">
+                              <p className="text-size-tiny dark">
+                                Checkout before 10:00 AM
+                                <br />
+                              </p>
+                            </div>
+                          </div>
+                          <p className="text-size_large bold">
+                            Additional Rules
+                          </p>
+                          <p className="text-size_regular">
+                            Included in the price:
+                            <br />
+                            Internet access, air conditioning, parking place,
+                            electricity, gas, water, final cleaning, bed linen,
+                            hand towels, pool, sunloungers, Wireless Internet
+                            access. <br />‍<br />
+                            4 persons and 2 persons (extra beds) including
+                            children and infants (under 2 years). <br />
+                            Please note that the maximum occupancy (6 persons)
+                            must not be exceeded even with infants under 2 years
+                            of age. <br />‍<br />
+                            Pets:
+                            <br />
+                            Not allowed. Free of charge. <br />
+                            <br />
+                            Deposit (in cash when the keys are handed over on
+                            site, will be refunded on departure):EUR 200
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </a>
+              </div>
             </div>
             <div className="menu-divider"></div>
             <div className="amenities">
@@ -584,17 +712,14 @@ const DetailsSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div
-          id="calendarId"
-          className="sticky-calendar"
-        >
-          <img
-            src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dc7e041117f3c346ca772b_calendarrr.png"
-            loading="lazy"
-            alt=""
-            className="calendar-temp"
-          />
-        </div>
+          <div id="calendarId" className="sticky-calendar">
+            <img
+              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dc7e041117f3c346ca772b_calendarrr.png"
+              loading="lazy"
+              alt=""
+              className="calendar-temp"
+            />
+          </div>
         </div>
       </div>
     </div>
