@@ -33,7 +33,7 @@ const Sentence: React.FC<SentenceProps> = ({ sentence }) => {
   return <h2 className='heading-2'>{words}</h2>;
 }; */
 
-function HeroSection() {
+const HeroSection = () => {
   const sentence = "Nestled in the embrace of the forest, our cabin offers an enchanting escape, a serene oasis where tranquility blooms amidst nature's whispers. Far from urban clamor, here beauty unfolds in its purest form, inviting you to a haven where the air is pristine and the soul finds peace.";
 
   return (

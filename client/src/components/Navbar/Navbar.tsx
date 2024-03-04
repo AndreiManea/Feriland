@@ -2,7 +2,7 @@ import './Navbar.css';
 import logoImage from '../../assets/LogoWhite.png';
 import { useState } from 'react';
 
-function Navbar() {
+const Navbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [hoveredImage, setHoveredImage] = useState('');
 

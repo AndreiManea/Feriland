@@ -1,6 +1,6 @@
 import './GallerySection.css';
 
-function GallerySection() {
+const GallerySection = () => {
   return (
     <div className="gallery-section">
       <div className="container">

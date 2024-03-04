@@ -1,6 +1,21 @@
 import './SliderSection.css';
+import Flickity from 'flickity';
+import 'flickity/css/flickity.css'; // Import Flickity CSS
+import { useEffect, useRef } from 'react';
 
-function SliderSection() {
+
+const  SliderSection = () => {
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      new Flickity(sliderRef.current, {
+        // Flickity options can be added here
+        // Example: contain: true to contain cells within the slider container
+      });
+    }
+  }, []);
+  
   return (
     <div className="slider-section">
       <div className="slider-text-container">
@@ -20,7 +35,7 @@ function SliderSection() {
         </div>
       </div>
       {/* TO ADD DRAG FUNCTIONALITY  */}
-      <div className="slider-container">
+      <div className="slider-container" ref={sliderRef}>
         <div className="tricks-slider flickity-enabled is-draggable" tabIndex={0}>
           <div className="flickity-viewport">
             <div className="flickity-slider">
