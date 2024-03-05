@@ -63,7 +63,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
-}
+} 
 
 .lottie-svg {
   width: 100%;
@@ -552,4 +552,30 @@ p {
 #sixthId {
   grid-area: span 1 / span 1 / span 1 / span 1;
   justify-self: start;
+}
+
+.menu-icon line {
+  stroke: black;
+  stroke-width: 2;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.menu-icon .x1,
+.menu-icon .x2 {
+  stroke-dasharray: 0 28;
+}
+
+.menu-icon .x1 {
+  transform-origin: center;
+  transform: rotate(45deg);
+}
+
+.menu-icon .x2 {
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+
+.menu-icon.active .line1,
+.menu-icon.active .line3 {
+  stroke-dasharray: 0 28;
 }
