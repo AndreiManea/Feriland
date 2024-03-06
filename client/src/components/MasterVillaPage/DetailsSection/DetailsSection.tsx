@@ -1,13 +1,21 @@
+import './DetailsSection.css';
+
 import { useRef, useState } from 'react';
 import './DetailsSection.css';
+
+import CalendarSection from './CalendarSection/CalendarSection';
+import StickyCalendar from './StickyCalendar/StickyCalendar';
 
 const DetailsSection: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [currentTab, setCurrentTab] = useState('Tab 1');
 
-  const handleTabClick = (tab: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    event.preventDefault()
+  const handleTabClick = (
+    tab: string,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    event.preventDefault();
     setCurrentTab(tab);
   };
 
@@ -239,7 +247,7 @@ const DetailsSection: React.FC = () => {
                       role="tab"
                       aria-controls="w-tabs-0-data-w-pane-0"
                       aria-selected={currentTab === 'Tab 1' ? 'true' : 'false'}
-                      onClick={(event) => handleTabClick('Tab 1', event)}
+                      onClick={event => handleTabClick('Tab 1', event)}
                       tabIndex={currentTab === 'Tab 1' ? 0 : -1}
                     >
                       <div className="tabs-nav-text">Description</div>
@@ -252,7 +260,7 @@ const DetailsSection: React.FC = () => {
                       role="tab"
                       aria-controls="w-tabs-0-data-w-pane-1"
                       aria-selected={currentTab === 'Tab 2' ? 'true' : 'false'}
-                      onClick={(event) => handleTabClick('Tab 2', event)}
+                      onClick={event => handleTabClick('Tab 2', event)}
                       tabIndex={currentTab === 'Tab 2' ? 0 : -1}
                     >
                       <div className="tabs-nav-text">Rules</div>
@@ -711,15 +719,9 @@ const DetailsSection: React.FC = () => {
                 </div>
               </div>
             </div>
+            <CalendarSection />
           </div>
-          <div id="calendarId" className="sticky-calendar">
-            <img
-              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dc7e041117f3c346ca772b_calendarrr.png"
-              loading="lazy"
-              alt=""
-              className="calendar-temp"
-            />
-          </div>
+          <StickyCalendar />
         </div>
       </div>
     </div>
