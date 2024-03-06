@@ -7,3 +7,32 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# db/seeds.rb
+
+# Create 10 clients, each with a reservation and an invoice.
+
+  client = Client.create(
+    name: "Client 1",
+    email: "client2@example.com",
+    phone: "+40724028288"
+  )
+
+  cabin = Cabin.create(
+    name: "Cabin in the woods, Tiger Woods",
+    nr_guests: 4
+  )
+interval = 3.days
+
+start_date = Date.today
+
+4.times do |i|
+  Reservation.create(
+    client_id: client.id,
+    start_date: start_date + (interval + 4.days) * i,
+    end_date: start_date + interval + (interval + 4.days) * i,
+    invoice_generated: true,
+    cabin_id: cabin.id
+  )
+end
+
+puts 'Seed data created successfully!'
