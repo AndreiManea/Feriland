@@ -1,20 +1,23 @@
-.exploreSection {
+import styled from 'styled-components';
+
+export const ExploreContainer = styled.div`
   width: 100%;
   max-width: none;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2.08em;
   padding-right: 2.08em;
-}
+  background-color: rgb(46, 42, 39);
+`;
 
-.sticky-circle_wrap {
+export const StickyCircleWrapper = styled.div`
   height: 200vh;
   flex-direction: column;
   justify-content: space-between;
   display: flex;
-}
+`;
 
-.sticky-circle {
+export const StickyCircleContainer = styled.div`
   width: 100%;
   height: 100vh;
   border-radius: 3em;
@@ -26,26 +29,27 @@
   position: sticky;
   top: 0;
   overflow: hidden;
-}
+`;
 
-.sticky-circle-element {
-  width: 35em;
-  height: 35em;
-  border-radius: 35em;
+export const StickyCircleElement = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
   position: relative;
   overflow: hidden;
-}
 
-#stickyy-circle {
-  border-radius: 8.1689em;
-  height: 92.6026vh;
-  width: 88.5585vw;
-}
+  //INITIAL VALUES - CIRCLE
+  // border-radius: 35em;
+  // height: 35em;
+  // width: 35em;
 
-.sticky-circle-img {
+  //FINAL VALUES - FULLSCREEN
+  border-radius: 3em;
+  height: 100vh;
+  width: 100vw;
+`;
+
+export const StickyCircleImg = styled.img`
   width: 100vw;
   height: 100vh;
   max-width: none;
@@ -53,9 +57,9 @@
   min-width: 100vw;
   object-fit: cover;
   position: relative;
-}
+`;
 
-.text-wrapper {
+export const TextWrapper = styled.div`
   z-index: 5;
   height: 100vh;
   flex-direction: column;
@@ -65,9 +69,9 @@
   padding-top: 0;
   display: flex;
   position: relative;
-}
+`;
 
-.max-width-500 {
+export const TextContainer = styled.div`
   z-index: 6;
   max-width: 500px;
   grid-column-gap: 2em;
@@ -76,46 +80,39 @@
   align-items: center;
   display: flex;
   position: relative;
-}
+`;
 
-.testing {
+export const Header = styled.h2`
   color: #fff;
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Kaftan Trial, sans-serif;
+  font-family: 'Kaftan';
   font-size: 6em;
   font-weight: 400;
   line-height: 1;
-}
+`;
 
-.text-size-medium.white.center {
+export const Details = styled.p`
   text-align: center;
-}
-
-.text-size-medium.white {
   color: #ececec;
   margin-bottom: 0;
-}
-
-.text-size-medium {
   font-family: Satoshi, sans-serif;
   font-size: 1.4em;
   line-height: 1.2;
-}
+`;
 
-._2-buttons-wrapper {
+export const ButtonsContainer = styled.div`
   grid-column-gap: 2em;
   grid-row-gap: 2em;
   justify-content: center;
   align-items: center;
   margin-top: 2em;
   display: flex;
-}
+`;
 
-.primary-button {
+export const PrimaryButton = styled.a`
   color: #5c5c5c;
-  background-color: rgba(84, 124, 57, 0);
   border-radius: 10em;
   justify-content: center;
   align-items: center;
@@ -126,64 +123,47 @@
   display: flex;
   position: relative;
   overflow: hidden;
-}
-
-.w-inline-block {
-  max-width: 100%;
-  display: inline-block;
-}
-
-.rb-border {
-  background-image: none;
-  border-radius: 10em;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  position: absolute;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
-  overflow: hidden;
-}
-
-.rb-bg {
   background-color: #547c39;
   border-radius: 10em;
-  position: absolute;
-  top: 1px;
-  bottom: 1px;
-  left: 1px;
-  right: 1px;
-}
+`;
 
-.rb-gradient {
-  width: 90%;
-  height: 120%;
-  background-image: radial-gradient(circle farthest-corner at 50% 50%, #eae5df, #547c39);
-  opacity: 0;
-  filter: blur(20px);
-  border-radius: 10em;
-  position: absolute;
-}
-
-.rb-bg.secondary {
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, .1);
-  overflow: hidden;
-}
-
-.rb-content {
+export const ButtonTextContainer = styled.div`
   z-index: 3;
   text-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
   position: relative;
-}
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+`;
 
-.overlay-gradient {
+export const ButtonText = styled.div`
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+`;
+
+export const SecondaryButton = styled.a`
+  color: #5c5c5c;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10em;
+  justify-content: center;
+  align-items: center;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+`;
+
+export const OverlayGradient = styled.div`
   background-image: linear-gradient(to top, #000, rgba(255, 255, 255, 0) 85%);
   border-radius: 3em;
   position: absolute;
@@ -191,20 +171,5 @@
   bottom: 0%;
   left: 0%;
   right: 0%;
-
   opacity: 1;
-}
-
-.button-text {
-  color: #fff;
-  margin-bottom: 0;
-  font-size: 1rem;
-  line-height: 1.2;
-}
-
-.gradient-extra {
-  opacity: 0;
-  will-change: transform;
-  transform: translate3d(0%, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-  transform-style: preserve-3d;
-}
+`;
