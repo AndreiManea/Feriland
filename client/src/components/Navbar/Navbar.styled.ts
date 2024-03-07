@@ -320,7 +320,7 @@ export const SecondaryLinksGrid = styled.div`
   grid-auto-columns: 1fr;
 `;
 
-export const LinksContainer = styled.div`
+export const SecondaryLinksContainer = styled.div`
   grid-column-gap: 0.5em;
   grid-row-gap: 0.5em;
   flex-direction: column;
@@ -329,6 +329,20 @@ export const LinksContainer = styled.div`
   display: flex;
   grid-area: span 1 / span 1 / span 1 / span 1;
   justify-self: start;
+`;
+
+export const HoverLine = styled.div`
+  height: 1px;
+  position: absolute;
+  top: auto;
+  bottom: -1px;
+  left: 0%;
+  right: 0%;
+  overflow: hidden;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
 `;
 
 export const SocialLink = styled.a`
@@ -354,6 +368,10 @@ export const SocialLink = styled.a`
   position: relative;
   max-width: 100%;
   display: inline-block;
+
+  &:hover ${HoverLine} {
+    opacity: 1;
+  }
 `;
 
 export const LinkTextSmall = styled.div`
@@ -366,7 +384,7 @@ export const LinkTextSmall = styled.div`
   font-weight: 100;
 `;
 
-export const ToggleSocial = styled.div`
+export const ToggleLanguage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

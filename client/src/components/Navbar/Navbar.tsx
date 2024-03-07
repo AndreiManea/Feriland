@@ -26,14 +26,15 @@ import {
   SecondaryLinksGrid,
   SocialLink,
   LinkTextSmall,
-  LinksContainer,
-  ToggleSocial,
+  SecondaryLinksContainer,
+  ToggleLanguage,
   ToggleWrapper,
   LanguageWrapperLeft,
   LanguageWrapperRight,
   ToggleButton,
   ToggleButtonContainer,
-  Logo
+  Logo,
+  HoverLine,
 } from './Navbar.styled.js';
 
 const Navbar: React.FC = () => {
@@ -123,68 +124,59 @@ const Navbar: React.FC = () => {
 
                 <SecondaryLinks>
                   <SecondaryLinksGrid>
-                    <LinksContainer>
+                    <SecondaryLinksContainer>
                       <MenuTextSmall>Get Social</MenuTextSmall>
 
                       {/* TO ADD EFFECT FOR HOVER */}
                       <SocialLink href="#">
                         <LinkTextSmall>Instagram</LinkTextSmall>
-                        <div className="hover-line">
-                          <div className="hover-line-fill"></div>
-                        </div>
+                        <HoverLine />
                       </SocialLink>
                       <SocialLink href="#">
                         <LinkTextSmall>TikTok</LinkTextSmall>
-                        <div className="hover-line">
-                          <div className="hover-line-fill"></div>
-                        </div>
+                        <HoverLine />
                       </SocialLink>
                       <SocialLink href="#">
                         <LinkTextSmall>Youtube</LinkTextSmall>
-                        <div className="hover-line">
-                          <div className="hover-line-fill"></div>
-                        </div>
+                        <HoverLine />
                       </SocialLink>
-                    </LinksContainer>
-                    <LinksContainer>
-                      <div className="text-menu-super-small">Discover</div>
-                      <a href="#" className="underline-link w-inline-block">
+                    </SecondaryLinksContainer>
+                    <SecondaryLinksContainer>
+                      <MenuTextSmall>Discover</MenuTextSmall>
+                      <SocialLink href="#">
                         <LinkTextSmall>History</LinkTextSmall>
-                        <div className="hover-line">
-                          <div className="hover-line-fill"></div>
-                        </div>
-                      </a>
-                      <a href="#" className="underline-link w-inline-block">
-                        <LinkTextSmall>Local Wine</LinkTextSmall>
-                        <div className="hover-line">
-                          <div className="hover-line-fill"></div>
-                        </div>
-                      </a>
-                      <a href="#" className="underline-link w-inline-block">
+                        <HoverLine />
+                      </SocialLink>
+                      <SocialLink href="#">                        
+                      <LinkTextSmall>Local Wine</LinkTextSmall>
+                        <HoverLine />
+                      </SocialLink>
+                      <SocialLink href="#">
                         <LinkTextSmall>Bike Trails</LinkTextSmall>
-                        <div className="hover-line">
-                          <div className="hover-line-fill"></div>
-                        </div>
-                      </a>
-                    </LinksContainer>
+                        <HoverLine />
+                      </SocialLink>
+                    </SecondaryLinksContainer>
                   </SecondaryLinksGrid>
                 </SecondaryLinks>
 
                 <MenuDivider />
 
-                <ToggleSocial>
+                <ToggleLanguage>
                   <ToggleWrapper>
                     <LanguageWrapperLeft isActive={isActive}>
                       <div>En</div>
                     </LanguageWrapperLeft>
-                    <ToggleButtonContainer onClick={toggleSwitch} isActive={isActive}>
-                      <ToggleButton isActive={isActive}/>
+                    <ToggleButtonContainer
+                      onClick={toggleSwitch}
+                      isActive={isActive}
+                    >
+                      <ToggleButton isActive={isActive} />
                     </ToggleButtonContainer>
                     <LanguageWrapperRight isActive={isActive}>
                       <div>Ro</div>
                     </LanguageWrapperRight>
                   </ToggleWrapper>
-                </ToggleSocial>
+                </ToggleLanguage>
               </SideMenu>
             </SideMenuLinksContainer>
           </SideMenuLinksWrapper>
