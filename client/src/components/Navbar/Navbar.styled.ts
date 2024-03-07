@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import firstImg from '../../assets/firstImg.jpg';
+import secondImg from '../../assets/secondImg.jpg';
+import thirdImg from '../../assets/thirdImg.jpg';
 
 interface MenuProps {
   open: boolean;
@@ -11,6 +14,14 @@ interface SideMenuLinkContainerProps {
 
 interface MenuImageProps {
   hoveredImage: string;
+}
+
+interface LanguageProps {
+  isActive: boolean;
+}
+
+interface ToggleButtonProps {
+  isActive: boolean;
 }
 
 export const TopNavbar = styled.div`
@@ -109,6 +120,12 @@ export const LogoWrapper = styled.div`
     position: relative;
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
+`;
+
+export const Logo = styled.img`
+  width: 280px;
+  filter: invert();
+  margin-bottom: 10vh;
 `;
 
 export const BookBtn = styled.div`
@@ -243,7 +260,6 @@ export const MenuImage = styled.div<MenuImageProps>`
   width: 36vw;
   height: 100vh;
   min-width: 36vw;
-  opacity: 0;
   object-fit: cover;
   background-position: 50%;
   background-size: 1543px;
@@ -254,33 +270,183 @@ export const MenuImage = styled.div<MenuImageProps>`
   left: 0%;
   right: auto;
   opacity: 0;
+  transition: all 0.5s ease-in;
   transform: translate3d(0vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg)
     rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
-  transition: transform 0.5s ease-in;
 
   ${({ hoveredImage }) => {
     if (hoveredImage === 'cabinImg') {
       return `
-      background-image: url("../../assets/firstImg.jpg");
+      background-image: url(${firstImg});
       transform: translate3d(34vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
       transform-style: preserve-3d;
       opacity: 1;
       `;
-    } else if (hoveredImage === 'relaxImg') {
+    } else if (hoveredImage === 'discoverImg') {
       return `
-      background-image: url("../../assets/secondImg.jpg");
+      background-image: url(${secondImg});
       transform: translate3d(34vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
       transform-style: preserve-3d;
       opacity: 1;
       `;
     } else if (hoveredImage === 'contactImg') {
       return `
-      background-image: url("../../assets/thirdImg.jpg");
+      background-image: url(${thirdImg});
       transform: translate3d(34vw, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
       transform-style: preserve-3d;
       opacity: 1;
       `;
     }
   }}
+`;
+
+export const MenuDivider = styled.div`
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+`;
+
+export const SecondaryLinks = styled.div`
+  padding-left: 4em;
+  padding-right: 2em;
+`;
+
+export const SecondaryLinksGrid = styled.div`
+  display: grid;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+`;
+
+export const LinksContainer = styled.div`
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.5em;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  grid-area: span 1 / span 1 / span 1 / span 1;
+  justify-self: start;
+`;
+
+export const SocialLink = styled.a`
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  grid-auto-columns: 1fr;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 4px 4px 0;
+  font-size: 0.7em;
+  text-decoration: none;
+  position: relative;
+  max-width: 100%;
+  display: inline-block;
+`;
+
+export const LinkTextSmall = styled.div`
+  color: rgba(0, 0, 0, 0.8);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-bottom: 0;
+  font-family: Satoshi, sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+`;
+
+export const ToggleSocial = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3.5em;
+  padding-left: 4em;
+  padding-right: 4em;
+  position: relative;
+`;
+
+export const ToggleWrapper = styled.div`
+  align-items: center;
+  display: flex;
+`;
+
+export const ToggleButtonContainer = styled.div<ToggleButtonProps>`
+  z-index: 100;
+  min-width: 3rem;
+  text-align: center;
+  border-radius: 10rem;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1em;
+  transition: box-shadow 0.1s;
+  display: flex;
+  position: relative;
+  box-shadow: inset 0 0 0 10rem rgba(36, 12, 46, 0);
+  color: rgb(84, 124, 57);
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  width: 4rem;
+  height: 2rem;
+  background-color: ${({ isActive }) =>
+    isActive ? 'black' : 'rgb(84, 124, 57)'};
+`;
+
+export const ToggleButton = styled.div<ToggleButtonProps>`
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  transform: ${({ isActive }) =>
+    isActive ? 'translateX(2rem)' : 'translateX(0)'};
+  transition: 0.2s ease-in;
+`;
+
+export const LanguageWrapperLeft = styled.div<LanguageProps>`
+  z-index: 1;
+  cursor: pointer;
+  margin-bottom: 0;
+  padding-left: 0;
+  font-weight: 700;
+  position: relative;
+  transform: translate(0.000001%);
+  margin-right: -48px;
+  padding-right: 48px;
+
+  div {
+    color: ${({ isActive }) =>
+      isActive ? 'rgba(84, 124, 57, 0.3);' : 'rgb(84, 124, 57)'};
+    transition: 0.2s ease-in;
+  }
+`;
+
+export const LanguageWrapperRight = styled.div<LanguageProps>`
+  z-index: 1;
+  cursor: pointer;
+  margin-bottom: 0;
+  padding-left: 0;
+  font-weight: 700;
+  position: relative;
+  transform: translate(0.000001%);
+  margin-left: -48px;
+  padding-left: 48px;
+
+  div {
+    color: ${({ isActive }) => (isActive ? 'black' : 'rgba(84, 124, 57, 0.3)')};
+    transition: 0.2s ease-in;
+  }
 `;

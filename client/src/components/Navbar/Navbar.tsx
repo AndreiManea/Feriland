@@ -1,4 +1,3 @@
-import './Navbar.css';
 import logoImage from '../../assets/LogoWhite.png';
 import { useState } from 'react';
 
@@ -22,14 +21,32 @@ import {
   TextSmall,
   TopNavbar,
   MenuImage,
+  MenuDivider,
+  SecondaryLinks,
+  SecondaryLinksGrid,
+  SocialLink,
+  LinkTextSmall,
+  LinksContainer,
+  ToggleSocial,
+  ToggleWrapper,
+  LanguageWrapperLeft,
+  LanguageWrapperRight,
+  ToggleButton,
+  ToggleButtonContainer,
+  Logo
 } from './Navbar.styled.js';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredImage, setHoveredImage] = useState('');
+  const [isActive, setIsActive] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleSwitch = () => {
+    setIsActive(!isActive);
   };
 
   return (
@@ -64,14 +81,13 @@ const Navbar: React.FC = () => {
         <SideMenuContainer>
           <SideMenuLinksWrapper>
             <SideMenuLinksContainer>
-              <img
+              <Logo
                 src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65cf2f6190a4f1c1a9e26a96_LogoWhite.png"
                 loading="lazy"
                 width="768.5"
                 sizes="100vw"
                 alt=""
                 srcSet="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65cf2f6190a4f1c1a9e26a96_LogoWhite-p-500.png 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65cf2f6190a4f1c1a9e26a96_LogoWhite-p-800.png 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65cf2f6190a4f1c1a9e26a96_LogoWhite-p-1080.png 1080w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65cf2f6190a4f1c1a9e26a96_LogoWhite.png 1537w"
-                className="side-menu-logo"
               />
               <SideMenu>
                 <MainLinks>
@@ -80,104 +96,101 @@ const Navbar: React.FC = () => {
                   <SideMenuLinkContainer
                     hoveredImage={hoveredImage}
                     imageName="cabinImg"
+                    onMouseEnter={() => setHoveredImage('cabinImg')}
+                    onMouseLeave={() => setHoveredImage('')}
                   >
-                    <SideMenuLink
-                      onMouseEnter={() => setHoveredImage('cabinImg')}
-                      onMouseLeave={() => setHoveredImage('')}
-                    >
-                      Master Cabin
-                    </SideMenuLink>
+                    <SideMenuLink>Master Cabin</SideMenuLink>
                   </SideMenuLinkContainer>
                   <SideMenuLinkContainer
                     hoveredImage={hoveredImage}
                     imageName="relaxImg"
+                    onMouseEnter={() => setHoveredImage('discoverImg')}
+                    onMouseLeave={() => setHoveredImage('')}
                   >
-                    <SideMenuLink
-                      onMouseEnter={() => setHoveredImage('relaxImg')}
-                      onMouseLeave={() => setHoveredImage('')}
-                    >
-                      Discover
-                    </SideMenuLink>
+                    <SideMenuLink>Discover</SideMenuLink>
                   </SideMenuLinkContainer>
                   <SideMenuLinkContainer
                     hoveredImage={hoveredImage}
                     imageName="contactImg"
+                    onMouseEnter={() => setHoveredImage('contactImg')}
+                    onMouseLeave={() => setHoveredImage('')}
                   >
-                    <SideMenuLink
-                      onMouseEnter={() => setHoveredImage('contactImg')}
-                      onMouseLeave={() => setHoveredImage('')}
-                    >
-                      Contact
-                    </SideMenuLink>
+                    <SideMenuLink>Contact</SideMenuLink>
                   </SideMenuLinkContainer>
                 </MainLinks>
-                <div className="menu-divider"></div>
-                <div className="secondary-links">
-                  <div className="w-layout-grid-secondary-links secondary-links-grid">
-                    <div className="secondary-links-left" id="fifthId">
-                      <div className="text-menu-super-small">Get Social</div>
+
+                <MenuDivider />
+
+                <SecondaryLinks>
+                  <SecondaryLinksGrid>
+                    <LinksContainer>
+                      <MenuTextSmall>Get Social</MenuTextSmall>
+
                       {/* TO ADD EFFECT FOR HOVER */}
-                      <a href="#" className="underline-link w-inline-block">
-                        <div className="text-size-tiny dark">Instagram</div>
+                      <SocialLink href="#">
+                        <LinkTextSmall>Instagram</LinkTextSmall>
                         <div className="hover-line">
                           <div className="hover-line-fill"></div>
                         </div>
-                      </a>
-                      <a href="#" className="underline-link w-inline-block">
-                        <div className="text-size-tiny dark">TikTok</div>
+                      </SocialLink>
+                      <SocialLink href="#">
+                        <LinkTextSmall>TikTok</LinkTextSmall>
                         <div className="hover-line">
                           <div className="hover-line-fill"></div>
                         </div>
-                      </a>
-                      <a href="#" className="underline-link w-inline-block">
-                        <div className="text-size-tiny dark">Youtube</div>
+                      </SocialLink>
+                      <SocialLink href="#">
+                        <LinkTextSmall>Youtube</LinkTextSmall>
                         <div className="hover-line">
                           <div className="hover-line-fill"></div>
                         </div>
-                      </a>
-                    </div>
-                    <div className="secondary-links-left" id="sixthId">
+                      </SocialLink>
+                    </LinksContainer>
+                    <LinksContainer>
                       <div className="text-menu-super-small">Discover</div>
                       <a href="#" className="underline-link w-inline-block">
-                        <div className="text-size-tiny dark">History</div>
+                        <LinkTextSmall>History</LinkTextSmall>
                         <div className="hover-line">
                           <div className="hover-line-fill"></div>
                         </div>
                       </a>
                       <a href="#" className="underline-link w-inline-block">
-                        <div className="text-size-tiny dark">Local Wine</div>
+                        <LinkTextSmall>Local Wine</LinkTextSmall>
                         <div className="hover-line">
                           <div className="hover-line-fill"></div>
                         </div>
                       </a>
                       <a href="#" className="underline-link w-inline-block">
-                        <div className="text-size-tiny dark">Bike Trails</div>
+                        <LinkTextSmall>Bike Trails</LinkTextSmall>
                         <div className="hover-line">
                           <div className="hover-line-fill"></div>
                         </div>
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="menu-divider"></div>
-                {/* TO ADD TOGGLE FUNCTIONALITY */}
-                <div className="language-social">
-                  <div className="wg-element-wrapper">
-                    <div className="wg-toggle-1-label lang1">
+                    </LinksContainer>
+                  </SecondaryLinksGrid>
+                </SecondaryLinks>
+
+                <MenuDivider />
+
+                <ToggleSocial>
+                  <ToggleWrapper>
+                    <LanguageWrapperLeft isActive={isActive}>
                       <div>En</div>
-                    </div>
-                    <div className="wg-toggle-1-switch ts-large">
-                      <div className="toggle t-large"></div>
-                    </div>
-                    <div className="wg-toggle-1-label lang2">
+                    </LanguageWrapperLeft>
+                    <ToggleButtonContainer onClick={toggleSwitch} isActive={isActive}>
+                      <ToggleButton isActive={isActive}/>
+                    </ToggleButtonContainer>
+                    <LanguageWrapperRight isActive={isActive}>
                       <div>Ro</div>
-                    </div>
-                  </div>
-                </div>
+                    </LanguageWrapperRight>
+                  </ToggleWrapper>
+                </ToggleSocial>
               </SideMenu>
             </SideMenuLinksContainer>
           </SideMenuLinksWrapper>
-          { hoveredImage && <MenuImage hoveredImage={hoveredImage} /> }
+
+          {/* TO DO - IMAGE TRANSITION SHADY */}
+          <MenuImage hoveredImage={hoveredImage} />
         </SideMenuContainer>
       )}
     </TopNavbar>
