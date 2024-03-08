@@ -103,7 +103,7 @@ export const Description = styled.h2`
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: 'Kaftan', sans-serif;
+  font-family: 'Kaftan';
   font-size: 2.5em;
   font-weight: 400;
   line-height: 1.3;
