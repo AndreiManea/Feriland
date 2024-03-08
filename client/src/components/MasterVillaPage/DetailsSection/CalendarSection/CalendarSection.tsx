@@ -3,13 +3,14 @@ import { DateRange, RangeKeyDict } from 'react-date-range';
 import { formatDate } from '../../../../utils/dates.utils';
 
 import './calendarSection.css';
+import '../../../../utils/styles/rdrCalendar.css';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import {
   setSelectedDates,
   setSelectedNights,
 } from '../../../../redux/slices/bookingsSlice';
 
-const CalendarSection = () => {
+const CalendarSection = ({ onSelection }: { onSelection: () => void }) => {
   // Global state
   const dispatch = useAppDispatch();
   const { selectedDates, selectedNights } = useAppSelector(
@@ -45,16 +46,18 @@ const CalendarSection = () => {
         },
       ])
     );
-
     // Update date preview
     setDatePreview(
       `${formatDate(startDate as Date)} - ${formatDate(adjustedEndDate as Date)}`
     );
+    onSelection?.();
   };
 
   return (
     <div className="calendar">
-      <h1 style={{ fontSize: '22px' }}>{Math.round(selectedNights)} nights</h1>
+      <h1 style={{ fontSize: '22px', marginTop: 0 }}>
+        {Math.round(selectedNights)} nights
+      </h1>
       <h2 style={{ fontSize: '14px' }}>{datePreview}</h2>
       <DateRange
         onChange={handleSelect}
