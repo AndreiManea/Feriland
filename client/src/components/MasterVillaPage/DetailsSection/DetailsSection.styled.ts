@@ -1,9 +1,45 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { HoverLine } from '../../Navbar/Navbar.styled';
 
 interface TabProps {
   currentTab: boolean;
 }
+
+interface LeftControlsProps {
+  hasPrev: boolean;
+}
+
+interface RightControlsProps {
+  hasNext: boolean;
+}
+
+const galleryMediaQuery = css`
+  @media (min-width: 768px) {
+    margin-top: 2vh;
+    height: 84vh;
+  }
+`;
+
+const controlsMediaQuery = css`
+  @media (min-width: 768px) {
+    opacity: 0.5;
+    display: block;
+  }
+`;
+
+const controlsBaseStyles = css`
+  width: 4em;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  ${controlsMediaQuery}
+`;
 
 export const SectionWrapper = styled.div`
   margin-bottom: 100px;
@@ -419,4 +455,139 @@ export const HeadingLeft = styled.h2`
   text-align: left;
   font-size: 3.5em;
   color: #000;
+`;
+
+export const GalleryPopUp = styled.div`
+  cursor: auto;
+  letter-spacing: normal;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  visibility: visible;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  color: #fff;
+  text-align: center;
+  z-index: 2000;
+  opacity: 1;
+  -webkit-tap-highlight-color: transparent;
+  background: rgba(0, 0, 0, 0.9);
+  outline: 0;
+  font-family: 'Kaftan';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.2;
+  list-style: disc;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  height: 100%;
+`;
+
+export const GalleryContainer = styled.div`
+  height: 100%;
+  overflow: auto;
+`;
+
+export const GalleryContent = styled.div`
+  position: relative;
+  overflow: hidden;
+
+  ${galleryMediaQuery}
+`;
+
+export const GalleryStrip = styled.div`
+  white-space: nowrap;
+  padding: 0 1vh;
+  line-height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+`;
+
+export const GalleryView = styled.div`
+  width: 100vw;
+  position: absolute;
+
+  ${galleryMediaQuery}
+`;
+
+export const Spinner = styled.div`
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 5px solid rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+  animation: 0.8s linear infinite spin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+`;
+
+export const LeftControls = styled.div<LeftControlsProps>`
+  ${controlsBaseStyles}
+  left: 0;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yMCAwIDI0IDQwIiB3aWR0aD0iMjQiIGhlaWdodD0iNDAiPjxnIHRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHBhdGggZD0ibTAgMGg1djIzaDIzdjVoLTI4eiIgb3BhY2l0eT0iLjQiLz48cGF0aCBkPSJtMSAxaDN2MjNoMjN2M2gtMjZ6IiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==);
+  opacity: ${({ hasPrev }) => (hasPrev ? '1' : '0')};
+`;
+
+export const RightControls = styled.div<RightControlsProps>`
+  ${controlsBaseStyles}
+  right: 0;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00IDAgMjQgNDAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0MCI+PGcgdHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJtMC0waDI4djI4aC01di0yM2gtMjN6IiBvcGFjaXR5PSIuNCIvPjxwYXRoIGQ9Im0xIDFoMjZ2MjZoLTN2LTIzaC0yM3oiIGZpbGw9IiNmZmYiLz48L2c+PC9zdmc+);
+  opacity: ${({ hasNext }) => (hasNext ? '1' : '0')};
+`;
+
+export const GalleryCloseBtn = styled.div`
+  width: 4em;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  height: 2.6em;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00IDAgMTggMTciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNyI+PGcgdHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJtMCAwaDd2LTdoNXY3aDd2NWgtN3Y3aC01di03aC03eiIgb3BhY2l0eT0iLjQiLz48cGF0aCBkPSJtMSAxaDd2LTdoM3Y3aDd2M2gtN3Y3aC0zdi03aC03eiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=);
+  background-size: 18px;
+  right: 0;
+
+  @media (min-width: 768px) .w-lightbox-close {
+    opacity: 0.8;
+  }
+`;
+
+export const Frame = styled.div`
+  vertical-align: middle;
+  display: inline-block;
+`;
+
+export const Figure = styled.figure`
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  display: block;
+
+  img {
+    width: auto;
+    height: auto;
+    display: block;
+    float: none;
+
+    media (min-width: 768px) {
+      max-width: 82.3vw;
+      max-height: 84vh;
+    }
+  }
 `;
