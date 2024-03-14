@@ -1,41 +1,48 @@
-import './HeroSection.css';
+// import './HeroSection.css';
+import {
+  BackgroundContainer,
+  Heading,
+  Heading2,
+  HeadingContainer,
+  HeroCover,
+  HeroSectionContainer,
+  HeroSectionSticky,
+  Icon,
+  OverlaySection,
+  PlayButton,
+  TextContainer,
+  TextWrapper,
+  VideoCircleContainer,
+  VideoContainer,
+} from './HeroSection.styled';
 
 const HeroSection: React.FC = () => {
   const sentence =
     'Imagine a haven of serenity where time stands still and noise fades away to birdsong. A dreamland where you can stroll around an elegant medieval hamlet as you pass enchanting stone cottages that whisper stories of long ago.';
 
   return (
-    <div className="hero-section">
-      <div className="section-sticky">
-        <div
-          data-w-id="603d839b-89e4-cd26-f4cd-259c1283167a"
-          className="background-img"
-          id="back-img-id"
-        ></div>
-        <div className="hero-cover"></div>
-        <div className="hero-container">
-          <h1 className="heading center">
+    <HeroSectionContainer>
+      <HeroSectionSticky>
+        <BackgroundContainer />
+        <HeroCover />
+        <HeadingContainer>
+          <Heading>
             Our timeless dreamland, your piece of heaven immersed in the Minis
             hills.
-          </h1>
-        </div>
-      </div>
-      <div
-        data-w-id="fc68d457-3e92-d331-4404-896527490145"
-        className="overlay-section---text master-villa"
-        id="overlay-section-id"
-      >
-        <div className="video-circle-container">
-          <div
+          </Heading>
+        </HeadingContainer>
+      </HeroSectionSticky>
+
+      <OverlaySection>
+        <VideoCircleContainer>
+          <VideoContainer
             data-poster-url="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d881bba4ccd956607e0480_Untitled design (10) - Trim-poster-00001.jpg"
             data-video-urls="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d881bba4ccd956607e0480_Untitled design (10) - Trim-transcode.mp4,https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d881bba4ccd956607e0480_Untitled design (10) - Trim-transcode.webm"
             data-autoplay="true"
             data-loop="true"
             data-wf-ignore="true"
-            className="background-video-2 w-background-video w-background-video-atom"
           >
             <video
-              id="video-id"
               autoPlay
               loop
               muted
@@ -52,24 +59,23 @@ const HeroSection: React.FC = () => {
                 data-wf-ignore="true"
               />
             </video>
-          </div>
-          <div className="play-button">
-            <img
+          </VideoContainer>
+          <PlayButton>
+            <Icon
               src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d8886f3af7447dcb00e78d_play_12751645.png"
               loading="lazy"
               alt=""
-              className="icon big"
             />
-          </div>
-        </div>
-        <div className="container">
-          <div className="text-container">
-            {/* TO ADD READING EFFECT */}
-            <h2 className="heading-2">{sentence}</h2>
-          </div>
-        </div>
-      </div>
-    </div>
+          </PlayButton>
+        </VideoCircleContainer>
+        <TextWrapper>
+          <TextContainer>
+            {/* TO DO - ADD READING EFFECT */}
+            <Heading2>{sentence}</Heading2>
+          </TextContainer>
+        </TextWrapper>
+      </OverlaySection>
+    </HeroSectionContainer>
   );
 };
 
