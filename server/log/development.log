@@ -1418,3 +1418,386 @@ ClientMailer#reservation_confirmed_email: processed outbound mail in 1.6ms
 Completed 201 Created in 138ms (Views: 0.3ms | ActiveRecord: 41.1ms | Allocations: 27431)
 
 
+Started GET "/" for ::1 at 2024-03-15 10:39:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 7 pending migrations:
+
+db/migrate/20240302122828_create_clients.rb
+db/migrate/20240302124207_create_reservations.rb
+db/migrate/20240302124214_create_invoices.rb
+db/migrate/20240302125249_remove_invoice_id_from_reservations.rb
+db/migrate/20240304195818_create_cabins.rb
+db/migrate/20240304195854_add_cabin_id_to_reservation_table.rb
+db/migrate/20240304202625_add_fk_to_reservations.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-03-15 10:39:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 7 pending migrations:
+
+db/migrate/20240302122828_create_clients.rb
+db/migrate/20240302124207_create_reservations.rb
+db/migrate/20240302124214_create_invoices.rb
+db/migrate/20240302125249_remove_invoice_id_from_reservations.rb
+db/migrate/20240304195818_create_cabins.rb
+db/migrate/20240304195854_add_cabin_id_to_reservation_table.rb
+db/migrate/20240304202625_add_fk_to_reservations.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2024-03-15 10:39:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 7 pending migrations:
+
+db/migrate/20240302122828_create_clients.rb
+db/migrate/20240302124207_create_reservations.rb
+db/migrate/20240302124214_create_invoices.rb
+db/migrate/20240302125249_remove_invoice_id_from_reservations.rb
+db/migrate/20240304195818_create_cabins.rb
+db/migrate/20240304195854_add_cabin_id_to_reservation_table.rb
+db/migrate/20240304202625_add_fk_to_reservations.rb
+
+
+):
+  
+activerecord (7.1.3) lib/active_record/migration.rb:755:in `check_pending_migrations'
+activerecord (7.1.3) lib/active_record/migration.rb:644:in `block (2 levels) in call'
+activesupport (7.1.3) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.3) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `synchronize'
+activerecord (7.1.3) lib/active_record/migration.rb:641:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3) lib/rails/rack/logger.rb:24:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.9) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.9) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in `call'
+railties (7.1.3) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-03-15 10:39:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eduard/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eduard/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 376)
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 4200)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:39:55 +0200
+Processing by ReservationsController#create as */*
+  Parameters: {"reservation"=>{"days"=>5, "cabin_id"=>2, "start_date"=>"2024-03-01", "end_date"=>"2024-03-06", "client_attributes"=>{"name"=>"Jane Doe", "email"=>"jane.doe@example.com", "phone"=>"123-456-7890"}}}
+Completed 422 Unprocessable Entity in 42ms (Views: 0.1ms | ActiveRecord: 19.5ms | Allocations: 4552)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2024-03-15 10:40:12 +0200
+Processing by ReservationsController#reservations as */*
+  Parameters: {"reservation"=>{}}
+  [1m[36mReservation Pluck (2.1ms)[0m  [1m[34mSELECT "reservations"."start_date", "reservations"."end_date" FROM "reservations" WHERE "reservations"."cabin_id" = $1[0m  [["cabin_id", 1]]
+  ↳ app/controllers/reservations_controller.rb:3:in `reservations'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 29.9ms | Allocations: 2722)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:44:20 +0200
+  
+SyntaxError (/Users/eduard/Desktop/Feriland/server/app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+curl -X POST http://localhost:3000/reserv...
+        ^~~~
+):
+  
+app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:44:20 +0200
+  
+SyntaxError (/Users/eduard/Desktop/Feriland/server/app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+curl -X POST http://localhost:3000/reserv...
+        ^~~~
+):
+  
+app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:44:22 +0200
+  
+SyntaxError (/Users/eduard/Desktop/Feriland/server/app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+curl -X POST http://localhost:3000/reserv...
+        ^~~~
+):
+  
+app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started GET "/reservations" for 127.0.0.1 at 2024-03-15 10:44:45 +0200
+  
+SyntaxError (/Users/eduard/Desktop/Feriland/server/app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+curl -X POST http://localhost:3000/reserv...
+        ^~~~
+):
+  
+app/controllers/reservations_controller.rb:25: syntax error, unexpected constant, expecting `do' or '{' or '('
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:45:03 +0200
+Processing by ReservationsController#create as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 253)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:45:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create as */*
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2574)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:45:42 +0200
+Processing by ReservationsController#create as */*
+Completed 422 Unprocessable Entity in 83790ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 59962)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:47:08 +0200
+Processing by ReservationsController#create as */*
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 240)
+
+
+Started POST "/" for 127.0.0.1 at 2024-03-15 10:48:25 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:48:36 +0200
+Processing by ReservationsController#create as */*
+  Parameters: {"reservation"=>{"name"=>"John Doe", "email"=>"john.doe@example.com", "cnp"=>"123456789", "start_date"=>"2024-01-01", "end_date"=>"2024-01-07", "cabin_id"=>1}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/create_reservation_service.rb:7:in `call'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/create_reservation_service.rb:7:in `call'
+Completed 422 Unprocessable Entity in 70ms (Views: 0.1ms | ActiveRecord: 31.0ms | Allocations: 25647)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2024-03-15 10:48:54 +0200
+Processing by ReservationsController#create as */*
+  Parameters: {"reservation"=>{"name"=>"John Doe", "email"=>"john.doe@example.com", "cnp"=>"123456789", "start_date"=>"2024-01-01", "end_date"=>"2024-01-07", "cabin_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/create_reservation_service.rb:7:in `call'
+  [1m[36mReservation Create (16.7ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "John Doe"], ["email", "john.doe@example.com"], ["cnp", 123456789], ["start_date", "2024-01-01"], ["end_date", "2024-01-07"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:48:54.705494"], ["updated_at", "2024-03-15 08:48:54.705494"], ["cabin_id", 1]]
+  ↳ app/services/create_reservation_service.rb:7:in `call'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/create_reservation_service.rb:7:in `call'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/invoice_generation_service.rb:10:in `call'
+  [1m[36mReservation Load (1.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/services/invoice_generation_service.rb:10:in `call'
+  [1m[36mInvoice Create (1.4ms)[0m  [1m[32mINSERT INTO "invoices" ("reservation_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["reservation_id", 4], ["created_at", "2024-03-15 08:48:54.747385"], ["updated_at", "2024-03-15 08:48:54.747385"]]
+  ↳ app/services/invoice_generation_service.rb:10:in `call'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/invoice_generation_service.rb:10:in `call'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/invoice_generation_service.rb:11:in `call'
+  [1m[36mReservation Update (6.4ms)[0m  [1m[33mUPDATE "reservations" SET "invoice_generated" = $1, "updated_at" = $2 WHERE "reservations"."id" = $3[0m  [["invoice_generated", true], ["updated_at", "2024-03-15 08:48:54.749976"], ["id", 4]]
+  ↳ app/services/invoice_generation_service.rb:11:in `call'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/invoice_generation_service.rb:11:in `call'
+Completed 201 Created in 85ms (Views: 0.2ms | ActiveRecord: 44.3ms | Allocations: 18993)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (2.3ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:50:30.769906"], ["updated_at", "2024-03-15 08:50:30.769906"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (2.1ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:52:44.507487"], ["updated_at", "2024-03-15 08:52:44.507487"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (4.1ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:54:59.811755"], ["updated_at", "2024-03-15 08:54:59.811755"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (4.4ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:55:25.569859"], ["updated_at", "2024-03-15 08:55:25.569859"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (1.9ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:56:06.800099"], ["updated_at", "2024-03-15 08:56:06.800099"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (4.1ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "ivonne@bahringer.test"], ["cnp", 5884985633], ["start_date", "2024-03-15"], ["end_date", "2024-03-18"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:56:06.973222"], ["updated_at", "2024-03-15 08:56:06.973222"], ["cabin_id", 6], ["phone", nil]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.5ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "roland_conn@grant.example"], ["cnp", 94355059], ["start_date", "2024-03-22"], ["end_date", "2024-03-25"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:56:06.978831"], ["updated_at", "2024-03-15 08:56:06.978831"], ["cabin_id", 6], ["phone", nil]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (4.5ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "rex@maggio.example"], ["cnp", 7897696509], ["start_date", "2024-03-29"], ["end_date", "2024-04-01"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:56:06.981445"], ["updated_at", "2024-03-15 08:56:06.981445"], ["cabin_id", 6], ["phone", nil]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.2ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "brock@beer-corwin.example"], ["cnp", 6777101195], ["start_date", "2024-04-05"], ["end_date", "2024-04-08"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:56:06.987153"], ["updated_at", "2024-03-15 08:56:06.987153"], ["cabin_id", 6], ["phone", nil]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (3.8ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:57:04.658210"], ["updated_at", "2024-03-15 08:57:04.658210"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (4.6ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "moses.huels@cartwright.example"], ["cnp", 675504770], ["start_date", "2024-03-15"], ["end_date", "2024-03-18"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:57:04.841927"], ["updated_at", "2024-03-15 08:57:04.841927"], ["cabin_id", 7], ["phone", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.7ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "willette@streich.test"], ["cnp", 4197773989], ["start_date", "2024-03-22"], ["end_date", "2024-03-25"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:57:04.848472"], ["updated_at", "2024-03-15 08:57:04.848472"], ["cabin_id", 7], ["phone", 766]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.4ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "virgie.rath@mueller.test"], ["cnp", 3314332880], ["start_date", "2024-03-29"], ["end_date", "2024-04-01"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:57:04.851566"], ["updated_at", "2024-03-15 08:57:04.851566"], ["cabin_id", 7], ["phone", 794]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.3ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "lashawnda.nikolaus@osinski.test"], ["cnp", 9759259913], ["start_date", "2024-04-05"], ["end_date", "2024-04-08"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:57:04.854428"], ["updated_at", "2024-03-15 08:57:04.854428"], ["cabin_id", 7], ["phone", 669]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (4.3ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:58:40.649152"], ["updated_at", "2024-03-15 08:58:40.649152"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (5.8ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "darryl@franecki.test"], ["cnp", 4221694785], ["start_date", "2024-03-15"], ["end_date", "2024-03-18"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:58:40.847244"], ["updated_at", "2024-03-15 08:58:40.847244"], ["cabin_id", 8], ["phone", "920.600.8582"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.1ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "sigrid_keebler@carter-walsh.example"], ["cnp", 6647397326], ["start_date", "2024-03-22"], ["end_date", "2024-03-25"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:58:40.854745"], ["updated_at", "2024-03-15 08:58:40.854745"], ["cabin_id", 8], ["phone", "1-173-264-3259 x504"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.5ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "paris.swift@oconnell.test"], ["cnp", 7494395443], ["start_date", "2024-03-29"], ["end_date", "2024-04-01"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:58:40.857167"], ["updated_at", "2024-03-15 08:58:40.857167"], ["cabin_id", 8], ["phone", "(853) 295-8540"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (2.6ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Faker::Name"], ["email", "doug_toy@friesen.test"], ["cnp", 3149718766], ["start_date", "2024-04-05"], ["end_date", "2024-04-08"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:58:40.859809"], ["updated_at", "2024-03-15 08:58:40.859809"], ["cabin_id", 8], ["phone", "(477) 166-8813 x57741"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCabin Create (4.0ms)[0m  [1m[32mINSERT INTO "cabins" ("name", "nr_guests", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cabin in the woods, Tiger Woods"], ["nr_guests", 4], ["created_at", "2024-03-15 08:59:32.925777"], ["updated_at", "2024-03-15 08:59:32.925777"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (20.1ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Venetta Hoeger"], ["email", "bryon_kemmer@donnelly.example"], ["cnp", 7823684470], ["start_date", "2024-03-15"], ["end_date", "2024-03-18"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:59:33.117414"], ["updated_at", "2024-03-15 08:59:33.117414"], ["cabin_id", 9], ["phone", "624.473.9099"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (1.6ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Dannie Howell"], ["email", "shakira@hilpert-tremblay.example"], ["cnp", 7373194029], ["start_date", "2024-03-22"], ["end_date", "2024-03-25"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:59:33.139893"], ["updated_at", "2024-03-15 08:59:33.139893"], ["cabin_id", 9], ["phone", "425-146-8791"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (8.0ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Miquel Auer I"], ["email", "joel_lockman@quigley-bednar.example"], ["cnp", 2863728714], ["start_date", "2024-03-29"], ["end_date", "2024-04-01"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:59:33.145689"], ["updated_at", "2024-03-15 08:59:33.145689"], ["cabin_id", 9], ["phone", "1-719-207-4400 x2032"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReservation Create (2.3ms)[0m  [1m[32mINSERT INTO "reservations" ("name", "email", "cnp", "start_date", "end_date", "invoice_generated", "invoice_id", "created_at", "updated_at", "cabin_id", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Lorrine Kessler"], ["email", "don.torp@hayes.test"], ["cnp", 3092285255], ["start_date", "2024-04-05"], ["end_date", "2024-04-08"], ["invoice_generated", nil], ["invoice_id", nil], ["created_at", "2024-03-15 08:59:33.155963"], ["updated_at", "2024-03-15 08:59:33.155963"], ["cabin_id", 9], ["phone", "575.489.0455 x1520"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
