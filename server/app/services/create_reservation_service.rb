@@ -4,12 +4,12 @@ class CreateReservationService
   end
 
   def call
-    client = Client.create!(@params[:client_attributes])
-
     Reservation.create!(
       start_date: @params[:start_date],
       end_date: @params[:end_date],
-      client: client,
+      name: @params[:name],
+      email: @params[:email],
+      cnp: @params[:cnp],
       cabin_id: @params[:cabin_id]
     )
   end

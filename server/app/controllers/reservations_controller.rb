@@ -7,13 +7,7 @@ class ReservationsController < ApplicationController
 
   def create
     reservation = CreateReservationService.new(reservation_params).call
-    invoice = InvoiceGenerationService.new(reservation).call
-
-    ClientMailer.with(email: reservation_params[:client_attributes][:email],
-                      name: reservation_params[:client_attributes][:name],
-                      reservation: reservation,
-                      invoice: invoice).reservation_confirmed_email.deliver_now
-
+    InvoiceGenerationService.new(reservation).call
 
     render json: reservation, status: :created
   rescue => e
@@ -24,8 +18,7 @@ class ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(
-      :days, :start_date, :end_date, :cabin_id,
-      client_attributes: [:name, :email, :phone]
-    )
+      :name, :email, :cnp, :start_date, :end_date, :cabin_id)
   end
 end
+

@@ -1,23 +1,29 @@
 class Reservation < ApplicationRecord
-  belongs_to :client
-  has_one :invoice, dependent: :destroy
-  validate :end_date_after_start_date
-  validate :minimum_reservation_period
+  belongs_to :cabin
 
+  MINIMUM_NIGHTS_STAY = 2
 
-  def end_date_after_start_date
-    return if end_date.blank? || start_date.blank?
+  validate :validate_date_range, :check_availability, :minimum_stay
 
-    if end_date <= start_date
-      errors.add(:end_date, 'must be after the start date')
+  private
+
+  def validate_date_range
+    return if start_date && end_date && start_date < end_date
+    errors.add(:base, 'Start date must be before end date')
+  end
+
+  def check_availability
+    overlapping_reservations = Reservation.where(cabin_id: cabin_id)
+                                          .where('start_date < ? AND end_date > ?', end_date, start_date)
+    if overlapping_reservations.exists?
+      errors.add(:base, 'Cabin is already reserved for the given period')
     end
   end
 
-  def minimum_reservation_period
-    return if end_date.blank? || start_date.blank?
-
-    if (end_date - start_date).to_i < 2
-      errors.add(:base, 'Reservation period must be at least 2 days')
+  def minimum_stay
+    min_stay = MINIMUM_NIGHTS_STAY # Or fetch from a configuration variable or database
+    if (end_date - start_date).to_i < min_stay
+      errors.add(:base, "Reservation must be for a minimum of #{min_stay} nights")
     end
   end
 end
