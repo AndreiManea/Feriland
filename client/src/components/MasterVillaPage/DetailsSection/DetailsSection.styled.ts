@@ -13,17 +13,15 @@ interface RightControlsProps {
   hasNext: boolean;
 }
 
+interface GalleryStripProps {
+  currentImg: number;
+  selectedImg: number;
+}
+
 const galleryMediaQuery = css`
   @media (min-width: 768px) {
     margin-top: 2vh;
     height: 84vh;
-  }
-`;
-
-const controlsMediaQuery = css`
-  @media (min-width: 768px) {
-    opacity: 0.5;
-    display: block;
   }
 `;
 
@@ -37,8 +35,6 @@ const controlsBaseStyles = css`
   position: absolute;
   top: 0;
   bottom: 0;
-
-  ${controlsMediaQuery}
 `;
 
 export const SectionWrapper = styled.div`
@@ -502,22 +498,9 @@ export const GalleryContent = styled.div`
   ${galleryMediaQuery}
 `;
 
-export const GalleryStrip = styled.div`
-  white-space: nowrap;
-  padding: 0 1vh;
-  line-height: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-`;
-
 export const GalleryView = styled.div`
   width: 100vw;
   position: absolute;
-
   ${galleryMediaQuery}
 `;
 
@@ -540,14 +523,14 @@ export const LeftControls = styled.div<LeftControlsProps>`
   ${controlsBaseStyles}
   left: 0;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yMCAwIDI0IDQwIiB3aWR0aD0iMjQiIGhlaWdodD0iNDAiPjxnIHRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHBhdGggZD0ibTAgMGg1djIzaDIzdjVoLTI4eiIgb3BhY2l0eT0iLjQiLz48cGF0aCBkPSJtMSAxaDN2MjNoMjN2M2gtMjZ6IiBmaWxsPSIjZmZmIi8+PC9nPjwvc3ZnPg==);
-  opacity: ${({ hasPrev }) => (hasPrev ? '1' : '0')};
+  opacity: ${({ hasPrev }) => (hasPrev ? '0.5' : '0')};
 `;
 
 export const RightControls = styled.div<RightControlsProps>`
   ${controlsBaseStyles}
   right: 0;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00IDAgMjQgNDAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0MCI+PGcgdHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJtMC0waDI4djI4aC01di0yM2gtMjN6IiBvcGFjaXR5PSIuNCIvPjxwYXRoIGQ9Im0xIDFoMjZ2MjZoLTN2LTIzaC0yM3oiIGZpbGw9IiNmZmYiLz48L2c+PC9zdmc+);
-  opacity: ${({ hasNext }) => (hasNext ? '1' : '0')};
+  opacity: ${({ hasNext }) => (hasNext ? '0.5' : '0')};
 `;
 
 export const GalleryCloseBtn = styled.div`
@@ -571,6 +554,7 @@ export const GalleryCloseBtn = styled.div`
 export const Frame = styled.div`
   vertical-align: middle;
   display: inline-block;
+  padding: 5vh 5vw 0 5vw;
 `;
 
 export const Figure = styled.figure`
@@ -589,5 +573,43 @@ export const Figure = styled.figure`
       max-width: 82.3vw;
       max-height: 84vh;
     }
+  }
+`;
+
+export const GalleryStrip = styled.div`
+  white-space: nowrap;
+  padding: 0 1vh;
+  line-height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+`;
+
+export const GalleryStripItem = styled.div<GalleryStripProps>`
+  width: 10vh;
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 2vh 1vh;
+  display: inline-block;
+  opacity: ${({currentImg, selectedImg}) => currentImg === selectedImg ? '0.3' : '1'}
+`;
+
+export const ItemThumbnail = styled.div`
+  height: 10vh;
+  background: #222;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    top: 0;
+    width: auto;
+    max-width: none;
   }
 `;
