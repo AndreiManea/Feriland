@@ -11,6 +11,7 @@ interface BookingsState {
   bookedDates: SerializableRange[];
   selectedDates: SerializableRange[];
   selectedNights: number;
+  isBookingDrawerOpen: boolean;
 }
 
 const initialState: BookingsState = {
@@ -24,6 +25,7 @@ const initialState: BookingsState = {
     },
   ],
   selectedNights: 2,
+  isBookingDrawerOpen: false,
 };
 
 export const bookingsSlice = createSlice({
@@ -40,10 +42,17 @@ export const bookingsSlice = createSlice({
     setBookedDates: (state, action: PayloadAction<SerializableRange[]>) => {
       state.bookedDates = action.payload;
     },
+    setBookingDrawerOpen: (state, action: PayloadAction<boolean>) => {
+      state.isBookingDrawerOpen = action.payload;
+    },
   },
 });
 
-export const { setBookedDates, setSelectedDates, setSelectedNights } =
-  bookingsSlice.actions;
+export const {
+  setBookedDates,
+  setSelectedDates,
+  setSelectedNights,
+  setBookingDrawerOpen,
+} = bookingsSlice.actions;
 
 export default bookingsSlice.reducer;

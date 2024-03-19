@@ -36,12 +36,13 @@ import {
   Logo,
   HoverLine,
 } from './Navbar.styled.js';
+import { useAppDispatch } from '../../redux/hooks.js';
+import { setBookingDrawerOpen } from '../../redux/slices/bookingsSlice.js';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredImage, setHoveredImage] = useState('');
   const [isActive, setIsActive] = useState(false);
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -49,6 +50,8 @@ const Navbar: React.FC = () => {
   const toggleSwitch = () => {
     setIsActive(!isActive);
   };
+
+  const dispatch = useAppDispatch();
 
   return (
     <TopNavbar>
@@ -68,7 +71,7 @@ const Navbar: React.FC = () => {
           <img src={logoImage} alt="LogoImg" />
         </LogoWrapper>
 
-        <BookBtn>
+        <BookBtn onClick={() => dispatch(setBookingDrawerOpen(true))}>
           <BtnLink href="#">
             <ButtonTextWrapper>
               <TextSmall>Book</TextSmall>
@@ -147,8 +150,8 @@ const Navbar: React.FC = () => {
                         <LinkTextSmall>History</LinkTextSmall>
                         <HoverLine />
                       </SocialLink>
-                      <SocialLink href="#">                        
-                      <LinkTextSmall>Local Wine</LinkTextSmall>
+                      <SocialLink href="#">
+                        <LinkTextSmall>Local Wine</LinkTextSmall>
                         <HoverLine />
                       </SocialLink>
                       <SocialLink href="#">

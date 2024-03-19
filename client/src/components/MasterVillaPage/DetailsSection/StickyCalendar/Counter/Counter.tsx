@@ -49,7 +49,7 @@ const Counter = ({
         >
           <MinusIcon />
         </Button>
-        <Input {...input} border="none" width="42px" />
+        <Input {...input} color="#547c39" border="none" width="42px" />
         <Button
           {...inc}
           size="sm"

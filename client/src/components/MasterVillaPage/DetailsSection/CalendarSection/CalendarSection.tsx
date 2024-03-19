@@ -10,7 +10,7 @@ import {
   setSelectedNights,
 } from '../../../../redux/slices/bookingsSlice';
 
-const CalendarSection = ({ onSelection }: { onSelection: () => void }) => {
+const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
   // Global state
   const dispatch = useAppDispatch();
   const { selectedDates, selectedNights } = useAppSelector(

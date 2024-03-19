@@ -1,32 +1,21 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import ExploreSection from './components/ExploreSection/ExploreSection';
-import GallerySection from './components/GallerySection/GallerySection';
-import HeroSection from './components/HeroSection/HeroSection';
 import MasterVillaPage from './components/MasterVillaPage/MasterVilla';
 import Navbar from './components/Navbar/Navbar';
-import SliderSection from './components/SliderSection/SliderSection';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import HomePage from './components/HomePage/HomePage';
+import BookingDrawer from './components/BookingDrawer/BookingDrawer';
 
 function App() {
   return (
     <>
+      <Navbar />
+      <BookingDrawer />
       <Router>
         <Routes>
           <Route path="/master-villa" element={<MasterVillaPage />} />
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <HeroSection />
-                <ExploreSection />
-                <GallerySection />
-                <SliderSection />
-              </>
-            }
-          />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </Router>
     </>
