@@ -54,6 +54,8 @@ import {
   GalleryCloseBtn,
   Frame,
   Figure,
+  GalleryStripItem,
+  ItemThumbnail,
 } from './DetailsSection.styled';
 import { HoverLine } from '../../Navbar/Navbar.styled';
 
@@ -62,6 +64,8 @@ const DetailsSection: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const [currentTab, setCurrentTab] = useState('Tab 1');
   const [galleryOpen, setGalleryOpen] = useState(false);
+  const [activePhotoId, setActivePhotoId] = useState(1);
+  // const [galleryId, setGalleryId] = useState(1)
 
   const handleTabClick = (
     tab: string,
@@ -150,6 +154,7 @@ const DetailsSection: React.FC = () => {
                       data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
                       aria-label="open lightbox"
                       aria-haspopup="dialog"
+                      onClick={toggleGalleryPopUp}
                     >
                       <ArrowLink>
                         <TextSmall>View Images</TextSmall>
@@ -179,6 +184,7 @@ const DetailsSection: React.FC = () => {
                       data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
                       aria-label="open lightbox"
                       aria-haspopup="dialog"
+                      onClick={toggleGalleryPopUp}
                     >
                       <ArrowLink>
                         <TextSmall>View Images</TextSmall>
@@ -208,6 +214,7 @@ const DetailsSection: React.FC = () => {
                       data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
                       aria-label="open lightbox"
                       aria-haspopup="dialog"
+                      onClick={toggleGalleryPopUp}
                     >
                       <ArrowLink>
                         <TextSmall>View Images</TextSmall>
@@ -897,6 +904,7 @@ const DetailsSection: React.FC = () => {
         </SectionContainer>
       </SectionWrapper>
 
+      {/* TO DO - ADD IMAGES DEPENDING ON ROOM */}
       {galleryOpen && (
         <GalleryPopUp>
           <GalleryContainer>
@@ -904,7 +912,15 @@ const DetailsSection: React.FC = () => {
               <GalleryView tabIndex={0}>
                 <Frame>
                   <Figure>
-                    <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png" />
+                    {activePhotoId === 1 && (
+                      <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png" />
+                    )}
+                    {activePhotoId === 2 && (
+                      <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg" />
+                    )}
+                    {activePhotoId === 3 && (
+                      <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d5e1dd4aca861aa649961c_masterpoolvillabalex-1920x-q72.jpg" />
+                    )}
                   </Figure>
                 </Frame>
               </GalleryView>
@@ -924,66 +940,66 @@ const DetailsSection: React.FC = () => {
                 aria-controls="w-lightbox-view"
                 aria-label="previous image"
                 tabIndex={-1}
-                hasPrev={true}
-              ></LeftControls>
+                onClick={() => setActivePhotoId(activePhotoId - 1)}
+                hasPrev={activePhotoId !== 1}
+              />
               <RightControls
                 role="button"
                 aria-hidden="false"
                 aria-controls="w-lightbox-view"
                 aria-label="next image"
                 tabIndex={0}
-                hasNext={true}
-              ></RightControls>
+                onClick={() => setActivePhotoId(activePhotoId + 1)}
+                hasNext={activePhotoId !== 3}
+              />
               <GalleryCloseBtn
                 role="button"
                 aria-label="close lightbox"
                 tabIndex={0}
+                onClick={() => setGalleryOpen(false)}
               />
             </GalleryContent>
             <GalleryStrip role="tablist">
-              <div
-                className="w-lightbox-item w-lightbox-active"
+              <GalleryStripItem
+                selectedImg={activePhotoId}
+                currentImg={1}
+                onClick={() => setActivePhotoId(1)}
                 tabIndex={0}
                 aria-controls="w-lightbox-view"
                 role="tab"
                 aria-label="show item 1 of 3"
                 aria-selected="true"
               >
-                <div className="w-lightbox-thumbnail">
-                  <img
-                    className="w-lightbox-img w-lightbox-wide w-lightbox-thumbnail-image"
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png"
-                  />
-                </div>
-              </div>
-              <div
-                className="w-lightbox-item"
+                <ItemThumbnail>
+                  <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png" />
+                </ItemThumbnail>
+              </GalleryStripItem>
+              <GalleryStripItem
+                selectedImg={activePhotoId}
+                currentImg={2}
+                onClick={() => setActivePhotoId(2)}
                 tabIndex={0}
                 aria-controls="w-lightbox-view"
                 role="tab"
                 aria-label="show item 2 of 3"
               >
-                <div className="w-lightbox-thumbnail">
-                  <img
-                    className="w-lightbox-img w-lightbox-wide w-lightbox-thumbnail-image"
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg"
-                  />
-                </div>
-              </div>
-              <div
-                className="w-lightbox-item"
+                <ItemThumbnail>
+                  <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg" />
+                </ItemThumbnail>
+              </GalleryStripItem>
+              <GalleryStripItem
+                selectedImg={activePhotoId}
+                currentImg={3}
+                onClick={() => setActivePhotoId(3)}
                 tabIndex={0}
                 aria-controls="w-lightbox-view"
                 role="tab"
                 aria-label="show item 3 of 3"
               >
-                <div className="w-lightbox-thumbnail">
-                  <img
-                    className="w-lightbox-img w-lightbox-wide w-lightbox-thumbnail-image"
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d5e1dd4aca861aa649961c_masterpoolvillabalex-1920x-q72.jpg"
-                  />
-                </div>
-              </div>
+                <ItemThumbnail>
+                  <img src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d5e1dd4aca861aa649961c_masterpoolvillabalex-1920x-q72.jpg" />
+                </ItemThumbnail>
+              </GalleryStripItem>
             </GalleryStrip>
           </GalleryContainer>
         </GalleryPopUp>
