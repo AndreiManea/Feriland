@@ -1,3 +1,4 @@
+import Footer from '../Footer/Footer';
 import SliderSection from '../SliderSection/SliderSection';
 import ExploreSection from './ExploreSection/ExploreSection';
 import GallerySection from './GallerySection/GallerySection';
@@ -10,6 +11,7 @@ const HomePage = () => {
       <ExploreSection />
       <GallerySection />
       <SliderSection />
+      <Footer />
     </>
   );
 };
