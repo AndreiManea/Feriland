@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 // import CalendarSection from './CalendarSection/CalendarSection';
-import StickyCalendar from './StickyCalendar/StickyCalendar';
 import {
   Amenities,
   AmenitiesContainer,
@@ -58,22 +57,19 @@ import {
   ItemThumbnail,
 } from './DetailsSection.styled';
 import { HoverLine } from '../../Navbar/Navbar.styled';
+import StickyCalendar from './CalendarSection/StickyCalendar/StickyCalendar';
+import DetailsHeader from './DetailsHeader/DetailsHeader';
+import DetailsRoomCard from './DetailsRoomCard/DetailsRoomCard';
+import DetailsFeatureIcon from './DetailsFeatureIcon/DetailsFeatureIcon';
+import DetailsTabs from './DetailsTabs/DetailsTabs';
+import CalendarSection from './CalendarSection/CalendarSection';
 
 const DetailsSection: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const [currentTab, setCurrentTab] = useState('Tab 1');
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activePhotoId, setActivePhotoId] = useState(1);
   // const [galleryId, setGalleryId] = useState(1)
-
-  const handleTabClick = (
-    tab: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    setCurrentTab(tab);
-  };
 
   const toggleDetails = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -89,327 +85,88 @@ const DetailsSection: React.FC = () => {
     setGalleryOpen(!galleryOpen);
   };
 
+  const cardItems = [
+    {
+      src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg',
+      srcSet:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-1080.jpg 1080w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-1600.jpg 1600w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg 2000w',
+      altText: 'Bedroom 1',
+      title: 'Bedroom 1',
+    },
+    {
+      src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-500.jpg',
+      srcSet:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-1080.jpg 1080w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1).jpg 1333w',
+      altText: 'Bedroom 2',
+      title: 'Bedroom 2',
+    },
+    {
+      src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205.jpg',
+      srcSet:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205.jpg 1000w',
+      altText: 'Bathroom',
+      title: 'Bathroom',
+    },
+    {
+      src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602.jpg',
+      srcSet:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602.jpg 1000w',
+      altText: 'Living Area',
+      title: 'Living Area',
+    },
+  ];
+
+  const featuresArray = [
+    {
+      iconSrc:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dcb23745008c1d93dbff02_cab-gps_13807485.svg',
+      boldText: 'Free parking on the premise',
+      smallText: 'Up to 3 cars',
+    },
+    {
+      iconSrc:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dcb48ba57382c01d3830c4_river_13806426.svg',
+      boldText: 'Pool and Ciubar',
+      smallText: 'This is an extra and you will have to call',
+    },
+    {
+      iconSrc:
+        'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dcb42c74276c399013c032_calendar_13868806.svg',
+      boldText: 'Free Cancelation before ( dynamic date )',
+      smallText: '',
+    },
+  ];
+
   return (
     <>
       <SectionWrapper>
         <SectionContainer>
           <GridContainer>
             <GridSection>
-              <HeadingContainer>
-                <Heading>Entire Master Villa</Heading>
-                <DetailsContainer>
-                  <TextRegular>6 Guests</TextRegular>
-                  <DotDivider />
-                  <TextRegular>2 Bedrooms</TextRegular>
-                  <DotDivider />
-                  <TextRegular>1.5 Baths</TextRegular>
-                  <DotDivider />
-                  <TextRegular>Ciubar</TextRegular>
-                </DetailsContainer>
-              </HeadingContainer>
+              <DetailsHeader />
               <CardsContainer>
-                <CardContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg"
-                    srcSet="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-1080.jpg 1080w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1)-p-1600.jpg 1600w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg 2000w"
-                    sizes="(max-width: 479px) 100vw, 110px"
-                    loading="lazy"
-                    width="1000"
-                    alt=""
+                {cardItems.map(card => (
+                  <DetailsRoomCard
+                    imgSrc={card.src}
+                    imgSet={card.srcSet}
+                    altText={card.altText}
+                    title={card.title}
+                    onClick={toggleGalleryPopUp}
                   />
-                  <TextButtonContainer>
-                    <SubHeading>Bedroom 1</SubHeading>
-                    <LinkContainer
-                      href="#"
-                      data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
-                      aria-label="open lightbox"
-                      aria-haspopup="dialog"
-                      onClick={toggleGalleryPopUp}
-                    >
-                      <ArrowLink>
-                        <TextSmall>View Images</TextSmall>
-                        <img
-                          src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca5b678988b92e4c8e336_arrow_3183335.png"
-                          loading="lazy"
-                          alt=""
-                        />
-                      </ArrowLink>
-                      <HoverLine />
-                    </LinkContainer>
-                  </TextButtonContainer>
-                </CardContainer>
-                <CardContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0…364047b_interior-design-hut-photo%20(1)-p-500.jpg"
-                    srcSet="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1)-p-1080.jpg 1080w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d389606f5c05a7c364047b_interior-design-hut-photo%20(1).jpg 1333w"
-                    sizes="(max-width: 479px) 100vw, 110px"
-                    loading="lazy"
-                    width="1000"
-                    alt=""
-                  />
-                  <TextButtonContainer>
-                    <SubHeading>Bedroom 2</SubHeading>
-                    <LinkContainer
-                      href="#"
-                      data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
-                      aria-label="open lightbox"
-                      aria-haspopup="dialog"
-                      onClick={toggleGalleryPopUp}
-                    >
-                      <ArrowLink>
-                        <TextSmall>View Images</TextSmall>
-                        <img
-                          src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca5b678988b92e4c8e336_arrow_3183335.png"
-                          loading="lazy"
-                          alt=""
-                        />
-                      </ArrowLink>
-                      <HoverLine />
-                    </LinkContainer>
-                  </TextButtonContainer>
-                </CardContainer>
-                <CardContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205.jpg"
-                    srcSet="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca436b675c78191f9704b_1205.jpg 1000w"
-                    sizes="(max-width: 479px) 100vw, 110px"
-                    loading="lazy"
-                    width="1000"
-                    alt=""
-                  />
-                  <TextButtonContainer>
-                    <SubHeading>Bathroom</SubHeading>
-                    <LinkContainer
-                      href="#"
-                      data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
-                      aria-label="open lightbox"
-                      aria-haspopup="dialog"
-                      onClick={toggleGalleryPopUp}
-                    >
-                      <ArrowLink>
-                        <TextSmall>View Images</TextSmall>
-                        <img
-                          src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca5b678988b92e4c8e336_arrow_3183335.png"
-                          loading="lazy"
-                          alt=""
-                        />
-                      </ArrowLink>
-                      <HoverLine />
-                    </LinkContainer>
-                  </TextButtonContainer>
-                </CardContainer>
-                <CardContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602.jpg"
-                    srcSet="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602-p-500.jpg 500w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602-p-800.jpg 800w, https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca4c8bfccf1f0baba49f0_40602.jpg 1000w"
-                    sizes="(max-width: 479px) 100vw, 110px"
-                    loading="lazy"
-                    width="1000"
-                    alt=""
-                  />
-                  <TextButtonContainer>
-                    <SubHeading>Living Area</SubHeading>
-                    <LinkContainer
-                      href="#"
-                      data-w-id="cc567828-d750-2bb8-6dfa-9cde9a42f92c"
-                      aria-label="open lightbox"
-                      aria-haspopup="dialog"
-                      onClick={toggleGalleryPopUp}
-                    >
-                      <ArrowLink>
-                        <TextSmall>View Images</TextSmall>
-                        <img
-                          src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dca5b678988b92e4c8e336_arrow_3183335.png"
-                          loading="lazy"
-                          alt=""
-                        />
-                      </ArrowLink>
-                      <HoverLine />
-                    </LinkContainer>
-                  </TextButtonContainer>
-                </CardContainer>
+                ))}
               </CardsContainer>
               <MenuDivider />
               <IconDetailsWrapper>
-                <IconDetailsContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dcb23745008c1d93dbff02_cab-gps_13807485.svg"
-                    loading="lazy"
-                    alt=""
+                {featuresArray.map(feature => (
+                  <DetailsFeatureIcon
+                    iconSrc={feature.iconSrc}
+                    boldText={feature.boldText}
+                    smallText={feature.smallText}
                   />
-                  <IconDetailsTextContainer>
-                    <BoldText>Free parking on the premise</BoldText>
-                    <TextSmall>Up to 3 cars</TextSmall>
-                  </IconDetailsTextContainer>
-                </IconDetailsContainer>
-                <IconDetailsContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dcb48ba57382c01d3830c4_river_13806426.svg"
-                    loading="lazy"
-                    alt=""
-                  />
-                  <IconDetailsTextContainer>
-                    <BoldText>Pool and Ciubar</BoldText>
-                    <TextSmall>
-                      This is an extra and you will have to call
-                    </TextSmall>
-                  </IconDetailsTextContainer>
-                </IconDetailsContainer>
-                <IconDetailsContainer>
-                  <img
-                    src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65dcb42c74276c399013c032_calendar_13868806.svg"
-                    loading="lazy"
-                    alt=""
-                  />
-                  <IconDetailsTextContainer>
-                    <BoldText>
-                      Free Cancelation before ( dynamic date )
-                    </BoldText>
-                  </IconDetailsTextContainer>
-                </IconDetailsContainer>
+                ))}
               </IconDetailsWrapper>
               <MenuDivider />
-              <TabsContainer>
-                <Tabs
-                  data-current={currentTab}
-                  data-easing="ease-in-out"
-                  data-duration-in="200"
-                  data-duration-out="200"
-                >
-                  <TabMenu role="tablist">
-                    <Tab
-                      data-w-tab="Tab 1"
-                      currentTab={currentTab === 'Tab 1'}
-                      id="w-tabs-0-data-w-tab-0"
-                      href="#w-tabs-0-data-w-pane-0"
-                      role="tab"
-                      aria-controls="w-tabs-0-data-w-pane-0"
-                      aria-selected={currentTab === 'Tab 1' ? 'true' : 'false'}
-                      onClick={event => handleTabClick('Tab 1', event)}
-                      tabIndex={currentTab === 'Tab 1' ? 0 : -1}
-                    >
-                      <TabText>Description</TabText>
-                    </Tab>
-                    <Tab
-                      data-w-tab="Tab 2"
-                      currentTab={currentTab === 'Tab 2'}
-                      id="w-tabs-0-data-w-tab-1"
-                      href="#w-tabs-0-data-w-pane-1"
-                      role="tab"
-                      aria-controls="w-tabs-0-data-w-pane-1"
-                      aria-selected={currentTab === 'Tab 2' ? 'true' : 'false'}
-                      onClick={event => handleTabClick('Tab 2', event)}
-                      tabIndex={currentTab === 'Tab 2' ? 0 : -1}
-                    >
-                      <TabText>Rules</TabText>
-                    </Tab>
-                  </TabMenu>
-                  <TabContent>
-                    <ContentWrapper
-                      data-w-tab="Tab 1"
-                      currentTab={currentTab === 'Tab 1'}
-                      id="w-tabs-0-data-w-pane-0"
-                      role="tabpanel"
-                      aria-labelledby="w-tabs-0-data-w-tab-0"
-                    >
-                      <Content>
-                        <Description>
-                          <TextRegular>
-                            Galbino is a stunning 16th century castle in the
-                            midst of nature just a few kilometres from the
-                            enchanting village of Anghiari.
-                            <br />
-                            On a hill surrounded by woods and fields, Galbino
-                            Castle is a private and exclusive place to relax,
-                            explore nature, visit the cultural attractions of
-                            the area and enjoy the Tuscan delights of food and
-                            wine. The castle is naturally cool thanks to its
-                            thick walls and features an infinity pool with
-                            spectacular countryside views...
-                          </TextRegular>
-                          <BoldTextLarge>
-                            The Space - Keep it relatively short
-                          </BoldTextLarge>
-                          <TextRegular>
-                            The Castle, which is rented out for private use, has
-                            ten bedrooms on two floors, a huge games room with
-                            billiards and a ping pong table, a large kitchen
-                            with a fireplace, two dining rooms, a library, a
-                            living room with walls covered in frescos and a
-                            small chapel which is still consecrated.
-                            <br />
-                            <br />
-                            The castle is surrounded by a large garden, also for
-                            the exclusive use of guests, housing the spectacular
-                            infinity pool overlooking the Tuscan countryside.A
-                            few steps from the pool there is a comfortable
-                            changing room with a bathroom and shower.
-                          </TextRegular>
-                        </Description>
-                      </Content>
-                    </ContentWrapper>
-                    <ContentWrapper
-                      data-w-tab="Tab 2"
-                      currentTab={currentTab === 'Tab 2'}
-                      id="w-tabs-0-data-w-pane-1"
-                      role="tabpanel"
-                      aria-labelledby="w-tabs-0-data-w-tab-1"
-                    >
-                      <Content>
-                        <Description>
-                          <IconDetailsContainer>
-                            <img
-                              loading="lazy"
-                              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e1d71c9a41d0ccd77af64d_time_6862163.svg"
-                              alt=""
-                            />
-                            <IconDetailsTextContainer>
-                              <TextSmall>
-                                Check-in: 3:00 PM - 6:00 PM
-                                <br />
-                              </TextSmall>
-                            </IconDetailsTextContainer>
-                          </IconDetailsContainer>
-                          <IconDetailsContainer>
-                            <img
-                              loading="lazy"
-                              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e1d71c9a41d0ccd77af64d_time_6862163.svg"
-                              alt=""
-                            />
-                            <IconDetailsTextContainer>
-                              <TextSmall>
-                                Checkout before 10:00 AM
-                                <br />
-                              </TextSmall>
-                            </IconDetailsTextContainer>
-                          </IconDetailsContainer>
-                          <BoldTextLarge>Additional Rules</BoldTextLarge>
-                          <TextRegular>
-                            Included in the price:
-                            <br />
-                            Internet access, air conditioning, parking place,
-                            electricity, gas, water, final cleaning, bed linen,
-                            hand towels, pool, sunloungers, Wireless Internet
-                            access. <br />‍<br />
-                            4 persons and 2 persons (extra beds) including
-                            children and infants (under 2 years). <br />
-                            Please note that the maximum occupancy (6 persons)
-                            must not be exceeded even with infants under 2 years
-                            of age. <br />‍<br />
-                            Pets:
-                            <br />
-                            Not allowed. Free of charge. <br />
-                            <br />
-                            Deposit (in cash when the keys are handed over on
-                            site, will be refunded on departure):EUR 200
-                            <br />
-                          </TextRegular>
-                        </Description>
-                      </Content>
-                    </ContentWrapper>
-                  </TabContent>
-                </Tabs>
-              </TabsContainer>
+              <DetailsTabs />
               <MenuDivider />
               <AmenitiesContainer>
                 <BoldTextLarge>What this place offers</BoldTextLarge>
@@ -897,7 +654,8 @@ const DetailsSection: React.FC = () => {
                   </ModalContainer>
                 )}
               </AmenitiesContainer>
-              {/* <CalendarSection /> */}
+              <MenuDivider />
+              <CalendarSection />
             </GridSection>
             <StickyCalendar />
           </GridContainer>

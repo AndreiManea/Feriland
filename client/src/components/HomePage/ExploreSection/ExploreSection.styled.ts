@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import customTheme from '../../../utils/styles/theme';
 
 export const ExploreContainer = styled.div`
   width: 100%;
@@ -123,7 +124,7 @@ export const PrimaryButton = styled.a`
   display: flex;
   position: relative;
   overflow: hidden;
-  background-color: #547c39;
+  background-color: ${customTheme.colors.primary[500]};
   border-radius: 10em;
 `;
 

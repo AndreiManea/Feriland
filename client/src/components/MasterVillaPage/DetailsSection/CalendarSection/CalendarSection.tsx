@@ -9,6 +9,7 @@ import {
   setSelectedDates,
   setSelectedNights,
 } from '../../../../redux/slices/bookingsSlice';
+import { parse } from 'date-fns';
 
 const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
   // Global state
@@ -26,32 +27,39 @@ const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
 
   const handleSelect = (ranges: RangeKeyDict) => {
     const { startDate, endDate } = ranges.range1;
-    let adjustedEndDate = endDate;
     // Calculate nights
-    let nightsCalculated =
-      ((adjustedEndDate?.getTime() ?? 0) - (startDate?.getTime() ?? 0)) /
+
+    const nightsCalculated =
+      ((endDate?.getTime() ?? 0) - (startDate?.getTime() ?? 0)) /
       (1000 * 3600 * 24);
-    if (nightsCalculated < 2) {
-      // Adjust end date to ensure minimum 2 nights
-      adjustedEndDate = new Date(startDate as Date);
-      adjustedEndDate.setDate(adjustedEndDate.getDate() + 2);
-      nightsCalculated = 2; // Set nights to minimum
-    }
     dispatch(setSelectedNights(Math.round(nightsCalculated)));
     dispatch(
       setSelectedDates([
         {
           startDate: startDate?.toISOString(),
-          endDate: (adjustedEndDate as Date).toISOString(),
+          endDate: (endDate as Date).toISOString(),
         },
       ])
     );
     // Update date preview
     setDatePreview(
-      `${formatDate(startDate as Date)} - ${formatDate(adjustedEndDate as Date)}`
+      `${formatDate(startDate as Date)} - ${formatDate(endDate as Date)}`
     );
-    onSelection?.();
+    if (startDate?.getTime() !== endDate?.getTime()) {
+      onSelection?.();
+    }
   };
+
+  // Disabled dates received from backend as strings
+  const disabledDatesFromBackend = ['June 2, 2024', 'June 3, 2024'];
+
+  const parseDateStrings = (dateStrings: string[]) => {
+    return dateStrings.map(dateString =>
+      parse(dateString, 'MMMM d, yyyy', new Date())
+    );
+  };
+
+  const disabledDates = parseDateStrings(disabledDatesFromBackend);
 
   return (
     <div className="calendar">
@@ -61,11 +69,12 @@ const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
       <h2 style={{ fontSize: '14px' }}>{datePreview}</h2>
       <DateRange
         onChange={handleSelect}
-        retainEndDateOnFirstSelection
         ranges={[{ startDate, endDate }]}
         months={2}
         fixedHeight
         direction="horizontal"
+        minDate={new Date()}
+        disabledDates={disabledDates}
       />
     </div>
   );
