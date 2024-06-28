@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Kaftan Serif';
+  src:
+    url('assets/fonts/Kaftan Serif.woff2') format('woff2'),
+    url('assets/fonts/Kaftan Serif.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src:
+    url('assets/fonts/Satoshi-Regular.woff2') format('woff2'),
+    url('assets/fonts/Satoshi-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
