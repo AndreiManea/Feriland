@@ -1,0 +1,9 @@
+.slick-track {
+  display: flex;
+  gap: 14px;
+  padding: 0 10.5rem;
+}
+
+.slick-arrow {
+  display: none !important;
+}
