@@ -8,10 +8,31 @@
 /* Style individual day cells */
 .rdrDay {
   border: none !important;
-  width: 42px !important;
-  height: 42px !important;
   border-radius: 50% !important;
   margin: 2px 0 !important;
+  height: 69px !important;
+}
+
+.stickyCalendar .rdrDay {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+.drawerCalendar .rdrDay {
+  height: 55px !important;
+}
+
+.rdrDayPassive {
+  visibility: hidden;
+}
+
+.rdrDayDisabled {
+  background-color: transparent !important;
+}
+
+.rdrDayDisabled .rdrDayNumber {
+  text-decoration: line-through;
+  color: #aeb9bf;
 }
 
 /* Day number styling */
@@ -23,6 +44,7 @@
 /* Weekday styling */
 .rdrWeekDay {
   font-size: 12px;
+  width: 42px;
 }
 
 .rdrMonth {

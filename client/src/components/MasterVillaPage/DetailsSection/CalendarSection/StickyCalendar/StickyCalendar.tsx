@@ -1,7 +1,7 @@
 import { VStack, Button, Box } from '@chakra-ui/react';
 import './stickyCalendar.css';
-import { useAppSelector } from '../../../../redux/hooks';
-import StickyCalendarHeader from './StickyCalendarHeader';
+import { useAppSelector } from '../../../../../redux/hooks';
+import StickyCalendarHeader from './StickyCalendarHeader/StickyCalendarHeader';
 import TotalPrice from './TotalPrice';
 
 const StickyCalendar = () => {
@@ -22,7 +22,6 @@ const StickyCalendar = () => {
             endDate={endDate}
             pricePerNight={1500}
           />
-
           <Button size="md" background="#547c39" color="white" width="100%">
             Reserve
           </Button>

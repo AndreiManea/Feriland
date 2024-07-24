@@ -594,7 +594,8 @@ export const GalleryStripItem = styled.div<GalleryStripProps>`
   cursor: pointer;
   padding: 2vh 1vh;
   display: inline-block;
-  opacity: ${({currentImg, selectedImg}) => currentImg === selectedImg ? '0.3' : '1'}
+  opacity: ${({ currentImg, selectedImg }) =>
+    currentImg === selectedImg ? '0.3' : '1'};
 `;
 
 export const ItemThumbnail = styled.div`
