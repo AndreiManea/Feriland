@@ -6,83 +6,6 @@ interface LinkProps {
   currentItem: string;
 }
 
-export const FooterContainer = styled.div`
-  width: 100%;
-  max-width: none;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2.08em;
-  padding-right: 2.08em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-`;
-
-export const FooterGrid = styled.div`
-  display: grid;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-columns: 1fr;
-`;
-
-export const LogoContainer = styled.div`
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 3em;
-  padding-bottom: 3em;
-  padding-right: 2em;
-
-  img {
-    max-width: 40%;
-    margin-bottom: 2em;
-    margin-top: 2em;
-  }
-`;
-
-export const Heading = styled.h4`
-  font-family: 'Kaftan';
-  font-size: 1.2em;
-  font-weight: 400;
-  line-height: 1.3;
-`;
-
-export const RegularText = styled.p`
-  text-align: left;
-  margin-bottom: 0;
-  font-family: Satoshi, sans-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.5;
-`;
-
-export const MenuContainer = styled.div`
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 6em 0 4em 4em;
-  display: flex;
-`;
-
-export const LinksContainer = styled.div`
-  border-top-style: none !important;
-  padding-left: 0;
-  padding-right: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  flex-direction: column;
-  align-items: stretch;
-  display: flex;
-`;
-
-export const SmallText = styled.p`
-  color: rgba(51, 51, 51, 0.7);
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  margin-bottom: 19px;
-  font-family: Satoshi, sans-serif;
-  font-size: 12px;
-  line-height: 1.4;
-`;
-
 export const Link = styled.a<LinkProps>`
   max-width: 100%;
   display: inline-block;
@@ -90,44 +13,6 @@ export const Link = styled.a<LinkProps>`
   cursor: pointer;
   opacity: ${({ menuItemSelected, currentItem }) =>
     menuItemSelected && menuItemSelected !== currentItem ? '0.25' : '1'};
-`;
-
-export const LinkText = styled.h3`
-  color: #000;
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-family: 'Kaftan';
-  font-size: 1.3em;
-  font-weight: 400;
-  line-height: 1.2;
-  text-decoration: none;
-`;
-
-export const Contact = styled.div`
-  padding-top: 6em;
-  padding-bottom: 4em;
-  padding-left: 4em;
-`;
-
-export const SecondaryLinksContainer = styled.div`
-  grid-column-gap: 0.5em;
-  grid-row-gap: 0.5em;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: flex;
-`;
-
-export const LinkWrapper = styled.div`
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5em;
-  display: flex;
-
-  img {
-    max-width: 1.3rem;
-    margin-right: 1em;
-  }
 `;
 
 export const SecondaryLink = styled.a`
