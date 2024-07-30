@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   BigImg,
   BottomImage,
@@ -11,10 +12,14 @@ import {
   SmallImg,
   TopImage,
 } from './GallerySection.styled';
+import useDarkNavbar from '../../../utils/hooks/useDarkNavbar';
 
 const GallerySection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useDarkNavbar(sectionRef);
+
   return (
-    <GallerySectionWrapper>
+    <GallerySectionWrapper ref={sectionRef}>
       <GallerySectionContainer>
         <GalleryGrid>
           <LeftRightContainer>
