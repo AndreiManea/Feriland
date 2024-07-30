@@ -21,6 +21,16 @@ const components = {
       },
     },
   },
+  Switch: {
+    baseStyle: {
+      track: {
+        bg: 'rgb(84, 124, 57)',
+        _checked: {
+          bg: 'black',
+        },
+      },
+    },
+  },
 };
 
 const customTheme = extendTheme({

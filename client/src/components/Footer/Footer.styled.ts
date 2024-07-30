@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { HoverLine } from '../Navbar/Navbar.styled';
 
 interface LinkProps {
   menuItemSelected: string;
@@ -149,10 +148,6 @@ export const SecondaryLink = styled.a`
   border-bottom-width: 1px;
   border-bottom-color: rgba(255, 255, 255, 0.1);
   border-radius: 0;
-
-  &:hover ${HoverLine} {
-    opacity: 1;
-  }
 `;
 
 export const SmallTextDark = styled.div`

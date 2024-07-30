@@ -20,7 +20,6 @@ import {
   SmallText,
   SmallTextDark,
 } from './Footer.styled';
-import { HoverLine } from '../Navbar/Navbar.styled';
 
 const Footer: React.FC = () => {
   const [menuItemSelected, setMenuItemSelected] = useState('');
@@ -81,7 +80,6 @@ const Footer: React.FC = () => {
               />
               <SecondaryLink href="#">
                 <SmallTextDark>contact@feriland.com</SmallTextDark>
-                <HoverLine />
               </SecondaryLink>
             </LinkWrapper>
             <LinkWrapper>
@@ -92,7 +90,6 @@ const Footer: React.FC = () => {
               />
               <SecondaryLink href="#">
                 <SmallTextDark>0774 032 561</SmallTextDark>
-                <HoverLine />
               </SecondaryLink>
             </LinkWrapper>
             <LinkWrapper>
@@ -103,7 +100,6 @@ const Footer: React.FC = () => {
               />
               <SecondaryLink href="#">
                 <SmallTextDark>WhatsApp</SmallTextDark>
-                <HoverLine />
               </SecondaryLink>
             </LinkWrapper>
           </SecondaryLinksContainer>
@@ -114,19 +110,15 @@ const Footer: React.FC = () => {
           <LinksLeft>
             <SecondaryLink>
               <SmallTextDark>Privacy Policy</SmallTextDark>
-              <HoverLine />
             </SecondaryLink>
             <SecondaryLink>
               <SmallTextDark>Terms and Conditions</SmallTextDark>
-              <HoverLine />
             </SecondaryLink>
             <SecondaryLink>
               <SmallTextDark>ANPC</SmallTextDark>
-              <HoverLine />
             </SecondaryLink>
             <SecondaryLink>
               <SmallTextDark>ANPC sol</SmallTextDark>
-              <HoverLine />
             </SecondaryLink>
           </LinksLeft>
           <LinksRight>
