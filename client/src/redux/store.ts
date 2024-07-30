@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 // Import your reducers here
 import bookingsReducer from './slices/bookingsSlice';
+import stylesReducer from './slices/stylesSlice';
 
 export const store = configureStore({
   reducer: {
     bookings: bookingsReducer,
+    styles: stylesReducer,
   },
 });
 

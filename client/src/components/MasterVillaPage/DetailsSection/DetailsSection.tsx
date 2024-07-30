@@ -56,13 +56,13 @@ import {
   GalleryStripItem,
   ItemThumbnail,
 } from './DetailsSection.styled';
-import { HoverLine } from '../../Navbar/Navbar.styled';
 import StickyCalendar from './CalendarSection/StickyCalendar/StickyCalendar';
 import DetailsHeader from './DetailsHeader/DetailsHeader';
 import DetailsRoomCard from './DetailsRoomCard/DetailsRoomCard';
 import DetailsFeatureIcon from './DetailsFeatureIcon/DetailsFeatureIcon';
 import DetailsTabs from './DetailsTabs/DetailsTabs';
 import CalendarSection from './CalendarSection/CalendarSection';
+import useDarkNavbar from '../../../utils/hooks/useDarkNavbar';
 
 const DetailsSection: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -70,6 +70,8 @@ const DetailsSection: React.FC = () => {
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activePhotoId, setActivePhotoId] = useState(1);
   // const [galleryId, setGalleryId] = useState(1)
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useDarkNavbar(sectionRef);
 
   const toggleDetails = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -139,7 +141,7 @@ const DetailsSection: React.FC = () => {
 
   return (
     <>
-      <SectionWrapper>
+      <SectionWrapper ref={sectionRef}>
         <SectionContainer>
           <GridContainer>
             <GridSection>
@@ -279,7 +281,6 @@ const DetailsSection: React.FC = () => {
                   onClick={toggleDetails}
                 >
                   <BoldTextSmall>View all 42 amenities &gt;</BoldTextSmall>
-                  <HoverLine />
                 </LinkContainer>
                 {showDetails && (
                   <ModalContainer ref={modalRef}>

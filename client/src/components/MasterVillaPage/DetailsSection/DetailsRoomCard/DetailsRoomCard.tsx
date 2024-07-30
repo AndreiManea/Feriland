@@ -1,4 +1,3 @@
-import { HoverLine } from '../../../Navbar/Navbar.styled';
 import {
   CardContainer,
   TextButtonContainer,
@@ -48,7 +47,6 @@ const CardComponent: React.FC<CardProps> = ({
             alt=""
           />
         </ArrowLink>
-        <HoverLine />
       </LinkContainer>
     </TextButtonContainer>
   </CardContainer>
