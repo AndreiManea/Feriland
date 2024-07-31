@@ -1,26 +1,15 @@
 import { useRef, useState } from 'react';
-// import CalendarSection from './CalendarSection/CalendarSection';
 import {
   Amenities,
   AmenitiesContainer,
   AmenitiesGrid,
-  ArrowLink,
-  BoldText,
   BoldTextLarge,
   BoldTextSmall,
   ButtonContainer,
-  CardContainer,
   CardsContainer,
   CloseButton,
-  Content,
-  ContentWrapper,
-  Description,
-  DetailsContainer,
-  DotDivider,
   GridContainer,
   GridSection,
-  Heading,
-  HeadingContainer,
   IconDetailsContainer,
   IconDetailsTextContainer,
   IconDetailsWrapper,
@@ -30,15 +19,6 @@ import {
   ModalContent,
   SectionContainer,
   SectionWrapper,
-  SubHeading,
-  Tab,
-  TabContent,
-  TabMenu,
-  TabText,
-  Tabs,
-  TabsContainer,
-  TextButtonContainer,
-  TextRegular,
   TextSmall,
   SmallTextNone,
   HeadingLeft,
@@ -656,7 +636,7 @@ const DetailsSection: React.FC = () => {
                 )}
               </AmenitiesContainer>
               <MenuDivider />
-              <CalendarSection />
+              <CalendarSection customClass="sectionCalendar" />
             </GridSection>
             <StickyCalendar />
           </GridContainer>
