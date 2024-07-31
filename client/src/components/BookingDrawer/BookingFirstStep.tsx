@@ -17,7 +17,7 @@ const BookingFirstStep = () => {
         Start Booking
       </Text>
       <Box className="drawerCalendar">
-        <CalendarSection />
+        <CalendarSection customClass="sectionCalendar" />
       </Box>
       <Menu
         matchWidth

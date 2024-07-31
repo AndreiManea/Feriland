@@ -83,7 +83,11 @@ const StickyCalendarHeader = ({
             className="stickyCalendar"
             sx={styles.calendarBox(isCalendarOpen, rightValue || 0)}
           >
-            <CalendarSection onSelection={() => setIsCalendarOpen(false)} />
+            <CalendarSection
+              customClass="stickyCalendarSection"
+              onSelection={() => setIsCalendarOpen(false)}
+              isSticky
+            />
           </Box>
         </HStack>
         <GuestsMenu

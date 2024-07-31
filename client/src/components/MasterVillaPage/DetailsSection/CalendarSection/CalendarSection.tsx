@@ -10,8 +10,17 @@ import {
   setSelectedNights,
 } from '../../../../redux/slices/bookingsSlice';
 import { parse } from 'date-fns';
+import { Heading, Text } from '@chakra-ui/react';
 
-const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
+const CalendarSection = ({
+  onSelection,
+  customClass,
+  isSticky,
+}: {
+  customClass: string;
+  onSelection?: () => void;
+  isSticky?: boolean;
+}) => {
   // Global state
   const dispatch = useAppDispatch();
   const { selectedDates, selectedNights } = useAppSelector(
@@ -63,10 +72,13 @@ const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
 
   return (
     <div className="calendar">
-      <h1 style={{ fontSize: '22px', marginTop: 0 }}>
+      <Heading
+        fontSize={isSticky ? '1.1rem' : '1.375rem'}
+        letterSpacing="0.125rem"
+      >
         {Math.round(selectedNights)} nights
-      </h1>
-      <h2 style={{ fontSize: '14px' }}>{datePreview}</h2>
+      </Heading>
+      <Text fontSize={isSticky ? '0.8rem' : '1.1rem'}>{datePreview}</Text>
       <DateRange
         onChange={handleSelect}
         ranges={[{ startDate, endDate }]}
@@ -75,6 +87,7 @@ const CalendarSection = ({ onSelection }: { onSelection?: () => void }) => {
         direction="horizontal"
         minDate={new Date()}
         disabledDates={disabledDates}
+        className={customClass}
       />
     </div>
   );
