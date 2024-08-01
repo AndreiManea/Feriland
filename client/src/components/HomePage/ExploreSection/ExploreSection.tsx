@@ -129,7 +129,7 @@ const ExploreSection: React.FC = () => {
               as="h1"
               size="h1"
               textAlign="center"
-              color="#fff"
+              color="white"
               my="0"
               fontSize="5rem"
               lineHeight="1"
@@ -142,7 +142,7 @@ const ExploreSection: React.FC = () => {
               textAlign="center"
               lineHeight="1.2"
               mb="0"
-              color="#fff"
+              color="white"
               fontSize="1.2rem"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -168,7 +168,7 @@ const ExploreSection: React.FC = () => {
                 textDecoration="none"
                 backgroundColor={customTheme.colors.primary[500]}
               >
-                <Text color="#fff" mb="0">
+                <Text color="white" mb="0">
                   Explore Cabin
                 </Text>
               </Link>
@@ -181,7 +181,7 @@ const ExploreSection: React.FC = () => {
                 padding="0.7rem 1.8rem"
                 textDecoration="none"
               >
-                <Text color="#fff" mb="0">
+                <Text color="white" mb="0">
                   Book Your Stay
                 </Text>
               </Link>

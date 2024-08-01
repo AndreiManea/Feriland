@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <Heading color="#fff" as="h1" size="h1" mt="1.2rem" mb="0.8rem">
+          <Heading color="white" as="h1" size="h1" mt="1.2rem" mb="0.8rem">
             Your Home In Nature
           </Heading>
         </HStack>

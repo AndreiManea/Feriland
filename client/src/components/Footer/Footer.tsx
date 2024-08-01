@@ -24,8 +24,8 @@ const Footer: React.FC = () => {
       borderTop="1px solid rgba(0, 0, 0, 0.1)"
     >
       <Grid
-        columnGap="0px"
-        rowGap="0px"
+        columnGap="0"
+        rowGap="0"
         templateRows="auto"
         templateColumns="1fr 1fr 1fr"
         autoColumns="1fr"
