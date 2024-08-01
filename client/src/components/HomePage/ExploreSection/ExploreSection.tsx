@@ -61,7 +61,7 @@ const ExploreSection: React.FC = () => {
   // Calculate the background color based on scroll position
   const backgroundColor = interpolateColor(
     '#2f2a27',
-    '#ffffff',
+    '#eae5df',
     scrollPosition
   );
 
