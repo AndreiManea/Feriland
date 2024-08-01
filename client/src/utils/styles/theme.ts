@@ -19,6 +19,9 @@ const components = {
       h2: {
         fontSize: '3.5rem', // 56px
       },
+      h1: {
+        fontSize: '4rem'
+      }
     },
   },
   Switch: {
