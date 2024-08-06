@@ -1,7 +1,15 @@
 import { Box } from '@chakra-ui/react';
 import { ReactNode, useState } from 'react';
 
-const HoverButtonWrapper = ({ children }: { children: ReactNode }) => {
+const HoverButtonWrapper = ({
+  children,
+  isRectangular,
+  alignSelf,
+}: {
+  children: ReactNode;
+  isRectangular?: boolean;
+  alignSelf?: string;
+}) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hover, setHover] = useState(false);
 
@@ -20,11 +28,12 @@ const HoverButtonWrapper = ({ children }: { children: ReactNode }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      alignSelf={alignSelf}
     >
       {children}
       {hover && (
         <Box
-          borderRadius="10rem"
+          borderRadius={isRectangular ? '0.2rem' : '10rem'}
           position="absolute"
           top={0}
           left={0}

@@ -13,6 +13,7 @@ export const styles = {
     flex: 1,
     color: '#222',
     fontSize: '1rem',
+    fontWeight: 'bold',
   },
   hStackInner: {
     flexShrink: 1,
@@ -35,6 +36,8 @@ export const styles = {
       background: 'transparent',
       opacity: 1,
     },
+    minWidth: '32px',
+    p: 0,
   },
   input: {
     color: '#547c39',

@@ -28,9 +28,6 @@ const StickyCalendarHeader = ({
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
 
-  const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -90,12 +87,7 @@ const StickyCalendarHeader = ({
             />
           </Box>
         </HStack>
-        <GuestsMenu
-          adults={adults}
-          children={children}
-          setAdults={setAdults}
-          setChildren={setChildren}
-        />
+        <GuestsMenu />
       </VStack>
     </VStack>
   );

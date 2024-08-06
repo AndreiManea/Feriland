@@ -14,7 +14,7 @@ const Counter: React.FC<CounterProps> = ({ label, value, setValue }) => {
       step: 1,
       value,
       min: 0,
-      onChange: (valueAsString, valueAsNumber) => setValue(valueAsNumber),
+      onChange: (_, valueAsNumber) => setValue(valueAsNumber),
     });
 
   const inc = getIncrementButtonProps();
