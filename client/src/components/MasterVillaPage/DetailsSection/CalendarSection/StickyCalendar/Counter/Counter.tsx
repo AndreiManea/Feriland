@@ -13,7 +13,7 @@ const Counter: React.FC<CounterProps> = ({ label, value, setValue }) => {
     useNumberInput({
       step: 1,
       value,
-      min: 0,
+      min: label === 'Adults' ? 1 : 0,
       onChange: (_, valueAsNumber) => setValue(valueAsNumber),
     });
 
