@@ -4,25 +4,35 @@ import {
   DrawerContent,
   DrawerCloseButton,
   DrawerBody,
-  Button,
-  Box,
-  HStack,
 } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setBookingDrawerOpen } from '../../redux/slices/bookingsSlice';
-import { useState } from 'react';
 import { styles } from './bookingDrawer.styled';
-import BookingFirstStep from './BookingFirstStep';
-import BookingSecondStep from './BookingSecondStep';
+import BookingStep1 from './BookingStep1';
+import BookingStep2 from './BookingStep2';
+import BookingStep3 from './BookingStep3';
+import BookingProgressBar from './BookingProgressBar';
+import BookingStep4 from './BookingStep4';
+
+const renderStep = (step: number) => {
+  switch (step) {
+    case 1:
+      return <BookingStep1 />;
+    case 2:
+      return <BookingStep2 />;
+    case 3:
+      return <BookingStep3 />;
+    case 4:
+      return <BookingStep4 />;
+  }
+};
 
 const BookingDrawer = () => {
   // Global state
   const dispatch = useAppDispatch();
-  const isBookingDrawerOpen = useAppSelector(
-    state => state.bookings.isBookingDrawerOpen
+  const { isBookingDrawerOpen, bookingStep } = useAppSelector(
+    state => state.bookings
   );
-
-  const [stepsCounter, setStepsCounter] = useState(1);
 
   return (
     <Drawer
@@ -33,52 +43,14 @@ const BookingDrawer = () => {
     >
       <DrawerOverlay />
       <DrawerContent sx={styles.drawerContent}>
-        <DrawerCloseButton {...styles.closeButton} />
+        <DrawerCloseButton
+          fontSize="1.65rem"
+          boxSize="3.25rem"
+          {...styles.closeButton}
+        />
         <DrawerBody sx={styles.drawerBody}>
-          <HStack
-            w="100%"
-            justifyContent="space-evenly"
-            border="2px solid white"
-            pt={3}
-            pb={3}
-            borderRadius={20}
-          >
-            <Box borderRadius={10} background="white" w="27.5%" h={2} />
-            <Box
-              borderRadius={10}
-              background="white"
-              w="27.5%"
-              h={2}
-              visibility={stepsCounter >= 2 ? 'visible' : 'hidden'}
-            />
-            <Box
-              borderRadius={10}
-              background="white"
-              w="27.5%"
-              h={2}
-              visibility={stepsCounter === 3 ? 'visible' : 'hidden'}
-            />
-          </HStack>
-          {stepsCounter === 1 && <BookingFirstStep />}
-          {stepsCounter === 2 && <BookingSecondStep />}
-          <HStack justifyContent="space-between">
-            {stepsCounter > 1 && (
-              <Button
-                sx={styles.stepperButton}
-                onClick={() => setStepsCounter(stepsCounter - 1)}
-              >
-                Previous
-              </Button>
-            )}
-            {stepsCounter < 3 && (
-              <Button
-                sx={styles.stepperButton}
-                onClick={() => setStepsCounter(stepsCounter + 1)}
-              >
-                Next
-              </Button>
-            )}
-          </HStack>
+          <BookingProgressBar />
+          {renderStep(bookingStep)}
         </DrawerBody>
       </DrawerContent>
     </Drawer>

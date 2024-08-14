@@ -7,8 +7,10 @@ export const styles = {
     bgRepeat: 'no-repeat',
     bgSize: 'cover',
     width: '100%',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     position: 'relative',
+    pt: '5rem',
+    overflowY: 'scroll',
   },
   drawerBody: {
     m: '0 auto',
@@ -18,7 +20,6 @@ export const styles = {
     backgroundColor: 'rgba(0,0,0, .69)',
     borderRadius: '1rem',
     flex: 'none',
-    alignSelf: 'center',
     overflow: 'visible',
     display: 'flex',
     flexDirection: 'column',
@@ -51,7 +52,8 @@ export const styles = {
   },
   closeButton: {
     background: 'white',
-    size: 'lg',
+    color: 'black',
+    borderRadius: '5rem',
   },
   stepperButton: {
     w: '20%',

@@ -34,7 +34,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
           <Box>
             <SectionLabel title="MENU" />
             <PageLink
-              title="Master Cabin"
+              title="Master Villa"
               onMouseEnter={() => setPageLinkHovered(1)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 1 || !pageLinkHovered}
