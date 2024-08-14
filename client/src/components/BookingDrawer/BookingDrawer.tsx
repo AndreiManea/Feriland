@@ -14,6 +14,19 @@ import BookingStep3 from './BookingStep3';
 import BookingProgressBar from './BookingProgressBar';
 import BookingStep4 from './BookingStep4';
 
+const renderStep = (step: number) => {
+  switch (step) {
+    case 1:
+      return <BookingStep1 />;
+    case 2:
+      return <BookingStep2 />;
+    case 3:
+      return <BookingStep3 />;
+    case 4:
+      return <BookingStep4 />;
+  }
+};
+
 const BookingDrawer = () => {
   // Global state
   const dispatch = useAppDispatch();
@@ -37,10 +50,7 @@ const BookingDrawer = () => {
         />
         <DrawerBody sx={styles.drawerBody}>
           <BookingProgressBar />
-          {bookingStep === 1 && <BookingStep1 />}
-          {bookingStep === 2 && <BookingStep2 />}
-          {bookingStep === 3 && <BookingStep3 />}
-          {bookingStep === 4 && <BookingStep4 />}
+          {renderStep(bookingStep)}
         </DrawerBody>
       </DrawerContent>
     </Drawer>
