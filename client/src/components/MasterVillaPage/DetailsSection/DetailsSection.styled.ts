@@ -118,6 +118,7 @@ export const CardsContainer = styled.div`
   min-width: 100%;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 `;
 
 export const CardContainer = styled.div`
