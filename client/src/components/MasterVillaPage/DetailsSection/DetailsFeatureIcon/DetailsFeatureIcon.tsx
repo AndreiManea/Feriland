@@ -1,11 +1,5 @@
-// IconDetailsComponent.tsx
 import React from 'react';
-import {
-  IconDetailsContainer,
-  IconDetailsTextContainer,
-  BoldText,
-  TextSmall,
-} from '../DetailsSection.styled';
+import { Box, HStack, Image, Text } from '@chakra-ui/react';
 
 interface IconDetailsProps {
   iconSrc: string;
@@ -18,13 +12,17 @@ const DetailsFeatureIcon: React.FC<IconDetailsProps> = ({
   boldText,
   smallText,
 }) => (
-  <IconDetailsContainer>
-    <img src={iconSrc} loading="lazy" alt="" />
-    <IconDetailsTextContainer>
-      <BoldText>{boldText}</BoldText>
-      <TextSmall>{smallText}</TextSmall>
-    </IconDetailsTextContainer>
-  </IconDetailsContainer>
+  <HStack gridGap="2rem" alignItems="center" pl="1rem">
+    <Image width="2rem" src={iconSrc} loading="lazy" alt="" />
+    <Box>
+      <Text as="p" textAlign="left" mb="0px" lineHeight="1.5" fontWeight="bold">
+        {boldText}
+      </Text>
+      <Text as="p" color="rgba(0, 0, 0, 0.8)" mb="0px">
+        {smallText}
+      </Text>
+    </Box>
+  </HStack>
 );
 
 export default DetailsFeatureIcon;
