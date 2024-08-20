@@ -1,7 +1,7 @@
 import { Box, Heading, HStack } from '@chakra-ui/react';
 import { SubText } from './Text';
 
-const DetailsHeader = () => {
+const HeaderSection = () => {
   return (
     <Box>
       <Heading
@@ -28,4 +28,4 @@ const DetailsHeader = () => {
   );
 };
 
-export default DetailsHeader;
+export default HeaderSection;

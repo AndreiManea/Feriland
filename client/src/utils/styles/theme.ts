@@ -13,6 +13,9 @@ const components = {
   },
   Heading: {
     sizes: {
+      h4: {
+        fontSize: '1.6rem', 
+      },
       h3: {
         fontSize: '2.625rem', // 42px
       },

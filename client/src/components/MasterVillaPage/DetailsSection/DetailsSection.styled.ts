@@ -46,7 +46,6 @@ export const SectionWrapper = styled.div`
 export const SectionContainer = styled.div`
   width: 100%;
   max-width: 1440px;
-  max-width: none;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2.08em;

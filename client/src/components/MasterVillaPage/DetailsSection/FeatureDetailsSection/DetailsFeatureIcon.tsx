@@ -1,17 +1,16 @@
-import React from 'react';
 import { Box, HStack, Image, Text } from '@chakra-ui/react';
 
-interface IconDetailsProps {
+type IconDetailsProps = {
   iconSrc: string;
   boldText: string;
   smallText: string;
-}
+};
 
-const DetailsFeatureIcon: React.FC<IconDetailsProps> = ({
+const DetailsFeatureIcon = ({
   iconSrc,
   boldText,
   smallText,
-}) => (
+}: IconDetailsProps) => (
   <HStack gridGap="2rem" alignItems="center" pl="1rem">
     <Image width="2rem" src={iconSrc} loading="lazy" alt="" />
     <Box>

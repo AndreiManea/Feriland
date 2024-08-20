@@ -5,7 +5,7 @@ interface CardProps {
   imgSet: string;
   altText: string;
   title: string;
-  onClick: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  toggleGalleryModal: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 const CardComponent: React.FC<CardProps> = ({
@@ -13,7 +13,7 @@ const CardComponent: React.FC<CardProps> = ({
   imgSet,
   altText,
   title,
-  onClick,
+  toggleGalleryModal,
 }) => (
   <HStack
     alignItems="center"
@@ -43,7 +43,7 @@ const CardComponent: React.FC<CardProps> = ({
         href="#"
         aria-label="open lightbox"
         aria-haspopup="dialog"
-        onClick={onClick}
+        onClick={toggleGalleryModal}
       >
         <HStack alignItems="center" gridGap="1rem" >
           <Text mb="0px" color="rgba(0, 0, 0, 0.8)">View Images</Text>
