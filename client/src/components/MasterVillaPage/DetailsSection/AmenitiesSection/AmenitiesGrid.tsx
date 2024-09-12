@@ -1,11 +1,7 @@
 import { Grid } from '@chakra-ui/react';
 
 import AmenityItem from './AmenityItem';
-
-export type Amenity = {
-  iconSrc: string;
-  label: string;
-};
+import { Amenity } from '../../../../utils/types';
 
 type AmenitiesGridProps = {
   amenitiesData: Amenity[];
@@ -24,8 +20,8 @@ const AmenitiesGrid = ({ amenitiesData }: AmenitiesGridProps) => {
       {amenitiesData.map((amenity, index) => (
         <AmenityItem
           key={index}
-          iconSrc={amenity.iconSrc}
-          label={amenity.label}
+          iconSrc={amenity.src}
+          label={amenity.text}
         />
       ))}
     </Grid>

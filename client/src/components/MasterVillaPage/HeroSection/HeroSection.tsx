@@ -1,10 +1,7 @@
-// import './HeroSection.css';
 import { Box, Heading, VStack, Image } from '@chakra-ui/react';
 import masterVillaImg from '../../../assets/master-villa.png';
 
 const HeroSection: React.FC = () => {
-  const sentence =
-    'Imagine a haven of serenity where time stands still and noise fades away to birdsong. A dreamland where you can stroll around an elegant medieval hamlet as you pass enchanting stone cottages that whisper stories of long ago.';
 
   return (
     <Box>
@@ -56,7 +53,7 @@ const HeroSection: React.FC = () => {
       <Box
         position="relative"
         zIndex="10"
-        height="100vh"
+        height="65vh"
         py="0"
         overflow="visible"
         borderTopRadius="100rem"
@@ -128,21 +125,6 @@ const HeroSection: React.FC = () => {
             />
           </Box>
         </VStack>
-        <Box mx="auto" px="2rem">
-          <VStack height="100vh" justifyContent="center" alignItems="center">
-            <Heading
-              as="h2"
-              size="h2"
-              maxW="50rem"
-              lineHeight="2.2"
-              fontSize="2rem"
-              textAlign="center"
-              color="white"
-            >
-              {sentence}
-            </Heading>
-          </VStack>
-        </Box>
       </Box>
     </Box>
   );

@@ -232,7 +232,7 @@ export const amenitiesByCategory = {
   kitchenDining: [
     {
       src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddce68e750f1cc62d0de1b_spoon_13865462.svg',
-      text: 'Kitchen on premise',
+      text: 'Kitchen',
     },
     {
       src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0522838b64e3bbbd7a979_refrigerator_10400518.svg',

@@ -2,13 +2,7 @@ import { Grid } from '@chakra-ui/react';
 import RoomCard from './RoomCard';
 import { useState } from 'react';
 import GalleryModal from '../GalleryModal/GalleryModal';
-
-export type Card = {
-  src: string;
-  srcSet: string;
-  altText: string;
-  title: string;
-};
+import { Card } from '../../../../utils/types';
 
 type RoomCardGridProps = {
   cardItems: Card[];

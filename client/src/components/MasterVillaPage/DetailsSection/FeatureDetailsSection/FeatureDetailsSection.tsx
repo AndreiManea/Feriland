@@ -1,11 +1,6 @@
 import { VStack } from '@chakra-ui/react';
 import DetailsFeatureIcon from './DetailsFeatureIcon';
-
-export type Feature = {
-  iconSrc: string;
-  boldText: string;
-  smallText: string;
-};
+import { Feature } from '../../../../utils/types';
 
 type FeatureDetailsProps = {
   featuresArray: Feature[];

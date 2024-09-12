@@ -1,14 +1,17 @@
 import { useRef } from 'react';
 import StickyCalendar from './CalendarSection/StickyCalendar/StickyCalendar';
 import useDarkNavbar from '../../../utils/hooks/useDarkNavbar';
-import { cardItems, featuresArray, amenitiesData } from '../../../utils/data';
+import { cardItems, featuresArray, amenitiesByCategory } from '../../../utils/data';
 import { Box, Grid } from '@chakra-ui/react';
 import DetailsLeftSection from './DetailsLeftSection/DetailsLeftSection';
+import { getAmenitiesFromEachCategory } from '../../../utils/mockData.utils';
 
 const DetailsSection: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useDarkNavbar(sectionRef);
+
+  const amenitiesList = getAmenitiesFromEachCategory(amenitiesByCategory);
 
   return (
     <>
@@ -32,7 +35,7 @@ const DetailsSection: React.FC = () => {
           <DetailsLeftSection
             cardItems={cardItems}
             featuresArray={featuresArray}
-            amenities={amenitiesData}
+            amenities={amenitiesList}
             modalRef={modalRef}
           />
           <StickyCalendar />
