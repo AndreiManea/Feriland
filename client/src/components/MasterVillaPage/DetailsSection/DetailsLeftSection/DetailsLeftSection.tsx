@@ -25,7 +25,6 @@ const DetailsLeftSection = ({
       alignItems="flex-start"
       gridGap="4rem"
       position="static"
-      pb="100rem"
     >
       <HeaderSection />
       <RoomCardsSection cardItems={cardItems} />
