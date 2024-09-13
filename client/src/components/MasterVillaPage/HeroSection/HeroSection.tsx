@@ -1,7 +1,19 @@
-import { Box, Heading, VStack, Image } from '@chakra-ui/react';
+import { Box, Heading, VStack, Image, Link } from '@chakra-ui/react';
 import masterVillaImg from '../../../assets/master-villa.png';
+import VideoModal from './VideoModal';
+import { useState } from 'react';
 
 const HeroSection: React.FC = () => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = (
+    event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    if (event) {
+      event.preventDefault();
+    }
+    setIsFullscreen(prevState => !prevState);
+  };
 
   return (
     <Box>
@@ -50,6 +62,12 @@ const HeroSection: React.FC = () => {
         </VStack>
       </Box>
 
+      <Link
+        href="#"
+        aria-label="open lightbox"
+        aria-haspopup="dialog"
+        onClick={toggleFullscreen}
+      >
       <Box
         position="relative"
         zIndex="10"
@@ -126,6 +144,11 @@ const HeroSection: React.FC = () => {
           </Box>
         </VStack>
       </Box>
+      </Link>
+      <VideoModal
+        isFullscreen={isFullscreen}
+        toggleFullscreen={toggleFullscreen}
+      />
     </Box>
   );
 };
