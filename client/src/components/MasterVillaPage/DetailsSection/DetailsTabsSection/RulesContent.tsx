@@ -5,10 +5,10 @@ import InfoSectionItem from './InfoSectionItem';
 
 const RulesContent = () => {
   return (
-    <VStack align="flex-start" spacing={4}>
+    <VStack align="flex-start" spacing="1rem">
       <IconDetails text="Check-in: 3:00 PM - 6:00 PM" />
       <IconDetails text="Checkout before 10:00 AM" />
-      <Text fontWeight="700" fontSize="1.6em" mt="0.8rem" mb="0">
+      <Text fontWeight="700" fontSize="1.6rem" mt="0.8rem" mb="0">
         Additional Rules
       </Text>
       <Box>
