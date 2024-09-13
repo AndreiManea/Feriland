@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import '../../../../../../utils/styles/rdrCalendar.css';
 import GuestsMenu from '../GuestsMenu/GuestsMenu';
 import { styles } from './stickyCalendarHeader.styles';
-import { formatDate } from '../../../../../../utils/dates.utils';
+import { formatDate } from '../../../../../../utils/helperFunctions.utils';
 import CalendarSection from '../../CalendarSection';
 
 const StickyCalendarHeader = ({

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import customTheme from '../../../utils/styles/theme';
-import { interpolateColor } from '../../../utils/interpolateColors';
+import { interpolateColor } from '../../../utils/helperFunctions.utils';
 
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);

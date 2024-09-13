@@ -9,8 +9,9 @@ type FeatureDetailsProps = {
 const FeatureDetailsSection = ({ featuresArray }: FeatureDetailsProps) => {
   return (
     <VStack alignItems="flex-start" justifyContent="center" gridGap="2rem">
-      {featuresArray.map(feature => (
+      {featuresArray.map((feature, index) => (
         <DetailsFeatureIcon
+          key={index}
           iconSrc={feature.iconSrc}
           boldText={feature.boldText}
           smallText={feature.smallText}

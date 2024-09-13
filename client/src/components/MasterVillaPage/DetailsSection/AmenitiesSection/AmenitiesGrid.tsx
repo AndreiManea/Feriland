@@ -3,9 +3,9 @@ import { Grid } from '@chakra-ui/react';
 import AmenityItem from './AmenityItem';
 import { Amenity } from '../../../../utils/types';
 
-type AmenitiesGridProps = {
+interface AmenitiesGridProps{
   amenitiesData: Amenity[];
-};
+}
 
 const AmenitiesGrid = ({ amenitiesData }: AmenitiesGridProps) => {
   return (

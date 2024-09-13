@@ -14,7 +14,7 @@ const HeroSection: React.FC = () => {
           height="100vh"
           position="relative"
           overflow="hidden"
-        />{' '}
+        />
         <Box
           zIndex="2"
           backgroundColor="rgba(0, 0, 0, 0.23)"
@@ -53,7 +53,7 @@ const HeroSection: React.FC = () => {
       <Box
         position="relative"
         zIndex="10"
-        height="65vh"
+        height="100vh"
         py="0"
         overflow="visible"
         borderTopRadius="100rem"

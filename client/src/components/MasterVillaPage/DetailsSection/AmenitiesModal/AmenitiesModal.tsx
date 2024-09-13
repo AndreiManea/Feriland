@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect } from 'react';
 import { Image, Heading, Link, VStack } from '@chakra-ui/react';
 import AmenityCategory from '../AmenitiesSection/AmenityCategory'; // Adjust the import path
 import { amenitiesByCategory } from '../../../../utils/data';
+import { CategoryKey } from '../../../../utils/helperFunctions.utils';
 
 interface AmenitiesModalProps {
   showDetails: boolean;
@@ -10,8 +11,6 @@ interface AmenitiesModalProps {
   ) => void;
   modalRef: React.RefObject<HTMLDivElement>;
 }
-
-type CategoryKey = keyof typeof amenitiesByCategory;
 
 const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
   ({ showDetails, toggleDetails, modalRef }) => {
@@ -48,13 +47,13 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
           overflowY="scroll"
           p="0 0 2vw"
           bg="white"
-          borderRadius="1.5em"
+          borderRadius="1.5rem"
           maxH="50vh"
           maxW="40.6rem"
           minH="50vh"
           minW="40.6rem"
           width="100%"
-          gap="2em"
+          gap="2rem"
           alignItems="flex-start"
           position="relative"
         >
@@ -62,8 +61,8 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
             zIndex="3"
             width="100%"
             bg="white"
-            borderTopLeftRadius="1.5em"
-            borderTopRightRadius="1.5em"
+            borderTopLeftRadius="1.5rem"
+            borderTopRightRadius="1.5rem"
             alignItems="flex-start"
             mb="0"
             p="1vw 2vw 1vw 1.5vw"
@@ -72,7 +71,7 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
           >
             <Link
               cursor="pointer"
-              borderRadius="10em"
+              borderRadius="10rem"
               p="16px"
               onClick={toggleDetails}
               variant="unstyled"
@@ -87,7 +86,7 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
             </Link>
           </VStack>
           <VStack gridGap="2em" alignItems="flex-start" px="2rem">
-            <Heading as="h2" size="h2" mb="0px">
+            <Heading as="h2" size="h2" mb="0">
               Amenities
             </Heading>
             {Object.keys(amenitiesByCategory).map(category => (

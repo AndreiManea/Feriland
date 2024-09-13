@@ -1,10 +1,10 @@
 import { HStack, Image, Text } from '@chakra-ui/react';
 
-type Props = {
+interface IconDetailsProps {
   text: string;
-};
+}
 
-const IconDetails = ({text}:Props) => {
+const IconDetails = ({ text }: IconDetailsProps) => {
   return (
     <HStack gap="2rem" alignItems="center" pl="0.8rem">
       <Image
@@ -12,7 +12,9 @@ const IconDetails = ({text}:Props) => {
         alt="Check-in/out icon"
         width="2rem"
       />
-      <Text fontSize="1rem" mb="0px">{text}</Text>
+      <Text fontSize="1rem" mb="0">
+        {text}
+      </Text>
     </HStack>
   );
 };

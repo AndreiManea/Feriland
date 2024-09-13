@@ -1,19 +1,7 @@
 import { Grid, Heading } from '@chakra-ui/react';
 import AmenityItem from '../AmenitiesSection/AmenityItem';
-
-const categoryNames: Record<string, string> = {
-  scenicViews: 'Scenic Views',
-  bathroom: 'Bathroom',
-  bedroomLaundry: 'Bedroom & Laundry',
-  entertainment: 'Entertainment',
-  kitchenDining: 'Kitchen & Dining',
-  outdoor: 'Outdoor',
-};
-
-type Amenity = {
-  src: string;
-  text: string;
-};
+import { categoryNames } from '../../../../utils/data';
+import { Amenity } from '../../../../utils/types';
 
 interface AmenityCategoryProps {
   categoryName: string;
@@ -21,11 +9,11 @@ interface AmenityCategoryProps {
 }
 
 const AmenityCategory = ({ categoryName, amenities }: AmenityCategoryProps) => {
-  const displayCategoryName = categoryNames[categoryName] || categoryName;
+  const displayCategoryName = categoryNames[categoryName];
 
   return (
     <>
-      <Heading as="h4" size="h4" mb="0px" mt="0.8rem">
+      <Heading as="h4" size="h4" mb="0" mt="0.8rem">
         {displayCategoryName}
       </Heading>
       <Grid

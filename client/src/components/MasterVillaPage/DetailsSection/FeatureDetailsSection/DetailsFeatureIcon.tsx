@@ -14,10 +14,10 @@ const DetailsFeatureIcon = ({
   <HStack gridGap="2rem" alignItems="center" pl="1rem">
     <Image width="2rem" src={iconSrc} loading="lazy" alt="" />
     <Box>
-      <Text as="p" textAlign="left" mb="0px" lineHeight="1.5" fontWeight="bold">
+      <Text as="p" textAlign="left" mb="0" lineHeight="1.5" fontWeight="bold">
         {boldText}
       </Text>
-      <Text as="p" color="rgba(0, 0, 0, 0.8)" mb="0px">
+      <Text as="p" color="rgba(0, 0, 0, 0.8)" mb="0">
         {smallText}
       </Text>
     </Box>

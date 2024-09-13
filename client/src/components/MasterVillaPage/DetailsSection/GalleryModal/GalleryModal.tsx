@@ -86,7 +86,7 @@ const GalleryModal = ({
               />
             </VStack>
           </ModalBody>
-          <Box p="4">
+          <Box p="1rem">
             <HStack justifyContent="center">
               {photos.map((photo, index) => (
                 <Box

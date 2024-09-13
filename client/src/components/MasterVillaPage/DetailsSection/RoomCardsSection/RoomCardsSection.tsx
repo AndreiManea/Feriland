@@ -29,8 +29,9 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
         minW="100%"
         gridAutoColumns="1fr"
       >
-        {cardItems.map(card => (
+        {cardItems.map((card,index) => (
           <RoomCard
+            key={index}
             imgSrc={card.src}
             imgSet={card.srcSet}
             altText={card.altText}

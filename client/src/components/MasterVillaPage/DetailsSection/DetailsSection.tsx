@@ -4,7 +4,7 @@ import useDarkNavbar from '../../../utils/hooks/useDarkNavbar';
 import { cardItems, featuresArray, amenitiesByCategory } from '../../../utils/data';
 import { Box, Grid } from '@chakra-ui/react';
 import DetailsLeftSection from './DetailsLeftSection/DetailsLeftSection';
-import { getAmenitiesFromEachCategory } from '../../../utils/mockData.utils';
+import { getAmenitiesFromEachCategory } from '../../../utils/helperFunctions.utils';
 
 const DetailsSection: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);

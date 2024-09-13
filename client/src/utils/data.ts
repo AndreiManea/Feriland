@@ -95,59 +95,6 @@ export const featuresArray = [
   },
 ];
 
-export const amenitiesData = [
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddce68e750f1cc62d0de1b_spoon_13865462.svg',
-    label: 'Kitchen',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddce7f81c110a2718c6688_connection_13808316.svg',
-    label: 'Fast wifi - 567 Mbps',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddcebd64a3dd0c908ab15c_store_13808743.svg',
-    label: 'Pets Allowed',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddcef3e30ad8301dda2634_multimedia_13866697.svg',
-    label: "90'' Smart Projector - Netflix",
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddcf5a7e945dad6c0e5393_camp_13809154.svg',
-    label: 'Fire Pit',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd00453bad6094728ed29_bath_13805708.svg',
-    label: 'Outdoor Shower',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd04f7b22dce63f5d710c_hot-tub_9247169.svg',
-    label: 'Ciubar / Hot Tub',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd12d0e13a6ab08cfe994_toilet-hanger_13809689.svg',
-    label: 'Bath Robe / Towels',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd1a1475b4c687ff43465_camera_13807476.svg',
-    label: 'Security cameras',
-  },
-  {
-    iconSrc:
-      'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd1ccb6199bfeb56e36a6_christmas_13808034.svg',
-    label: 'Air conditioning',
-  },
-];
-
 export const amenitiesByCategory = {
   scenicViews: [
     {
@@ -299,4 +246,38 @@ export const photos = [
   'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png',
   'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg',
   'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d5e1dd4aca861aa649961c_masterpoolvillabalex-1920x-q72.jpg',
+];
+
+export const categoryNames: Record<string, string> = {
+  scenicViews: 'Scenic Views',
+  bathroom: 'Bathroom',
+  bedroomLaundry: 'Bedroom & Laundry',
+  entertainment: 'Entertainment',
+  kitchenDining: 'Kitchen & Dining',
+  outdoor: 'Outdoor',
+};
+
+export const descriptionText_1 =
+  'Galbino is a stunning 16th century castle in the midst of nature just a few kilometres from the enchanting village of Anghiari. On a hill surrounded by woods and fields, Galbino Castle is a private and exclusive place to relax, explore nature, visit the cultural attractions of the area and enjoy the Tuscan delights of food and wine. The castle is naturally cool thanks to its thick walls and features an infinity pool with spectacular countryside views...';
+export const descriptionText_2 = 'The Space - Keep it relatively short';
+export const descriptionText_3 =
+  'The Castle, which is rented out for private use, has ten bedrooms on two floors, a huge games room with billiards and a ping pong table, a large kitchen with a fireplace, two dining rooms, a library, a living room with walls covered in frescos and a small chapel which is still consecrated. The castle is surrounded by a large garden, also for the exclusive use of guests, housing the spectacular infinity pool overlooking the Tuscan countryside.A few steps from the pool there is a comfortable changing room with a bathroom and shower.';
+
+export const infoSections = [
+  {
+    title: 'Included in the price:',
+    content: `Internet access, air conditioning, parking place, electricity, gas, water, final cleaning, bed linen, hand towels, pool, sun loungers, Wireless Internet access.`,
+  },
+  {
+    title: 'Occupancy:',
+    content: `4 persons and 2 persons (extra beds) including children and infants (under 2 years). Please note that the maximum occupancy (6 persons) must not be exceeded even with infants under 2 years of age.`,
+  },
+  {
+    title: 'Pets:',
+    content: `Not allowed. Free of charge.`,
+  },
+  {
+    title: 'Deposit:',
+    content: `Deposit (in cash when the keys are handed over on site, will be refunded on departure): EUR 200`,
+  },
 ];

@@ -1,19 +1,17 @@
 import { Box, VStack } from '@chakra-ui/react';
 import HeaderSection from '../HeaderSection/HeaderSection';
-import RoomCardsSection, { Card } from '../RoomCardsSection/RoomCardsSection';
-import FeatureDetailsSection, {
-  Feature,
-} from '../FeatureDetailsSection/FeatureDetailsSection';
+import RoomCardsSection from '../RoomCardsSection/RoomCardsSection';
+import FeatureDetailsSection from '../FeatureDetailsSection/FeatureDetailsSection';
 import DetailsTabsSection from '../DetailsTabsSection/DetailsTabsSection';
 import AmenitiesSection from '../AmenitiesSection/AmenitiesSection';
-import { Amenity } from '../AmenitiesSection/AmenitiesGrid';
+import { Amenity, Card, Feature } from '../../../../utils/types';
 
-type DetailsLeftSectionProps = {
+interface DetailsLeftSectionProps {
   cardItems: Card[];
   featuresArray: Feature[];
   amenities: Amenity[];
   modalRef: React.RefObject<HTMLDivElement>;
-};
+}
 
 const DetailsLeftSection = ({
   cardItems,

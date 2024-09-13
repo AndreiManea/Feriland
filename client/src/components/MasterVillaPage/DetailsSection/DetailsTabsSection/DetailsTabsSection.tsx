@@ -14,7 +14,7 @@ const DetailsTabsSection = () => {
   const [currentTab, setCurrentTab] = useState(0);
 
   return (
-    <Box width="100%" maxWidth="none" mx="auto" mt="0px" pt="0px">
+    <Box width="100%" maxWidth="none" mx="auto" mt="0" pt="0">
       <Tabs
         index={currentTab}
         onChange={index => setCurrentTab(index)}
@@ -33,7 +33,7 @@ const DetailsTabsSection = () => {
           <TabItem label="Description" isSelected={currentTab === 0} />
           <TabItem label="Rules" isSelected={currentTab === 1} />
         </TabList>
-        <TabPanels mt={8} px={4}>
+        <TabPanels mt="1rem" px="1rem">
           <TabPanel p={0}>
             <DescriptionContent />
           </TabPanel>

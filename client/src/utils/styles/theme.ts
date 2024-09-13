@@ -8,7 +8,7 @@ const fonts = {
 const components = {
   Text: {
     baseStyle: {
-      fontSize: '1.2em',
+      fontSize: '1.2rem',
     },
   },
   Heading: {
