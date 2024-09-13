@@ -5,17 +5,17 @@ import { Box, Modal, ModalCloseButton, ModalContent, ModalOverlay, Spinner } fro
 type VideoFullscreenProps = {
   isFullscreen: boolean;
   toggleFullscreen: () => void;
+  videoId: string
 };
 
 const VideoModal = ({
   isFullscreen,
   toggleFullscreen,
+  videoId
 }: VideoFullscreenProps) => {
   const [isLoading, setIsLoading] = useState(true); 
 
   if (!isFullscreen) return null;
-
-  const videoId = '6ffES6xEyxw';
 
   const opts = {
     height: '100%',

@@ -153,6 +153,7 @@ const HeroSection: React.FC = () => {
       <VideoModal
         isFullscreen={isFullscreen}
         toggleFullscreen={toggleFullscreen}
+        videoId="6ffES6xEyxw"
       />
     </Box>
   );
