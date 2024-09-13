@@ -2,9 +2,8 @@ import { Box, Heading, VStack, Image } from '@chakra-ui/react';
 import masterVillaImg from '../../../assets/master-villa.png';
 
 const HeroSection: React.FC = () => {
-
   return (
-    <Box>
+    <Box overflow="hidden" height="100vh">
       <Box position="sticky" height="auto" zIndex="1" top="0" overflow="hidden">
         <Box
           backgroundImage={`url(${masterVillaImg})`}
@@ -54,9 +53,11 @@ const HeroSection: React.FC = () => {
         position="relative"
         zIndex="10"
         height="100vh"
+        width="40vw"
+        mx="auto"
         py="0"
         overflow="visible"
-        borderTopRadius="100rem"
+        borderTopRadius="20vw"
         mt="-10vh"
         backdropFilter="blur(2.5rem)"
         backgroundColor="rgba(0, 0, 0, 0.533)"
@@ -71,8 +72,8 @@ const HeroSection: React.FC = () => {
           justifyContent="center"
           borderRadius="100rem"
           mx="auto"
-          width="12.5rem"
-          height="12.5rem"
+          width="10.5rem"
+          height="10.5rem"
           mt="-6rem"
           overflow="hidden"
         >
