@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DateRange, RangeKeyDict } from 'react-date-range';
-import { formatDate } from '../../../../utils/dates.utils';
+import { formatDate } from '../../../../utils/helperFunctions.utils';
 
 import '../../../../utils/styles/rdrCalendar.css';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';

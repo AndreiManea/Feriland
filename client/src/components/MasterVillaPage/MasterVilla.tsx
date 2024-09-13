@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import DetailsSection from './DetailsSection/DetailsSection';
 import HeroSection from './HeroSection/HeroSection';
+import Footer from '../Footer/Footer';
 
 const MasterVillaPage: React.FC = () => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const MasterVillaPage: React.FC = () => {
     <>
       <HeroSection />
       <DetailsSection />
+      <Footer />
     </>
   );
 };
