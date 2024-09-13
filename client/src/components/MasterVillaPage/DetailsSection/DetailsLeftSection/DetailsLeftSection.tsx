@@ -5,6 +5,7 @@ import FeatureDetailsSection from '../FeatureDetailsSection/FeatureDetailsSectio
 import DetailsTabsSection from '../DetailsTabsSection/DetailsTabsSection';
 import AmenitiesSection from '../AmenitiesSection/AmenitiesSection';
 import { Amenity, Card, Feature } from '../../../../utils/types';
+import CalendarSection from '../CalendarSection/CalendarSection';
 
 interface DetailsLeftSectionProps {
   cardItems: Card[];
@@ -17,7 +18,7 @@ const DetailsLeftSection = ({
   cardItems,
   featuresArray,
   amenities,
-  modalRef
+  modalRef,
 }: DetailsLeftSectionProps) => {
   return (
     <VStack
@@ -27,9 +28,7 @@ const DetailsLeftSection = ({
       pb="100rem"
     >
       <HeaderSection />
-      <RoomCardsSection
-        cardItems={cardItems}
-      />
+      <RoomCardsSection cardItems={cardItems} />
       <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
       <FeatureDetailsSection featuresArray={featuresArray} />
       <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
@@ -37,6 +36,7 @@ const DetailsLeftSection = ({
       <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
       <AmenitiesSection amenities={amenities} modalRef={modalRef} />
       <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
+      <CalendarSection customClass="sectionCalendar" />
     </VStack>
   );
 };
