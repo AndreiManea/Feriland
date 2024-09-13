@@ -1,7 +1,20 @@
 import { Box, HStack, Button } from '@chakra-ui/react';
 import HoverButtonWrapper from '../HoverButtonWrapper/HoverButtonWrapper';
+import { useState } from 'react';
+import VideoModal from '../MasterVillaPage/HeroSection/VideoModal';
 
 const MovieButton = () => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = (
+    event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (event) {
+      event.preventDefault();
+    }
+    setIsFullscreen((prevState) => !prevState);
+  };
+
   return (
     <Box
       width="100%"
@@ -24,17 +37,23 @@ const MovieButton = () => {
         <HoverButtonWrapper>
           <Button
             position="relative"
-            onClick={() => console.log('Movie time!')}
+            onClick={toggleFullscreen}
             backgroundColor="#547c39"
             _hover={{ backgroundColor: '#547c39' }}
             color={'white'}
             p="1.5rem 2rem"
             borderRadius="10rem"
+            cursor="pointer"
           >
             Watch the film
           </Button>
         </HoverButtonWrapper>
       </HStack>
+      <VideoModal
+        isFullscreen={isFullscreen}
+        toggleFullscreen={toggleFullscreen}
+        videoId="6ffES6xEyxw"
+      />
     </Box>
   );
 };
