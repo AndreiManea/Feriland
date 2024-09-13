@@ -85,7 +85,7 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
               />
             </Link>
           </VStack>
-          <VStack gridGap="2em" alignItems="flex-start" px="2rem">
+          <VStack gridGap="2rem" alignItems="flex-start" px="2rem">
             <Heading as="h2" size="h2" mb="0">
               Amenities
             </Heading>
