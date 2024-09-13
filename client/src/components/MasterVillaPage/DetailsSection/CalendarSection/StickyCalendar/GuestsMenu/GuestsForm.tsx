@@ -19,6 +19,8 @@ const GuestsForm: React.FC = () => {
           setValue={adultsNumber =>
             dispatch(setSelectedPersons({ adults: adultsNumber, children }))
           }
+          minValue={1}
+          maxValue={6 - children}
         />
         <Counter
           label="Children"
@@ -26,6 +28,8 @@ const GuestsForm: React.FC = () => {
           setValue={childrenNumber =>
             dispatch(setSelectedPersons({ adults, children: childrenNumber }))
           }
+          maxValue={6 - adults}
+          minValue={0}
         />
       </VStack>
       <Text sx={styles.infoText}>
