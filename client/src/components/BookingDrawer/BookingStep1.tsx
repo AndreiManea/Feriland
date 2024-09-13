@@ -2,9 +2,9 @@ import { Box, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import CalendarSection from '../MasterVillaPage/DetailsSection/CalendarSection/CalendarSection';
 import { useState } from 'react';
 import { useAppSelector } from '../../redux/hooks';
-import { formatDate } from '../../utils/dates.utils';
 import BookingStepButtons from './BookingStepButtons';
 import InputNumberField from '../InputNumberField/InputNumberField';
+import { formatDate } from '../../utils/helperFunctions.utils';
 
 const BookingStep1 = () => {
   const [isCalendar, setIsCalendar] = useState(false);

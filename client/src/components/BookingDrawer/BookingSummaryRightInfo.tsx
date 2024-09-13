@@ -1,8 +1,8 @@
 import { VStack } from '@chakra-ui/react';
 import { useAppSelector } from '../../redux/hooks';
-import { formatDate } from '../../utils/dates.utils';
 import BookingSummaryField from './BookingSummaryField';
 import BookingSummaryTotal from './BookingSummaryTotal';
+import { formatDate } from '../../utils/helperFunctions.utils';
 
 const BookingSummaryRightInfo = () => {
   const { selectedDates, selectedNights, selectedPersons, selectedCabin } =
