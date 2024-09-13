@@ -17,6 +17,16 @@ const GuestsMenu: React.FC = () => {
       matchWidth
       onClose={() => setIsOpen(prev => !prev)}
       onOpen={() => setIsOpen(prev => !prev)}
+      // Ensure always opens to the bottom
+      placement="bottom"
+      modifiers={[
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: [],
+          },
+        },
+      ]}
     >
       <MenuButton
         as={Button}

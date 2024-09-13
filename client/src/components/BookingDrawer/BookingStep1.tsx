@@ -1,6 +1,6 @@
 import { Box, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import CalendarSection from '../MasterVillaPage/DetailsSection/CalendarSection/CalendarSection';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import BookingStepButtons from './BookingStepButtons';
 import InputNumberField from '../InputNumberField/InputNumberField';
@@ -13,6 +13,26 @@ const BookingStep1 = () => {
   );
   const startDate = new Date(selectedDates[0].startDate as string);
   const endDate = new Date(selectedDates[0].endDate as string);
+  const calendarRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        calendarRef.current &&
+        !calendarRef.current.contains(event.target as Node) &&
+        toggleButtonRef.current &&
+        !toggleButtonRef.current.contains(event.target as Node)
+      ) {
+        setIsCalendar(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, []);
 
   return (
     <>
@@ -36,6 +56,7 @@ const BookingStep1 = () => {
               width="100%"
               alignItems="center"
               p="1.25rem 0.75rem"
+              ref={toggleButtonRef}
               onClick={() => setIsCalendar(!isCalendar)}
             >
               <Text letterSpacing="1px" fontSize="1rem" m={0}>
@@ -43,7 +64,13 @@ const BookingStep1 = () => {
               </Text>
             </HStack>
             {isCalendar && (
-              <Box position="absolute" width="100%" top="110%" zIndex="100">
+              <Box
+                ref={calendarRef}
+                position="absolute"
+                width="100%"
+                top="110%"
+                zIndex="100"
+              >
                 <CalendarSection
                   customClass="bookingCalendar"
                   noText
