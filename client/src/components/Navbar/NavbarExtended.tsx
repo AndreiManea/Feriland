@@ -1,4 +1,4 @@
-import { Box, HStack, VStack, Image } from '@chakra-ui/react';
+import { Box, HStack, VStack, Image, Link } from '@chakra-ui/react';
 import fullLogo from '../../assets/FullLogo.png';
 import PageLink from '../links/PageLink';
 import SectionLabel from '../texts/SectionLabel';
@@ -38,18 +38,21 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               onMouseEnter={() => setPageLinkHovered(1)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 1 || !pageLinkHovered}
+              to="/master-villa"
             />
             <PageLink
               title="Discover"
               onMouseEnter={() => setPageLinkHovered(2)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 2 || !pageLinkHovered}
+              to="/discover"
             />
             <PageLink
               title="Contact"
               onMouseEnter={() => setPageLinkHovered(3)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 3 || !pageLinkHovered}
+              to="/contact"
             />
           </Box>
           <NavbarDivider />
@@ -64,7 +67,9 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
           position="relative"
           display={isMenuOpen ? 'flex' : 'none'}
         >
-          <Image src={fullLogo} maxWidth="70%" />
+          <Link href="/" textAlign="center">
+            <Image src={fullLogo} maxWidth="70%" />
+          </Link>
           <HStack width="100%" justifyContent="space-around">
             <VStack
               gap="0.438rem"
@@ -72,9 +77,9 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               justifyContent="flex-start"
             >
               <SectionLabel title="DISCOVER" />
-              <NormalLink title="History" />
-              <NormalLink title="Local Wine" />
-              <NormalLink title="Bike Trails" />
+              <NormalLink title="History" to="/discover/history" />
+              <NormalLink title="Local Wine" to="/discover/local-wine" />
+              <NormalLink title="Bike Trails" to="/discover/bike-trails" />
             </VStack>
             <VStack
               gap="0.438rem"
@@ -82,9 +87,9 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               justifyContent="flex-start"
             >
               <SectionLabel title="RELAX" />
-              <NormalLink title="Ghioroc Lake" />
-              <NormalLink title="Sauna" />
-              <NormalLink title="Hot Tub" />
+              <NormalLink title="Ghioroc Lake" to="/discover/ghioroc-lake" />
+              <NormalLink title="Sauna" to="/discover/sauna" />
+              <NormalLink title="Hot Tub" to="/discover/hot-tub" />
             </VStack>
             <NavbarDivider />
           </HStack>

@@ -6,6 +6,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import HomePage from './components/HomePage/HomePage';
 import BookingDrawer from './components/BookingDrawer/BookingDrawer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 }
