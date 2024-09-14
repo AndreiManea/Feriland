@@ -11,7 +11,7 @@ const NavbarMenuButton = ({ onClick }: { onClick: () => void }) => {
     onClick?.();
   };
   return (
-    <HoverButtonWrapper>
+    <HoverButtonWrapper darkNavbar={darkNavbar}>
       <div
         onClick={onClickHandler}
         className={clicked ? 'is-active' : ''}

@@ -6,23 +6,31 @@ const PageLink = ({
   isHovered,
   onMouseEnter,
   onMouseLeave,
+  darkNavbar,
 }: {
   title: string;
   to?: string;
   isHovered: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  darkNavbar?: boolean;
 }) => {
   return (
     <Link
       href={to}
       opacity={isHovered ? '1' : '0.25'}
-      transition="0.2s ease-in-out"
+      transition="0.3s ease-in-out"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       _hover={{ border: 'none' }}
     >
-      <Heading fontWeight="400" size="h3" textAlign="left" m="0">
+      <Heading
+        color={darkNavbar ? 'white' : ''}
+        fontWeight="400"
+        size="h3"
+        textAlign="left"
+        m="0"
+      >
         {title}
       </Heading>
     </Link>
