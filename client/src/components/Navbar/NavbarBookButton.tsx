@@ -8,7 +8,7 @@ const NavbarBookButton = () => {
   const { darkNavbar } = useAppSelector(state => state.styles);
 
   return (
-    <HoverButtonWrapper>
+    <HoverButtonWrapper darkNavbar={darkNavbar}>
       <Button
         onClick={() => dispatch(setBookingDrawerOpen(true))}
         backgroundColor={

@@ -5,10 +5,12 @@ const HoverButtonWrapper = ({
   children,
   isRectangular,
   alignSelf,
+  darkNavbar,
 }: {
   children: ReactNode;
   isRectangular?: boolean;
   alignSelf?: string;
+  darkNavbar?: boolean;
 }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hover, setHover] = useState(false);
@@ -41,7 +43,7 @@ const HoverButtonWrapper = ({
           height="100%"
           pointerEvents="none"
           opacity={0.6}
-          bg={`radial-gradient(circle at ${position.x}px ${position.y}px, rgba(255, 255, 255, 0.4), transparent 70%)`}
+          bg={`radial-gradient(circle at ${position.x}px ${position.y}px,${darkNavbar ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.4)'}, transparent 70%)`}
           style={{
             willChange: 'transform',
             transform:
