@@ -13,7 +13,7 @@ const PageLink = ({
   isHovered: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  darkNavbar: boolean;
+  darkNavbar?: boolean;
 }) => {
   return (
     <Link

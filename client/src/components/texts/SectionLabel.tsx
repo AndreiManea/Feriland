@@ -5,7 +5,7 @@ const SectionLabel = ({
   darkNavbar,
 }: {
   title: string;
-  darkNavbar: boolean;
+  darkNavbar?: boolean;
 }) => {
   return (
     <Text
