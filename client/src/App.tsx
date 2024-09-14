@@ -6,19 +6,19 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import HomePage from './components/HomePage/HomePage';
 import BookingDrawer from './components/BookingDrawer/BookingDrawer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
       <BookingDrawer />
-      <Router>
-        <Routes>
-          <Route path="/master-villa" element={<MasterVillaPage />} />
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </Router>
-    </>
+      <Routes>
+        <Route path="/master-villa" element={<MasterVillaPage />} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
