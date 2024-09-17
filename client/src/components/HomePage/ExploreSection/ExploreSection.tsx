@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import customTheme from '../../../utils/styles/theme';
-import { interpolateColor } from '../../../utils/interpolateColors';
+import { interpolateColor } from '../../../utils/helperFunctions.utils';
 
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -79,7 +79,7 @@ const ExploreSection: React.FC = () => {
       id="explore-section"
       width="100%"
       mx="auto"
-      padding="2rem"
+      padding="1.8rem"
       backgroundColor={backgroundColor}
       transition="background-color 0.2s ease-out"
     >
@@ -98,8 +98,8 @@ const ExploreSection: React.FC = () => {
             position="relative"
             width="100%"
             height="calc(100vh - 4rem)"
-            borderRadius="6rem"
-            marginTop="6rem"
+            borderRadius="2rem"
+            marginTop="2rem"
             overflow="hidden"
           >
             <Image

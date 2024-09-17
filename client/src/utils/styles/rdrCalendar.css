@@ -13,6 +13,10 @@
   height: 69px !important;
 }
 
+.bookingCalendar .rdrDay {
+  height: 55px !important;
+}
+
 .stickyCalendar .rdrDay {
   width: 42px !important;
   height: 42px !important;
@@ -179,21 +183,39 @@
 /* Calendar Section */
 .sectionCalendar .rdrDayNumber span,
 .sectionCalendar .rdrMonthName,
-.sectionCalendar .rdrWeekDay {
+.sectionCalendar .rdrWeekDay,
+.bookingCalendar .rdrDayNumber span,
+.bookingCalendar .rdrMonthName,
+.bookingCalendar .rdrWeekDay {
   font-size: 1.1rem !important;
 }
 
-.sectionCalendar .rdrNextPrevButton {
+.sectionCalendar .rdrNextPrevButton,
+.bookingCalendar .rdrNextPrevButton {
   width: 2.25rem;
   height: 2.25rem;
 }
 
-.sectionCalendar .rdrPprevButton i {
+.sectionCalendar .rdrPprevButton i,
+.bookingCalendar .rdrPprevButton i {
   transform: translate(-0.281rem, 0px);
   border-width: 0.375rem 0.563rem 0.375rem 0.375rem;
 }
 
-.sectionCalendar .rdrNextButton i {
+.sectionCalendar .rdrNextButton i,
+.bookingCalendar .rdrNextButton i {
   transform: translate(0.5rem, 0px);
   border-width: 0.375rem 0.375rem 0.375rem 0.563rem;
+}
+
+.sectionCalendar.rdrCalendarWrapper {
+  height: 57vh !important;
+}
+
+.stickyCalendarSection.rdrCalendarWrapper {
+  height: 36vh !important;
+}
+
+.bookingCalendar.rdrCalendarWrapper {
+  height: 49vh !important;
 }

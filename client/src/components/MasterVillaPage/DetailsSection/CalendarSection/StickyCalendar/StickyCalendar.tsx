@@ -1,8 +1,9 @@
 import { VStack, Button, Box } from '@chakra-ui/react';
 import './stickyCalendar.css';
-import { useAppSelector } from '../../../../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import StickyCalendarHeader from './StickyCalendarHeader/StickyCalendarHeader';
 import TotalPrice from './TotalPrice';
+import { setBookingDrawerOpen } from '../../../../../redux/slices/bookingsSlice';
 
 const StickyCalendar = () => {
   // Global state
@@ -11,7 +12,12 @@ const StickyCalendar = () => {
   );
   const startDate = new Date(selectedDates[0].startDate as string);
   const endDate = new Date(selectedDates[0].endDate as string);
-  // Local state
+
+  const dispatch = useAppDispatch();
+
+  const onReserve = () => {
+    dispatch(setBookingDrawerOpen(true));
+  };
 
   return (
     <div id="calendarId" className="sticky-calendar">
@@ -22,7 +28,13 @@ const StickyCalendar = () => {
             endDate={endDate}
             pricePerNight={1500}
           />
-          <Button size="md" background="#547c39" color="white" width="100%">
+          <Button
+            size="md"
+            background="#547c39"
+            color="white"
+            width="100%"
+            onClick={onReserve}
+          >
             Reserve
           </Button>
           <TotalPrice pricePerNight={1500} selectedNights={selectedNights} />

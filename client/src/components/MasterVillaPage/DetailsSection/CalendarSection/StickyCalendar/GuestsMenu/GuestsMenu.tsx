@@ -3,21 +3,13 @@ import { Menu, MenuButton, Button, Text, Icon } from '@chakra-ui/react';
 import { useState } from 'react';
 import { styles } from './guestsMenu.styled';
 import GuestsForm from './GuestsForm';
+import { useAppSelector } from '../../../../../../redux/hooks';
 
-interface GuestsMenuProps {
-  adults: number;
-  children: number;
-  setAdults: (value: number) => void;
-  setChildren: (value: number) => void;
-}
-
-const GuestsMenu: React.FC<GuestsMenuProps> = ({
-  adults,
-  children,
-  setAdults,
-  setChildren,
-}) => {
+const GuestsMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { adults, children } = useAppSelector(
+    state => state.bookings.selectedPersons
+  );
   const totalGuests = adults + children;
 
   return (
@@ -25,6 +17,16 @@ const GuestsMenu: React.FC<GuestsMenuProps> = ({
       matchWidth
       onClose={() => setIsOpen(prev => !prev)}
       onOpen={() => setIsOpen(prev => !prev)}
+      // Ensure always opens to the bottom
+      placement="bottom"
+      modifiers={[
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: [],
+          },
+        },
+      ]}
     >
       <MenuButton
         as={Button}
@@ -38,12 +40,7 @@ const GuestsMenu: React.FC<GuestsMenuProps> = ({
           {totalGuests === 1 ? `${totalGuests} guest` : `${totalGuests} guests`}
         </Text>
       </MenuButton>
-      <GuestsForm
-        adults={adults}
-        setAdults={setAdults}
-        children={children}
-        setChildren={setChildren}
-      />
+      <GuestsForm />
     </Menu>
   );
 };

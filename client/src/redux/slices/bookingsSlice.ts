@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Range } from 'react-date-range';
+import { BookingForm } from '../../types/form';
 
 export interface SerializableRange
   extends Omit<Range, 'startDate' | 'endDate'> {
@@ -11,7 +12,11 @@ interface BookingsState {
   bookedDates: SerializableRange[];
   selectedDates: SerializableRange[];
   selectedNights: number;
+  selectedPersons: { adults: number; children: number };
+  selectedCabin: string;
   isBookingDrawerOpen: boolean;
+  bookingStep: number;
+  bookingFormData: BookingForm;
 }
 
 const initialState: BookingsState = {
@@ -25,7 +30,11 @@ const initialState: BookingsState = {
     },
   ],
   selectedNights: 2,
+  selectedPersons: { adults: 1, children: 0 },
+  selectedCabin: 'Master Villa',
   isBookingDrawerOpen: false,
+  bookingStep: 1,
+  bookingFormData: {} as BookingForm,
 };
 
 export const bookingsSlice = createSlice({
@@ -39,11 +48,32 @@ export const bookingsSlice = createSlice({
     setSelectedNights: (state, action: PayloadAction<number>) => {
       state.selectedNights = action.payload;
     },
+    setSelectedPersons: (
+      state,
+      action: PayloadAction<{ adults: number; children: number }>
+    ) => {
+      state.selectedPersons = action.payload;
+    },
+    setSelectedCabin: (state, action: PayloadAction<string>) => {
+      state.selectedCabin = action.payload;
+    },
     setBookedDates: (state, action: PayloadAction<SerializableRange[]>) => {
       state.bookedDates = action.payload;
     },
     setBookingDrawerOpen: (state, action: PayloadAction<boolean>) => {
       state.isBookingDrawerOpen = action.payload;
+    },
+    setBookingStep: (state, action: PayloadAction<number>) => {
+      state.bookingStep = action.payload;
+    },
+    setBookingForm: (state, action: PayloadAction<BookingForm>) => {
+      state.bookingFormData = action.payload;
+    },
+    updateBookingFormField: (
+      state,
+      action: PayloadAction<{ field: keyof BookingForm; value: string }>
+    ) => {
+      state.bookingFormData[action.payload.field] = action.payload.value;
     },
   },
 });
@@ -52,7 +82,12 @@ export const {
   setBookedDates,
   setSelectedDates,
   setSelectedNights,
+  setSelectedPersons,
+  setSelectedCabin,
   setBookingDrawerOpen,
+  setBookingStep,
+  setBookingForm,
+  updateBookingFormField,
 } = bookingsSlice.actions;
 
 export default bookingsSlice.reducer;

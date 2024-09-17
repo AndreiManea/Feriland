@@ -6,15 +6,24 @@ interface CounterProps {
   label: string;
   value: string | number | undefined;
   setValue: (value: number) => void;
+  maxValue: number;
+  minValue: number;
 }
 
-const Counter: React.FC<CounterProps> = ({ label, value, setValue }) => {
+const Counter: React.FC<CounterProps> = ({
+  label,
+  value,
+  setValue,
+  maxValue,
+  minValue,
+}) => {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1,
       value,
-      min: 0,
-      onChange: (valueAsString, valueAsNumber) => setValue(valueAsNumber),
+      min: minValue,
+      max: maxValue,
+      onChange: (_, valueAsNumber) => setValue(valueAsNumber),
     });
 
   const inc = getIncrementButtonProps();

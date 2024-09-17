@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import '../../../../../../utils/styles/rdrCalendar.css';
 import GuestsMenu from '../GuestsMenu/GuestsMenu';
 import { styles } from './stickyCalendarHeader.styles';
-import { formatDate } from '../../../../../../utils/dates.utils';
+import { formatDate } from '../../../../../../utils/helperFunctions.utils';
 import CalendarSection from '../../CalendarSection';
 
 const StickyCalendarHeader = ({
@@ -27,9 +27,6 @@ const StickyCalendarHeader = ({
 }) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
-
-  const [adults, setAdults] = useState(1);
-  const [children, setChildren] = useState(0);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -90,12 +87,7 @@ const StickyCalendarHeader = ({
             />
           </Box>
         </HStack>
-        <GuestsMenu
-          adults={adults}
-          children={children}
-          setAdults={setAdults}
-          setChildren={setChildren}
-        />
+        <GuestsMenu />
       </VStack>
     </VStack>
   );

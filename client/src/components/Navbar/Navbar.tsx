@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
         p="0.5625rem"
         backdropFilter="blur(0.5rem)"
         backgroundColor={
-          !darkNavbar ? 'rgba(0, 0, 0, .25)' : 'rgba(256,256,256,0.25)'
+          !darkNavbar ? 'rgba(0, 0, 0, .25)' : 'rgba(207, 198, 187, 0.25)'
         }
         height={isMenuOpen ? '39.5rem' : '5.875rem'}
         borderRadius={isMenuOpen ? '2rem' : '5rem'}

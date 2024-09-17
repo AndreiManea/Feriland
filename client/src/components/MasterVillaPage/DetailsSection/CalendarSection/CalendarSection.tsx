@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { DateRange, RangeKeyDict } from 'react-date-range';
-import { formatDate } from '../../../../utils/dates.utils';
+import { formatDate } from '../../../../utils/helperFunctions.utils';
 
-import './calendarSection.css';
 import '../../../../utils/styles/rdrCalendar.css';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import {
@@ -10,16 +9,19 @@ import {
   setSelectedNights,
 } from '../../../../redux/slices/bookingsSlice';
 import { parse } from 'date-fns';
-import { Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack } from '@chakra-ui/react';
+import { enGB } from 'date-fns/locale';
 
 const CalendarSection = ({
   onSelection,
   customClass,
   isSticky,
+  noText,
 }: {
   customClass: string;
   onSelection?: () => void;
   isSticky?: boolean;
+  noText?: boolean;
 }) => {
   // Global state
   const dispatch = useAppDispatch();
@@ -71,25 +73,30 @@ const CalendarSection = ({
   const disabledDates = parseDateStrings(disabledDatesFromBackend);
 
   return (
-    <div className="calendar">
-      <Heading
-        fontSize={isSticky ? '1.1rem' : '1.375rem'}
-        letterSpacing="0.125rem"
-      >
-        {Math.round(selectedNights)} nights
-      </Heading>
-      <Text fontSize={isSticky ? '0.8rem' : '1.1rem'}>{datePreview}</Text>
+    <VStack gap="0.25rem" width="100%" alignItems="flex-start">
+      {noText ? null : (
+        <Box>
+          <Heading
+            fontSize={isSticky ? '1.1rem' : '1.375rem'}
+            letterSpacing="0.125rem"
+          >
+            {Math.round(selectedNights)} nights
+          </Heading>
+          <Text fontSize={isSticky ? '0.8rem' : '1.1rem'}>{datePreview}</Text>
+        </Box>
+      )}
       <DateRange
         onChange={handleSelect}
         ranges={[{ startDate, endDate }]}
         months={2}
+        locale={enGB}
         fixedHeight
         direction="horizontal"
         minDate={new Date()}
         disabledDates={disabledDates}
         className={customClass}
       />
-    </div>
+    </VStack>
   );
 };
 

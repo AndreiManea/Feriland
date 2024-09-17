@@ -12,6 +12,7 @@ import PageLink from '../links/PageLink';
 import SectionLabel from '../texts/SectionLabel';
 import ContactLink from '../links/ContactLink';
 import NormalLink from '../links/NormalLink';
+import fullLogo from '../../assets/FullLogo.png';
 
 const Footer: React.FC = () => {
   const [pageLinkHovered, setPageLinkHovered] = useState(0);
@@ -33,8 +34,8 @@ const Footer: React.FC = () => {
         <Box borderRight="1px solid rgba(0, 0, 0, 0.1)" py="6rem" px="2rem">
           <Image
             mb="2rem"
-            maxWidth="70%"
-            src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65faca4ebd87778858a47310_Logo.svg"
+            maxWidth="80%"
+            src={fullLogo}
             alt="footer-logo"
             loading="lazy"
           />
@@ -72,18 +73,21 @@ const Footer: React.FC = () => {
               onMouseEnter={() => setPageLinkHovered(1)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 1 || !pageLinkHovered}
+              to="/"
             />
             <PageLink
               title="Master Cabin"
               onMouseEnter={() => setPageLinkHovered(2)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 2 || !pageLinkHovered}
+              to="/master-villa"
             />
             <PageLink
               title="Discover"
               onMouseEnter={() => setPageLinkHovered(3)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 3 || !pageLinkHovered}
+              to="/discover"
             />
           </VStack>
         </VStack>
@@ -115,10 +119,10 @@ const Footer: React.FC = () => {
           gridArea="span 1 / span 2 / span 1 / span 2"
           borderRight="1px solid rgba(0, 0, 0, 0.1)"
         >
-          <NormalLink title="Privacy Policy" />
-          <NormalLink title="Terms and Conditions" />
-          <NormalLink title="ANPC" />
-          <NormalLink title="ANPC sol" />
+          <NormalLink title="Privacy Policy" to="/privacy-policy" />
+          <NormalLink title="Terms and Conditions" to="terms-and-conditions" />
+          <NormalLink title="ANPC" to="/anpc" />
+          <NormalLink title="ANPC sol" to="/anpc-sol" />
         </HStack>
         <HStack justifyContent="flex-start" padding="2rem 0 2rem 4rem">
           <Text as="p" m="0" fontSize="1rem" letterSpacing="0">
