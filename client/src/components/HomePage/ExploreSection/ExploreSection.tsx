@@ -7,10 +7,12 @@ import {
   Heading,
   Text,
   Link,
+  Button,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import customTheme from '../../../utils/styles/theme';
 import { interpolateColor } from '../../../utils/helperFunctions.utils';
+import HoverButtonWrapper from '../../HoverButtonWrapper/HoverButtonWrapper';
 
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -157,34 +159,31 @@ const ExploreSection: React.FC = () => {
               justifyContent="center"
               gap="2rem"
             >
-              <Link
-                href="/master-villa"
-                target="_blank"
-                onClick={navigateToMasterVilla}
-                borderRadius="10rem"
-                justifyContent="center"
-                alignItems="center"
-                padding="0.7rem 1.8rem"
-                textDecoration="none"
-                backgroundColor={customTheme.colors.primary[500]}
-              >
-                <Text color="white" mb="0">
+              <HoverButtonWrapper>
+                <Button
+                  backgroundColor="#547c39"
+                  _hover={{ backgroundColor: '#547c39' }}
+                  color={'white'}
+                  p="1.5rem 2rem"
+                  borderRadius="10rem"
+                  cursor="pointer"
+                >
                   Explore Cabin
-                </Text>
-              </Link>
-              <Link
-                href="#"
-                backgroundColor="rgba(255, 255, 255, .1)"
-                borderRadius="10rem"
-                justifyContent="center"
-                alignItems="center"
-                padding="0.7rem 1.8rem"
-                textDecoration="none"
-              >
-                <Text color="white" mb="0">
-                  Book Your Stay
-                </Text>
-              </Link>
+                </Button>
+              </HoverButtonWrapper>
+              <HoverButtonWrapper>
+                <Button
+                  backgroundColor="#ffffff1a"
+                  _hover={{ backgroundColor: '#ffffff1a' }}
+                  color={'white'}
+                  p="1.5rem 2rem"
+                  borderRadius="10rem"
+                  cursor="pointer"
+                  backdropFilter="blur(20px)"
+                >
+                  Book your stay
+                </Button>
+              </HoverButtonWrapper>
             </HStack>
           </VStack>
         </VStack>
