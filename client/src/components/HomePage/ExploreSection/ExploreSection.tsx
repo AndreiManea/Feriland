@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { throttle } from 'lodash';
 import {
   Box,
   HStack,
@@ -16,7 +17,7 @@ const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
 
-  const handleScroll = () => {
+  const handleScroll = throttle(() => {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     const section = document.getElementById('explore-section');
@@ -25,18 +26,14 @@ const ExploreSection: React.FC = () => {
       const sectionOffsetTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
 
-      // Adjusted to start when the section is fully visible in the viewport
       const startEffectPosition =
         sectionOffsetTop - (windowHeight - sectionHeight / 2);
 
-      // Start expanding when the section is fully in view
       if (
         scrollY >= startEffectPosition &&
         scrollY <= sectionOffsetTop + sectionHeight
       ) {
         setIsSectionVisible(true);
-
-        // Increase the speed of the effect by dividing by a smaller portion of the section height
         const scrollFraction =
           (scrollY - startEffectPosition) / (sectionHeight * 0.5);
         setScrollPosition(Math.min(scrollFraction, 1));
@@ -45,20 +42,18 @@ const ExploreSection: React.FC = () => {
         setScrollPosition(0);
       }
     }
-  };
+  }, 100); // Throttle every 100ms
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Dynamically calculate the circle size based on scroll position
   const circleSize = `${30 + scrollPosition * 80}vh`;
   const clipPathValue = isSectionVisible
     ? `circle(${circleSize} at center)`
     : 'circle(30vh at center)';
 
-  // Calculate the background color based on scroll position
   const backgroundColor = interpolateColor(
     '#2f2a27',
     '#eae5df',

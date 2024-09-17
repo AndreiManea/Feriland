@@ -11,7 +11,8 @@ type TextProps = {
 
 const ScrollableText = ({ sentence }: TextProps) => {
   return (
-    <OverlayText>
+    <OverlayText style={      {overflow:"visible"}
+    }>
       {/* <DescriptionContainer>
         <Description>{sentence}</Description>
       </DescriptionContainer> */}

@@ -1,51 +1,75 @@
-import { Word } from './Word';
-import { useScroll } from 'framer-motion';
-import { useRef } from 'react';
 import { Heading, HStack } from '@chakra-ui/react';
+import { useEffect, useRef } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 
 interface TextAnimationProps {
   text: string;
 }
 
-export const TextAnimation = ({ text }: TextAnimationProps) => {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start 0.2', 'end 0'], // Adjust these values to change when the effect triggers
-  });
+// Custom hook to manage an array of refs
+function useArrayRef() {
+  const lettersRef = useRef<HTMLElement[]>([]); // Ref array for letter elements
 
-  const END_MULTIPLIER = Math.log(text.length) * 2;
+  const setLettersRef = (ref: HTMLElement | null) => {
+    if (ref && !lettersRef.current.includes(ref)) {
+      lettersRef.current.push(ref); // Add ref to the array
+    }
+  };
+
+  return [lettersRef, setLettersRef] as const; // Return a tuple
+}
+
+export const TextAnimation = ({ text }: TextAnimationProps) => {
+  const [lettersRef, setLettersRef] = useArrayRef(); // Array of refs for letters
+  const triggerRef = useRef<HTMLDivElement | null>(null); // Trigger element for ScrollTrigger
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger); // Register the plugin inside the effect
+
+    // Ensure that the lettersRef is not empty before applying the animation
+    if (lettersRef.current.length > 0) {
+      const reveal = gsap.to(lettersRef.current, {
+        scrollTrigger: {
+          trigger: triggerRef.current, // Set the trigger to the container
+          scrub: 0.5,  // Ensures smooth animation in sync with small scroll movements
+          start: 'top center',  // Start when the container's top is at the center
+          end: 'bottom center', // End when the container's bottom reaches the center
+          markers: false,  // Remove this if you don't need scroll markers
+        },
+        color: 'white',
+        duration: 1, // Faster animation for each letter
+        stagger: 0.05,  // More responsive stagger for quicker animations
+      });
+
+      return () => {
+        reveal.kill(); // Clean up the GSAP animation on unmount
+      };
+    }
+  }, [lettersRef]);
 
   return (
     <HStack
-      ref={container}
       alignItems="center"
       justifyContent="center"
       w="full"
-      px="8rem"
-      pt="20vh"
+      px="2rem" 
       mx="auto"
       fontSize="1.8rem"
       textAlign="center"
-      maxWidth="80vw"
+      width="80vw"
+      height="100vh"  
+      overflowY="auto"  
     >
-      <HStack flexWrap="wrap" maxW="1280px" alignItems="center" width="50vw">
+      <HStack flexWrap="wrap" alignItems="center" width="50vw">
         <Heading as="h1" size="h2" lineHeight="3rem" textAlign="center">
-          {text.split(' ').map((word, index) => {
-            const start = index / text.length;
-            const end = start + 1 / text.length;
-
-            return (
-              <Word
-                key={index}
-                range={[start, end]}
-                progress={scrollYProgress}
-                endMultiplier={END_MULTIPLIER}
-              >
-                {word}
-              </Word>
-            );
-          })}
+          <div ref={triggerRef} style={{ height: '100%' }}>
+            {text.split('').map((letter, index) => (
+              <span className="reveal-text" ref={setLettersRef} key={index}>
+                {letter}
+              </span>
+            ))}
+          </div>
         </Heading>
       </HStack>
     </HStack>
