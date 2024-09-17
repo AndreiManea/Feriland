@@ -1,4 +1,3 @@
-// import './HeroSection.css';
 import {
   BackgroundContainer,
   Heading,
@@ -70,7 +69,6 @@ const HeroSection: React.FC = () => {
         </VideoCircleContainer>
         <TextWrapper>
           <TextContainer>
-            {/* TO DO - ADD READING EFFECT */}
             <Heading2>{sentence}</Heading2>
           </TextContainer>
         </TextWrapper>
