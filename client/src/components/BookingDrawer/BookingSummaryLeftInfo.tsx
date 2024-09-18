@@ -25,7 +25,7 @@ const BookingSummaryLeftInfo = () => {
         fieldValue={bookingFormData.email}
       />
       <BookingSummaryField
-        fieldTitle="Adress"
+        fieldTitle="Address"
         fieldValue={bookingFormData.address}
       />
       <BookingSummaryField
