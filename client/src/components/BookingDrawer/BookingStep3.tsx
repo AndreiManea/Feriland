@@ -64,15 +64,24 @@ const BookingStep3 = () => {
             label="First Name"
             register={register('firstName', {
               required: 'First Name is required',
+              pattern: {
+                value: /^[A-Za-z]+$/,
+                message: 'First name can only contain letters',
+              },
             })}
             error={errors.firstName}
             defaultValue={firstName}
             onChange={onInputChange('firstName')}
           />
+
           <InputTextField
             label="Last Name"
             register={register('lastName', {
               required: 'Last Name is required',
+              pattern: {
+                value: /^[A-Za-z]+$/, 
+                message: 'Last name can only contain letters',
+              },
             })}
             error={errors.lastName}
             value={lastName}
@@ -122,12 +131,11 @@ const BookingStep3 = () => {
               message: 'Address cannot be longer than 100 characters',
             },
             pattern: {
-              value: /^[a-zA-Z0-9\s,'-]*$/, 
-              message:
-                'Address contains characters that are not accepted',
+              value: /^[a-zA-Z0-9\s,'-]*$/,
+              message: 'Address contains characters that are not accepted',
             },
             validate: value => {
-              const trimmedValue = value.trim(); 
+              const trimmedValue = value.trim();
               return (
                 trimmedValue.length >= 10 ||
                 'Address must be at least 10 characters long'
