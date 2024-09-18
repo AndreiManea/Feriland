@@ -3,12 +3,18 @@ import { useAppSelector } from '../../redux/hooks';
 import BookingSummaryField from './BookingSummaryField';
 import BookingSummaryTotal from './BookingSummaryTotal';
 import { formatDate } from '../../utils/helperFunctions.utils';
+import { useDispatch } from 'react-redux';
+import InputTextAreaField from '../InputTextAreaField/InputTextAreaField';
+import { setAdditionalNotes } from '../../redux/slices/bookingsSlice';
 
 const BookingSummaryRightInfo = () => {
-  const { selectedDates, selectedNights, selectedPersons, selectedCabin } =
+  const { selectedDates, selectedNights, selectedPersons, selectedCabin, additionalInfo } =
     useAppSelector(state => state.bookings);
   const startDate = new Date(selectedDates[0].startDate as string);
   const endDate = new Date(selectedDates[0].endDate as string);
+
+  const dispatch = useDispatch();
+
   return (
     <VStack
       gap="1rem"
@@ -39,6 +45,7 @@ const BookingSummaryRightInfo = () => {
           valueFont="1.2rem"
         />
       </VStack>
+      <InputTextAreaField handleChange={(value) => dispatch(setAdditionalNotes(value))} value={additionalInfo || ''}/>
       <BookingSummaryTotal />
     </VStack>
   );
