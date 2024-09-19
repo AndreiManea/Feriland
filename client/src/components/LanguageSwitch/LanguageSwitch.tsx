@@ -1,14 +1,26 @@
 import { HStack, Switch, Text } from '@chakra-ui/react';
 import { useState } from 'react';
+import en from '../../translations/en.json';
+import ro from '../../translations/ro.json';
 
 interface LanguageSwitchProps {
   darkNavbar: boolean;
 }
+
 const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
-  const [isEnglish, setIsEnglish] = useState(true);
-  // Dynamically apply the background color for the checked state
+  const [currentLanguage, setCurrentLanguage] = useState(en);
+  const isEnglish = (currentLanguage === en);
+
   const dynamicStyles = {
     backgroundColor: !darkNavbar ? 'black' : 'rgba(255, 255, 255, 0.3)',
+  };
+
+  const handleLanguageSwitch = () => {
+    if (isEnglish) {
+      setCurrentLanguage(ro);
+    } else {
+      setCurrentLanguage(en);
+    }
   };
 
   return (
@@ -29,17 +41,20 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
       >
         EN
       </Text>
+
+      {/* Switch to toggle between languages */}
       <Switch
-        onChange={() => setIsEnglish(!isEnglish)}
+        isChecked={!isEnglish}
+        onChange={handleLanguageSwitch}
         size="lg"
         sx={{
           '.chakra-switch__track': {
-            // Target the internal track using the class name
-            bg: 'rgb(84, 124, 57)', // Default track color
-            _checked: dynamicStyles, // Dynamic checked track color
+            bg: 'rgb(84, 124, 57)',
+            _checked: dynamicStyles,
           },
         }}
       />
+
       <Text
         fontSize="1rem"
         m="0"
@@ -53,7 +68,7 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
               ? 'black'
               : 'white'
         }
-        fontWeight={isEnglish ? 'normal' : 'bold'}
+        fontWeight={!isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"
       >
         RO
