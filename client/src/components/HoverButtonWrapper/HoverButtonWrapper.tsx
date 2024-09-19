@@ -4,11 +4,13 @@ import { ReactNode, useState } from 'react';
 const HoverButtonWrapper = ({
   children,
   isRectangular,
+  isReserveButton,
   alignSelf,
   darkNavbar,
 }: {
   children: ReactNode;
   isRectangular?: boolean;
+  isReserveButton?: boolean;
   alignSelf?: string;
   darkNavbar?: boolean;
 }) => {
@@ -27,6 +29,7 @@ const HoverButtonWrapper = ({
     <Box
       position="relative"
       display="inline-block"
+      width={isReserveButton ? '100%' : 'auto'}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
