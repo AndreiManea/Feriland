@@ -5,4 +5,5 @@ export interface BookingForm {
   email: string;
   address: string;
   personalNumericCode: string;
+  additionalInfo?: string;
 }
