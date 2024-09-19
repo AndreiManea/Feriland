@@ -79,7 +79,7 @@ const BookingStep3 = () => {
             register={register('lastName', {
               required: 'Last Name is required',
               pattern: {
-                value: /^[A-Za-z]+$/, 
+                value: /^[A-Za-z]+$/,
                 message: 'Last name can only contain letters',
               },
             })}
@@ -131,7 +131,7 @@ const BookingStep3 = () => {
               message: 'Address cannot be longer than 100 characters',
             },
             pattern: {
-              value: /^[a-zA-Z0-9\s,'-]*$/,
+              value: /^[a-zA-Z0-9\s,'.-]*$/,
               message: 'Address contains characters that are not accepted',
             },
             validate: value => {

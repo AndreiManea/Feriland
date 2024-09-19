@@ -3,7 +3,11 @@ import './stickyCalendar.css';
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import StickyCalendarHeader from './StickyCalendarHeader/StickyCalendarHeader';
 import TotalPrice from './TotalPrice';
-import { setBookingDrawerOpen } from '../../../../../redux/slices/bookingsSlice';
+import {
+  setBookingDrawerOpen,
+  setBookingStep,
+} from '../../../../../redux/slices/bookingsSlice';
+import HoverButtonWrapper from '../../../../HoverButtonWrapper/HoverButtonWrapper';
 
 const StickyCalendar = () => {
   // Global state
@@ -17,6 +21,7 @@ const StickyCalendar = () => {
 
   const onReserve = () => {
     dispatch(setBookingDrawerOpen(true));
+    dispatch(setBookingStep(3));
   };
 
   return (
@@ -28,15 +33,18 @@ const StickyCalendar = () => {
             endDate={endDate}
             pricePerNight={1500}
           />
-          <Button
-            size="md"
-            background="#547c39"
-            color="white"
-            width="100%"
-            onClick={onReserve}
-          >
-            Reserve
-          </Button>
+          <HoverButtonWrapper isRectangular isReserveButton>
+            <Button
+              size="md"
+              background="#547c39"
+              color="white"
+              width="100%"
+              onClick={onReserve}
+              _hover={{ backgroundColor: '#547c39' }}
+            >
+              Reserve
+            </Button>
+          </HoverButtonWrapper>
           <TotalPrice pricePerNight={1500} selectedNights={selectedNights} />
         </VStack>
       </Box>
