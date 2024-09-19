@@ -35,7 +35,6 @@ const initialState: BookingsState = {
   selectedCabin: 'Master Villa',
   isBookingDrawerOpen: false,
   bookingStep: 1,
-  additionalInfo: "",
   bookingFormData: {} as BookingForm,
 };
 
@@ -72,7 +71,10 @@ export const bookingsSlice = createSlice({
       state.bookingFormData = action.payload;
     },
     setAdditionalNotes: (state, action: PayloadAction<string>) => {
-      state.additionalInfo = action.payload
+      state.bookingFormData = {
+        ...state.bookingFormData,
+        additionalInfo: action.payload,
+      };
     },
     updateBookingFormField: (
       state,
@@ -93,7 +95,7 @@ export const {
   setBookingStep,
   setBookingForm,
   updateBookingFormField,
-  setAdditionalNotes
+  setAdditionalNotes,
 } = bookingsSlice.actions;
 
 export default bookingsSlice.reducer;
