@@ -1,25 +1,28 @@
 import { HStack, Switch, Text } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import en from '../../translations/en.json';
-import ro from '../../translations/ro.json';
 
 interface LanguageSwitchProps {
   darkNavbar: boolean;
 }
 
 const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
-  const [currentLanguage, setCurrentLanguage] = useState(en);
-  const isEnglish = (currentLanguage === en);
+  const { i18n } = useTranslation(); 
+  const [isEnglish, setIsEnglish] = useState(i18n.language === 'en'); 
 
+  // Dynamically apply the background color for the checked state
   const dynamicStyles = {
     backgroundColor: !darkNavbar ? 'black' : 'rgba(255, 255, 255, 0.3)',
   };
 
+  // Function to switch languages
   const handleLanguageSwitch = () => {
     if (isEnglish) {
-      setCurrentLanguage(ro);
+      i18n.changeLanguage('ro'); 
+      setIsEnglish(false);
     } else {
-      setCurrentLanguage(en);
+      i18n.changeLanguage('en');  
+      setIsEnglish(true);
     }
   };
 
@@ -31,9 +34,9 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         letterSpacing="0"
         color={
           isEnglish
-            ? 'rgb(84, 124, 57)'
+            ? 'rgb(84, 124, 57)'  
             : !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)'
+              ? 'rgba(0, 0, 0, 0.3)'  
               : 'rgba(255, 255, 255, 0.3)'
         }
         fontWeight={isEnglish ? 'bold' : 'normal'}
@@ -44,13 +47,13 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
 
       {/* Switch to toggle between languages */}
       <Switch
-        isChecked={!isEnglish}
-        onChange={handleLanguageSwitch}
+        isChecked={!isEnglish} 
+        onChange={handleLanguageSwitch}  
         size="lg"
         sx={{
           '.chakra-switch__track': {
-            bg: 'rgb(84, 124, 57)',
-            _checked: dynamicStyles,
+            bg: 'rgb(84, 124, 57)', 
+            _checked: dynamicStyles, 
           },
         }}
       />
@@ -60,13 +63,11 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         m="0"
         letterSpacing="0"
         color={
-          isEnglish
-            ? !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)'
-              : 'rgba(255, 255, 255, 0.3)'
+          !isEnglish
+            ? 'black'  
             : !darkNavbar
-              ? 'black'
-              : 'white'
+              ? 'rgba(0, 0, 0, 0.3)'  
+              : 'rgba(255, 255, 255, 0.3)'
         }
         fontWeight={!isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"

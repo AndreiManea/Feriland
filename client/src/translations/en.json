@@ -1,4 +1,20 @@
 {
-  "welcomeMessage": "Welcome to our website!",
-  "description": "Simple test - EN"
+  "navbar": {
+    "menu": "Menu",
+    "masterVilla": "Master Villa",
+    "discover": "Discover",
+    "contact": "Contact",
+    "discoverSection": "DISCOVER",
+    "history": "History",
+    "localWine": "Local Wine",
+    "bikeTrails": "Bike Trails",
+    "relaxSection": "RELAX",
+    "ghiorocLake": "Ghioroc Lake",
+    "sauna": "Sauna",
+    "hotTub": "Hot Tub",
+    "contactSection": "CONTACT",
+    "getSocial": "GET SOCIAL",
+    "selectLanguage": "SELECT LANGUAGE",
+    "watchFilm": "Watch the film"
+  }
 }

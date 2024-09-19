@@ -6,6 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { store } from './redux/store.ts';
 import { Provider } from 'react-redux';
 import customTheme from './utils/styles/theme.ts';
+import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

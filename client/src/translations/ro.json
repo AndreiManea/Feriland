@@ -1,4 +1,20 @@
 {
-  "welcomeMessage": "Bine ati venit",
-  "description": "Acesta e doar un test RO"
+  "navbar": {
+    "menu": "Meniu",
+    "masterVilla": "Vila Principală",
+    "discover": "Descoperă",
+    "contact": "Contact",
+    "discoverSection": "DESCOPERĂ",
+    "history": "Istorie",
+    "localWine": "Vin Local",
+    "bikeTrails": "Trasee de Bicicletă",
+    "relaxSection": "RELAXARE",
+    "ghiorocLake": "Lacul Ghioroc",
+    "sauna": "Saună",
+    "hotTub": "Ciubăr",
+    "contactSection": "CONTACT",
+    "getSocial": "REȚELE SOCIALE",
+    "selectLanguage": "SELECTEAZĂ LIMBA",
+    "watchFilm": "Vizionează video"
+  }
 }
