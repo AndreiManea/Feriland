@@ -1,10 +1,20 @@
 import { useRef } from 'react';
 import useDarkNavbar from '../../../utils/hooks/useDarkNavbar';
-import { Box, Grid, Heading, HStack, Image, VStack, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Grid,
+  Heading,
+  HStack,
+  Image,
+  VStack,
+  Text,
+} from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 const GallerySection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   useDarkNavbar(sectionRef);
+  const { t } = useTranslation();
 
   return (
     <Box ref={sectionRef} py="10rem" my="0">
@@ -75,13 +85,16 @@ const GallerySection = () => {
               lineHeight="6rem"
               fontWeight="500"
             >
-              Hard to find, hard to leave
+              {t('homePage.gallerySectionHeader')}
             </Heading>
-            <Text as="h3" size="h3" textAlign="center" fontWeight="500" lineHeight="1.4rem">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique. Duis cursus,
-              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-              libero vitae erat.
+            <Text
+              as="h3"
+              size="h3"
+              textAlign="center"
+              fontWeight="500"
+              lineHeight="1.4rem"
+            >
+              {t('homePage.gallerySectionText')}
             </Text>
           </VStack>
           <VStack

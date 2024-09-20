@@ -20,3 +20,8 @@ export type Card = {
   title: string;
 };
 
+export interface Slide {
+  title: string;
+  description: string;
+  imgSrc: string;
+}
