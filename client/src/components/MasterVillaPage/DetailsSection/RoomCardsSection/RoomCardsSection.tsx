@@ -28,8 +28,9 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
         gridTemplateColumns="1fr 1fr"
         minW="100%"
         gridAutoColumns="1fr"
+        display={{ base: 'none', lg: 'block' }}
       >
-        {cardItems.map((card,index) => (
+        {cardItems.map((card, index) => (
           <RoomCard
             key={index}
             imgSrc={card.src}
@@ -40,7 +41,10 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
           />
         ))}
       </Grid>
-      <GalleryModal isGalleryOpen={isGalleryOpen} toggleGalleryModal={toggleGalleryModal}/>
+      <GalleryModal
+        isGalleryOpen={isGalleryOpen}
+        toggleGalleryModal={toggleGalleryModal}
+      />
     </>
   );
 };

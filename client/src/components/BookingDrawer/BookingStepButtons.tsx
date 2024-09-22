@@ -49,6 +49,7 @@ const BookingStepButtons = ({
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgba(255, 255, 255, .2)' }}
             transition="0.3s ease-in-out"
+            display={{ base: 'none', lg: 'block' }}
           >
             Next
           </Button>

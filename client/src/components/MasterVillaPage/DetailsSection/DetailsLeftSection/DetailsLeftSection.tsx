@@ -21,11 +21,7 @@ const DetailsLeftSection = ({
   modalRef,
 }: DetailsLeftSectionProps) => {
   return (
-    <VStack
-      alignItems="flex-start"
-      gridGap="4rem"
-      position="static"
-    >
+    <VStack alignItems="flex-start" gridGap="4rem" position="static">
       <HeaderSection />
       <RoomCardsSection cardItems={cardItems} />
       <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />

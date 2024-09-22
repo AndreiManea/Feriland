@@ -160,6 +160,7 @@ const ExploreSection: React.FC = () => {
               alignItems="center"
               justifyContent="center"
               gap="2rem"
+              flexDirection={{ base: 'column', lg: 'row' }}
             >
               <HoverButtonWrapper>
                 <Button

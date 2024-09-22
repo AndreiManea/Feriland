@@ -65,6 +65,7 @@ const Footer: React.FC = () => {
           alignItems="flex-start"
           padding="6rem 0 4rem 4rem"
           spacing="0"
+          display={{ base: 'none', lg: 'block' }}
         >
           <VStack px="0" borderTop="none" align="stretch">
             <SectionLabel title="MENU" />
@@ -91,7 +92,7 @@ const Footer: React.FC = () => {
             />
           </VStack>
         </VStack>
-        <Box padding="6rem 0 4rem 4rem">
+        <Box padding={{ base: '0', lg: '6rem 0 4rem 4rem' }}>
           <VStack alignItems="flex-start" spacing="0.5rem">
             <SectionLabel title="CONTACT" />
             <ContactLink
@@ -112,6 +113,7 @@ const Footer: React.FC = () => {
       <Grid
         borderTop="1px solid rgba(0, 0, 0, 0.1)"
         gridTemplateColumns="1fr 1fr 1fr"
+        display={{ base: 'none', lg: 'block' }}
       >
         <HStack
           padding="2rem 0 2rem 2rem"
