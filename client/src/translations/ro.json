@@ -111,6 +111,30 @@
         "boldText": "Puteti anula gratuit pana la o zi inainte",
         "smallText": ""
       }
+    ],
+    "descriptionText_1": "Ceva ceva ceva",
+    "descriptionText_2": "Ceva ceva ceva 2",
+    "descriptionText_3": "Ceva ceva ceva 3",
+    "checkin": "Check-in: 3:00 PM - 6:00 PM",
+    "checkout": "Checkout inainte de 10:00 AM",
+    "rulesContentHeader": "Reguli aditionale",
+    "infoSections": [
+      {
+        "title":"Inclus in pret:",
+        "content": "Acces internet, aer conditionat, loc de parcare etc."
+      },
+      {
+        "title": "Ocuparea spatiului:",
+        "content": "Bla bla"
+      },
+      {
+        "title": "Animale:",
+        "content": "Fara animale"
+      },
+      {
+        "title": "Garantie:",
+        "content": "Cash: 200 euro"
+      }
     ]
   }
 }
