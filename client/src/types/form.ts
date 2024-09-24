@@ -6,4 +6,5 @@ export interface BookingForm {
   address: string;
   personalNumericCode: string;
   additionalInfo?: string;
+  currentLanguage?: string
 }

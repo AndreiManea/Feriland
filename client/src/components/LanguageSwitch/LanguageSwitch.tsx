@@ -1,29 +1,27 @@
 import { HStack, Switch, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurrentLanguage } from '../../redux/slices/bookingsSlice'; // Import the action from Redux
+import { useAppSelector } from '../../redux/hooks';
+import { BookingForm } from '../../types/form';
 
 interface LanguageSwitchProps {
   darkNavbar: boolean;
 }
 
 const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
-  const { i18n } = useTranslation(); 
-  const [isEnglish, setIsEnglish] = useState(i18n.language === 'en'); 
+  const dispatch = useDispatch();
+  const { i18n } = useTranslation();
 
-  // Dynamically apply the background color for the checked state
-  const dynamicStyles = {
-    backgroundColor: !darkNavbar ? 'black' : 'rgba(255, 255, 255, 0.3)',
-  };
+  const { currentLanguage } = useAppSelector(
+    state => state.bookings.bookingFormData as BookingForm
+  );
+  const isEnglish = currentLanguage === 'en';
 
-  // Function to switch languages
   const handleLanguageSwitch = () => {
-    if (isEnglish) {
-      i18n.changeLanguage('ro'); 
-      setIsEnglish(false);
-    } else {
-      i18n.changeLanguage('en');  
-      setIsEnglish(true);
-    }
+    const newLanguage = isEnglish ? 'ro' : 'en';
+    i18n.changeLanguage(newLanguage);
+    dispatch(setCurrentLanguage(newLanguage)); 
   };
 
   return (
@@ -34,9 +32,9 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         letterSpacing="0"
         color={
           isEnglish
-            ? 'rgb(84, 124, 57)'  
+            ? 'rgb(84, 124, 57)' // Green when English is active
             : !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)'  
+              ? 'rgba(0, 0, 0, 0.3)' // Gray when Romanian is active
               : 'rgba(255, 255, 255, 0.3)'
         }
         fontWeight={isEnglish ? 'bold' : 'normal'}
@@ -47,13 +45,15 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
 
       {/* Switch to toggle between languages */}
       <Switch
-        isChecked={!isEnglish} 
-        onChange={handleLanguageSwitch}  
+        isChecked={!isEnglish} // Checked if Romanian is active
+        onChange={handleLanguageSwitch} // Toggle languages on switch change
         size="lg"
         sx={{
           '.chakra-switch__track': {
-            bg: 'rgb(84, 124, 57)', 
-            _checked: dynamicStyles, 
+            bg: 'rgb(84, 124, 57)', // Default track color
+            _checked: {
+              bg: 'black', // Track color when checked
+            },
           },
         }}
       />
@@ -64,9 +64,9 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         letterSpacing="0"
         color={
           !isEnglish
-            ? 'black'  
+            ? 'black' // Black when Romanian is active
             : !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)'  
+              ? 'rgba(0, 0, 0, 0.3)' // Gray when English is active
               : 'rgba(255, 255, 255, 0.3)'
         }
         fontWeight={!isEnglish ? 'bold' : 'normal'}

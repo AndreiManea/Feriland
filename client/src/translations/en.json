@@ -28,8 +28,7 @@
     "gallerySectionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
     "activitiesSectionHeader": "Activities in Feriland",
     "activitiesSectionText": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    "activitiesSlider": [
-      {
+    "activitiesSlider": [{
         "title": "Wine Fields",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
         "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65f048f116bd7c6211cd257d_MOGGI33-2C6A06591.png"
@@ -60,5 +59,17 @@
         "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65f07d77580e270a5d790676_374581141_686381230189221_533891080229178423_n.jpg"
       }
     ]
+  },
+  "footer": {
+    "reservedRights": "All rights reserved to Feriland SRL.",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms and Conditions",
+    "anpc": "ANPC",
+    "anpcSol": "ANPC Sol",
+    "menu": "MENU",
+    "home": "Home",
+    "contact": "Contact",
+    "masterVilla": "Master Cabin",
+    "discover": "Discover"
   }
 }

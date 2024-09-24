@@ -17,7 +17,6 @@ interface BookingsState {
   isBookingDrawerOpen: boolean;
   bookingStep: number;
   bookingFormData: BookingForm;
-  additionalInfo?: string;
 }
 
 const initialState: BookingsState = {
@@ -35,7 +34,7 @@ const initialState: BookingsState = {
   selectedCabin: 'Master Villa',
   isBookingDrawerOpen: false,
   bookingStep: 1,
-  bookingFormData: {} as BookingForm,
+  bookingFormData: {...{} as BookingForm, currentLanguage: "en"},
 };
 
 export const bookingsSlice = createSlice({
@@ -76,6 +75,12 @@ export const bookingsSlice = createSlice({
         additionalInfo: action.payload,
       };
     },
+    setCurrentLanguage: (state, action: PayloadAction<string>) => {
+      state.bookingFormData = {
+        ...state.bookingFormData,
+        currentLanguage: action.payload,
+      };
+    },
     updateBookingFormField: (
       state,
       action: PayloadAction<{ field: keyof BookingForm; value: string }>
@@ -96,6 +101,7 @@ export const {
   setBookingForm,
   updateBookingFormField,
   setAdditionalNotes,
+  setCurrentLanguage
 } = bookingsSlice.actions;
 
 export default bookingsSlice.reducer;
