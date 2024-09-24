@@ -1,3 +1,4 @@
+//TO REMOVE -  ADDED TRANSLATION
 export const slidesData = [
   {
     title: 'Wine Fields',
@@ -43,6 +44,7 @@ export const slidesData = [
   },
 ];
 
+//TO REMOVE -  ADDED TRANSLATION
 export const cardItems = [
   {
     src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg',
@@ -74,6 +76,7 @@ export const cardItems = [
   },
 ];
 
+//TO REMOVE -  ADDED TRANSLATION
 export const featuresArray = [
   {
     iconSrc:

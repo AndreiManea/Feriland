@@ -1,15 +1,20 @@
 import { useRef } from 'react';
 import StickyCalendar from './CalendarSection/StickyCalendar/StickyCalendar';
 import useDarkNavbar from '../../../utils/hooks/useDarkNavbar';
-import { cardItems, featuresArray, amenitiesByCategory } from '../../../utils/data';
+import { amenitiesByCategory } from '../../../utils/data';
 import { Box, Grid } from '@chakra-ui/react';
 import DetailsLeftSection from './DetailsLeftSection/DetailsLeftSection';
 import { getAmenitiesFromEachCategory } from '../../../utils/helperFunctions.utils';
+import { useTranslation } from 'react-i18next';
+import { Card, Feature } from '../../../utils/types';
 
 const DetailsSection: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useDarkNavbar(sectionRef);
+  const {t} = useTranslation();
+  const cardItems = t('masterVilla.cardItems', { returnObjects: true }) as Card[];
+  const featuresArray = t('masterVilla.featuresArray', { returnObjects: true }) as Feature[];
 
   const amenitiesList = getAmenitiesFromEachCategory(amenitiesByCategory);
 

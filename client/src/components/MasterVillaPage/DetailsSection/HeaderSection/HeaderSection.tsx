@@ -1,7 +1,10 @@
 import { Box, Heading, HStack } from '@chakra-ui/react';
 import { SubText } from './Text';
+import { useTranslation } from 'react-i18next';
 
 const HeaderSection = () => {
+  const { t } = useTranslation();
+
   return (
     <Box>
       <Heading
@@ -16,13 +19,13 @@ const HeaderSection = () => {
         width="100%"
         fontWeight="400"
       >
-        Entire Master Villa
+        {t('masterVilla.detailsLeftHeader')}
       </Heading>
       <HStack alignItems="center">
-        <SubText divider>6 Guests</SubText>
-        <SubText divider>2 Bedrooms</SubText>
-        <SubText divider>1.5 Baths</SubText>
-        <SubText>Ciubar</SubText>
+        <SubText divider>{t('masterVilla.detailsLeftGuestsNr')}</SubText>
+        <SubText divider>{t('masterVilla.detailsLeftRoomsNr')}</SubText>
+        <SubText divider>{t('masterVilla.detailsLeftBathroom')}</SubText>
+        <SubText>{t('masterVilla.detailsLeftHotTub')}</SubText>
       </HStack>
     </Box>
   );

@@ -28,8 +28,7 @@
     "gallerySectionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
     "activitiesSectionHeader": "Activități în Feriland",
     "activitiesSectionText": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    "activitiesSlider": [
-      {
+    "activitiesSlider": [{
         "title": "Câmpuri de vin",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
         "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65f048f116bd7c6211cd257d_MOGGI33-2C6A06591.png"
@@ -72,5 +71,46 @@
     "contact": "Contact",
     "masterVilla": "Vila Principală",
     "discover": "Descoperă"
+  },
+  "masterVilla": {
+    "heroText": "Our timeless dreamland, your piece of heaven immersed in the Minis hills.",
+    "detailsLeftHeader": "Vila Principală",
+    "detailsLeftGuestsNr": "6 persoane",
+    "detailsLeftRoomsNr": "2 dormitoare",
+    "detailsLeftBathroom": "1 baie",
+    "detailsLeftHotTub": "Ciubăr",
+    "cardItems": [
+      {
+        "altText": "Dormitor 1",
+        "title": "Dormitor 1"
+      },
+      {
+        "altText": "Dormitor 2",
+        "title": "Dormitor 2"
+      },
+      {
+        "altText": "Baie",
+        "title": "Baie"
+      },
+      {
+        "altText": "Living",
+        "title": "Living"
+      }
+    ],
+    "cardText": "Vezi imagini",
+    "featuresArray": [
+      {
+        "boldText": "Parcare gratuita",
+        "smallText": "Pana la 3 masini"
+      },
+      {
+        "boldText": "Piscina si Ciubar",
+        "smallText": "Trebuie anuntat cu o zi inainte"
+      },
+      {
+        "boldText": "Puteti anula gratuit pana la o zi inainte",
+        "smallText": ""
+      }
+    ]
   }
-} 
+}
