@@ -125,8 +125,7 @@ export const infoSections = [
   },
 ];
 
-
-
+//TO REMOVE -  ADDED TRANSLATION
 export const amenitiesByCategory = {
   scenicViews: [
     {
@@ -273,6 +272,11 @@ export const amenitiesByCategory = {
     },
   ],
 };
+
+
+
+
+
 
 export const photos = [
   'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png',
