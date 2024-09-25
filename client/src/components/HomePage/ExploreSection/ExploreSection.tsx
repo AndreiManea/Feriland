@@ -164,8 +164,8 @@ const ExploreSection: React.FC = () => {
             >
               <HoverButtonWrapper>
                 <Button
-                  backgroundColor="#547c39"
-                  _hover={{ backgroundColor: '#547c39' }}
+                  backgroundColor="rgba(0, 0, 0, 0.5)"
+                  _hover={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
                   color={'white'}
                   p="1.5rem 2rem"
                   borderRadius="10rem"
@@ -177,8 +177,8 @@ const ExploreSection: React.FC = () => {
               </HoverButtonWrapper>
               <HoverButtonWrapper>
                 <Button
-                  backgroundColor="rgba(255, 255, 255, .1)"
-                  _hover={{ backgroundColor: 'rgba(255, 255, 255, .1)' }}
+                  backgroundColor="#547c39"
+                  _hover={{ backgroundColor: '#547c39' }}
                   color={'white'}
                   p="1.5rem 2rem"
                   borderRadius="10rem"
