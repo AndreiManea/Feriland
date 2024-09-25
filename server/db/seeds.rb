@@ -13,7 +13,7 @@
 
 
 cabin = Cabin.create(
-  name: "Cabin in the woods, Tiger Woods",
+  name: "Master Villa",
   nr_guests: 4
 )
 
