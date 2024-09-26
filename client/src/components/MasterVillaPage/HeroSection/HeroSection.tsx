@@ -2,6 +2,8 @@ import { Box, Heading, VStack, Image, Link } from '@chakra-ui/react';
 import masterVillaImg from '../../../assets/master-villa.png';
 import VideoModal from './VideoModal';
 import { useState } from 'react';
+import { setIsLoading } from '../../../redux/slices/loadingSlice';
+import { useAppDispatch } from '../../../redux/hooks';
 
 const HeroSection: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -14,14 +16,18 @@ const HeroSection: React.FC = () => {
     }
     setIsFullscreen(prevState => !prevState);
   };
+  const dispatch = useAppDispatch();
 
   return (
     <Box overflow="hidden" height="100vh">
       <Box position="sticky" height="auto" zIndex="1" top="0" overflow="hidden">
-        <Box
-          backgroundImage={`url(${masterVillaImg})`}
-          backgroundPosition="center"
-          backgroundSize="cover"
+        <Image
+          src={masterVillaImg}
+          onLoad={() =>
+            setTimeout(() => {
+              dispatch(setIsLoading(false));
+            }, 1000)
+          }
           width="100%"
           height="100vh"
           position="relative"

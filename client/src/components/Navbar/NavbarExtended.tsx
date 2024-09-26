@@ -21,7 +21,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         backgroundColor={darkNavbar ? '#2e2a27' : 'rgb(234, 229, 223)'}
         opacity={isMenuOpen ? '1' : '0'}
         borderRadius="1.438rem"
-        transition={!isMenuOpen ? 'none' : '0.3s'}
+        transition={!isMenuOpen ? 'none' : '0.3s ease-in-out'}
         justifyContent="flex-start"
       >
         {/* Left Side */}
