@@ -10,22 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_202625) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_27_180805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cabins", force: :cascade do |t|
     t.string "name"
     t.integer "nr_guests"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "attachment_path"
-    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,18 +29,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_202625) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.bigint "client_id", null: false
+    t.string "name"
+    t.string "email"
     t.date "start_date"
     t.date "end_date"
     t.boolean "invoice_generated"
+    t.integer "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cabin_id"
+    t.jsonb "booking_data"
     t.index ["cabin_id"], name: "index_reservations_on_cabin_id"
-    t.index ["client_id"], name: "index_reservations_on_client_id"
   end
 
   add_foreign_key "invoices", "reservations"
   add_foreign_key "reservations", "cabins"
-  add_foreign_key "reservations", "clients"
 end

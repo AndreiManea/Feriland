@@ -1,29 +1,41 @@
 class ReservationsController < ApplicationController
 
-  def create
-    ActiveRecord::Base.transaction do
-      reservation = CreateReservationService.new(reservation_params).call
-      InvoiceGenerationService.new(reservation).call
+  def reservations
+
+    reservations = Reservation.where(cabin_id: 1).pluck(:start_date, :end_date)
+    formatted_reservations = reservations.flat_map do |start_date, end_date|
+      [
+        start_date.strftime("%m-%d-%y"),
+        end_date.strftime("%m-%d-%y")
+      ]
     end
+
+    render json: { dates: formatted_reservations }
+  end
+  def create
+    booking_data = reservation_params[:reservation][:booking_form_data]
+
+    selected_dates = reservation_params[:reservation][:selected_dates]
+
+    byebug
+    params = {
+      name: "#{booking_data[:first_name]} #{booking_data[:last_name]}",
+      email: booking_data[:email],
+      start_date: selected_dates[:start_date],
+      end_date: selected_dates[:end_date],
+      booking_data: booking_data
+    }
+    reservation = CreateReservationService.new(params).call
 
     render json: reservation, status: :created
   rescue => e
+    byebug
     render json: { error: e.message }, status: :unprocessable_entity
-  end
-
-  def reservation_params
-    params.require(:reservation).require(:bookingFormData).transform_keys(&:underscore).permit(
-      :first_name, :last_name, :telephone, :email, :address, :personal_numeric_code, :additional_info,
-      selected_persons: [:adults, :children],
-      selected_cabin: "",
-      selected_dates: []
-    )
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(
-      :name, :email, :cnp, :start_date, :end_date, :cabin_id)
+    @params ||= HashWithIndifferentAccess.new(params.permit!.as_json.deep_transform_keys!(&:underscore))
   end
 end
