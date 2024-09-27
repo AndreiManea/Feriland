@@ -7,18 +7,26 @@ import 'react-date-range/dist/theme/default.css';
 import HomePage from './components/HomePage/HomePage';
 import BookingDrawer from './components/BookingDrawer/BookingDrawer';
 import Footer from './components/Footer/Footer';
+import Loader from './components/Loader/Loader';
+import { useAppSelector } from './redux/hooks';
+import { Box } from '@chakra-ui/react';
 
 function App() {
+  const { isLoading } = useAppSelector(state => state.loading);
+
   return (
-    <Router>
-      <Navbar />
-      <BookingDrawer />
-      <Routes>
-        <Route path="/master-villa" element={<MasterVillaPage />} />
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Box overflow={isLoading ? 'hidden' : ''} height="100vh">
+      <Router>
+        {isLoading && <Loader />}
+        <Navbar />
+        <BookingDrawer />
+        <Routes>
+          <Route path="/master-villa" element={<MasterVillaPage />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Box>
   );
 }
 

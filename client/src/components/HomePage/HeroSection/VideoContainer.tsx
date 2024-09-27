@@ -1,5 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { ReactNode } from 'react';
+import { useAppDispatch } from '../../../redux/hooks';
+import { setIsLoading } from '../../../redux/slices/loadingSlice';
 
 export interface VideoContainerProps {
   posterUrl: string;
@@ -18,6 +20,8 @@ const VideoContainer = ({
   loop,
   muted,
 }: VideoContainerProps) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Box
       data-poster-url={posterUrl}
@@ -35,16 +39,20 @@ const VideoContainer = ({
         muted={muted}
         playsInline
         data-object-fit="cover"
-        style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundImage: `${posterUrl}` }}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          backgroundImage: `${posterUrl}`,
+        }}
+        onCanPlay={() =>
+          setTimeout(() => {
+            dispatch(setIsLoading(false));
+          }, 1000)
+        }
       >
-        <source
-          src={videoUrls[0]}
-          type="video/mp4"
-        />
-        <source
-          src={videoUrls[1]}
-          type="video/webm"
-        />
+        <source src={videoUrls[0]} type="video/mp4" />
+        <source src={videoUrls[1]} type="video/webm" />
       </video>
     </Box>
   );

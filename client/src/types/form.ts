@@ -1,3 +1,5 @@
+import { SerializableRange } from '../redux/slices/bookingsSlice';
+
 export interface BookingForm {
   firstName: string;
   lastName: string;
@@ -7,4 +9,10 @@ export interface BookingForm {
   personalNumericCode: string;
   additionalInfo?: string;
   currentLanguage?: string
+}
+
+export interface BookingSummary extends BookingForm {
+  selectedPersons: { adults: number; children: number };
+  selectedCabin: string;
+  selectedDates: SerializableRange[];
 }

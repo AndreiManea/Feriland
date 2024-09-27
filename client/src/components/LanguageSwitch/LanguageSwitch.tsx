@@ -39,6 +39,7 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         }
         fontWeight={isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"
+        userSelect="none"
       >
         EN
       </Text>
@@ -71,6 +72,7 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         }
         fontWeight={!isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"
+        userSelect="none"
       >
         RO
       </Text>

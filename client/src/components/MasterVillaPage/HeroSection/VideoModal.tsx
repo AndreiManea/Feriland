@@ -1,19 +1,26 @@
 import { useState } from 'react';
 import YouTube from 'react-youtube';
-import { Box, Modal, ModalCloseButton, ModalContent, ModalOverlay, Spinner } from '@chakra-ui/react';
+import {
+  Box,
+  Modal,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
+  Spinner,
+} from '@chakra-ui/react';
 
 type VideoFullscreenProps = {
   isFullscreen: boolean;
   toggleFullscreen: () => void;
-  videoId: string
+  videoId: string;
 };
 
 const VideoModal = ({
   isFullscreen,
   toggleFullscreen,
-  videoId
+  videoId,
 }: VideoFullscreenProps) => {
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
   if (!isFullscreen) return null;
 
@@ -21,7 +28,7 @@ const VideoModal = ({
     height: '100%',
     width: '100%',
     playerVars: {
-      autoplay: 1, 
+      autoplay: 1,
     },
   };
 
@@ -34,7 +41,12 @@ const VideoModal = ({
   };
 
   return (
-    <Modal isOpen={isFullscreen} onClose={toggleFullscreen} size="full" isCentered>
+    <Modal
+      isOpen={isFullscreen}
+      onClose={toggleFullscreen}
+      size="full"
+      isCentered
+    >
       <ModalOverlay background="rgba(0, 0, 0, 0.8)" />
       <ModalContent
         background="transparent"
@@ -65,8 +77,7 @@ const VideoModal = ({
           display="flex"
           alignItems="center"
           justifyContent="center"
-          borderRadius= '20rem'
-
+          borderRadius="20rem"
         >
           {isLoading && (
             <Spinner
@@ -86,17 +97,16 @@ const VideoModal = ({
             position="relative"
             display="flex"
             alignItems="center"
-            justifyContent="center" 
-             borderRadius= '20rem'
+            justifyContent="center"
+            borderRadius="20rem"
           >
             <YouTube
               videoId={videoId}
               opts={opts}
-              onReady={onReady} 
-              onError={onError} 
+              onReady={onReady}
+              onError={onError}
               className="youtube-video"
-              style={{ width: '50%', height: '50%'
-               }}  
+              style={{ width: '50%', height: '50%' }}
             />
           </Box>
         </Box>

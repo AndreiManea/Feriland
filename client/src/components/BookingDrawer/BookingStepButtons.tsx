@@ -12,7 +12,13 @@ const BookingStepButtons = ({
   onNext?: (e?: BaseSyntheticEvent<object> | undefined) => Promise<void>;
   isValid?: boolean;
 }) => {
-  const { bookingStep } = useAppSelector(state => state.bookings);
+  const {
+    bookingStep,
+    bookingFormData,
+    selectedCabin,
+    selectedPersons,
+    selectedDates,
+  } = useAppSelector(state => state.bookings);
   const dispatch = useDispatch();
 
   const nextHandler = (e?: BaseSyntheticEvent) => {
@@ -20,6 +26,21 @@ const BookingStepButtons = ({
       dispatch(setBookingStep(bookingStep + 1));
     }
     if (onNext) onNext(e);
+  };
+
+  const paymentHandler = () => {
+    fetch('http://localhost:3000/reservations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        reservation: {
+          ...{ bookingFormData },
+          selectedCabin,
+          selectedPersons,
+          selectedDates,
+        },
+      }),
+    });
   };
 
   return (
@@ -49,6 +70,7 @@ const BookingStepButtons = ({
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgba(255, 255, 255, .2)' }}
             transition="0.3s ease-in-out"
+            display={{ base: 'none', lg: 'block' }}
           >
             Next
           </Button>
@@ -57,7 +79,7 @@ const BookingStepButtons = ({
       {bookingStep === 4 && (
         <HoverButtonWrapper isRectangular alignSelf="flex-end">
           <Button
-            onClick={() => console.log('TO PAY!')}
+            onClick={paymentHandler}
             backgroundColor={'rgb(84, 124, 57)'}
             color={'white'}
             p="1.5rem 2rem"

@@ -30,6 +30,7 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
         gridTemplateColumns="1fr 1fr"
         minW="100%"
         gridAutoColumns="1fr"
+        display={{ base: 'none', lg: 'block' }}
       >
         {cardItems.map((_card, index) => {
           const imgSrc = t(`masterVilla.cardItems.${index}.src`, { lng: 'en' });
@@ -52,6 +53,10 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
           );
         })}
       </Grid>
+      <GalleryModal
+        isGalleryOpen={isGalleryOpen}
+        toggleGalleryModal={toggleGalleryModal}
+      />
       <GalleryModal
         isGalleryOpen={isGalleryOpen}
         toggleGalleryModal={toggleGalleryModal}

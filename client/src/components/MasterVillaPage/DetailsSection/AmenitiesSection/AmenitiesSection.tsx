@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { totalAmenities } from '../../../../utils/helperFunctions.utils';
 import { Amenity } from '../../../../utils/types';
 
-interface AmenitiesSectionProps{
+interface AmenitiesSectionProps {
   amenities: Amenity[];
   modalRef: React.RefObject<HTMLDivElement>;
 }
@@ -24,6 +24,7 @@ const AmenitiesSection = ({ amenities, modalRef }: AmenitiesSectionProps) => {
       alignItems="flex-start"
       position="relative"
       width="100%"
+      display={{ base: 'none', lg: 'block' }}
     >
       <Text mb="0" mt="0.8rem" fontWeight="800">
         What this place offers

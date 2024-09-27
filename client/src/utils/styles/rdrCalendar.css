@@ -219,3 +219,10 @@
 .bookingCalendar.rdrCalendarWrapper {
   height: 49vh !important;
 }
+
+.sectionCalendar {
+  display: none !important;
+  @media screen and (min-width: 1024px) {
+    display: block !important; /* Show on large screens (1024px and above) */
+  }
+}
