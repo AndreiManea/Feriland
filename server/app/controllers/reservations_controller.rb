@@ -4,10 +4,9 @@ class ReservationsController < ApplicationController
 
     reservations = Reservation.where(cabin_id: 1).pluck(:start_date, :end_date)
     formatted_reservations = reservations.flat_map do |start_date, end_date|
-      [
-        start_date.strftime("%b %d, %Y"),
-        end_date.strftime("%b %d, %Y")
-      ]
+      (start_date..end_date).map do |date|
+        date.strftime("%b %d, %Y")
+      end
     end
 
     render json: { dates: formatted_reservations }
