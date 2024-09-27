@@ -10,8 +10,10 @@ import ContactLink from '../links/ContactLink';
 import SocialLink from '../links/SocialLink';
 import { useState } from 'react';
 import { useAppSelector } from '../../redux/hooks';
+import { useTranslation } from 'react-i18next'; 
 
 const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
+  const { t } = useTranslation(); 
   const [pageLinkHovered, setPageLinkHovered] = useState(0);
   const { darkNavbar } = useAppSelector(state => state.styles);
 
@@ -35,9 +37,9 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
           display={isMenuOpen ? 'flex' : 'none'}
         >
           <Box>
-            <SectionLabel title="MENU" darkNavbar={darkNavbar} />
+            <SectionLabel title={t('navbar.menu')} darkNavbar={darkNavbar} />
             <PageLink
-              title="Master Villa"
+              title={t('navbar.masterVilla')}
               onMouseEnter={() => setPageLinkHovered(1)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 1 || !pageLinkHovered}
@@ -45,7 +47,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               darkNavbar={darkNavbar}
             />
             <PageLink
-              title="Discover"
+              title={t('navbar.discover')}
               onMouseEnter={() => setPageLinkHovered(2)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 2 || !pageLinkHovered}
@@ -53,7 +55,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               darkNavbar={darkNavbar}
             />
             <PageLink
-              title="Contact"
+              title={t('navbar.contact')}
               onMouseEnter={() => setPageLinkHovered(3)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 3 || !pageLinkHovered}
@@ -64,6 +66,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
           <NavbarDivider />
           <NavbarMovieButton />
         </VStack>
+
         {/* Center Side */}
         <VStack
           width="100%"
@@ -81,54 +84,74 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               transition="0.3s ease-in-out"
             />
           </Link>
-          <HStack width="100%" justifyContent="space-around">
+          <HStack
+            width="100%"
+            justifyContent="space-around" 
+            spacing="0.5rem"
+          >
+            {/* Discover Section */}
             <VStack
               gap="0.438rem"
               alignItems="flex-start"
               justifyContent="flex-start"
+              flex="1"
+              maxWidth="9rem" 
             >
-              <SectionLabel title="DISCOVER" darkNavbar={darkNavbar} />
+              <SectionLabel
+                title={t('navbar.discoverSection')}
+                darkNavbar={darkNavbar}
+              />
               <NormalLink
-                title="History"
+                title={t('navbar.history')}
                 to="/discover/history"
                 darkNavbar={darkNavbar}
               />
               <NormalLink
-                title="Local Wine"
+                title={t('navbar.localWine')}
                 to="/discover/local-wine"
                 darkNavbar={darkNavbar}
               />
               <NormalLink
-                title="Bike Trails"
+                title={t('navbar.bikeTrails')}
                 to="/discover/bike-trails"
                 darkNavbar={darkNavbar}
               />
             </VStack>
+
+            {/* Relax Section */}
             <VStack
               gap="0.438rem"
               alignItems="flex-start"
               justifyContent="flex-start"
+              flex="1"
+              maxWidth="9rem" 
             >
-              <SectionLabel title="RELAX" darkNavbar={darkNavbar} />
+              <SectionLabel
+                title={t('navbar.relaxSection')}
+                darkNavbar={darkNavbar}
+              />
               <NormalLink
-                title="Ghioroc Lake"
+                title={t('navbar.ghiorocLake')}
                 to="/discover/ghioroc-lake"
                 darkNavbar={darkNavbar}
               />
               <NormalLink
-                title="Sauna"
+                title={t('navbar.sauna')}
                 to="/discover/sauna"
                 darkNavbar={darkNavbar}
               />
               <NormalLink
-                title="Hot Tub"
+                title={t('navbar.hotTub')}
                 to="/discover/hot-tub"
                 darkNavbar={darkNavbar}
               />
             </VStack>
+
+            {/* Divider */}
             <NavbarDivider />
           </HStack>
         </VStack>
+
         {/* Right Side */}
         <VStack
           width="100%"
@@ -140,7 +163,10 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         >
           {/* CONTACT */}
           <VStack gap="0.5rem" alignItems="flex-start">
-            <SectionLabel title="CONTACT" darkNavbar={darkNavbar} />
+            <SectionLabel
+              title={t('navbar.contactSection')}
+              darkNavbar={darkNavbar}
+            />
             <ContactLink
               imgSrc="https://cdn.prod.website-files.com/65bcf5fac0f3634790a816fe/65fad30b44a22c4233d0b328_email_3894024.svg"
               title="contact@feriland.com"
@@ -157,9 +183,13 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               darkNavbar={darkNavbar}
             />
           </VStack>
+
           {/* SOCIAL */}
           <VStack gap="0.438rem" alignItems="flex-start">
-            <SectionLabel title="GET SOCIAL" darkNavbar={darkNavbar} />
+            <SectionLabel
+              title={t('navbar.getSocial')}
+              darkNavbar={darkNavbar}
+            />
             <HStack gap="0.875rem">
               <SocialLink
                 imgSrc="https://cdn.prod.website-files.com/65bcf5fac0f3634790a816fe/65fc28a30fcf9583aa4319ab_instagram_1077042.svg"
@@ -178,9 +208,13 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               />
             </HStack>
           </VStack>
+
           {/* LANGUAGE */}
           <VStack gap="0.438rem" alignItems="flex-start">
-            <SectionLabel title="SELECT LANGUAGE" darkNavbar={darkNavbar} />
+            <SectionLabel
+              title={t('navbar.selectLanguage')}
+              darkNavbar={darkNavbar}
+            />
             <LanguageSwitch darkNavbar={darkNavbar} />
           </VStack>
         </VStack>

@@ -1,0 +1,288 @@
+{
+  "navbar": {
+    "menu": "Meniu",
+    "masterVilla": "Vila Principală",
+    "discover": "Descoperă",
+    "contact": "Contact",
+    "discoverSection": "DESCOPERĂ",
+    "history": "Istorie",
+    "localWine": "Vin Local",
+    "bikeTrails": "Trasee de Bicicletă",
+    "relaxSection": "RELAXARE",
+    "ghiorocLake": "Lacul Ghioroc",
+    "sauna": "Saună",
+    "hotTub": "Ciubăr",
+    "contactSection": "CONTACT",
+    "getSocial": "REȚELE SOCIALE",
+    "selectLanguage": "SELECTEAZĂ LIMBA",
+    "watchFilm": "Vizionează video",
+    "bookButton": "Rezerva acum"
+  },
+  "homePage": {
+    "header": "Natura la ea acasă",
+    "description": "Cuibărită în îmbrățișarea pădurii, cabana noastră oferă o evadare încântătoare, o oază de liniște în care liniștea înflorește printre șoaptele naturii. Departe de zgomotul urban, aici frumusețea se desfășoară în cea mai pură formă, invitându-vă într-un paradis în care aerul este curat și curat. sufletul își găsește pacea.",
+    "exploreSectionHeader": "In spatele scenei",
+    "exploreSectionText": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.Nunc ut sem vitae risus tristique posuere.",
+    "exploreSectionButton1": "Explorează vila",
+    "exploreSectionButton2": "Rezervă sejur",
+    "gallerySectionHeader": "Greu de gasit, greu de plecat",
+    "gallerySectionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+    "activitiesSectionHeader": "Activități în Feriland",
+    "activitiesSectionText": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    "activitiesSlider": [{
+        "title": "Câmpuri de vin",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
+        "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65f048f116bd7c6211cd257d_MOGGI33-2C6A06591.png"
+      },
+      {
+        "title": "Piste de biciclete",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
+        "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/663cf24436b8616941c44791_1920x1080-as_2022_4756.jpg"
+      },
+      {
+        "title": "Pădure neatinsă",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
+        "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/663cf411204fd203019f5e7f_7fe0d3194930115(1).660468caa465d.jpeg"
+      },
+      {
+        "title": "Calm & Silence",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
+        "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/663cf29b50394139b3140d3c_5e6c38104157013(1).5f5cc14e15943-p-1600.jpg"
+      },
+      {
+        "title": "Ciubar",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
+        "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65c4e5162f4b9d4b16b2a0bd_woman-bikini-bathing-japanese-style-bath-outdoors.jpg"
+      },
+      {
+        "title": "Viața sălbatică",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas at placeat dolor ",
+        "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65f07d77580e270a5d790676_374581141_686381230189221_533891080229178423_n.jpg"
+      }
+    ]
+  },
+  "footer": {
+    "reservedRights": "Toate drepturile rezervate Feriland SRL.",
+    "privacyPolicy": "Politica de confidentialitate",
+    "termsAndConditions": "Termeni si Conditii",
+    "anpc": "ANPC",
+    "anpcSol": "ANPC Sol",
+    "menu": "MENIU",
+    "home": "Acasă",
+    "contact": "Contact",
+    "masterVilla": "Vila Principală",
+    "discover": "Descoperă"
+  },
+  "masterVilla": {
+    "heroText": "Our timeless dreamland, your piece of heaven immersed in the Minis hills.",
+    "detailsLeftHeader": "Vila Principală",
+    "detailsLeftGuestsNr": "6 persoane",
+    "detailsLeftRoomsNr": "2 dormitoare",
+    "detailsLeftBathroom": "1 baie",
+    "detailsLeftHotTub": "Ciubăr",
+    "cardItems": [
+      {
+        "altText": "Dormitor 1",
+        "title": "Dormitor 1"
+      },
+      {
+        "altText": "Dormitor 2",
+        "title": "Dormitor 2"
+      },
+      {
+        "altText": "Baie",
+        "title": "Baie"
+      },
+      {
+        "altText": "Living",
+        "title": "Living"
+      }
+    ],
+    "cardText": "Vezi imagini",
+    "featuresArray": [
+      {
+        "boldText": "Parcare gratuita",
+        "smallText": "Pana la 3 masini"
+      },
+      {
+        "boldText": "Piscina si Ciubar",
+        "smallText": "Trebuie anuntat cu o zi inainte"
+      },
+      {
+        "boldText": "Puteti anula gratuit pana la o zi inainte",
+        "smallText": ""
+      }
+    ],
+    "descriptionText_1": "Ceva ceva ceva",
+    "descriptionText_2": "Ceva ceva ceva 2",
+    "descriptionText_3": "Ceva ceva ceva 3",
+    "checkin": "Check-in: 3:00 PM - 6:00 PM",
+    "checkout": "Checkout inainte de 10:00 AM",
+    "rulesContentHeader": "Reguli aditionale",
+    "infoSections": [
+      {
+        "title":"Inclus in pret:",
+        "content": "Acces internet, aer conditionat, loc de parcare etc."
+      },
+      {
+        "title": "Ocuparea spatiului:",
+        "content": "Bla bla"
+      },
+      {
+        "title": "Animale:",
+        "content": "Fara animale"
+      },
+      {
+        "title": "Garantie:",
+        "content": "Cash: 200 euro"
+      }
+    ],
+    "amenitiesByCategory": {
+      "scenicViews": [
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04cafc585db6796f42e20_drink_13866883.svg",
+          "text": "Vineyard View"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04cfcccb6912b6897f374_road_13808425.svg",
+          "text": "Valley view"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04d2b07ae7f3b71c0a71a_day_13805435.svg",
+          "text": "Garden View"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04db7a8bf61da9cb15336_bay_6056964.svg",
+          "text": "Lake View"
+        }
+      ],
+      "bathroom": [
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04dff8aa09181d9ab566e_hair-dryer_13865574.svg",
+          "text": "Hair Dryer"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04e35c9b2bebf9065cf29_wash_13806192.svg",
+          "text": "Body Soap"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04e65afbcab1341c4c7b2_gel_1592662.svg",
+          "text": "Shampoo"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd00453bad6094728ed29_bath_13805708.svg",
+          "text": "Outdoor / Indoor Shower"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04ed61bddacebfb2e96f4_hot-spring_7755240.svg",
+          "text": "Hot Water"
+        }
+      ],
+      "bedroomLaundry": [
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04f32a548ba3e6e6cf07a_rack_11088314.svg",
+          "text": "Hangers"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04f676f7f914679a8a8ed_towels_3964622.svg",
+          "text": "Bed Linens"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04fa307efdcd200870dc6_pillow_9164914.svg",
+          "text": "Extra pillow and blankets"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0500eb7b7496526191da6_curtain_8143929.svg",
+          "text": "Room-darkening shades"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0504b6ae522bb3e95805c_iron.svg",
+          "text": "Iron"
+        }
+      ],
+      "entertainment": [
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0511490de47718bb05359_book_13049652.svg",
+          "text": "Books and reading material"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0516cff49b4ee98fad6f4_dices_8042383.svg",
+          "text": "Board Games"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddcef3e30ad8301dda2634_multimedia_13866697.svg",
+          "text": "90'' Smart Projector - Netflix"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0519bc6c50b11add84e72_piece_10593976.svg",
+          "text": "Chess"
+        }
+      ],
+      "kitchenDining": [
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddce68e750f1cc62d0de1b_spoon_13865462.svg",
+          "text": "Kitchen"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0522838b64e3bbbd7a979_refrigerator_10400518.svg",
+          "text": "Refrigerator"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0536326f336373fa199ea_oven_2660647.svg",
+          "text": "Microwave"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e052af61cf44d2f52d0c24_kitchen-appliance_13866061.svg",
+          "text": "Coffee maker"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e052d30774df43d88bb7a9_gas-range_13866142.svg",
+          "text": "Stove"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0533937f1df728163b903_bbq_3860226.svg",
+          "text": "Barbecue utensils"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04cafc585db6796f42e20_drink_13866883.svg",
+          "text": "Wine glasses"
+        }
+      ],
+      "outdoor": [
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04f32a548ba3e6e6cf07a_rack_11088314.svg",
+          "text": "Private Patio / Balcony"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e058e57cee17138b4a1432_grass_3439934.svg",
+          "text": "Private Garden"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e04db7a8bf61da9cb15336_bay_6056964.svg",
+          "text": "Private Lake"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0594cb65323938f4b672e_dinner-table_3213863.svg",
+          "text": "Outdoor Furniture"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e0533937f1df728163b903_bbq_3860226.svg",
+          "text": "BBQ Grill"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddcf5a7e945dad6c0e5393_camp_13809154.svg",
+          "text": "Fire Pit"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65ddd04f7b22dce63f5d710c_hot-tub_9247169.svg",
+          "text": "Ciubar"
+        },
+        {
+          "src": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65e059ddc45911e4fc6afcf3_summer_13809572.svg",
+          "text": "Summer Pool"
+        }
+      ]
+    },
+    "amenitiesHeader": "Facilitati"
+  }
+}

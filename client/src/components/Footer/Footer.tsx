@@ -13,9 +13,11 @@ import SectionLabel from '../texts/SectionLabel';
 import ContactLink from '../links/ContactLink';
 import NormalLink from '../links/NormalLink';
 import fullLogo from '../../assets/FullLogo.png';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
   const [pageLinkHovered, setPageLinkHovered] = useState(0);
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -56,7 +58,7 @@ const Footer: React.FC = () => {
             textAlign="left"
             fontWeight="400"
           >
-            Feriland S.R.L. All rights reserved.
+            {t('footer.reservedRights')}
           </Text>
         </Box>
         <VStack
@@ -68,23 +70,23 @@ const Footer: React.FC = () => {
           display={{ base: 'none', lg: 'block' }}
         >
           <VStack px="0" borderTop="none" align="stretch">
-            <SectionLabel title="MENU" />
+            <SectionLabel title={t('footer.menu')} />
             <PageLink
-              title="Home"
+              title={t('footer.home')}
               onMouseEnter={() => setPageLinkHovered(1)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 1 || !pageLinkHovered}
               to="/"
             />
             <PageLink
-              title="Master Cabin"
+              title={t('footer.masterVilla')}
               onMouseEnter={() => setPageLinkHovered(2)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 2 || !pageLinkHovered}
               to="/master-villa"
             />
             <PageLink
-              title="Discover"
+              title={t('footer.discover')}
               onMouseEnter={() => setPageLinkHovered(3)}
               onMouseLeave={() => setPageLinkHovered(0)}
               isHovered={pageLinkHovered === 3 || !pageLinkHovered}
@@ -121,14 +123,14 @@ const Footer: React.FC = () => {
           gridArea="span 1 / span 2 / span 1 / span 2"
           borderRight="1px solid rgba(0, 0, 0, 0.1)"
         >
-          <NormalLink title="Privacy Policy" to="/privacy-policy" />
-          <NormalLink title="Terms and Conditions" to="terms-and-conditions" />
-          <NormalLink title="ANPC" to="/anpc" />
-          <NormalLink title="ANPC sol" to="/anpc-sol" />
+          <NormalLink title={t('footer.privacyPolicy')} to="/privacy-policy" />
+          <NormalLink title={t('footer.termsAndConditions')} to="terms-and-conditions" />
+          <NormalLink title={t('footer.anpc')} to="/anpc" />
+          <NormalLink title={t('footer.anpcSol')} to="/anpc-sol" />
         </HStack>
         <HStack justifyContent="flex-start" padding="2rem 0 2rem 4rem">
           <Text as="p" m="0" fontSize="1rem" letterSpacing="0">
-            Feriland S.R.L. All rights reserved.
+            {t('footer.reservedRights')}
           </Text>
         </HStack>
       </Grid>

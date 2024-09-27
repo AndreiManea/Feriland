@@ -2,9 +2,11 @@ import { Box, HStack, Button } from '@chakra-ui/react';
 import HoverButtonWrapper from '../HoverButtonWrapper/HoverButtonWrapper';
 import { useState } from 'react';
 import VideoModal from '../MasterVillaPage/HeroSection/VideoModal';
+import { useTranslation } from 'react-i18next';
 
 const MovieButton = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const { t } = useTranslation(); 
 
   const toggleFullscreen = (
     event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -45,7 +47,7 @@ const MovieButton = () => {
             borderRadius="10rem"
             cursor="pointer"
           >
-            Watch the film
+            {t('navbar.watchFilm')}
           </Button>
         </HoverButtonWrapper>
       </HStack>

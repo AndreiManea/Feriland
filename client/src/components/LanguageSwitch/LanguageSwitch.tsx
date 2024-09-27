@@ -1,14 +1,27 @@
 import { HStack, Switch, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { setCurrentLanguage } from '../../redux/slices/bookingsSlice'; // Import the action from Redux
+import { useAppSelector } from '../../redux/hooks';
+import { BookingForm } from '../../types/form';
 
 interface LanguageSwitchProps {
   darkNavbar: boolean;
 }
+
 const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
-  const [isEnglish, setIsEnglish] = useState(true);
-  // Dynamically apply the background color for the checked state
-  const dynamicStyles = {
-    backgroundColor: !darkNavbar ? 'black' : 'rgba(255, 255, 255, 0.3)',
+  const dispatch = useDispatch();
+  const { i18n } = useTranslation();
+
+  const { currentLanguage } = useAppSelector(
+    state => state.bookings.bookingFormData as BookingForm
+  );
+  const isEnglish = currentLanguage === 'en';
+
+  const handleLanguageSwitch = () => {
+    const newLanguage = isEnglish ? 'ro' : 'en';
+    i18n.changeLanguage(newLanguage);
+    dispatch(setCurrentLanguage(newLanguage)); 
   };
 
   return (
@@ -19,9 +32,9 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         letterSpacing="0"
         color={
           isEnglish
-            ? 'rgb(84, 124, 57)'
+            ? 'rgb(84, 124, 57)' // Green when English is active
             : !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)'
+              ? 'rgba(0, 0, 0, 0.3)' // Gray when Romanian is active
               : 'rgba(255, 255, 255, 0.3)'
         }
         fontWeight={isEnglish ? 'bold' : 'normal'}
@@ -30,31 +43,34 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
       >
         EN
       </Text>
+
+      {/* Switch to toggle between languages */}
       <Switch
-        onChange={() => setIsEnglish(!isEnglish)}
+        isChecked={!isEnglish} // Checked if Romanian is active
+        onChange={handleLanguageSwitch} // Toggle languages on switch change
         size="lg"
         sx={{
           '.chakra-switch__track': {
-            // Target the internal track using the class name
             bg: 'rgb(84, 124, 57)', // Default track color
-            _checked: dynamicStyles, // Dynamic checked track color
+            _checked: {
+              bg: 'black', // Track color when checked
+            },
           },
         }}
       />
+
       <Text
         fontSize="1rem"
         m="0"
         letterSpacing="0"
         color={
-          isEnglish
-            ? !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)'
-              : 'rgba(255, 255, 255, 0.3)'
+          !isEnglish
+            ? 'black' // Black when Romanian is active
             : !darkNavbar
-              ? 'black'
-              : 'white'
+              ? 'rgba(0, 0, 0, 0.3)' // Gray when English is active
+              : 'rgba(255, 255, 255, 0.3)'
         }
-        fontWeight={isEnglish ? 'normal' : 'bold'}
+        fontWeight={!isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"
         userSelect="none"
       >

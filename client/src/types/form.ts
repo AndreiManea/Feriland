@@ -8,6 +8,7 @@ export interface BookingForm {
   address: string;
   personalNumericCode: string;
   additionalInfo?: string;
+  currentLanguage?: string
 }
 
 export interface BookingSummary extends BookingForm {

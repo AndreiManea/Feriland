@@ -1,8 +1,9 @@
 import React, { forwardRef, useEffect } from 'react';
 import { Image, Heading, Link, VStack } from '@chakra-ui/react';
 import AmenityCategory from '../AmenitiesSection/AmenityCategory'; // Adjust the import path
-import { amenitiesByCategory } from '../../../../utils/data';
 import { CategoryKey } from '../../../../utils/helperFunctions.utils';
+import { useTranslation } from 'react-i18next';
+import { AmenitiesByCategory } from '../../../../utils/types';
 
 interface AmenitiesModalProps {
   showDetails: boolean;
@@ -14,6 +15,9 @@ interface AmenitiesModalProps {
 
 const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
   ({ showDetails, toggleDetails, modalRef }) => {
+    const {t} = useTranslation()
+    const amenitiesByCategory = t('masterVilla.amenitiesByCategory', { returnObjects: true }) as AmenitiesByCategory;
+
     useEffect(() => {
       if (showDetails) {
         document.body.style.overflow = 'hidden';
@@ -87,7 +91,7 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
           </VStack>
           <VStack gridGap="2rem" alignItems="flex-start" px="2rem">
             <Heading as="h2" size="h2" mb="0">
-              Amenities
+              {t('masterVilla.amenitiesHeader')}
             </Heading>
             {Object.keys(amenitiesByCategory).map(category => (
               <AmenityCategory

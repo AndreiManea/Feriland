@@ -17,7 +17,7 @@ export const getAmenitiesFromEachCategory = (
   amenitiesByCategory: AmenitiesByCategory
 ): Amenity[] => {
   return Object.values(amenitiesByCategory).flatMap(categoryAmenities =>
-    categoryAmenities.slice(0, 1)
+    categoryAmenities.slice(0, 1) 
   );
 };
 

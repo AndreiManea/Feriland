@@ -1,10 +1,10 @@
 import { Box, Heading, HStack } from '@chakra-ui/react';
 import VideoContainer from './VideoContainer';
 import ScrollableText from './ScrollableText';
+import { useTranslation } from 'react-i18next';
 
 const HeroSection: React.FC = () => {
-  const sentence =
-    "Nestled in the embrace of the forest, our cabin offers an enchanting escape, a serene oasis where tranquility blooms amidst nature's whispers. Far from urban clamor, here beauty unfolds in its purest form, inviting you to a haven where the air is pristine and the soul finds peace.";
+  const { t } = useTranslation(); 
 
   return (
     <Box>
@@ -39,11 +39,11 @@ const HeroSection: React.FC = () => {
           justifyContent="center"
         >
           <Heading color="white" as="h1" size="h1" mt="1.2rem" mb="0.8rem">
-            Your Home In Nature
+          {t('homePage.header')}
           </Heading>
         </HStack>
       </Box>
-      <ScrollableText sentence={sentence} />
+      <ScrollableText sentence={t('homePage.description')} />
     </Box>
   );
 };

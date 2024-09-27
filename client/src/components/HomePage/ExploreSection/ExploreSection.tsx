@@ -13,10 +13,13 @@ import { interpolateColor } from '../../../utils/helperFunctions.utils';
 import HoverButtonWrapper from '../../HoverButtonWrapper/HoverButtonWrapper';
 import { useAppDispatch } from '../../../redux/hooks';
 import { setBookingDrawerOpen } from '../../../redux/slices/bookingsSlice';
+import { useTranslation } from 'react-i18next';
 
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
+
+  const { t } = useTranslation();
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -139,7 +142,7 @@ const ExploreSection: React.FC = () => {
               lineHeight="1"
               fontWeight="200"
             >
-              Behind the scenes
+              {t('homePage.exploreSectionHeader')}
             </Heading>
             <Text
               as="p"
@@ -149,11 +152,8 @@ const ExploreSection: React.FC = () => {
               color="white"
               fontSize="1.2rem"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique. Duis cursus,
-              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-              libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum
-              lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+              {' '}
+              {t('homePage.exploreSectionText')}
             </Text>
             <HStack
               mt="2rem"
@@ -172,7 +172,7 @@ const ExploreSection: React.FC = () => {
                   cursor="pointer"
                   onClick={e => navigateToMasterVilla(e)}
                 >
-                  Explore Cabin
+                  {t('homePage.exploreSectionButton1')}
                 </Button>
               </HoverButtonWrapper>
               <HoverButtonWrapper>
@@ -186,7 +186,7 @@ const ExploreSection: React.FC = () => {
                   backdropFilter="blur(20px)"
                   onClick={() => dispatch(setBookingDrawerOpen(true))}
                 >
-                  Book your stay
+                  {t('homePage.exploreSectionButton2')}
                 </Button>
               </HoverButtonWrapper>
             </HStack>

@@ -1,3 +1,4 @@
+//TO REMOVE -  ADDED TRANSLATION
 export const slidesData = [
   {
     title: 'Wine Fields',
@@ -43,6 +44,7 @@ export const slidesData = [
   },
 ];
 
+//TO REMOVE -  ADDED TRANSLATION
 export const cardItems = [
   {
     src: 'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg',
@@ -74,6 +76,7 @@ export const cardItems = [
   },
 ];
 
+//TO REMOVE -  ADDED TRANSLATION
 export const featuresArray = [
   {
     iconSrc:
@@ -95,6 +98,34 @@ export const featuresArray = [
   },
 ];
 
+//TO REMOVE -  ADDED TRANSLATION
+export const descriptionText_1 =
+  'Galbino is a stunning 16th century castle in the midst of nature just a few kilometres from the enchanting village of Anghiari. On a hill surrounded by woods and fields, Galbino Castle is a private and exclusive place to relax, explore nature, visit the cultural attractions of the area and enjoy the Tuscan delights of food and wine. The castle is naturally cool thanks to its thick walls and features an infinity pool with spectacular countryside views...';
+export const descriptionText_2 = 'The Space - Keep it relatively short';
+export const descriptionText_3 =
+  'The Castle, which is rented out for private use, has ten bedrooms on two floors, a huge games room with billiards and a ping pong table, a large kitchen with a fireplace, two dining rooms, a library, a living room with walls covered in frescos and a small chapel which is still consecrated. The castle is surrounded by a large garden, also for the exclusive use of guests, housing the spectacular infinity pool overlooking the Tuscan countryside.A few steps from the pool there is a comfortable changing room with a bathroom and shower.';
+
+//TO REMOVE -  ADDED TRANSLATION
+export const infoSections = [
+  {
+    title: 'Included in the price:',
+    content: `Internet access, air conditioning, parking place, electricity, gas, water, final cleaning, bed linen, hand towels, pool, sun loungers, Wireless Internet access.`,
+  },
+  {
+    title: 'Occupancy:',
+    content: `4 persons and 2 persons (extra beds) including children and infants (under 2 years). Please note that the maximum occupancy (6 persons) must not be exceeded even with infants under 2 years of age.`,
+  },
+  {
+    title: 'Pets:',
+    content: `Not allowed. Free of charge.`,
+  },
+  {
+    title: 'Deposit:',
+    content: `Deposit (in cash when the keys are handed over on site, will be refunded on departure): EUR 200`,
+  },
+];
+
+//TO REMOVE -  ADDED TRANSLATION
 export const amenitiesByCategory = {
   scenicViews: [
     {
@@ -242,6 +273,11 @@ export const amenitiesByCategory = {
   ],
 };
 
+
+
+
+
+
 export const photos = [
   'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png',
   'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg',
@@ -256,28 +292,3 @@ export const categoryNames: Record<string, string> = {
   kitchenDining: 'Kitchen & Dining',
   outdoor: 'Outdoor',
 };
-
-export const descriptionText_1 =
-  'Galbino is a stunning 16th century castle in the midst of nature just a few kilometres from the enchanting village of Anghiari. On a hill surrounded by woods and fields, Galbino Castle is a private and exclusive place to relax, explore nature, visit the cultural attractions of the area and enjoy the Tuscan delights of food and wine. The castle is naturally cool thanks to its thick walls and features an infinity pool with spectacular countryside views...';
-export const descriptionText_2 = 'The Space - Keep it relatively short';
-export const descriptionText_3 =
-  'The Castle, which is rented out for private use, has ten bedrooms on two floors, a huge games room with billiards and a ping pong table, a large kitchen with a fireplace, two dining rooms, a library, a living room with walls covered in frescos and a small chapel which is still consecrated. The castle is surrounded by a large garden, also for the exclusive use of guests, housing the spectacular infinity pool overlooking the Tuscan countryside.A few steps from the pool there is a comfortable changing room with a bathroom and shower.';
-
-export const infoSections = [
-  {
-    title: 'Included in the price:',
-    content: `Internet access, air conditioning, parking place, electricity, gas, water, final cleaning, bed linen, hand towels, pool, sun loungers, Wireless Internet access.`,
-  },
-  {
-    title: 'Occupancy:',
-    content: `4 persons and 2 persons (extra beds) including children and infants (under 2 years). Please note that the maximum occupancy (6 persons) must not be exceeded even with infants under 2 years of age.`,
-  },
-  {
-    title: 'Pets:',
-    content: `Not allowed. Free of charge.`,
-  },
-  {
-    title: 'Deposit:',
-    content: `Deposit (in cash when the keys are handed over on site, will be refunded on departure): EUR 200`,
-  },
-];

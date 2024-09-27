@@ -1,8 +1,10 @@
 import { Heading, Text, VStack } from '@chakra-ui/react';
 import ActivityDivider from './ActivityDivider';
 import ActivitiesSlider from './ActivitiesSlider';
+import { useTranslation } from 'react-i18next';
 
 const SliderSection = () => {
+  const { t } = useTranslation();
   return (
     <section style={{ paddingBottom: '10.58rem' }}>
       <VStack
@@ -14,11 +16,10 @@ const SliderSection = () => {
         <ActivityDivider />
         <VStack maxWidth="500px" spacing="2rem">
           <Heading as="h2" size="h2" fontWeight="400" textAlign="center">
-            Activities in Feriland
+          {t('homePage.activitiesSectionHeader')}
           </Heading>
           <Text textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique.
+          {t('homePage.activitiesSectionText')}
           </Text>
         </VStack>
       </VStack>

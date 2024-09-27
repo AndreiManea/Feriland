@@ -2,11 +2,14 @@ import { Box, Heading, VStack, Image, Link } from '@chakra-ui/react';
 import masterVillaImg from '../../../assets/master-villa.png';
 import VideoModal from './VideoModal';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { setIsLoading } from '../../../redux/slices/loadingSlice';
 import { useAppDispatch } from '../../../redux/hooks';
 
+
 const HeroSection: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleFullscreen = (
     event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -62,8 +65,7 @@ const HeroSection: React.FC = () => {
             mt="1rem"
             fontWeight="400"
           >
-            Our timeless dreamland, your piece of heaven immersed in the Minis
-            hills.
+           {t('masterVilla.heroText')}
           </Heading>
         </VStack>
       </Box>

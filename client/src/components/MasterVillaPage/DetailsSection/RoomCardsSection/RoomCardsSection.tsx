@@ -3,6 +3,7 @@ import RoomCard from './RoomCard';
 import { useState } from 'react';
 import GalleryModal from '../GalleryModal/GalleryModal';
 import { Card } from '../../../../utils/types';
+import { useTranslation } from 'react-i18next';
 
 type RoomCardGridProps = {
   cardItems: Card[];
@@ -10,6 +11,7 @@ type RoomCardGridProps = {
 
 const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleGalleryModal = (
     event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -30,17 +32,31 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
         gridAutoColumns="1fr"
         display={{ base: 'none', lg: 'block' }}
       >
-        {cardItems.map((card, index) => (
-          <RoomCard
-            key={index}
-            imgSrc={card.src}
-            imgSet={card.srcSet}
-            altText={card.altText}
-            title={card.title}
-            toggleGalleryModal={toggleGalleryModal}
-          />
-        ))}
+        {cardItems.map((_card, index) => {
+          const imgSrc = t(`masterVilla.cardItems.${index}.src`, { lng: 'en' });
+          const imgSet = t(`masterVilla.cardItems.${index}.srcSet`, {
+            lng: 'en',
+          });
+
+          const altText = t(`masterVilla.cardItems.${index}.altText`);
+          const title = t(`masterVilla.cardItems.${index}.title`);
+
+          return (
+            <RoomCard
+              key={index}
+              imgSrc={imgSrc}
+              imgSet={imgSet}
+              altText={altText}
+              title={title}
+              toggleGalleryModal={toggleGalleryModal}
+            />
+          );
+        })}
       </Grid>
+      <GalleryModal
+        isGalleryOpen={isGalleryOpen}
+        toggleGalleryModal={toggleGalleryModal}
+      />
       <GalleryModal
         isGalleryOpen={isGalleryOpen}
         toggleGalleryModal={toggleGalleryModal}

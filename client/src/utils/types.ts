@@ -20,3 +20,13 @@ export type Card = {
   title: string;
 };
 
+export type Slide = {
+  title: string;
+  description: string;
+  imgSrc: string;
+}
+
+export type InfoSection = {
+  title: string,
+  content: string
+}

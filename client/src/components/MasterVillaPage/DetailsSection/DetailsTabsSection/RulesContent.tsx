@@ -1,15 +1,19 @@
 import { Box, Text, VStack } from '@chakra-ui/react';
 import IconDetails from './IconDetails';
-import { infoSections } from '../../../../utils/data';
 import InfoSectionItem from './InfoSectionItem';
+import { useTranslation } from 'react-i18next';
+import { InfoSection } from '../../../../utils/types';
 
 const RulesContent = () => {
+  const { t } = useTranslation();
+  const infoSections = t('masterVilla.infoSections', { returnObjects: true }) as InfoSection[];
+
   return (
     <VStack align="flex-start" spacing="1rem">
-      <IconDetails text="Check-in: 3:00 PM - 6:00 PM" />
-      <IconDetails text="Checkout before 10:00 AM" />
+      <IconDetails text={t('masterVilla.checkin')} />
+      <IconDetails text={t('masterVilla.checkout')} />
       <Text fontWeight="700" fontSize="1.6rem" mt="0.8rem" mb="0">
-        Additional Rules
+        {t('masterVilla.rulesContentHeader')}
       </Text>
       <Box>
         {infoSections.map((section, index) => (

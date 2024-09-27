@@ -20,7 +20,7 @@ const ActivitySlide = ({ title, description, imgSrc }: ActivitySlideProps) => {
     >
       <Image
         src={imgSrc}
-        alt={'Wine Fields'}
+        alt={title}
         objectFit="cover"
         width="100%"
         height="100%"
