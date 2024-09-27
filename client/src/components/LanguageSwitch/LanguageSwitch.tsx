@@ -13,15 +13,15 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
 
-  const { currentLanguage } = useAppSelector(
+  const { selectedLanguage } = useAppSelector(
     state => state.bookings.bookingFormData as BookingForm
   );
-  const isEnglish = currentLanguage === 'en';
+  const isEnglish = selectedLanguage === 'en';
 
   const handleLanguageSwitch = () => {
     const newLanguage = isEnglish ? 'ro' : 'en';
     i18n.changeLanguage(newLanguage);
-    dispatch(setCurrentLanguage(newLanguage)); 
+    dispatch(setCurrentLanguage(newLanguage));
   };
 
   return (

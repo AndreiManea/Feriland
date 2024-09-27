@@ -25,11 +25,11 @@ const CalendarSection = ({
 }) => {
   // Global state
   const dispatch = useAppDispatch();
-  const { selectedDates, selectedNights } = useAppSelector(
+  const { selectedDates, selectedNights, bookedDates } = useAppSelector(
     state => state.bookings
   );
-  const startDate = new Date(selectedDates[0].startDate as string);
-  const endDate = new Date(selectedDates[0].endDate as string);
+  const startDate = new Date(selectedDates.startDate as string);
+  const endDate = new Date(selectedDates.endDate as string);
 
   // Local state
   const [datePreview, setDatePreview] = useState(
@@ -45,12 +45,10 @@ const CalendarSection = ({
       (1000 * 3600 * 24);
     dispatch(setSelectedNights(Math.round(nightsCalculated)));
     dispatch(
-      setSelectedDates([
-        {
-          startDate: startDate?.toISOString(),
-          endDate: (endDate as Date).toISOString(),
-        },
-      ])
+      setSelectedDates({
+        startDate: startDate?.toISOString(),
+        endDate: (endDate as Date).toISOString(),
+      })
     );
     // Update date preview
     setDatePreview(
@@ -61,16 +59,13 @@ const CalendarSection = ({
     }
   };
 
-  // Disabled dates received from backend as strings
-  const disabledDatesFromBackend = ['June 2, 2024', 'June 3, 2024'];
-
   const parseDateStrings = (dateStrings: string[]) => {
     return dateStrings.map(dateString =>
       parse(dateString, 'MMMM d, yyyy', new Date())
     );
   };
 
-  const disabledDates = parseDateStrings(disabledDatesFromBackend);
+  const disabledDates = parseDateStrings(bookedDates);
 
   return (
     <VStack gap="0.25rem" width="100%" alignItems="flex-start">

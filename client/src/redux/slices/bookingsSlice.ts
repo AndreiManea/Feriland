@@ -9,8 +9,8 @@ export interface SerializableRange
 }
 
 interface BookingsState {
-  bookedDates: SerializableRange[];
-  selectedDates: SerializableRange[];
+  bookedDates: string[];
+  selectedDates: SerializableRange;
   selectedNights: number;
   selectedPersons: { adults: number; children: number };
   selectedCabin: string;
@@ -21,29 +21,27 @@ interface BookingsState {
 
 const initialState: BookingsState = {
   bookedDates: [],
-  selectedDates: [
-    {
-      startDate: new Date().toISOString(),
-      endDate: new Date(
-        new Date().setDate(new Date().getDate() + 2)
-      ).toISOString(),
-    },
-  ],
+  selectedDates: {
+    startDate: new Date().toISOString(),
+    endDate: new Date(
+      new Date().setDate(new Date().getDate() + 2)
+    ).toISOString(),
+  },
   selectedNights: 2,
   selectedPersons: { adults: 1, children: 0 },
   selectedCabin: 'Master Villa',
   isBookingDrawerOpen: false,
   bookingStep: 1,
-  bookingFormData: {...{} as BookingForm, currentLanguage: "en"},
+  bookingFormData: { ...({} as BookingForm), selectedLanguage: 'en' },
 };
 
 export const bookingsSlice = createSlice({
   name: 'bookings',
   initialState,
   reducers: {
-    setSelectedDates: (state, action: PayloadAction<SerializableRange[]>) => {
-      const { startDate, endDate } = action.payload[0];
-      state.selectedDates = [{ startDate, endDate }];
+    setSelectedDates: (state, action: PayloadAction<SerializableRange>) => {
+      const { startDate, endDate } = action.payload;
+      state.selectedDates = { startDate, endDate };
     },
     setSelectedNights: (state, action: PayloadAction<number>) => {
       state.selectedNights = action.payload;
@@ -57,7 +55,7 @@ export const bookingsSlice = createSlice({
     setSelectedCabin: (state, action: PayloadAction<string>) => {
       state.selectedCabin = action.payload;
     },
-    setBookedDates: (state, action: PayloadAction<SerializableRange[]>) => {
+    setBookedDates: (state, action: PayloadAction<string[]>) => {
       state.bookedDates = action.payload;
     },
     setBookingDrawerOpen: (state, action: PayloadAction<boolean>) => {
@@ -78,7 +76,7 @@ export const bookingsSlice = createSlice({
     setCurrentLanguage: (state, action: PayloadAction<string>) => {
       state.bookingFormData = {
         ...state.bookingFormData,
-        currentLanguage: action.payload,
+        selectedLanguage: action.payload,
       };
     },
     updateBookingFormField: (
@@ -101,7 +99,7 @@ export const {
   setBookingForm,
   updateBookingFormField,
   setAdditionalNotes,
-  setCurrentLanguage
+  setCurrentLanguage,
 } = bookingsSlice.actions;
 
 export default bookingsSlice.reducer;

@@ -8,11 +8,22 @@ import HomePage from './components/HomePage/HomePage';
 import BookingDrawer from './components/BookingDrawer/BookingDrawer';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
-import { useAppSelector } from './redux/hooks';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { Box } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { setBookedDates } from './redux/slices/bookingsSlice';
 
 function App() {
   const { isLoading } = useAppSelector(state => state.loading);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    const fetchDates = async () => {
+      const request = await fetch('http://localhost:3000/reservations');
+      const response = await request.json();
+      dispatch(setBookedDates(response.data));
+    };
+    fetchDates();
+  }, []);
 
   return (
     <Box overflow={isLoading ? 'hidden' : ''} height="100vh">
