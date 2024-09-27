@@ -14,8 +14,8 @@ const StickyCalendar = () => {
   const { selectedDates, selectedNights } = useAppSelector(
     state => state.bookings
   );
-  const startDate = new Date(selectedDates[0].startDate as string);
-  const endDate = new Date(selectedDates[0].endDate as string);
+  const startDate = new Date(selectedDates.startDate as string);
+  const endDate = new Date(selectedDates.endDate as string);
 
   const dispatch = useAppDispatch();
 

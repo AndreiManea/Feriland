@@ -60,7 +60,7 @@ const CalendarSection = ({
   };
 
   const parseDateStrings = (dateStrings: string[]) => {
-    return dateStrings.map(dateString =>
+    return dateStrings?.map(dateString =>
       parse(dateString, 'MMMM d, yyyy', new Date())
     );
   };

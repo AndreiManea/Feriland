@@ -8,10 +8,15 @@ import InputTextAreaField from '../InputTextAreaField/InputTextAreaField';
 import { setAdditionalNotes } from '../../redux/slices/bookingsSlice';
 
 const BookingSummaryRightInfo = () => {
-  const { selectedDates, selectedNights, selectedPersons, selectedCabin, bookingFormData } =
-    useAppSelector(state => state.bookings);
-  const startDate = new Date(selectedDates[0].startDate as string);
-  const endDate = new Date(selectedDates[0].endDate as string);
+  const {
+    selectedDates,
+    selectedNights,
+    selectedPersons,
+    selectedCabin,
+    bookingFormData,
+  } = useAppSelector(state => state.bookings);
+  const startDate = new Date(selectedDates.startDate as string);
+  const endDate = new Date(selectedDates.endDate as string);
 
   const dispatch = useDispatch();
 
@@ -45,7 +50,10 @@ const BookingSummaryRightInfo = () => {
           valueFont="1.2rem"
         />
       </VStack>
-      <InputTextAreaField handleChange={(value) => dispatch(setAdditionalNotes(value))} value={bookingFormData.additionalInfo || ''}/>
+      <InputTextAreaField
+        handleChange={value => dispatch(setAdditionalNotes(value))}
+        value={bookingFormData.additionalInfo || ''}
+      />
       <BookingSummaryTotal />
     </VStack>
   );
