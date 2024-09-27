@@ -17,7 +17,6 @@ class ReservationsController < ApplicationController
 
     selected_dates = reservation_params[:reservation][:selected_dates]
 
-    byebug
     params = {
       name: "#{booking_data[:first_name]} #{booking_data[:last_name]}",
       email: booking_data[:email],
@@ -29,7 +28,6 @@ class ReservationsController < ApplicationController
 
     render json: reservation, status: :created
   rescue => e
-    byebug
     render json: { error: e.message }, status: :unprocessable_entity
   end
 
