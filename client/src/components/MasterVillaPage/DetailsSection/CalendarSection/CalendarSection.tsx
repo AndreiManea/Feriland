@@ -46,8 +46,8 @@ const CalendarSection = ({
     dispatch(setSelectedNights(Math.round(nightsCalculated)));
     dispatch(
       setSelectedDates({
-        startDate: startDate?.toISOString(),
-        endDate: (endDate as Date).toISOString(),
+        startDate: formatDate(startDate as Date),
+        endDate: formatDate(endDate as Date),
       })
     );
     // Update date preview

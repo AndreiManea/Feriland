@@ -20,7 +20,7 @@ function App() {
     const fetchDates = async () => {
       const request = await fetch('http://localhost:3000/reservations');
       const response = await request.json();
-      dispatch(setBookedDates(response.data));
+      dispatch(setBookedDates(response.dates));
     };
     fetchDates();
   }, []);
