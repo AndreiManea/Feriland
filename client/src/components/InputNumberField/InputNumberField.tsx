@@ -35,7 +35,10 @@ const InputNumberField = ({
 
   return (
     <VStack alignItems="flex-start" gap={0} width="100%">
-      <Heading fontSize="1.2rem" color="rgb(234, 229, 223)">
+      <Heading
+        fontSize={{ base: '1rem', lg: '1.2rem' }}
+        color="rgb(234, 229, 223)"
+      >
         {label}
       </Heading>
 
@@ -54,6 +57,7 @@ const InputNumberField = ({
             borderColor: 'rgb(234, 229, 223)',
             boxShadow: '0 0 0 1px rgb(234, 229, 223)',
           }}
+          fontSize={{ base: '0.9rem', lg: '1rem' }}
         />
         <NumberInputStepper>
           <NumberIncrementStepper color="rgb(234, 229, 223)" />

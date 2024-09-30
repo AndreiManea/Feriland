@@ -15,6 +15,9 @@
 
 .bookingCalendar .rdrDay {
   height: 55px !important;
+  @media screen and (max-width: 768px) {
+    height: 35px !important;
+  }
 }
 
 .stickyCalendar .rdrDay {
@@ -188,6 +191,9 @@
 .bookingCalendar .rdrMonthName,
 .bookingCalendar .rdrWeekDay {
   font-size: 1.1rem !important;
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem !important;
+  }
 }
 
 .sectionCalendar .rdrNextPrevButton,
@@ -218,6 +224,9 @@
 
 .bookingCalendar.rdrCalendarWrapper {
   height: 49vh !important;
+  @media screen and (max-width: 768px) {
+    max-height: 45svh !important;
+  }
 }
 
 .sectionCalendar {

@@ -1,4 +1,4 @@
-import { Heading, HStack } from '@chakra-ui/react';
+import { Heading, Stack } from '@chakra-ui/react';
 import bookingImg from '../../assets/BookingFormBg.jpg';
 import BookingStepButtons from './BookingStepButtons';
 import BookingCabinCard from './BookingCabinCard';
@@ -7,8 +7,14 @@ import { CABIN_DESCRIPTION } from '../../utils/texts';
 const BookingStep2 = () => {
   return (
     <>
-      <Heading m="1.2rem 0">Selected Cabin</Heading>
-      <HStack spacing={2}>
+      <Heading fontSize={{ base: '1.5rem', lg: '1.875rem' }} m="1.2rem 0">
+        Selected Cabin
+      </Heading>
+      <Stack
+        flexDirection={{ base: 'column', md: 'row' }}
+        spacing="1rem"
+        mb={{ base: '1rem', lg: '0' }}
+      >
         <BookingCabinCard
           cabinImg={bookingImg}
           cabinName="Master Villa"
@@ -22,7 +28,7 @@ const BookingStep2 = () => {
           cabinPrice={1500}
           isDisabled
         />
-      </HStack>
+      </Stack>
       {/* isValid={isSelected || !!selectedCabin} */}
       <BookingStepButtons isValid />
     </>

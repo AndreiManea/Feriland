@@ -25,7 +25,7 @@ const BookingSummaryRightInfo = () => {
       gap="1rem"
       width="100%"
       alignItems="flex-start"
-      p="1.5rem 0 0.75rem 0"
+      p={{ base: '1rem 0 0 0', md: '1.5rem 0 0.75rem 0' }}
       justifyContent="space-between"
       height="100%"
     >
@@ -34,8 +34,7 @@ const BookingSummaryRightInfo = () => {
           fieldTitle={`Selected Dates ( ${selectedNights} 
             ${selectedNights === 1 ? 'night' : 'nights'} )`}
           fieldValue={`${formatDate(startDate)} - ${formatDate(endDate)}`}
-          titleFont="1.6rem"
-          valueFont="1.2rem"
+          isHeader
         />
         <BookingSummaryField
           fieldTitle="Cabin & persons"
@@ -46,8 +45,7 @@ const BookingSummaryRightInfo = () => {
                 ? ` and ${selectedPersons.children} ${selectedPersons.children === 1 ? 'child' : 'children'}`
                 : ''
             }`}
-          titleFont="1.6rem"
-          valueFont="1.2rem"
+          isHeader
         />
       </VStack>
       <InputTextAreaField

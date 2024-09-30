@@ -36,11 +36,19 @@ const BookingStep1 = () => {
 
   return (
     <>
-      <Heading m="1.2rem 0">Select Dates</Heading>
-      <VStack alignItems="flex-start" spacing="1.2rem">
+      <Heading fontSize={{ base: '1.5rem', lg: '1.875rem' }} m="1.2rem 0">
+        Select Dates
+      </Heading>
+      <VStack
+        alignItems="flex-start"
+        spacing={{ base: '1.6rem', lg: '1.2rem' }}
+      >
         <HStack gap={0} width="100%">
           <VStack alignItems="flex-start" width="100%" position="relative">
-            <Heading fontSize="1.2rem" color="rgb(234, 229, 223)">
+            <Heading
+              fontSize={{ base: '1rem', lg: '1.2rem' }}
+              color="rgb(234, 229, 223)"
+            >
               Check In & Check Out
             </Heading>
             <HStack
@@ -59,7 +67,11 @@ const BookingStep1 = () => {
               ref={toggleButtonRef}
               onClick={() => setIsCalendar(!isCalendar)}
             >
-              <Text letterSpacing="1px" fontSize="1rem" m={0}>
+              <Text
+                letterSpacing="1px"
+                fontSize={{ base: '0.8rem', lg: '1rem' }}
+                m={0}
+              >
                 {`${formatDate(startDate)} - ${formatDate(endDate)}`}
               </Text>
             </HStack>
@@ -98,8 +110,8 @@ const BookingStep1 = () => {
         </HStack>
       </VStack>
       <Text
-        fontSize="0.8rem"
-        m="0.5rem 0 0 0"
+        fontSize={{ base: '0.6rem', lg: '0.8rem' }}
+        m={{ base: '1rem 0 0 0', lg: '0.5rem 0 0 0' }}
         color="rgb(234, 229, 223)"
         fontWeight="bold"
       >

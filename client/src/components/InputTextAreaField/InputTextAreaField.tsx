@@ -16,7 +16,11 @@ const InputTextAreaField: React.FC<InputTextAreaFieldProps> = ({
 
   return (
     <VStack alignItems="flex-start" gap={0} width="100%" mb="1rem">
-      <Heading fontSize="1.2rem" color="rgb(234, 229, 223)" letterSpacing="1px">
+      <Heading
+        fontSize={{ base: '1rem', lg: '1.2rem' }}
+        color="rgb(234, 229, 223)"
+        letterSpacing="1px"
+      >
         Additional Info
       </Heading>
       <Textarea
@@ -28,6 +32,7 @@ const InputTextAreaField: React.FC<InputTextAreaFieldProps> = ({
         height="5rem"
         borderRadius="5px"
         color="white"
+        fontSize={{ base: '0.9rem', lg: '1rem' }}
         background="rgba(0,0,0,.25)"
         _focusVisible={{
           borderColor: 'rgb(50, 28, 2)',
@@ -35,6 +40,7 @@ const InputTextAreaField: React.FC<InputTextAreaFieldProps> = ({
         }}
         _placeholder={{
           color: 'rgba(234, 229, 223, 0.6)',
+          fontSize: { base: '0.9rem', lg: '1rem' },
         }}
       />
       ;

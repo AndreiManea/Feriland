@@ -18,6 +18,7 @@ interface FormValues {
   email: string;
   address: string;
   personalNumericCode: string;
+  selectedLanguage: string;
 }
 
 const BookingStep3 = () => {
@@ -52,8 +53,14 @@ const BookingStep3 = () => {
 
   return (
     <form>
-      <VStack spacing="1rem" alignItems="flex-start">
-        <Heading m="1.2rem 0 0 0">Personal Information</Heading>
+      <VStack
+        spacing="1rem"
+        alignItems="flex-start"
+        mb={{ base: '1.5rem', lg: '0' }}
+      >
+        <Heading fontSize={{ base: '1.5rem', lg: '1.875rem' }} m="1.2rem 0 0 0">
+          Personal Information
+        </Heading>
         <HStack
           gap="1rem"
           justifyContent="space-between"

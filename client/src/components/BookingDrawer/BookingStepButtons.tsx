@@ -51,10 +51,11 @@ const BookingStepButtons = ({
             onClick={() => dispatch(setBookingStep(bookingStep - 1))}
             backgroundColor={'rgba(255, 255, 255, .2)'}
             color={'white'}
-            p="1.5rem 2rem"
+            p={{ base: '1rem 1.5rem', lg: '1.5rem 2rem' }}
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgba(255, 255, 255, .2)' }}
             transition="0.3s ease-in-out"
+            fontSize={{ base: '0.9rem', lg: '1rem' }}
           >
             Previous
           </Button>
@@ -66,11 +67,11 @@ const BookingStepButtons = ({
             onClick={nextHandler}
             backgroundColor={'rgba(255, 255, 255, .2)'}
             color={'white'}
-            p="1.5rem 2rem"
+            p={{ base: '1rem 1.5rem', lg: '1.5rem 2rem' }}
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgba(255, 255, 255, .2)' }}
             transition="0.3s ease-in-out"
-            display={{ base: 'none', lg: 'block' }}
+            fontSize={{ base: '0.9rem', lg: '1rem' }}
           >
             Next
           </Button>
@@ -82,7 +83,8 @@ const BookingStepButtons = ({
             onClick={paymentHandler}
             backgroundColor={'rgb(84, 124, 57)'}
             color={'white'}
-            p="1.5rem 2rem"
+            p={{ base: '1rem 1.5rem', lg: '1.5rem 2rem' }}
+            fontSize={{ base: '0.9rem', lg: '1rem' }}
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgb(84, 124, 57)' }}
             transition="0.3s ease-in-out"
