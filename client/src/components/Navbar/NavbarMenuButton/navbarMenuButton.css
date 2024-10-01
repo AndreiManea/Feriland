@@ -1,16 +1,26 @@
 #hamburger {
   padding: 0.4375rem;
   border-radius: 3rem;
+  width: 3.313rem;
+  height: 3.313rem;
+  @media screen and (max-width: 767px) {
+    padding: 0.1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 
 #hamburger .line {
-  width: 38px;
+  width: 2.375rem;
   height: 2px;
   display: block;
   margin: 8px auto;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 767px) {
+    width: 1.625rem;
+  }
 }
 
 #hamburger:hover {

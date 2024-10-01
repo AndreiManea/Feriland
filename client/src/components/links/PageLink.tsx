@@ -27,6 +27,7 @@ const PageLink = ({
       <Heading
         color={darkNavbar ? 'white' : ''}
         fontWeight="400"
+        fontSize={{ base: '2rem', md: '2.625rem' }}
         size="h3"
         textAlign="left"
         m="0"

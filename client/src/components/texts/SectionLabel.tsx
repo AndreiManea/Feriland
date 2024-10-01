@@ -10,7 +10,7 @@ const SectionLabel = ({
   return (
     <Text
       fontSize="0.75rem"
-      mb="1.1875rem"
+      mb={{ base: '0.5rem', md: '1.1875rem' }}
       letterSpacing="0.1rem"
       color={darkNavbar ? 'rgba(204, 204, 204, .7)' : 'rgba(51, 51, 51, 0.7)'}
     >

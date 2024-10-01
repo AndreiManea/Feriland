@@ -1,4 +1,12 @@
-import { Box, HStack, VStack, Image, Link } from '@chakra-ui/react';
+import {
+  Box,
+  HStack,
+  VStack,
+  Image,
+  Link,
+  Stack,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import fullLogo from '../../assets/FullLogo.png';
 import PageLink from '../links/PageLink';
 import SectionLabel from '../texts/SectionLabel';
@@ -10,27 +18,28 @@ import ContactLink from '../links/ContactLink';
 import SocialLink from '../links/SocialLink';
 import { useState } from 'react';
 import { useAppSelector } from '../../redux/hooks';
-import { useTranslation } from 'react-i18next'; 
+import { useTranslation } from 'react-i18next';
 
 const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
   const [pageLinkHovered, setPageLinkHovered] = useState(0);
   const { darkNavbar } = useAppSelector(state => state.styles);
-
+  const showMovie = useBreakpointValue({ base: false, md: true });
   return (
     <Box width={isMenuOpen ? '100%' : 0} height={isMenuOpen ? '100%' : 0}>
-      <HStack
+      <Stack
         backgroundColor={darkNavbar ? '#2e2a27' : 'rgb(234, 229, 223)'}
         opacity={isMenuOpen ? '1' : '0'}
         borderRadius="1.438rem"
         transition={!isMenuOpen ? 'none' : '0.3s ease-in-out'}
         justifyContent="flex-start"
+        direction={{ base: 'column', md: 'row' }}
       >
         {/* Left Side */}
         <VStack
-          p="1.75rem"
+          p={{ base: '1.2rem 1.2rem 0.25rem 1.2rem', md: '1.75rem' }}
           alignItems="flex-start"
-          gap="3.5rem"
+          gap={{ base: '0.5rem', md: '3.5rem' }}
           width="100%"
           position="relative"
           flex="1"
@@ -64,7 +73,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
             />
           </Box>
           <NavbarDivider />
-          <NavbarMovieButton />
+          {showMovie && <NavbarMovieButton />}
         </VStack>
 
         {/* Center Side */}
@@ -74,7 +83,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
           p="1.75rem"
           gap="5rem"
           position="relative"
-          display={isMenuOpen ? 'flex' : 'none'}
+          display={{ base: 'none', xl: isMenuOpen ? 'flex' : 'none' }}
         >
           <Link href="/" textAlign="center">
             <Image
@@ -84,18 +93,14 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               transition="0.3s ease-in-out"
             />
           </Link>
-          <HStack
-            width="100%"
-            justifyContent="space-around" 
-            spacing="0.5rem"
-          >
+          <HStack width="100%" justifyContent="space-around" spacing="0.5rem">
             {/* Discover Section */}
             <VStack
               gap="0.438rem"
               alignItems="flex-start"
               justifyContent="flex-start"
               flex="1"
-              maxWidth="9rem" 
+              maxWidth="9rem"
             >
               <SectionLabel
                 title={t('navbar.discoverSection')}
@@ -124,7 +129,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
               alignItems="flex-start"
               justifyContent="flex-start"
               flex="1"
-              maxWidth="9rem" 
+              maxWidth="9rem"
             >
               <SectionLabel
                 title={t('navbar.relaxSection')}
@@ -156,10 +161,13 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
         <VStack
           width="100%"
           flex="1"
-          p="4rem 1.75rem 1.75rem 1.75rem"
+          p={{
+            base: '0 1.75rem 1.25rem 1.75rem',
+            md: '4rem 1.75rem 1.75rem 1.75rem',
+          }}
           display={isMenuOpen ? 'flex' : 'none'}
           alignItems="flex-start"
-          gap="3.5rem"
+          gap={{ base: '1rem', md: '3.5rem' }}
         >
           {/* CONTACT */}
           <VStack gap="0.5rem" alignItems="flex-start">
@@ -218,7 +226,7 @@ const NavbarExtended = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
             <LanguageSwitch darkNavbar={darkNavbar} />
           </VStack>
         </VStack>
-      </HStack>
+      </Stack>
     </Box>
   );
 };

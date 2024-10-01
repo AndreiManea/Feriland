@@ -16,7 +16,7 @@
     "getSocial": "REȚELE SOCIALE",
     "selectLanguage": "SELECTEAZĂ LIMBA",
     "watchFilm": "Vizionează video",
-    "bookButton": "Rezerva acum"
+    "bookButton": "Rezerva"
   },
   "homePage": {
     "header": "Natura la ea acasă",
@@ -29,7 +29,8 @@
     "gallerySectionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
     "activitiesSectionHeader": "Activități în Feriland",
     "activitiesSectionText": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    "activitiesSlider": [{
+    "activitiesSlider": [
+      {
         "title": "Câmpuri de vin",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque corrupti dolorem, voluptatibus vel quam neque voluptas",
         "imgSrc": "https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65f048f116bd7c6211cd257d_MOGGI33-2C6A06591.png"
@@ -121,7 +122,7 @@
     "rulesContentHeader": "Reguli aditionale",
     "infoSections": [
       {
-        "title":"Inclus in pret:",
+        "title": "Inclus in pret:",
         "content": "Acces internet, aer conditionat, loc de parcare etc."
       },
       {

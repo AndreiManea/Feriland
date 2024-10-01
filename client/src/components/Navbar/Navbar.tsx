@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
       justifyContent="center"
       alignItems="center"
       margin="0 auto"
-      padding="1rem 1.75rem"
+      padding={{ base: '1rem 0.5rem', md: '1rem 1.75rem' }}
       position="fixed"
       display="block"
       top="0"
@@ -31,7 +31,9 @@ const Navbar: React.FC = () => {
         backgroundColor={
           !darkNavbar ? 'rgba(0, 0, 0, .25)' : 'rgba(207, 198, 187, 0.25)'
         }
-        height={isMenuOpen ? '39.5rem' : '5.875rem'}
+        height={{
+          md: isMenuOpen ? '39.5rem' : '5.875rem',
+        }}
         borderRadius={isMenuOpen ? '2rem' : '5rem'}
         transition={!isMenuOpen ? '0.2s ease-in-out' : '0.3s ease-in-out'}
         gap={isMenuOpen ? '0.5rem' : 0}

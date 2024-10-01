@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 const MovieButton = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   const toggleFullscreen = (
     event?: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -14,7 +14,7 @@ const MovieButton = () => {
     if (event) {
       event.preventDefault();
     }
-    setIsFullscreen((prevState) => !prevState);
+    setIsFullscreen(prevState => !prevState);
   };
 
   return (
