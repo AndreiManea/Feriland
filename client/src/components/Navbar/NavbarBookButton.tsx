@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 const NavbarBookButton = () => {
   const dispatch = useAppDispatch();
   const { darkNavbar } = useAppSelector(state => state.styles);
-  const {t}= useTranslation()
+  const { t } = useTranslation();
 
   return (
     <HoverButtonWrapper darkNavbar={darkNavbar}>
@@ -17,7 +17,8 @@ const NavbarBookButton = () => {
           !darkNavbar ? 'rgba(255, 255, 255, .2)' : 'rgba(255, 255, 255, .8)'
         }
         color={!darkNavbar ? 'white' : 'black'}
-        p="1.5rem 2rem"
+        p={{ base: '1rem', md: '1.5rem 2rem' }}
+        fontSize={{ base: '0.75rem', md: '1rem' }}
         borderRadius="10rem"
         _hover={{
           backgroundColor: !darkNavbar

@@ -15,10 +15,12 @@ const NavbarCollapsed = ({
 
   return (
     <Grid
-      templateColumns="repeat(3, 1fr)"
+      templateColumns={{ base: '0.65fr 1fr 1fr', md: 'repeat(3, 1fr)' }}
       alignItems="center"
       width="100%"
       p="0.75rem"
+      pt={{ base: '0.55rem', md: '0.75rem' }}
+      px={{ base: '0.25rem', md: '0.75rem' }}
     >
       <GridItem display="flex" justifyContent="flex-start">
         <NavbarMenuButton onClick={() => setIsMenuOpen(!isMenuOpen)} />
