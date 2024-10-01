@@ -18,6 +18,7 @@ interface FormValues {
   email: string;
   address: string;
   personalNumericCode: string;
+  selectedLanguage: string;
 }
 
 const BookingStep3 = () => {
