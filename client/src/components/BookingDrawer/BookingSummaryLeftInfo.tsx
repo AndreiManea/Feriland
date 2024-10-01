@@ -10,7 +10,7 @@ const BookingSummaryLeftInfo = () => {
       justifyContent="center"
       gap="1rem"
       width="100%"
-      p="1.5rem 0 0.75rem 0"
+      p={{ base: '0.5rem 0 0 0', lg: '1.5rem 0 0.75rem 0' }}
     >
       <BookingSummaryField
         fieldTitle="Name"

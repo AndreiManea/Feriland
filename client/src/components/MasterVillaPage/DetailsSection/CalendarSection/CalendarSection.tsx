@@ -9,7 +9,13 @@ import {
   setSelectedNights,
 } from '../../../../redux/slices/bookingsSlice';
 import { parse } from 'date-fns';
-import { Box, Heading, Text, VStack } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from '@chakra-ui/react';
 import { enGB } from 'date-fns/locale';
 
 const CalendarSection = ({
@@ -30,7 +36,7 @@ const CalendarSection = ({
   );
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);
-
+  const months = useBreakpointValue({ base: 1, md: 2 });
   // Local state
   const [datePreview, setDatePreview] = useState(
     `${formatDate(startDate)} - ${formatDate(endDate)}`
@@ -83,7 +89,7 @@ const CalendarSection = ({
       <DateRange
         onChange={handleSelect}
         ranges={[{ startDate, endDate }]}
-        months={2}
+        months={months}
         locale={enGB}
         fixedHeight
         direction="horizontal"
