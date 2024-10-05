@@ -6,13 +6,20 @@ import { InfoSection } from '../../../../utils/types';
 
 const RulesContent = () => {
   const { t } = useTranslation();
-  const infoSections = t('masterVilla.infoSections', { returnObjects: true }) as InfoSection[];
+  const infoSections = t('masterVilla.infoSections', {
+    returnObjects: true,
+  }) as InfoSection[];
 
   return (
     <VStack align="flex-start" spacing="1rem">
-      <IconDetails text={t('masterVilla.checkin')} />
-      <IconDetails text={t('masterVilla.checkout')} />
-      <Text fontWeight="700" fontSize="1.6rem" mt="0.8rem" mb="0">
+      <IconDetails text={t('masterVilla.checkin')} isCheckIn />
+      <IconDetails text={t('masterVilla.checkout')} isCheckOut />
+      <Text
+        fontWeight="700"
+        fontSize={{ base: '1.4rem', md: '1.6rem' }}
+        mt="0.8rem"
+        mb="0"
+      >
         {t('masterVilla.rulesContentHeader')}
       </Text>
       <Box>

@@ -215,7 +215,13 @@
 }
 
 .sectionCalendar.rdrCalendarWrapper {
-  height: 57vh !important;
+  height: 60vh !important;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .sectionCalendar.rdrCalendarWrapper {
+    height: 40svh !important;
+  }
 }
 
 .stickyCalendarSection.rdrCalendarWrapper {
@@ -238,7 +244,7 @@
 }
 
 .sectionCalendar {
-  display: none !important;
+  /* display: none !important; */
   @media screen and (min-width: 1024px) {
     display: block !important; /* Show on large screens (1024px and above) */
   }

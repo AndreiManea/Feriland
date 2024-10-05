@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalOverlay,
   Spinner,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 
 type VideoFullscreenProps = {
@@ -21,15 +22,17 @@ const VideoModal = ({
   videoId,
 }: VideoFullscreenProps) => {
   const [isLoading, setIsLoading] = useState(true);
+  const youtubeStyles = useBreakpointValue({
+    base: { width: '90%', height: '60%' },
+    md: { width: '95%', height: '50%' },
+    lg: { width: '90%', height: '75%' },
+  });
 
   if (!isFullscreen) return null;
 
   const opts = {
     height: '100%',
     width: '100%',
-    playerVars: {
-      autoplay: 1,
-    },
   };
 
   const onReady = () => {
@@ -66,9 +69,9 @@ const VideoModal = ({
         <ModalCloseButton
           color="white"
           zIndex="100"
-          fontSize="1.5rem"
-          mt="1rem"
-          mr="1rem"
+          fontSize={{ base: '1.75rem', md: '2.5rem', lg: '2.25rem' }}
+          mt={{ base: '2.5rem', md: '4.5rem', lg: '2rem' }}
+          mr={{ base: '0.75rem', md: '1.5rem', lg: '2rem' }}
         />
         <Box
           height="100%"
@@ -106,7 +109,7 @@ const VideoModal = ({
               onReady={onReady}
               onError={onError}
               className="youtube-video"
-              style={{ width: '50%', height: '50%' }}
+              style={youtubeStyles}
             />
           </Box>
         </Box>

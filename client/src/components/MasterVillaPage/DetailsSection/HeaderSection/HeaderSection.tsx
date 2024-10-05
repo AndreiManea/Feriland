@@ -6,22 +6,30 @@ const HeaderSection = () => {
   const { t } = useTranslation();
 
   return (
-    <Box>
+    <Box
+      w={{ base: '100%', lg: 'auto' }}
+      display={{ base: 'flex', lg: 'block' }}
+      flexDirection={{ base: 'column', lg: undefined }}
+      gap={{ base: '2rem', lg: undefined }}
+    >
       <Heading
         as="h2"
-        size="h2"
+        size={{ base: 'h3', md: 'h1', lg: 'h2' }}
         zIndex="2"
         my="0"
-        maxW="35rem"
+        maxW={{ base: 'auto', lg: '35rem' }}
         position="relative"
         color="black"
-        textAlign="left"
+        textAlign={{ base: 'center', lg: 'left' }}
         width="100%"
         fontWeight="400"
       >
         {t('masterVilla.detailsLeftHeader')}
       </Heading>
-      <HStack alignItems="center">
+      <HStack
+        alignItems="center"
+        justifyContent={{ base: 'center', lg: 'flex-start' }}
+      >
         <SubText divider>{t('masterVilla.detailsLeftGuestsNr')}</SubText>
         <SubText divider>{t('masterVilla.detailsLeftRoomsNr')}</SubText>
         <SubText divider>{t('masterVilla.detailsLeftBathroom')}</SubText>

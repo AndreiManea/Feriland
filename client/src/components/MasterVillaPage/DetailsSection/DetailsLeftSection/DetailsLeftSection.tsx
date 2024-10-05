@@ -1,4 +1,4 @@
-import { Box, VStack } from '@chakra-ui/react';
+import { useBreakpointValue, VStack } from '@chakra-ui/react';
 import HeaderSection from '../HeaderSection/HeaderSection';
 import RoomCardsSection from '../RoomCardsSection/RoomCardsSection';
 import FeatureDetailsSection from '../FeatureDetailsSection/FeatureDetailsSection';
@@ -6,6 +6,7 @@ import DetailsTabsSection from '../DetailsTabsSection/DetailsTabsSection';
 import AmenitiesSection from '../AmenitiesSection/AmenitiesSection';
 import { Amenity, Card, Feature } from '../../../../utils/types';
 import CalendarSection from '../CalendarSection/CalendarSection';
+import DetailsDivider from './DetailsDivider';
 
 interface DetailsLeftSectionProps {
   cardItems: Card[];
@@ -20,18 +21,24 @@ const DetailsLeftSection = ({
   amenities,
   modalRef,
 }: DetailsLeftSectionProps) => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
   return (
-    <VStack alignItems="flex-start" gridGap="4rem" position="static">
+    <VStack
+      alignItems="flex-start"
+      gridGap="4rem"
+      position="static"
+      pb={{ base: '1rem', md: '2rem', lg: '0' }}
+    >
       <HeaderSection />
       <RoomCardsSection cardItems={cardItems} />
-      <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
+      <DetailsDivider />
       <FeatureDetailsSection featuresArray={featuresArray} />
-      <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
+      <DetailsDivider />
       <DetailsTabsSection />
-      <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
+      <DetailsDivider />
       <AmenitiesSection amenities={amenities} modalRef={modalRef} />
-      <Box width="100%" height="0.1rem" backgroundColor="rgba(0, 0, 0, 0.2)" />
-      <CalendarSection customClass="sectionCalendar" />
+      {!isMobile && <DetailsDivider />}
+      {!isMobile && <CalendarSection customClass="sectionCalendar" />}
     </VStack>
   );
 };

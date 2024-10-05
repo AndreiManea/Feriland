@@ -78,12 +78,16 @@ const CalendarSection = ({
       {noText ? null : (
         <Box>
           <Heading
-            fontSize={isSticky ? '1.1rem' : '1.375rem'}
+            fontSize={{ base: '1.2rem', md: isSticky ? '1.1rem' : '1.375rem' }}
             letterSpacing="0.125rem"
           >
             {Math.round(selectedNights)} nights
           </Heading>
-          <Text fontSize={isSticky ? '0.8rem' : '1.1rem'}>{datePreview}</Text>
+          <Text
+            fontSize={{ base: '0.975rem', md: isSticky ? '0.8rem' : '1.1rem' }}
+          >
+            {datePreview}
+          </Text>
         </Box>
       )}
       <DateRange

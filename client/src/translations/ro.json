@@ -110,15 +110,15 @@
         "smallText": "Trebuie anuntat cu o zi inainte"
       },
       {
-        "boldText": "Puteti anula gratuit pana la o zi inainte",
+        "boldText": "Puteti anula gratuit",
         "smallText": ""
       }
     ],
     "descriptionText_1": "Ceva ceva ceva",
     "descriptionText_2": "Ceva ceva ceva 2",
     "descriptionText_3": "Ceva ceva ceva 3",
-    "checkin": "Check-in: 3:00 PM - 6:00 PM",
-    "checkout": "Checkout inainte de 10:00 AM",
+    "checkin": "3:00 PM - 6:00 PM",
+    "checkout": "Inainte de 10:00 AM",
     "rulesContentHeader": "Reguli aditionale",
     "infoSections": [
       {

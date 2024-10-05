@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { setIsLoading } from '../../../redux/slices/loadingSlice';
 import { useAppDispatch } from '../../../redux/hooks';
 
-
 const HeroSection: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { t } = useTranslation();
@@ -22,7 +21,7 @@ const HeroSection: React.FC = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Box overflow="hidden" height="100vh">
+    <Box overflow="hidden" height="100svh">
       <Box position="sticky" height="auto" zIndex="1" top="0" overflow="hidden">
         <Image
           src={masterVillaImg}
@@ -32,7 +31,7 @@ const HeroSection: React.FC = () => {
             }, 1000)
           }
           width="100%"
-          height="100vh"
+          height="100svh"
           position="relative"
           overflow="hidden"
         />
@@ -59,13 +58,13 @@ const HeroSection: React.FC = () => {
         >
           <Heading
             as="h1"
-            size="h1"
+            size={{ base: 'h3', md: 'h2', lg: 'h1' }}
             textAlign="center"
             color="white"
-            mt="1rem"
+            mt={{ base: '-1rem', md: '1rem' }}
             fontWeight="400"
           >
-           {t('masterVilla.heroText')}
+            {t('masterVilla.heroText')}
           </Heading>
         </VStack>
       </Box>
@@ -81,12 +80,12 @@ const HeroSection: React.FC = () => {
             position="relative"
             zIndex="10"
             height="100vh"
-            width="40vw"
+            width={{ base: '75vw', lg: '40vw' }}
             mx="auto"
             py="0"
             overflow="visible"
-            borderTopRadius="20vw"
-            mt="-10vh"
+            borderTopRadius={{ base: '37.5vw', lg: '20vw' }}
+            mt={{ base: '-10vh', lg: '-10vh' }}
             backdropFilter="blur(2.5rem)"
             backgroundColor="rgba(0, 0, 0, 0.533)"
           >
@@ -100,9 +99,9 @@ const HeroSection: React.FC = () => {
               justifyContent="center"
               borderRadius="100rem"
               mx="auto"
-              width="10.5rem"
-              height="10.5rem"
-              mt="-6rem"
+              width={{ base: '8rem', md: '15rem', lg: '12.5rem' }}
+              height={{ base: '8rem', md: '15rem', lg: '12.5rem' }}
+              mt={{ base: '-4.5rem', md: '-8rem', lg: '-8rem' }}
               overflow="hidden"
             >
               <Box
@@ -149,7 +148,7 @@ const HeroSection: React.FC = () => {
                   src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d8886f3af7447dcb00e78d_play_12751645.png"
                   loading="lazy"
                   alt=""
-                  width="2.5rem"
+                  width={{ base: '2.5rem', md: '3.5rem', lg: '3rem' }}
                   opacity="0.9"
                 />
               </Box>

@@ -13,8 +13,11 @@ const components = {
   },
   Heading: {
     sizes: {
+      h5: {
+        fontSize: '1.2rem',
+      },
       h4: {
-        fontSize: '1.6rem', 
+        fontSize: '1.6rem',
       },
       h3: {
         fontSize: '2.625rem', // 42px
@@ -23,8 +26,8 @@ const components = {
         fontSize: '3.5rem', // 56px
       },
       h1: {
-        fontSize: '4rem'
-      }
+        fontSize: '4rem',
+      },
     },
   },
   Switch: {

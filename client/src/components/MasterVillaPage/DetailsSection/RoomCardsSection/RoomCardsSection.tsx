@@ -14,7 +14,7 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
   const { t } = useTranslation();
 
   const toggleGalleryModal = (
-    event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event?: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (event) {
       event.preventDefault();
@@ -27,10 +27,9 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
       <Grid
         gridGap="1rem"
         gridTemplateRows="auto"
-        gridTemplateColumns="1fr 1fr"
+        gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
         minW="100%"
         gridAutoColumns="1fr"
-        display={{ base: 'none', lg: 'block' }}
       >
         {cardItems.map((_card, index) => {
           const imgSrc = t(`masterVilla.cardItems.${index}.src`, { lng: 'en' });
@@ -53,10 +52,6 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
           );
         })}
       </Grid>
-      <GalleryModal
-        isGalleryOpen={isGalleryOpen}
-        toggleGalleryModal={toggleGalleryModal}
-      />
       <GalleryModal
         isGalleryOpen={isGalleryOpen}
         toggleGalleryModal={toggleGalleryModal}

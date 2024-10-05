@@ -9,7 +9,13 @@ interface TextProps {
 export const SubText: React.FC<TextProps> = ({ children, divider }) => {
   return (
     <>
-      <Text as="p" textAlign="left" mb="0" fontSize="1.1rem" fontWeight="400">
+      <Text
+        as="p"
+        textAlign="left"
+        mb="0"
+        fontSize={{ base: '0.9rem', md: '1.5rem', lg: '1.1rem' }}
+        fontWeight="400"
+      >
         {children}
       </Text>
       {divider ? (

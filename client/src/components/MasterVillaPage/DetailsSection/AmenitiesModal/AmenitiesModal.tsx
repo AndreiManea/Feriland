@@ -15,8 +15,10 @@ interface AmenitiesModalProps {
 
 const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
   ({ showDetails, toggleDetails, modalRef }) => {
-    const {t} = useTranslation()
-    const amenitiesByCategory = t('masterVilla.amenitiesByCategory', { returnObjects: true }) as AmenitiesByCategory;
+    const { t } = useTranslation();
+    const amenitiesByCategory = t('masterVilla.amenitiesByCategory', {
+      returnObjects: true,
+    }) as AmenitiesByCategory;
 
     useEffect(() => {
       if (showDetails) {
@@ -45,19 +47,16 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
         bg="rgba(0, 0, 0, 0.4)"
         alignItems="center"
         justifyContent="center"
-        zIndex="4"
+        zIndex="100"
       >
         <VStack
           overflowY="scroll"
           p="0 0 2vw"
           bg="white"
           borderRadius="1.5rem"
-          maxH="50vh"
           maxW="40.6rem"
-          minH="50vh"
-          minW="40.6rem"
-          width="100%"
-          gap="2rem"
+          height="80svh"
+          width={{ base: '95%', md: '100%' }}
           alignItems="flex-start"
           position="relative"
         >
@@ -67,16 +66,18 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
             bg="white"
             borderTopLeftRadius="1.5rem"
             borderTopRightRadius="1.5rem"
-            alignItems="flex-start"
+            alignItems="flex-end"
             mb="0"
-            p="1vw 2vw 1vw 1.5vw"
+            p={{ base: '0.2rem', md: '1rem 1.5rem' }}
+            height="0"
             position="sticky"
             top="0"
           >
             <Link
               cursor="pointer"
               borderRadius="10rem"
-              p="16px"
+              p="1rem"
+              pb="0"
               onClick={toggleDetails}
               variant="unstyled"
             >
@@ -89,8 +90,18 @@ const AmenitiesModal = forwardRef<HTMLDivElement, AmenitiesModalProps>(
               />
             </Link>
           </VStack>
-          <VStack gridGap="2rem" alignItems="flex-start" px="2rem">
-            <Heading as="h2" size="h2" mb="0">
+          <VStack
+            gridGap="2rem"
+            alignItems="flex-start"
+            px="2rem"
+            pt={{ base: '1rem', md: '0' }}
+          >
+            <Heading
+              as="h2"
+              size={{ base: 'h3', md: 'h2' }}
+              mb="-1.5rem"
+              mt="0"
+            >
               {t('masterVilla.amenitiesHeader')}
             </Heading>
             {Object.keys(amenitiesByCategory).map(category => (

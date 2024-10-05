@@ -27,91 +27,71 @@ const GalleryModal = ({
 
   if (!isGalleryOpen) return null;
 
-  const goToPrevious = () => {
-    setActivePhotoId(prevId => (prevId > 1 ? prevId - 1 : photos.length));
-  };
-
-  const goToNext = () => {
-    setActivePhotoId(prevId => (prevId < photos.length ? prevId + 1 : 1));
-  };
-
   return (
-    <Box height="50vh" overflow="hidden">
+    <Box>
       <Modal isOpen={isGalleryOpen} onClose={toggleGalleryModal} size="full">
         <ModalOverlay background="rgba(0, 0, 0, 0.8)" />
         <ModalContent background="transparent">
           <ModalCloseButton
             color="white"
             zIndex="100"
-            fontSize="1.5rem"
-            mt="1rem"
-            mr="1rem"
+            fontSize={{ base: '1.5rem', md: '2rem' }}
+            mt={{ base: '0.5rem', md: '2rem', lg: '1.25rem' }}
+            mr={{ base: '0.5rem', md: '1.25rem', lg: '2rem' }}
           />
           <ModalBody p={0}>
-            <VStack align="center" position="relative" h="85vh" pt="5%">
+            <VStack
+              position="relative"
+              h={{ md: '85svh', lg: '85vh' }}
+              pt={{ base: '9svh', md: '8svh', lg: '10svh' }}
+              gap={{ base: '1.5rem', md: '2rem' }}
+            >
               <Image
                 src={photos[activePhotoId - 1]}
                 alt={`Gallery image ${activePhotoId}`}
                 objectFit="cover"
-                width="85%"
-                height="100%"
+                width={{ base: '90%', md: '95%' }}
+                height="60svh"
+                borderRadius={{ base: '1rem', md: '2rem' }}
+                p="0.1rem"
+                background="white"
               />
-              <IconButton
-                aria-label="Previous image"
-                icon={<ChevronLeftIcon />}
-                position="absolute"
-                left="1rem"
-                top="50%"
-                transform="translateY(-50%)"
-                onClick={goToPrevious}
-                colorScheme="whiteAlpha"
-                variant="outline"
-                _hover={{background: "transparent"}}
-                fontSize="5rem"
-                border="0"
-              />
-              <IconButton
-                aria-label="Next image"
-                icon={<ChevronRightIcon />}
-                position="absolute"
-                right="1rem"
-                top="50%"
-                transform="translateY(-50%)"
-                onClick={goToNext}
-                colorScheme="whiteAlpha"
-                variant="outline"
-                _hover={{background: "transparent"}}
-                fontSize="5rem"
-                border="0"
-              />
+              <HStack
+                justifyContent="center"
+                align="center"
+                width={{ base: '90%', lg: '95%' }}
+                gap={{ base: '0.5rem', md: '1rem' }}
+              >
+                {photos.map((photo, index) => (
+                  <Box
+                    key={index}
+                    onClick={() => setActivePhotoId(index + 1)}
+                    onMouseEnter={() => setActivePhotoId(index + 1)}
+                    cursor="pointer"
+                    border="1px solid"
+                    width="100%"
+                    height={{ base: '22.5svh', md: '25svh' }}
+                    borderColor={
+                      activePhotoId === index + 1 ? 'blue.500' : 'transparent'
+                    }
+                    borderRadius={{ base: '1rem', md: '2rem' }}
+                    p="0.1rem"
+                    background="white"
+                    _hover={{ background: '#547C39' }}
+                  >
+                    <Image
+                      borderRadius={{ base: '1rem', md: '2rem' }}
+                      src={photo}
+                      alt={`Thumbnail ${index + 1}`}
+                      height="100%"
+                      width="100%"
+                      objectFit="cover"
+                    />
+                  </Box>
+                ))}
+              </HStack>
             </VStack>
           </ModalBody>
-          <Box p="1rem">
-            <HStack justifyContent="center">
-              {photos.map((photo, index) => (
-                <Box
-                  key={index}
-                  onClick={() => setActivePhotoId(index + 1)}
-                  cursor="pointer"
-                  border="1px solid"
-                  height="5.65rem"
-                  width="5.65rem"
-                  borderColor={
-                    activePhotoId === index + 1 ? 'blue.500' : 'transparent'
-                  }
-                  borderRadius="md"
-                >
-                  <Image
-                    src={photo}
-                    alt={`Thumbnail ${index + 1}`}
-                    height="100%"
-                    width="100%"
-                    objectFit="cover"
-                  />
-                </Box>
-              ))}
-            </HStack>
-          </Box>
         </ModalContent>
       </Modal>
     </Box>

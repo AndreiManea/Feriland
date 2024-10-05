@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import {
-  Box,
-  TabList,
-  Tabs,
-  TabPanels,
-  TabPanel,
-} from '@chakra-ui/react';
+import { Box, TabList, Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
 import TabItem from './TabItem';
 import DescriptionContent from './DescriptionContent';
 import RulesContent from './RulesContent';
@@ -34,7 +28,7 @@ const DetailsTabsSection = () => {
           <TabItem label="Rules" isSelected={currentTab === 1} />
         </TabList>
         <TabPanels mt="1rem" px="1rem">
-          <TabPanel p={0}>
+          <TabPanel>
             <DescriptionContent />
           </TabPanel>
           <TabPanel>

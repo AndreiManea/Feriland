@@ -7,10 +7,14 @@ interface InfoSectionItemProps {
 
 const InfoSectionItem = ({ title, content }: InfoSectionItemProps) => (
   <Box>
-    <Text fontSize="1rem" fontWeight="bold" mb="0.5rem">
+    <Text
+      fontSize={{ base: '1rem', md: '1.1rem' }}
+      fontWeight="bold"
+      mb="0.5rem"
+    >
       {title}
     </Text>
-    <Text fontSize="1rem">
+    <Text fontSize={{ base: '1rem', md: '1.1rem' }}>
       {content.split('\n').map((line, index) => (
         <span key={index}>
           {line}

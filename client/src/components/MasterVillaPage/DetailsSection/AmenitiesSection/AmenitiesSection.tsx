@@ -20,13 +20,17 @@ const AmenitiesSection = ({ amenities, modalRef }: AmenitiesSectionProps) => {
 
   return (
     <VStack
-      gridGap="2rem"
+      gridGap={{ base: '3rem', lg: '2rem' }}
       alignItems="flex-start"
       position="relative"
       width="100%"
-      display={{ base: 'none', lg: 'block' }}
     >
-      <Text mb="0" mt="0.8rem" fontWeight="800">
+      <Text
+        mb="0"
+        mt="0"
+        fontWeight="800"
+        fontSize={{ base: '1.2rem', md: '1.5rem' }}
+      >
         What this place offers
       </Text>
       <AmenitiesGrid amenitiesData={amenities} />
@@ -36,6 +40,23 @@ const AmenitiesSection = ({ amenities, modalRef }: AmenitiesSectionProps) => {
         pr="0.2rem"
         pb="0.2rem"
         textDecoration="none"
+        position="relative"
+        _after={{
+          content: '""',
+          position: 'absolute',
+          bottom: -1,
+          left: 0,
+          height: '1px',
+          bg: 'black',
+          width: '0%',
+          transition: 'width 0.4s ease-in-out',
+        }}
+        transition="0.3s ease-in-out"
+        _hover={{
+          _after: {
+            width: '100%',
+          },
+        }}
       >
         <Text
           mb="0"

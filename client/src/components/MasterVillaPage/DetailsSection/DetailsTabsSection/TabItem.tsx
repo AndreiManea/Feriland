@@ -12,7 +12,7 @@ const TabItem = ({ label, isSelected }: TabItemProps) => {
       textAlign="center"
       justifyContent="center"
       borderRadius="full"
-      padding="0.3rem 1.1rem"
+      padding="0.75rem 1.1rem"
       transition="all 0.3s"
       _selected={{
         backgroundColor: '#fff',
@@ -20,7 +20,11 @@ const TabItem = ({ label, isSelected }: TabItemProps) => {
         boxShadow: '0rem 0.7rem 0.5rem rgba(0, 0, 0, 0.15)',
       }}
     >
-      <Text fontSize="1rem" mb="0px" fontWeight={isSelected ? 'bold' : 'normal'}>
+      <Text
+        fontSize={{ base: '0.9rem', md: '1.1rem' }}
+        mb="0px"
+        fontWeight={isSelected ? 'bold' : 'normal'}
+      >
         {label}
       </Text>
     </Tab>

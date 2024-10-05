@@ -28,10 +28,10 @@ const DetailsSection: React.FC = () => {
     <>
       <Box
         position="static"
-        pt="4rem"
+        pt={{ base: '3rem', lg: '4rem' }}
         px="2rem"
         pb="0.8rem"
-        mb="6.25rem"
+        mb={{ base: '2.5rem', md: '0', lg: '1rem' }}
         mx="auto"
         maxW="90rem"
         width="100%"
@@ -40,7 +40,7 @@ const DetailsSection: React.FC = () => {
         <Grid
           gridGap="6rem"
           gridTemplateRows="auto"
-          gridTemplateColumns="1.75fr 1fr"
+          gridTemplateColumns={{ base: '1fr', lg: '1.75fr 1fr' }}
           gridAutoColumns="1fr"
         >
           <DetailsLeftSection
