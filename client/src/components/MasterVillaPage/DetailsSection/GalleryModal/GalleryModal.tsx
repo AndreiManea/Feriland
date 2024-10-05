@@ -6,13 +6,11 @@ import {
   ModalContent,
   ModalCloseButton,
   ModalBody,
-  IconButton,
   Box,
   VStack,
   HStack,
 } from '@chakra-ui/react';
 import { photos } from '../../../../utils/data';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 type GalleryModalProps = {
   isGalleryOpen: boolean;

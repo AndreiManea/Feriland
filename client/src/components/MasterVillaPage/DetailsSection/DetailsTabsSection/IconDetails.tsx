@@ -1,4 +1,4 @@
-import { HStack, Image, Stack, Text, VStack } from '@chakra-ui/react';
+import { HStack, Image, Text, VStack } from '@chakra-ui/react';
 
 interface IconDetailsProps {
   text: string;
