@@ -11,10 +11,16 @@ const DetailsSection: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useDarkNavbar(sectionRef);
-  const {t} = useTranslation();
-  const cardItems = t('masterVilla.cardItems', { returnObjects: true }) as Card[];
-  const featuresArray = t('masterVilla.featuresArray', { returnObjects: true }) as Feature[];
-  const amenitiesByCategory = t('masterVilla.amenitiesByCategory', { returnObjects: true }) as AmenitiesByCategory;
+  const { t } = useTranslation();
+  const cardItems = t('masterVilla.cardItems', {
+    returnObjects: true,
+  }) as Card[];
+  const featuresArray = t('masterVilla.featuresArray', {
+    returnObjects: true,
+  }) as Feature[];
+  const amenitiesByCategory = t('masterVilla.amenitiesByCategory', {
+    returnObjects: true,
+  }) as AmenitiesByCategory;
 
   const amenitiesList = getAmenitiesFromEachCategory(amenitiesByCategory);
 

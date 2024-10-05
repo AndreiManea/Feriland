@@ -43,9 +43,10 @@ const MovieButton = () => {
             backgroundColor="#547c39"
             _hover={{ backgroundColor: '#547c39' }}
             color={'white'}
-            p="1.5rem 2rem"
+            p={{ base: '1.25rem 1.75rem', md: '1.5rem 2rem' }}
             borderRadius="10rem"
             cursor="pointer"
+            fontSize={{ base: '0.9rem', md: '1rem' }}
           >
             {t('navbar.watchFilm')}
           </Button>

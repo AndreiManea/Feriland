@@ -22,7 +22,7 @@ const SocialLink = ({
     >
       <Image
         w="100%"
-        maxW={{ base: '1.15rem', md: '1.25rem' }}
+        maxW={{ base: '1.35rem', md: '1.45rem' }}
         src={imgSrc}
         alt={alt}
         filter={darkNavbar ? 'invert(1)' : 'none'}

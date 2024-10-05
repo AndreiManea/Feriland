@@ -5,11 +5,7 @@ import { setCurrentLanguage } from '../../redux/slices/bookingsSlice'; // Import
 import { useAppSelector } from '../../redux/hooks';
 import { BookingForm } from '../../types/form';
 
-interface LanguageSwitchProps {
-  darkNavbar: boolean;
-}
-
-const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
+const LanguageSwitch = () => {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
 
@@ -33,9 +29,7 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         color={
           isEnglish
             ? 'rgb(84, 124, 57)' // Green when English is active
-            : !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)' // Gray when Romanian is active
-              : 'rgba(255, 255, 255, 0.3)'
+            : 'rgba(0, 0, 0, 0.3)' // Gray when Romanian is active
         }
         fontWeight={isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"
@@ -66,9 +60,7 @@ const LanguageSwitch = ({ darkNavbar }: LanguageSwitchProps) => {
         color={
           !isEnglish
             ? 'black' // Black when Romanian is active
-            : !darkNavbar
-              ? 'rgba(0, 0, 0, 0.3)' // Gray when English is active
-              : 'rgba(255, 255, 255, 0.3)'
+            : 'rgba(0, 0, 0, 0.3)' // Gray when English is active
         }
         fontWeight={!isEnglish ? 'bold' : 'normal'}
         transition="ease-in-out 0.3s"

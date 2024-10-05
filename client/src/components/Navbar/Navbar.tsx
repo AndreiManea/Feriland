@@ -1,13 +1,31 @@
 import { useAppSelector } from '../../redux/hooks.js';
 import { VStack } from '@chakra-ui/react';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import NavbarCollapsed from './NavbarCollapsed.js';
 import NavbarExtended from './NavbarExtended.js';
 
 const Navbar: React.FC = () => {
   const { darkNavbar } = useAppSelector(state => state.styles);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navbarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <VStack
@@ -37,6 +55,7 @@ const Navbar: React.FC = () => {
         borderRadius={isMenuOpen ? '2rem' : '5rem'}
         transition={!isMenuOpen ? '0.2s ease-in-out' : '0.3s ease-in-out'}
         gap={isMenuOpen ? '0.5rem' : 0}
+        ref={navbarRef}
       >
         <NavbarCollapsed
           isMenuOpen={isMenuOpen}

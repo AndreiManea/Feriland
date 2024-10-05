@@ -1,12 +1,19 @@
-import { HStack, Image, keyframes } from '@chakra-ui/react';
+import { HStack, Image, keyframes, useBreakpointValue } from '@chakra-ui/react';
 import fullLogo from '../../assets/Logo.svg';
 
 const Loader = () => {
-  const pulse = keyframes`
+  const responsivePulse = useBreakpointValue({
+    base: keyframes`
+    0% { transform: scale(0.6); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(0.6); }
+  `,
+    md: keyframes`
     0% { transform: scale(0.4); }
     50% { transform: scale(0.6); }
     100% { transform: scale(0.4); }
-  `;
+  `,
+  });
   return (
     <HStack
       height="100vh"
@@ -17,7 +24,10 @@ const Loader = () => {
       alignItems="center"
       position="fixed"
     >
-      <Image animation={`${pulse} 1.2s infinite ease-in-out`} src={fullLogo} />
+      <Image
+        animation={`${responsivePulse} 1.2s infinite ease-in-out`}
+        src={fullLogo}
+      />
     </HStack>
   );
 };
