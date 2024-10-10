@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 import Slider, { Settings } from 'react-slick';
 import ActivitySlide from './ActivitySlide';
 // import { slidesData } from '../../utils/data';
@@ -10,13 +10,19 @@ import { Slide } from '../../utils/types';
 
 const ActivitiesSlider = () => {
   const { t } = useTranslation();
-  const slides = t('homePage.activitiesSlider', { returnObjects: true }) as Slide[];
-
+  const slides = t('homePage.activitiesSlider', {
+    returnObjects: true,
+  }) as Slide[];
+  const slideToShowResponsive = useBreakpointValue({
+    base: 1.3,
+    md: 1.5,
+    lg: 2.75,
+  });
   const settings: Settings = {
     dots: false,
     infinite: false,
-    speed: 800,
-    slidesToShow: 2.75,
+    speed: 400,
+    slidesToShow: slideToShowResponsive,
     slidesToScroll: 1,
     draggable: true,
     swipeToSlide: true,

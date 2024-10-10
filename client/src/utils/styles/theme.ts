@@ -16,6 +16,8 @@ const components = {
       h5: {
         fontSize: '1.2rem',
       },
+      activitiesMobile: { fontSize: '1.4rem' },
+      homeHeading: { fontSize: '2rem' },
       h4: {
         fontSize: '1.6rem',
       },

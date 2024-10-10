@@ -4,7 +4,7 @@ export const OverlayText = styled.div`
   will-change: background-image;
   background-color: rgba(0, 0, 0, 0.05);
   z-index: 10;
-  height: 100vh;
+  height: 100svh;
   backdrop-filter: blur(40px);
   background-color: rgba(0, 0, 0, 0);
   border-top-left-radius: 2rem;

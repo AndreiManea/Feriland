@@ -1,10 +1,10 @@
 import { Box, Heading, HStack } from '@chakra-ui/react';
 import VideoContainer from './VideoContainer';
-import ScrollableText from './ScrollableText';
+// import ScrollableText from './ScrollableText';
 import { useTranslation } from 'react-i18next';
 
 const HeroSection: React.FC = () => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   return (
     <Box>
@@ -38,12 +38,18 @@ const HeroSection: React.FC = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <Heading color="white" as="h1" size="h1" mt="1.2rem" mb="0.8rem">
-          {t('homePage.header')}
+          <Heading
+            color="white"
+            as="h1"
+            size={{ base: 'homeHeading', md: 'h1' }}
+            mt="1.2rem"
+            mb="0.8rem"
+          >
+            {t('homePage.header')}
           </Heading>
         </HStack>
       </Box>
-      <ScrollableText sentence={t('homePage.description')} />
+      {/* <ScrollableText sentence={t('homePage.description')} /> */}
     </Box>
   );
 };

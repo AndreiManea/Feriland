@@ -7,6 +7,7 @@ import {
   Heading,
   Text,
   Button,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { interpolateColor } from '../../../utils/helperFunctions.utils';
@@ -18,6 +19,10 @@ import { useTranslation } from 'react-i18next';
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
+  const initialCircleSize = useBreakpointValue({
+    base: '15',
+    lg: '25',
+  });
 
   const { t } = useTranslation();
 
@@ -58,10 +63,10 @@ const ExploreSection: React.FC = () => {
   }, []);
 
   // Dynamically calculate the circle size based on scroll position
-  const circleSize = `${30 + scrollPosition * 80}vh`;
+  const circleSize = `${Number(initialCircleSize as string) + scrollPosition * 80}svh`;
   const clipPathValue = isSectionVisible
     ? `circle(${circleSize} at center)`
-    : 'circle(30vh at center)';
+    : `circle(${initialCircleSize}svh at center)`;
 
   // Calculate the background color based on scroll position
   const backgroundColor = interpolateColor(
@@ -86,17 +91,18 @@ const ExploreSection: React.FC = () => {
       id="explore-section"
       width="100%"
       mx="auto"
-      padding="1.8rem"
+      padding={{ base: '0.5rem', md: '1.5rem' }}
+      pb="0"
       backgroundColor={backgroundColor}
       transition="background-color 0.2s ease-out"
     >
-      <VStack height="200vh" justifyContent="space-between">
+      <VStack height="200svh" justifyContent="space-between">
         <HStack
           position="sticky"
           top="0"
           justifyContent="center"
           alignItems="center"
-          height="100vh"
+          height="100svh"
           overflow="hidden"
           borderRadius="4rem"
           width="100%"
@@ -106,7 +112,7 @@ const ExploreSection: React.FC = () => {
             width="100%"
             height="calc(100vh - 4rem)"
             borderRadius="2rem"
-            marginTop="2rem"
+            marginTop={{ base: '5rem', md: '7.5rem', lg: '1.1rem' }}
             overflow="hidden"
           >
             <Image
@@ -117,14 +123,13 @@ const ExploreSection: React.FC = () => {
               height="100%"
               style={{
                 clipPath: clipPathValue,
-                transition: 'clip-path 0.2s ease-out',
               }}
             />
           </Box>
         </HStack>
         <VStack
           zIndex="5"
-          height="100vh"
+          height="100svh"
           justifyContent="center"
           alignItems="center"
           mt="6rem"
@@ -138,7 +143,7 @@ const ExploreSection: React.FC = () => {
               textAlign="center"
               color="white"
               my="0"
-              fontSize="5rem"
+              fontSize={{ base: '3rem', md: '5.25rem' }}
               lineHeight="1"
               fontWeight="200"
             >
@@ -149,25 +154,25 @@ const ExploreSection: React.FC = () => {
               textAlign="center"
               lineHeight="1.2"
               mb="0"
+              px={{ base: '1.5rem', md: '0' }}
               color="white"
-              fontSize="1.2rem"
+              fontSize={{ base: '1rem', md: '1.2rem' }}
             >
-              {' '}
               {t('homePage.exploreSectionText')}
             </Text>
             <HStack
-              mt="2rem"
+              mt={{ base: '0', md: '1.5rem' }}
               alignItems="center"
               justifyContent="center"
               gap="2rem"
-              flexDirection={{ base: 'column', lg: 'row' }}
+              flexDirection={{ base: 'column', md: 'row' }}
             >
               <HoverButtonWrapper>
                 <Button
-                  backgroundColor="rgba(0, 0, 0, 0.5)"
-                  _hover={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
-                  color={'white'}
-                  p="1.5rem 2rem"
+                  backgroundColor="rgba(255, 255, 255, 0.45)"
+                  _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.45)' }}
+                  color="rgb(255,255,255)"
+                  p={{ base: '1.5rem', md: '1.5rem 2rem' }}
                   borderRadius="10rem"
                   cursor="pointer"
                   onClick={e => navigateToMasterVilla(e)}
@@ -180,7 +185,7 @@ const ExploreSection: React.FC = () => {
                   backgroundColor="#547c39"
                   _hover={{ backgroundColor: '#547c39' }}
                   color={'white'}
-                  p="1.5rem 2rem"
+                  p={{ base: '1.5rem', md: '1.5rem 2rem' }}
                   borderRadius="10rem"
                   cursor="pointer"
                   backdropFilter="blur(20px)"

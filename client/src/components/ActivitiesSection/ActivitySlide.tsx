@@ -11,10 +11,10 @@ const ActivitySlide = ({ title, description, imgSrc }: ActivitySlideProps) => {
     <VStack
       position="relative"
       width="100%"
-      height="70vh"
+      height={{ base: '70svh', md: '60svh', lg: '75svh' }}
       borderRadius="1.2rem"
       overflow="hidden"
-      p="1.25rem"
+      p={{ base: '0.5rem', md: '1.25rem' }}
       justifyContent="flex-end"
       m="0 15px"
     >
@@ -36,12 +36,18 @@ const ActivitySlide = ({ title, description, imgSrc }: ActivitySlideProps) => {
         backdropFilter="blur(1rem)"
         borderRadius="1.3rem"
         color="white"
-        p="1.75rem 1.3125rem"
+        p={{ base: '0.75rem 1rem 0.5rem 1rem', md: '1.75rem 1.3125rem' }}
       >
-        <Heading as="h3" size="h3">
+        <Heading
+          as="h3"
+          size={{ base: 'activitiesMobile', md: 'h3' }}
+          mb={{ base: '0.25rem', md: '0.625rem' }}
+        >
           {title}
         </Heading>
-        <Text m="0">{description}</Text>
+        <Text m="0" fontSize={{ base: '0.9rem', md: '1.2rem' }}>
+          {description}
+        </Text>
       </Box>
     </VStack>
   );

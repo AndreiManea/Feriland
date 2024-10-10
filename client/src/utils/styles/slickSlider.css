@@ -1,7 +1,19 @@
 .slick-track {
   display: flex;
   gap: 14px;
-  padding: 0 10.5rem;
+  padding: 0 5.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .slick-track {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .slick-track {
+    padding: 0 2rem;
+  }
 }
 
 .slick-arrow {

@@ -31,7 +31,7 @@ const VideoContainer = ({
       data-wf-ignore="true"
       position="relative"
       overflow="hidden"
-      h="100vh"
+      h="100svh"
     >
       <video
         autoPlay={autoplay}
