@@ -2,23 +2,32 @@ import { Grid } from '@chakra-ui/react';
 import RoomCard from './RoomCard';
 import { useState } from 'react';
 import GalleryModal from '../GalleryModal/GalleryModal';
-import { Card } from '../../../../utils/types';
+import { Card, GalleryImage, GalleryKey } from '../../../../utils/types';
 import { useTranslation } from 'react-i18next';
+import { galleryImages } from '../../../../utils/data/galleryData';
 
-type RoomCardGridProps = {
-  cardItems: Card[];
-};
-
-const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
+const RoomCardsSection = () => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const { t } = useTranslation();
-
+  const translationsForCardItems: Card[] = t('masterVilla.cardItems', {
+    returnObjects: true,
+  }) as Card[];
+  const [selectedRoom, setSelectedRoom] = useState('bathRoom');
+  const combinedGalleryImages = translationsForCardItems.reduce<
+    Record<string, GalleryImage>
+  >((acc, item) => {
+    const key = item.name as GalleryKey;
+    acc[key] = { ...galleryImages[key], ...item };
+    return acc;
+  }, {});
   const toggleGalleryModal = (
-    event?: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event?: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    name?: string
   ) => {
     if (event) {
       event.preventDefault();
     }
+    setSelectedRoom(name as string);
     setIsGalleryOpen(prevState => !prevState);
   };
 
@@ -31,28 +40,28 @@ const RoomCardsSection = ({ cardItems }: RoomCardGridProps) => {
         minW="100%"
         gridAutoColumns="1fr"
       >
-        {cardItems.map((_card, index) => {
-          const imgSrc = t(`masterVilla.cardItems.${index}.src`, { lng: 'en' });
-          const imgSet = t(`masterVilla.cardItems.${index}.srcSet`, {
-            lng: 'en',
-          });
-
-          const altText = t(`masterVilla.cardItems.${index}.altText`);
-          const title = t(`masterVilla.cardItems.${index}.title`);
+        {Object.entries(combinedGalleryImages).map(([key, item]) => {
+          const imgSrc = item.mainImage; // Use mainImage as imgSrc
+          const imgSet = item.mainImage; // Use gallery images as a comma-separated srcSet
+          const altText = item.altText;
+          const title = item.title;
+          const name = item.name;
 
           return (
             <RoomCard
-              key={index}
+              key={key} // Use the object key as a unique key for each RoomCard
               imgSrc={imgSrc}
               imgSet={imgSet}
               altText={altText}
               title={title}
+              name={name}
               toggleGalleryModal={toggleGalleryModal}
             />
           );
         })}
       </Grid>
       <GalleryModal
+        selectedRoom={combinedGalleryImages[selectedRoom]}
         isGalleryOpen={isGalleryOpen}
         toggleGalleryModal={toggleGalleryModal}
       />

@@ -4,19 +4,17 @@ import RoomCardsSection from '../RoomCardsSection/RoomCardsSection';
 import FeatureDetailsSection from '../FeatureDetailsSection/FeatureDetailsSection';
 import DetailsTabsSection from '../DetailsTabsSection/DetailsTabsSection';
 import AmenitiesSection from '../AmenitiesSection/AmenitiesSection';
-import { Amenity, Card, Feature } from '../../../../utils/types';
+import { Amenity, Feature } from '../../../../utils/types';
 import CalendarSection from '../CalendarSection/CalendarSection';
 import DetailsDivider from './DetailsDivider';
 
 interface DetailsLeftSectionProps {
-  cardItems: Card[];
   featuresArray: Feature[];
   amenities: Amenity[];
   modalRef: React.RefObject<HTMLDivElement>;
 }
 
 const DetailsLeftSection = ({
-  cardItems,
   featuresArray,
   amenities,
   modalRef,
@@ -30,7 +28,7 @@ const DetailsLeftSection = ({
       pb={{ base: '1rem', md: '2rem', lg: '0' }}
     >
       <HeaderSection />
-      <RoomCardsSection cardItems={cardItems} />
+      <RoomCardsSection />
       <DetailsDivider />
       <FeatureDetailsSection featuresArray={featuresArray} />
       <DetailsDivider />

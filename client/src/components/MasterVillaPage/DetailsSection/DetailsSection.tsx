@@ -5,16 +5,13 @@ import { Box, Grid } from '@chakra-ui/react';
 import DetailsLeftSection from './DetailsLeftSection/DetailsLeftSection';
 import { getAmenitiesFromEachCategory } from '../../../utils/helperFunctions.utils';
 import { useTranslation } from 'react-i18next';
-import { AmenitiesByCategory, Card, Feature } from '../../../utils/types';
+import { AmenitiesByCategory, Feature } from '../../../utils/types';
 
 const DetailsSection: React.FC = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useDarkNavbar(sectionRef);
   const { t } = useTranslation();
-  const cardItems = t('masterVilla.cardItems', {
-    returnObjects: true,
-  }) as Card[];
   const featuresArray = t('masterVilla.featuresArray', {
     returnObjects: true,
   }) as Feature[];
@@ -44,7 +41,6 @@ const DetailsSection: React.FC = () => {
           gridAutoColumns="1fr"
         >
           <DetailsLeftSection
-            cardItems={cardItems}
             featuresArray={featuresArray}
             amenities={amenitiesList}
             modalRef={modalRef}

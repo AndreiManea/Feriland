@@ -23,18 +23,37 @@ const HeroSection: React.FC = () => {
   return (
     <Box overflow="hidden" height="100svh">
       <Box position="sticky" height="auto" zIndex="1" top="0" overflow="hidden">
-        <Image
-          src={masterVillaImg}
-          onLoad={() =>
-            setTimeout(() => {
-              dispatch(setIsLoading(false));
-            }, 1000)
-          }
+        <Box
+          position="relative"
           width="100%"
           height="100svh"
-          position="relative"
-          overflow="hidden"
-        />
+          overflow="hidden" // Ensures overlay matches image's boundaries
+        >
+          {/* Image */}
+          <Image
+            src={masterVillaImg}
+            onLoad={() =>
+              setTimeout(() => {
+                dispatch(setIsLoading(false));
+              }, 1000)
+            }
+            width="100%"
+            height="100%"
+            objectFit="cover"
+          />
+
+          {/* Overlay */}
+          <Box
+            position="absolute"
+            top="0"
+            left="0"
+            width="100%"
+            height="100%"
+            background="rgba(0, 0, 0, 0.25)" // Semi-transparent black overlay
+            zIndex="1"
+            pointerEvents="none" // Allows clicks to pass through the overlay to underlying elements
+          />
+        </Box>
         <Box
           zIndex="2"
           backgroundColor="rgba(0, 0, 0, 0.23)"

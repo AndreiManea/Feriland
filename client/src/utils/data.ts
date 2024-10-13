@@ -273,17 +273,6 @@ export const amenitiesByCategory = {
   ],
 };
 
-
-
-
-
-
-export const photos = [
-  'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d87eb8aa46a4bf3e99be79_master%20villa.png',
-  'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d71d4cbcbf35a9a61090d1_10318%20(1).jpg',
-  'https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65d5e1dd4aca861aa649961c_masterpoolvillabalex-1920x-q72.jpg',
-];
-
 export const categoryNames: Record<string, string> = {
   scenicViews: 'Scenic Views',
   bathroom: 'Bathroom',

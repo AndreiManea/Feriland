@@ -22,18 +22,19 @@ const ActivitySlide = ({ title, description, imgSrc }: ActivitySlideProps) => {
         src={imgSrc}
         alt={title}
         objectFit="cover"
+        objectPosition="center"
         width="100%"
         height="100%"
         position="absolute"
         top="0"
-        bottom="0"
+        bottom="10"
         left="0"
       />
       <Box
         position="relative"
         width="100%"
         bgImage="linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2))"
-        backdropFilter="blur(1rem)"
+        backdropFilter="blur(0.5rem)"
         borderRadius="1.3rem"
         color="white"
         p={{ base: '0.75rem 1rem 0.5rem 1rem', md: '1.75rem 1.3125rem' }}

@@ -6,13 +6,23 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../../utils/styles/slickSlider.css';
 import { useTranslation } from 'react-i18next';
-import { Slide } from '../../utils/types';
+import { Slide, SlideDescription, SlideKey } from '../../utils/types';
+import { activitiesImages } from '../../utils/data/activitiesData';
 
 const ActivitiesSlider = () => {
   const { t } = useTranslation();
-  const slides = t('homePage.activitiesSlider', {
+  const translationsForSlides = t('homePage.activitiesSlider', {
     returnObjects: true,
-  }) as Slide[];
+  }) as SlideDescription[];
+  const combinedSlidesImages = translationsForSlides.reduce<
+    Record<string, Slide>
+  >((acc, item) => {
+    const key = item.name as SlideKey;
+    if (key && activitiesImages[key]) {
+      acc[key] = { ...activitiesImages[key], ...item };
+    }
+    return acc;
+  }, {});
   const slideToShowResponsive = useBreakpointValue({
     base: 1.3,
     md: 1.5,
@@ -32,12 +42,12 @@ const ActivitiesSlider = () => {
   return (
     <Box cursor="grab" _active={{ cursor: 'grabbing' }}>
       <Slider {...settings}>
-        {slides.map((slide, index) => (
+        {Object.entries(combinedSlidesImages).map(([key, item]) => (
           <ActivitySlide
-            key={index}
-            title={slide.title}
-            description={slide.description}
-            imgSrc={slide.imgSrc}
+            key={key}
+            title={item.title}
+            description={item.description}
+            imgSrc={item.imgSrc}
           />
         ))}
       </Slider>

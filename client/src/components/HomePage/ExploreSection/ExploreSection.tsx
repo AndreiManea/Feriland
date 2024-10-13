@@ -15,6 +15,7 @@ import HoverButtonWrapper from '../../HoverButtonWrapper/HoverButtonWrapper';
 import { useAppDispatch } from '../../../redux/hooks';
 import { setBookingDrawerOpen } from '../../../redux/slices/bookingsSlice';
 import { useTranslation } from 'react-i18next';
+import behindTheScenesImg from '../../../assets/BehindTheScenes.webp';
 
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -115,16 +116,41 @@ const ExploreSection: React.FC = () => {
             marginTop={{ base: '5rem', md: '7.5rem', lg: '1.1rem' }}
             overflow="hidden"
           >
-            <Image
-              src="https://assets-global.website-files.com/65bcf5fac0f3634790a816fe/65c3945288009a5554ac39cb_fa5a9a59840835.5a313db584588.jpg"
-              alt="background"
-              objectFit="cover"
+            <Box
+              position="relative"
               width="100%"
               height="100%"
-              style={{
-                clipPath: clipPathValue,
-              }}
-            />
+              borderRadius="4rem"
+              overflow="hidden" // Ensures the overlay follows the border radius
+            >
+              {/* Overlay */}
+              <Box
+                position="absolute"
+                top="0"
+                left="0"
+                width="100%"
+                height="100%"
+                background="rgba(0, 0, 0, 0.5)" // Semi-transparent black overlay
+                zIndex="1"
+                style={{
+                  clipPath: clipPathValue,
+                }}
+              />
+
+              {/* Image */}
+              <Image
+                src={behindTheScenesImg}
+                alt="background"
+                borderRadius="4rem"
+                objectFit="cover"
+                width="100%"
+                height="100%"
+                zIndex="0"
+                style={{
+                  clipPath: clipPathValue,
+                }}
+              />
+            </Box>
           </Box>
         </HStack>
         <VStack

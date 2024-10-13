@@ -6,8 +6,10 @@ interface CardProps {
   imgSet: string;
   altText: string;
   title: string;
+  name: string;
   toggleGalleryModal: (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    selectedRoom: string
   ) => void;
 }
 
@@ -16,6 +18,7 @@ const CardComponent = ({
   imgSet,
   altText,
   title,
+  name,
   toggleGalleryModal,
 }: CardProps) => {
   const { t } = useTranslation();
@@ -30,7 +33,7 @@ const CardComponent = ({
       backgroundColor="rgba(234, 229, 223, 0)"
       border="1px solid rgba(0, 0, 0, 0.1)"
       gridArea="span 1 / span 1 / span 1 / span 1"
-      onClick={e => toggleGalleryModal(e)}
+      onClick={e => toggleGalleryModal(e, name)}
       cursor="pointer"
     >
       <Image

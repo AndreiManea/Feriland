@@ -10,19 +10,20 @@ import {
   VStack,
   HStack,
 } from '@chakra-ui/react';
-import { photos } from '../../../../utils/data';
+import { GalleryImage } from '../../../../utils/types';
 
 type GalleryModalProps = {
+  selectedRoom: GalleryImage;
   isGalleryOpen: boolean;
   toggleGalleryModal: () => void;
 };
 
 const GalleryModal = ({
+  selectedRoom,
   isGalleryOpen,
   toggleGalleryModal,
 }: GalleryModalProps) => {
   const [activePhotoId, setActivePhotoId] = useState(1);
-
   if (!isGalleryOpen) return null;
 
   return (
@@ -45,9 +46,10 @@ const GalleryModal = ({
               gap={{ base: '1.5rem', md: '2rem' }}
             >
               <Image
-                src={photos[activePhotoId - 1]}
+                src={selectedRoom.gallery[activePhotoId - 1]}
                 alt={`Gallery image ${activePhotoId}`}
                 objectFit="cover"
+                objectPosition="center 60%"
                 width={{ base: '90%', md: '95%' }}
                 height="60svh"
                 borderRadius={{ base: '1rem', md: '2rem' }}
@@ -60,7 +62,7 @@ const GalleryModal = ({
                 width={{ base: '90%', lg: '95%' }}
                 gap={{ base: '0.5rem', md: '1rem' }}
               >
-                {photos.map((photo, index) => (
+                {selectedRoom.gallery.map((photo, index) => (
                   <Box
                     key={index}
                     onClick={() => setActivePhotoId(index + 1)}
