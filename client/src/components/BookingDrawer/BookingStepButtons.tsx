@@ -44,18 +44,18 @@ const BookingStepButtons = ({
   };
 
   return (
-    <HStack justifyContent="space-between" mt="1rem" width="100%">
+    <HStack justifyContent="space-between" mt="2rem" width="100%">
       {bookingStep > 1 && (
         <HoverButtonWrapper isRectangular>
           <Button
             onClick={() => dispatch(setBookingStep(bookingStep - 1))}
             backgroundColor={'rgba(255, 255, 255, .2)'}
             color={'white'}
-            p={{ base: '1rem 1.5rem', lg: '1.5rem 2rem' }}
+            p={{ base: '1.5rem', md: '2rem', lg: '1.75rem 2rem' }}
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgba(255, 255, 255, .2)' }}
             transition="0.3s ease-in-out"
-            fontSize={{ base: '0.9rem', lg: '1rem' }}
+            fontSize={{ base: '1rem', md: '1.25rem', lg: '1.1rem' }}
           >
             Previous
           </Button>
@@ -67,11 +67,11 @@ const BookingStepButtons = ({
             onClick={nextHandler}
             backgroundColor={'rgba(255, 255, 255, .2)'}
             color={'white'}
-            p={{ base: '1rem 1.5rem', lg: '1.5rem 2rem' }}
+            p={{ base: '1.5rem', md: '2rem', lg: '1.75rem 2rem' }}
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgba(255, 255, 255, .2)' }}
             transition="0.3s ease-in-out"
-            fontSize={{ base: '0.9rem', lg: '1rem' }}
+            fontSize={{ base: '1rem', md: '1.25rem', lg: '1.1rem' }}
           >
             Next
           </Button>
@@ -83,8 +83,8 @@ const BookingStepButtons = ({
             onClick={paymentHandler}
             backgroundColor={'rgb(84, 124, 57)'}
             color={'white'}
-            p={{ base: '1rem 1.5rem', lg: '1.5rem 2rem' }}
-            fontSize={{ base: '0.9rem', lg: '1rem' }}
+            p={{ base: '1.5rem', md: '2rem', lg: '1.75rem 2rem' }}
+            fontSize={{ base: '1rem', md: '1.25rem', lg: '1.1rem' }}
             borderRadius="0.2rem"
             _hover={{ backgroundColor: 'rgb(84, 124, 57)' }}
             transition="0.3s ease-in-out"

@@ -9,7 +9,7 @@ const BookingProgressBar = () => {
       w="100%"
       justifyContent="space-evenly"
       border="2px solid white"
-      p="1rem"
+      p={{ base: '1rem', md: '1.15rem' }}
       borderRadius={20}
       gap="1rem"
     >

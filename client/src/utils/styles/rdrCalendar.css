@@ -239,7 +239,7 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .bookingCalendar.rdrCalendarWrapper {
-    max-height: 35svh !important;
+    max-height: 33.5svh !important;
   }
 }
 

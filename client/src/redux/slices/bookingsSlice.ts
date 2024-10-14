@@ -29,7 +29,7 @@ const initialState: BookingsState = {
   },
   selectedNights: 2,
   selectedPersons: { adults: 1, children: 0 },
-  selectedCabin: 'Master Villa',
+  selectedCabin: '',
   isBookingDrawerOpen: false,
   bookingStep: 1,
   bookingFormData: { ...({} as BookingForm), selectedLanguage: 'en' },

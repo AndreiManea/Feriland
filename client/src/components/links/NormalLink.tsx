@@ -3,24 +3,24 @@ import { Link, Text } from '@chakra-ui/react';
 const NormalLink = ({
   title,
   to = '/',
-  darkNavbar,
+  isGreen,
 }: {
   title: string;
   to?: string;
-  darkNavbar?: boolean;
+  isGreen?: boolean;
 }) => {
   return (
     <Link
       href={to}
       position="relative"
-      color={darkNavbar ? 'white' : 'inherit'}
+      color={isGreen ? '#547c39' : 'black'}
       _after={{
         content: '""',
         position: 'absolute',
         bottom: -1,
         left: 0,
         height: '1px',
-        bg: !darkNavbar ? 'black' : 'white',
+        bg: isGreen ? '#547c39' : 'black',
         width: '0%',
         transition: 'width 0.4s ease-in-out',
       }}
