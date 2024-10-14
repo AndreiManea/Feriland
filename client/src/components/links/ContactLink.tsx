@@ -19,7 +19,7 @@ const ContactLink = ({
         src={imgSrc}
         filter={darkNavbar ? 'invert(1)' : 'none'}
       />
-      <NormalLink title={title} to={to} darkNavbar={darkNavbar} />
+      <NormalLink title={title} to={to} />
     </HStack>
   );
 };
