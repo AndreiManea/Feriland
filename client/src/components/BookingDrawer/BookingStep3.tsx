@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import {
   setBookingForm,
   updateBookingFormField,
-} from '../../redux/slices/bookingsSlice';
+} from '../../redux/slices/bookingsFormSlice';
 import { useAppSelector } from '../../redux/hooks';
 import { BookingForm } from '../../types/form';
 import { validateCNP } from '../../utils/helperFunctions.utils';
@@ -29,7 +29,9 @@ const BookingStep3 = () => {
     email,
     address,
     personalNumericCode,
-  } = useAppSelector(state => state.bookings.bookingFormData as BookingForm);
+  } = useAppSelector(
+    state => state.bookingsForm.bookingFormData as BookingForm
+  );
   const {
     register,
     handleSubmit,
@@ -57,9 +59,13 @@ const BookingStep3 = () => {
         spacing="1rem"
         alignItems="flex-start"
         mb={{ base: '1.5rem', lg: '0' }}
+        gap={{ base: '1rem', md: '2rem', lg: '1.5rem' }}
       >
-        <Heading fontSize={{ base: '1.5rem', lg: '1.875rem' }} m="1.2rem 0 0 0">
-          Personal Information
+        <Heading
+          fontSize={{ base: '1.75rem', md: '3rem', lg: '2.5rem' }}
+          m="1.2rem 0 0 0"
+        >
+          Personal Info
         </Heading>
         <HStack
           gap="1rem"

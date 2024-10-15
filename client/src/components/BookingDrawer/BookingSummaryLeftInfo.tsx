@@ -3,14 +3,15 @@ import BookingSummaryField from './BookingSummaryField';
 import { useAppSelector } from '../../redux/hooks';
 
 const BookingSummaryLeftInfo = () => {
-  const { bookingFormData } = useAppSelector(state => state.bookings);
+  const { bookingFormData } = useAppSelector(state => state.bookingsForm);
   return (
     <VStack
       alignItems="center"
       justifyContent="center"
-      gap="1rem"
+      gap={{ md: '1.5rem', lg: '1rem' }}
       width="100%"
       p={{ base: '0.5rem 0 0 0', lg: '1.5rem 0 0.75rem 0' }}
+      display={{ base: 'none', md: 'flex' }}
     >
       <BookingSummaryField
         fieldTitle="Name"

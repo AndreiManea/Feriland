@@ -2,7 +2,7 @@ import { HStack, Button } from '@chakra-ui/react';
 import HoverButtonWrapper from '../HoverButtonWrapper/HoverButtonWrapper';
 import { useAppSelector } from '../../redux/hooks';
 import { useDispatch } from 'react-redux';
-import { setBookingStep } from '../../redux/slices/bookingsSlice';
+import { setBookingStep } from '../../redux/slices/bookingsFormSlice';
 import { BaseSyntheticEvent } from 'react';
 
 const BookingStepButtons = ({
@@ -18,7 +18,7 @@ const BookingStepButtons = ({
     selectedCabin,
     selectedPersons,
     selectedDates,
-  } = useAppSelector(state => state.bookings);
+  } = useAppSelector(state => state.bookingsForm);
   const dispatch = useDispatch();
 
   const nextHandler = (e?: BaseSyntheticEvent) => {

@@ -2,7 +2,7 @@ import { HStack, Box } from '@chakra-ui/react';
 import { useAppSelector } from '../../redux/hooks';
 
 const BookingProgressBar = () => {
-  const { bookingStep } = useAppSelector(state => state.bookings);
+  const { bookingStep } = useAppSelector(state => state.bookingsForm);
 
   return (
     <HStack

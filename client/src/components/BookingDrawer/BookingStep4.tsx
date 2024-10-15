@@ -7,10 +7,11 @@ const BookingStep4 = () => {
     <VStack spacing="1rem" alignItems="flex-start">
       <Heading
         m="1.2rem 0 0 0"
-        fontSize={{ base: '1.5rem', lg: '1.875rem' }}
+        fontSize={{ base: '1.75rem', md: '3rem', lg: '2.5rem' }}
+        letterSpacing="2px"
         width="100%"
       >
-        Booking Summary
+        Summary
       </Heading>
       <Stack
         justifyContent="space-between"

@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import {
   setSelectedDates,
   setSelectedNights,
-} from '../../../../redux/slices/bookingsSlice';
+} from '../../../../redux/slices/bookingsFormSlice';
 import { parse } from 'date-fns';
 import {
   Box,
@@ -31,9 +31,10 @@ const CalendarSection = ({
 }) => {
   // Global state
   const dispatch = useAppDispatch();
-  const { selectedDates, selectedNights, bookedDates } = useAppSelector(
-    state => state.bookings
+  const { selectedDates, selectedNights } = useAppSelector(
+    state => state.bookingsForm
   );
+  const { bookedDates } = useAppSelector(state => state.bookingsDates);
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);
   const months = useBreakpointValue({ base: 1, md: 2 });

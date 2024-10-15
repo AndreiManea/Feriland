@@ -9,7 +9,7 @@ import { formatDate } from '../../utils/helperFunctions.utils';
 export const BookingStep2 = () => {
   const [isCalendar, setIsCalendar] = useState(false);
   const { selectedDates, selectedPersons } = useAppSelector(
-    state => state.bookings
+    state => state.bookingsForm
   );
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);

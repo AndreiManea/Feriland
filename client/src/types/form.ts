@@ -1,4 +1,4 @@
-import { SerializableRange } from '../redux/slices/bookingsSlice';
+import { SerializableRange } from '../redux/slices/bookingsFormSlice';
 
 export interface BookingForm {
   firstName: string;

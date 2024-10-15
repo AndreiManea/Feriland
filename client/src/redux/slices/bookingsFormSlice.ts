@@ -8,19 +8,16 @@ export interface SerializableRange
   endDate: Date | string | undefined;
 }
 
-interface BookingsState {
-  bookedDates: string[];
+interface BookingsFormState {
   selectedDates: SerializableRange;
   selectedNights: number;
   selectedPersons: { adults: number; children: number };
   selectedCabin: string;
-  isBookingDrawerOpen: boolean;
   bookingStep: number;
   bookingFormData: BookingForm;
 }
 
-const initialState: BookingsState = {
-  bookedDates: [],
+const initialState: BookingsFormState = {
   selectedDates: {
     startDate: new Date().toISOString(),
     endDate: new Date(
@@ -30,12 +27,11 @@ const initialState: BookingsState = {
   selectedNights: 2,
   selectedPersons: { adults: 1, children: 0 },
   selectedCabin: '',
-  isBookingDrawerOpen: false,
   bookingStep: 1,
   bookingFormData: { ...({} as BookingForm), selectedLanguage: 'en' },
 };
 
-export const bookingsSlice = createSlice({
+export const bookingsFormSlice = createSlice({
   name: 'bookings',
   initialState,
   reducers: {
@@ -54,12 +50,6 @@ export const bookingsSlice = createSlice({
     },
     setSelectedCabin: (state, action: PayloadAction<string>) => {
       state.selectedCabin = action.payload;
-    },
-    setBookedDates: (state, action: PayloadAction<string[]>) => {
-      state.bookedDates = action.payload;
-    },
-    setBookingDrawerOpen: (state, action: PayloadAction<boolean>) => {
-      state.isBookingDrawerOpen = action.payload;
     },
     setBookingStep: (state, action: PayloadAction<number>) => {
       state.bookingStep = action.payload;
@@ -89,17 +79,15 @@ export const bookingsSlice = createSlice({
 });
 
 export const {
-  setBookedDates,
   setSelectedDates,
   setSelectedNights,
   setSelectedPersons,
   setSelectedCabin,
-  setBookingDrawerOpen,
   setBookingStep,
   setBookingForm,
   updateBookingFormField,
   setAdditionalNotes,
   setCurrentLanguage,
-} = bookingsSlice.actions;
+} = bookingsFormSlice.actions;
 
-export default bookingsSlice.reducer;
+export default bookingsFormSlice.reducer;

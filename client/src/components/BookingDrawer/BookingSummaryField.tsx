@@ -14,7 +14,7 @@ const BookingSummaryField = ({
       <Heading
         fontSize={{
           base: isHeader ? '1.2rem' : '1rem',
-          lg: isHeader ? '1.6rem' : '1.2rem',
+          md: isHeader ? '1.6rem' : '1.4rem',
         }}
         color="rgb(234, 229, 223)"
         letterSpacing="1px"
@@ -24,7 +24,7 @@ const BookingSummaryField = ({
       <Text
         fontSize={{
           base: isHeader ? '1rem' : '0.85rem',
-          lg: isHeader ? '1.2rem' : '1.05rem',
+          md: '1.2rem',
         }}
       >
         {fieldValue}

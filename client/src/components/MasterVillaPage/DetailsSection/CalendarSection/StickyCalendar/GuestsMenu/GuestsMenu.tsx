@@ -8,7 +8,7 @@ import { useAppSelector } from '../../../../../../redux/hooks';
 const GuestsMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { adults, children } = useAppSelector(
-    state => state.bookings.selectedPersons
+    state => state.bookingsForm.selectedPersons
   );
   const totalGuests = adults + children;
 

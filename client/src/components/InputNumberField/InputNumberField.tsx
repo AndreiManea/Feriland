@@ -8,7 +8,7 @@ import {
   NumberDecrementStepper,
 } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
-import { setSelectedPersons } from '../../redux/slices/bookingsSlice';
+import { setSelectedPersons } from '../../redux/slices/bookingsFormSlice';
 import { useAppSelector } from '../../redux/hooks';
 import { useEffect, useState } from 'react';
 
@@ -25,7 +25,7 @@ const InputNumberField = ({
   minValue: number;
   customerType: 'adults' | 'children';
 }) => {
-  const { selectedPersons } = useAppSelector(state => state.bookings);
+  const { selectedPersons } = useAppSelector(state => state.bookingsForm);
   const dispatch = useDispatch();
   const [numberValue, setNumberValue] = useState(defaultValue);
 

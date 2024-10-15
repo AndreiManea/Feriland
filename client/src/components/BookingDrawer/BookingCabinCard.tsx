@@ -1,6 +1,6 @@
 import { Box, Heading, HStack, Image, Text, VStack } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
-import { setSelectedCabin } from '../../redux/slices/bookingsSlice';
+import { setSelectedCabin } from '../../redux/slices/bookingsFormSlice';
 import { useAppSelector } from '../../redux/hooks';
 import { useState } from 'react';
 import personIcon from '../../assets/personIcon.png';
@@ -19,7 +19,7 @@ const BookingCabinCard = ({
   cabinPrice: number;
   isDisabled?: boolean;
 }) => {
-  const { selectedCabin } = useAppSelector(state => state.bookings);
+  const { selectedCabin } = useAppSelector(state => state.bookingsForm);
 
   const [isSelected, setIsSelected] = useState(!!selectedCabin);
   const dispatch = useDispatch();

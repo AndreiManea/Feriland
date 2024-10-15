@@ -6,13 +6,13 @@ import {
   DrawerBody,
 } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setBookingDrawerOpen } from '../../redux/slices/bookingsSlice';
 import BookingStep3 from './BookingStep3';
 import BookingProgressBar from './BookingProgressBar';
 import BookingStep4 from './BookingStep4';
 import bookingImg from '../../assets/BookingFormBg.webp';
 import { BookingStep1 } from './BookingStep1';
 import { BookingStep2 } from './BookingStep2';
+import { setBookingDrawerOpen } from '../../redux/slices/bookingsDrawerSlice';
 
 const renderStep = (step: number) => {
   switch (step) {
@@ -30,9 +30,8 @@ const renderStep = (step: number) => {
 const BookingDrawer = () => {
   // Global state
   const dispatch = useAppDispatch();
-  const { isBookingDrawerOpen, bookingStep } = useAppSelector(
-    state => state.bookings
-  );
+  const { isBookingDrawerOpen } = useAppSelector(state => state.bookingsDrawer);
+  const { bookingStep } = useAppSelector(state => state.bookingsForm);
 
   return (
     <Drawer
@@ -50,7 +49,7 @@ const BookingDrawer = () => {
         width="100%"
         justifyContent="flex-start"
         position="relative"
-        pt={{ base: '3.5rem', lg: '5rem' }}
+        pt={{ base: '3.5rem', lg: '1.5rem' }}
         pb={{ base: '2rem' }}
         overflowY="scroll"
       >

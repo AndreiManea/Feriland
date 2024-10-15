@@ -5,7 +5,7 @@ import BookingSummaryTotal from './BookingSummaryTotal';
 import { formatDate } from '../../utils/helperFunctions.utils';
 import { useDispatch } from 'react-redux';
 import InputTextAreaField from '../InputTextAreaField/InputTextAreaField';
-import { setAdditionalNotes } from '../../redux/slices/bookingsSlice';
+import { setAdditionalNotes } from '../../redux/slices/bookingsFormSlice';
 
 const BookingSummaryRightInfo = () => {
   const {
@@ -14,7 +14,7 @@ const BookingSummaryRightInfo = () => {
     selectedPersons,
     selectedCabin,
     bookingFormData,
-  } = useAppSelector(state => state.bookings);
+  } = useAppSelector(state => state.bookingsForm);
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);
 
@@ -28,6 +28,7 @@ const BookingSummaryRightInfo = () => {
       p={{ base: '1rem 0 0 0', md: '1.5rem 0 0.75rem 0' }}
       justifyContent="space-between"
       height="100%"
+      order={{ base: 1, md: 2 }}
     >
       <VStack gap="1rem">
         <BookingSummaryField

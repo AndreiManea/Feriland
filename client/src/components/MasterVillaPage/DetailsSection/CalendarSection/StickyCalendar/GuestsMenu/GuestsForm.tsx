@@ -3,11 +3,11 @@ import Counter from '../Counter/Counter';
 import { styles } from './guestsMenu.styled';
 import { useAppSelector } from '../../../../../../redux/hooks';
 import { useDispatch } from 'react-redux';
-import { setSelectedPersons } from '../../../../../../redux/slices/bookingsSlice';
+import { setSelectedPersons } from '../../../../../../redux/slices/bookingsFormSlice';
 
 const GuestsForm: React.FC = () => {
   const { adults, children } = useAppSelector(
-    state => state.bookings.selectedPersons
+    state => state.bookingsForm.selectedPersons
   );
   const dispatch = useDispatch();
   return (

@@ -1,7 +1,7 @@
 import { HStack, Switch, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { setCurrentLanguage } from '../../redux/slices/bookingsSlice'; // Import the action from Redux
+import { setCurrentLanguage } from '../../redux/slices/bookingsFormSlice'; // Import the action from Redux
 import { useAppSelector } from '../../redux/hooks';
 import { BookingForm } from '../../types/form';
 
@@ -10,7 +10,7 @@ const LanguageSwitch = () => {
   const { i18n } = useTranslation();
 
   const { selectedLanguage } = useAppSelector(
-    state => state.bookings.bookingFormData as BookingForm
+    state => state.bookingsForm.bookingFormData as BookingForm
   );
   const isEnglish = selectedLanguage === 'en';
 

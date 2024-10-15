@@ -11,7 +11,7 @@ import Loader from './components/Loader/Loader';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { Box } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import { setBookedDates } from './redux/slices/bookingsSlice';
+import { setBookedDates } from './redux/slices/bookingsDatesSlice';
 
 function App() {
   const { isLoading } = useAppSelector(state => state.loading);

@@ -5,7 +5,11 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist', // Ensure this is set to 'dist', the folder Vercel uses for static files
+    outDir: 'dist', // Output directory
   },
-  base: '/', // This ensures proper URL handling for Vercel
+  base: '/', // Base path
+  server: {
+    host: '0.0.0.0', // Enable external access
+    port: 3000, // Optional: specify a port (default is 5173 for Vite)
+  },
 });

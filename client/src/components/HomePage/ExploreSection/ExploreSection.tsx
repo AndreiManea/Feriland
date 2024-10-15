@@ -13,9 +13,9 @@ import { useNavigate } from 'react-router-dom';
 import { interpolateColor } from '../../../utils/helperFunctions.utils';
 import HoverButtonWrapper from '../../HoverButtonWrapper/HoverButtonWrapper';
 import { useAppDispatch } from '../../../redux/hooks';
-import { setBookingDrawerOpen } from '../../../redux/slices/bookingsSlice';
 import { useTranslation } from 'react-i18next';
 import behindTheScenesImg from '../../../assets/BehindTheScenes.webp';
+import { setBookingDrawerOpen } from '../../../redux/slices/bookingsDrawerSlice';
 
 const ExploreSection: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);

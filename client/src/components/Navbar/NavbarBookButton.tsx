@@ -1,8 +1,8 @@
 import { Button } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { setBookingDrawerOpen } from '../../redux/slices/bookingsSlice';
 import HoverButtonWrapper from '../HoverButtonWrapper/HoverButtonWrapper';
 import { useTranslation } from 'react-i18next';
+import { setBookingDrawerOpen } from '../../redux/slices/bookingsDrawerSlice';
 
 const NavbarBookButton = () => {
   const dispatch = useAppDispatch();

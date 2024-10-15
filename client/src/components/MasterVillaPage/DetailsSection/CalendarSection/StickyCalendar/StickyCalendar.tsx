@@ -3,16 +3,14 @@ import './stickyCalendar.css';
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import StickyCalendarHeader from './StickyCalendarHeader/StickyCalendarHeader';
 import TotalPrice from './TotalPrice';
-import {
-  setBookingDrawerOpen,
-  setBookingStep,
-} from '../../../../../redux/slices/bookingsSlice';
+import { setBookingStep } from '../../../../../redux/slices/bookingsFormSlice';
 import HoverButtonWrapper from '../../../../HoverButtonWrapper/HoverButtonWrapper';
+import { setBookingDrawerOpen } from '../../../../../redux/slices/bookingsDrawerSlice';
 
 const StickyCalendar = () => {
   // Global state
   const { selectedDates, selectedNights } = useAppSelector(
-    state => state.bookings
+    state => state.bookingsForm
   );
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);
