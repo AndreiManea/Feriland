@@ -31,7 +31,15 @@ const NormalLink = ({
         },
       }}
     >
-      <Text fontSize={{ base: '0.9rem', md: '1rem' }} m="0" letterSpacing="0">
+      <Text
+        fontSize={{
+          base: '0.9rem',
+          md: isGreen ? '1.1rem' : '1rem',
+          lg: '1rem',
+        }}
+        m="0"
+        letterSpacing="0"
+      >
         {title}
       </Text>
     </Link>
