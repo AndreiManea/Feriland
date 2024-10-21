@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Range } from 'react-date-range';
 import { BookingForm } from '../../types/form';
+import { findFirstAvailableTwoNights } from '../../utils/calendar';
 
 export interface SerializableRange
   extends Omit<Range, 'startDate' | 'endDate'> {
@@ -18,12 +19,7 @@ interface BookingsFormState {
 }
 
 const initialState: BookingsFormState = {
-  selectedDates: {
-    startDate: new Date().toISOString(),
-    endDate: new Date(
-      new Date().setDate(new Date().getDate() + 2)
-    ).toISOString(),
-  },
+  selectedDates: findFirstAvailableTwoNights([]),
   selectedNights: 2,
   selectedPersons: { adults: 1, children: 0 },
   selectedCabin: '',

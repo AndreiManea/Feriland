@@ -10,6 +10,6 @@ export default defineConfig({
   base: '/', // Base path
   server: {
     host: '0.0.0.0', // Enable external access
-    port: 3000, // Optional: specify a port (default is 5173 for Vite)
+    port: 3001, // Optional: specify a port (default is 5173 for Vite)
   },
 });
