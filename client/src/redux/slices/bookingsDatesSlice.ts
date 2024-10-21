@@ -1,18 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface BookingsDatesState {
-  bookedDates: string[];
+  bookedDates: { masterVilla: string[]; cozyCabin: string[] };
 }
 
 const initialState: BookingsDatesState = {
-  bookedDates: [],
+  bookedDates: { masterVilla: [], cozyCabin: [] },
 };
 
 export const bookingsDatesSlice = createSlice({
   name: 'bookingsDates',
   initialState,
   reducers: {
-    setBookedDates: (state, action: PayloadAction<string[]>) => {
+    setBookedDates: (
+      state,
+      action: PayloadAction<{ masterVilla: string[]; cozyCabin: string[] }>
+    ) => {
       state.bookedDates = action.payload;
     },
   },

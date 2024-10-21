@@ -12,7 +12,7 @@ const BookingSummaryRightInfo = () => {
     selectedDates,
     selectedNights,
     selectedPersons,
-    selectedCabin,
+    selectedCabinName,
     bookingFormData,
   } = useAppSelector(state => state.bookingsForm);
   const startDate = new Date(selectedDates.startDate as string);
@@ -39,7 +39,7 @@ const BookingSummaryRightInfo = () => {
         />
         <BookingSummaryField
           fieldTitle="Cabin & persons"
-          fieldValue={`${selectedCabin} for ${selectedPersons.adults} 
+          fieldValue={`${selectedCabinName} for ${selectedPersons.adults} 
             ${selectedPersons.adults === 1 ? 'adult' : 'adults'}
             ${
               selectedPersons.children > 0

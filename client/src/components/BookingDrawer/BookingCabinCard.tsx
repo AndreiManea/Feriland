@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import {
   setBookingStep,
   setSelectedCabin,
+  setSelectedCabinName,
 } from '../../redux/slices/bookingsFormSlice';
 import { useAppSelector } from '../../redux/hooks';
 import personIcon from '../../assets/personIcon.png';
@@ -19,6 +20,7 @@ import NormalLink from '../links/NormalLink';
 const BookingCabinCard = ({
   cabinImg,
   cabinName,
+  name,
   cabinDescription,
   cabinPrice,
   persons,
@@ -26,6 +28,7 @@ const BookingCabinCard = ({
 }: {
   cabinImg: string;
   cabinName: string;
+  name: string;
   cabinDescription: string;
   cabinPrice: number;
   persons: number;
@@ -35,10 +38,11 @@ const BookingCabinCard = ({
 
   const dispatch = useDispatch();
 
-  const isSelectedCabin = cabinName === selectedCabin;
+  const isSelectedCabin = name === selectedCabin;
   const onClickHandler = () => {
     if (!isSelectedCabin) {
-      dispatch(setSelectedCabin(cabinName));
+      dispatch(setSelectedCabin(name));
+      dispatch(setSelectedCabinName(cabinName));
       dispatch(setBookingStep(2));
     } else {
       dispatch(setSelectedCabin(''));

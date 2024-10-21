@@ -12,8 +12,6 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { Box } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { setBookedDates } from './redux/slices/bookingsDatesSlice';
-import { setSelectedDates } from './redux/slices/bookingsFormSlice';
-import { findFirstAvailableTwoNights } from './utils/calendar';
 
 function App() {
   const { isLoading } = useAppSelector(state => state.loading);
@@ -23,7 +21,6 @@ function App() {
       const request = await fetch('http://localhost:3000/reservations');
       const response = await request.json();
       dispatch(setBookedDates(response.dates));
-      dispatch(setSelectedDates(findFirstAvailableTwoNights(response.dates)));
     };
     fetchDates();
   }, []);

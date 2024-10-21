@@ -14,6 +14,7 @@ interface BookingsFormState {
   selectedNights: number;
   selectedPersons: { adults: number; children: number };
   selectedCabin: string;
+  selectedCabinName: string;
   bookingStep: number;
   bookingFormData: BookingForm;
 }
@@ -23,6 +24,7 @@ const initialState: BookingsFormState = {
   selectedNights: 2,
   selectedPersons: { adults: 1, children: 0 },
   selectedCabin: '',
+  selectedCabinName: '',
   bookingStep: 1,
   bookingFormData: { ...({} as BookingForm), selectedLanguage: 'en' },
 };
@@ -46,6 +48,9 @@ export const bookingsFormSlice = createSlice({
     },
     setSelectedCabin: (state, action: PayloadAction<string>) => {
       state.selectedCabin = action.payload;
+    },
+    setSelectedCabinName: (state, action: PayloadAction<string>) => {
+      state.selectedCabinName = action.payload;
     },
     setBookingStep: (state, action: PayloadAction<number>) => {
       state.bookingStep = action.payload;
@@ -79,6 +84,7 @@ export const {
   setSelectedNights,
   setSelectedPersons,
   setSelectedCabin,
+  setSelectedCabinName,
   setBookingStep,
   setBookingForm,
   updateBookingFormField,

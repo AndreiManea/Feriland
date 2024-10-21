@@ -28,6 +28,7 @@ const BookingCabinSlider = () => {
         <BookingCabinCard
           cabinImg={masterVillaImg}
           cabinName="Master Villa"
+          name="masterVilla"
           cabinDescription={CABIN_DESCRIPTION}
           cabinPrice={1500}
           persons={6}
@@ -35,6 +36,7 @@ const BookingCabinSlider = () => {
         <BookingCabinCard
           cabinImg={mobileHomeImg}
           cabinName="Cozy Villa"
+          name="cozyVilla"
           cabinDescription={COZY_DESCRIPTION}
           cabinPrice={1000}
           persons={4}
@@ -42,6 +44,7 @@ const BookingCabinSlider = () => {
         <BookingCabinCard
           cabinImg={masterVillaImg}
           cabinName="Second Villa"
+          name="secondVilla"
           cabinDescription={CABIN_DESCRIPTION}
           cabinPrice={1500}
           isDisabled

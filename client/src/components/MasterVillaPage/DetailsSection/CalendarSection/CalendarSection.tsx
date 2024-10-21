@@ -36,12 +36,17 @@ const CalendarSection = ({
 }) => {
   // Global state
   const dispatch = useAppDispatch();
-  const { selectedDates, selectedNights } = useAppSelector(
+  const { selectedDates, selectedNights, selectedCabin } = useAppSelector(
     state => state.bookingsForm
   );
-  const { bookedDates } = useAppSelector(state => state.bookingsDates);
+
+  const bookedDates = useAppSelector(
+    state => state.bookingsDates.bookedDates[selectedCabin]
+  );
+
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);
+
   const months = useBreakpointValue({ base: 1, md: 2 });
 
   // Local state
