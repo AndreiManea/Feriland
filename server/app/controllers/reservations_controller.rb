@@ -1,16 +1,17 @@
 class ReservationsController < ApplicationController
 
   def reservations
+    reservations = Reservation.joins(:cabin).pluck('cabins.name', :start_date, :end_date)
 
-    reservations = Reservation.where(cabin_id: 1).pluck(:start_date, :end_date)
-    formatted_reservations = reservations.flat_map do |start_date, end_date|
-      (start_date..end_date).map do |date|
-        date.strftime("%b %d, %Y")
+    formatted_reservations = reservations.group_by { |cabin_name, _, _| cabin_name }.transform_values do |dates|
+      dates.flat_map do |_, start_date, end_date|
+        (start_date..end_date).map { |date| date.strftime("%b %d, %Y") }
       end
     end
 
     render json: { dates: formatted_reservations }
   end
+
   def create
     booking_data = reservation_params[:reservation][:booking_form_data]
 
