@@ -22,7 +22,8 @@ class ReservationsController < ApplicationController
       email: booking_data[:email],
       start_date: selected_dates[:start_date],
       end_date: selected_dates[:end_date],
-      booking_data: booking_data
+      booking_data: booking_data,
+      cabin_id: Cabin.find_by(name:reservation_params[:reservation][:selected_cabin])
     }
     reservation = CreateReservationService.new(params).call
 
