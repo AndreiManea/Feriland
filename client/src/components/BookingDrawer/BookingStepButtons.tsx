@@ -14,13 +14,7 @@ const BookingStepButtons = ({
   onPayment?: () => void;
   isValid?: boolean;
 }) => {
-  const {
-    bookingStep,
-    bookingFormData,
-    selectedCabin,
-    selectedPersons,
-    selectedDates,
-  } = useAppSelector(state => state.bookingsForm);
+  const { bookingStep } = useAppSelector(state => state.bookingsForm);
   const dispatch = useDispatch();
 
   const nextHandler = (e?: BaseSyntheticEvent) => {
@@ -32,18 +26,6 @@ const BookingStepButtons = ({
 
   const paymentHandler = () => {
     onPayment?.();
-    fetch('http://localhost:3000/reservations', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        reservation: {
-          ...{ bookingFormData },
-          selectedCabin,
-          selectedPersons,
-          selectedDates,
-        },
-      }),
-    });
   };
 
   return (
