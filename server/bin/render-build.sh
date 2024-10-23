@@ -2,8 +2,6 @@
 # exit on error
 set -o errexit
 
-cd server
-
 bundle install
 
 # If you're using a Free instance type, you need to
