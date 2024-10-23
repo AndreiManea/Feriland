@@ -6,8 +6,19 @@ import { formatDate } from '../../utils/helperFunctions.utils';
 import { useDispatch } from 'react-redux';
 import InputTextAreaField from '../InputTextAreaField/InputTextAreaField';
 import { setAdditionalNotes } from '../../redux/slices/bookingsFormSlice';
+import { Dispatch, SetStateAction } from 'react';
 
-const BookingSummaryRightInfo = () => {
+const BookingSummaryRightInfo = ({
+  showError,
+  isChecked,
+  setIsChecked,
+  setShowError,
+}: {
+  isChecked: boolean;
+  showError: boolean;
+  setIsChecked: Dispatch<SetStateAction<boolean>>;
+  setShowError: Dispatch<SetStateAction<boolean>>;
+}) => {
   const {
     selectedDates,
     selectedNights,
@@ -53,7 +64,12 @@ const BookingSummaryRightInfo = () => {
         handleChange={value => dispatch(setAdditionalNotes(value))}
         value={bookingFormData.additionalInfo || ''}
       />
-      <BookingSummaryTotal />
+      <BookingSummaryTotal
+        showError={showError}
+        isChecked={isChecked}
+        setIsChecked={setIsChecked}
+        setShowError={setShowError}
+      />
     </VStack>
   );
 };

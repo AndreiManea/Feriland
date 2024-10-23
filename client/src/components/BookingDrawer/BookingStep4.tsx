@@ -1,8 +1,32 @@
-import { Box, Heading, Stack, VStack } from '@chakra-ui/react';
+import { Box, Heading, Stack, useToast, VStack } from '@chakra-ui/react';
 import BookingStepButtons from './BookingStepButtons';
 import BookingSummaryLeftInfo from './BookingSummaryLeftInfo';
 import BookingSummaryRightInfo from './BookingSummaryRightInfo';
+import { useState } from 'react';
+import { useAppSelector } from '../../redux/hooks';
 const BookingStep4 = () => {
+  const [showError, setShowError] = useState(false); // State for showing the error
+  const [isChecked, setIsChecked] = useState(false);
+  const { selectedCabin, selectedNights } = useAppSelector(
+    state => state.bookingsForm
+  );
+  const totalPrice =
+    (selectedCabin !== 'masterVilla' ? 1000 : 1500) * selectedNights; //
+  const toast = useToast();
+  const handleProceed = () => {
+    if (!isChecked) {
+      setShowError(true); // Show error if checkbox is not checked
+    } else {
+      // Handle the "Proceed to Payment" action here
+      console.log('Proceeding to payment...');
+      toast({
+        title: `Payment can happen now for ${totalPrice} RON`,
+        status: 'success',
+        duration: 15000,
+        isClosable: true,
+      });
+    }
+  };
   return (
     <VStack spacing="1rem" alignItems="flex-start">
       <Heading
@@ -30,10 +54,15 @@ const BookingStep4 = () => {
           m="0"
         />
         {/* BOOKING & PAYMENTS INFO */}
-        <BookingSummaryRightInfo />
+        <BookingSummaryRightInfo
+          showError={showError}
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
+          setShowError={setShowError}
+        />
       </Stack>
 
-      <BookingStepButtons />
+      <BookingStepButtons onPayment={handleProceed} />
     </VStack>
   );
 };

@@ -8,8 +8,10 @@ import { BaseSyntheticEvent } from 'react';
 const BookingStepButtons = ({
   onNext,
   isValid,
+  onPayment,
 }: {
   onNext?: (e?: BaseSyntheticEvent<object> | undefined) => Promise<void>;
+  onPayment?: () => void;
   isValid?: boolean;
 }) => {
   const {
@@ -29,6 +31,7 @@ const BookingStepButtons = ({
   };
 
   const paymentHandler = () => {
+    onPayment?.();
     fetch('http://localhost:3000/reservations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

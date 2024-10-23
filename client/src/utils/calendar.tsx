@@ -13,7 +13,7 @@ export const handleDisabledDate = (
   date: Date,
   disabledDates: Date[]
 ): boolean => {
-  return disabledDates.some(disabledDate => isSameDay(disabledDate, date));
+  return disabledDates?.some(disabledDate => isSameDay(disabledDate, date));
 };
 
 /**

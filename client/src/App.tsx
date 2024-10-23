@@ -12,6 +12,8 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { Box } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { setBookedDates } from './redux/slices/bookingsDatesSlice';
+import { TermsAndConditionsPage } from './components/pages/TermsAndConditionsPage/TermsAndConditionsPage';
+import { PrivacyPolicyPage } from './components/pages/PrivacyPolicyPage/PrivacyPolicyPage';
 
 function App() {
   const { isLoading } = useAppSelector(state => state.loading);
@@ -33,6 +35,11 @@ function App() {
         <BookingDrawer />
         <Routes>
           <Route path="/master-villa" element={<MasterVillaPage />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditionsPage />}
+          />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
         <Footer />

@@ -4,10 +4,12 @@ const NormalLink = ({
   title,
   to = '/',
   isGreen,
+  isPayment,
 }: {
   title: string;
   to?: string;
   isGreen?: boolean;
+  isPayment?: boolean;
 }) => {
   return (
     <Link
@@ -35,10 +37,11 @@ const NormalLink = ({
         fontSize={{
           base: '0.9rem',
           md: isGreen ? '1.1rem' : '1rem',
-          lg: '1rem',
+          lg: isPayment ? '1.2rem' : '1rem',
         }}
         m="0"
         letterSpacing="0"
+        fontWeight={isPayment ? '800' : '400'}
       >
         {title}
       </Text>
