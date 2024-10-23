@@ -17,7 +17,7 @@ services:
         value: 2 # sensible default
 
 databases:
-  - name: postgres_staging
+  - name: postgres
     databaseName: server-development
     user: deploy
     plan: free
