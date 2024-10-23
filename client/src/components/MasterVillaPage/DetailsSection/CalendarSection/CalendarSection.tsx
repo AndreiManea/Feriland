@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DateRange, RangeKeyDict } from 'react-date-range';
 import { formatDate } from '../../../../utils/helperFunctions.utils';
 
@@ -127,6 +127,10 @@ const CalendarSection = ({
       }
     }
   };
+
+  useEffect(() => {
+    dispatch(setSelectedDates(findFirstAvailableTwoNights(disabledDates)));
+  }, []);
 
   return (
     <VStack gap="0.25rem" width="100%" alignItems="flex-start">
