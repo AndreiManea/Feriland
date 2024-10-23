@@ -41,7 +41,10 @@ const CalendarSection = ({
   );
 
   const bookedDates = useAppSelector(
-    state => state.bookingsDates.bookedDates[selectedCabin]
+    state =>
+      state.bookingsDates.bookedDates[
+        selectedCabin as keyof typeof state.bookingsDates.bookedDates
+      ]
   );
 
   const startDate = new Date(selectedDates.startDate as string);

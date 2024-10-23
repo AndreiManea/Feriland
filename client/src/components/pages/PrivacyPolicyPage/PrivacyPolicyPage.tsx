@@ -1,4 +1,4 @@
-import { Heading, Text, Box, VStack, textDecoration } from '@chakra-ui/react';
+import { Heading, Text, Box, VStack } from '@chakra-ui/react';
 
 export const PrivacyPolicyPage = () => {
   return (

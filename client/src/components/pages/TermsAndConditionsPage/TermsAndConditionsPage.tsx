@@ -1,5 +1,4 @@
 import { Heading, Text, Box, VStack } from '@chakra-ui/react';
-import NormalLink from '../../links/NormalLink';
 
 export const TermsAndConditionsPage = () => {
   return (

@@ -26,7 +26,7 @@ const BookingSummaryTotal = ({
   const { selectedNights, selectedCabin } = useAppSelector(
     state => state.bookingsForm
   );
-  const handleCheckboxChange = e => {
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
     if (e.target.checked) {
       setShowError(false); // Remove the error if the user checks the box
