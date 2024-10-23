@@ -20,7 +20,7 @@ function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     const fetchDates = async () => {
-      const request = await fetch('http://localhost:3000/reservations');
+      const request = await fetch('https://feriland.onrender.com/reservations');
       const response = await request.json();
       dispatch(setBookedDates(response.dates));
     };

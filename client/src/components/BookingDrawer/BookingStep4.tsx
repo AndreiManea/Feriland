@@ -28,7 +28,7 @@ const BookingStep4 = () => {
         duration: 15000,
         isClosable: true,
       });
-      fetch('http://localhost:3000/reservations', {
+      fetch('https://feriland.onrender.com/reservations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
