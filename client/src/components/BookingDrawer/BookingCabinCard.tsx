@@ -12,10 +12,15 @@ import {
   setBookingStep,
   setSelectedCabin,
   setSelectedCabinName,
+  setSelectedDates,
 } from '../../redux/slices/bookingsFormSlice';
 import { useAppSelector } from '../../redux/hooks';
 import personIcon from '../../assets/personIcon.png';
 import NormalLink from '../links/NormalLink';
+import {
+  findFirstAvailableTwoNights,
+  parseDateStrings,
+} from '../../utils/calendar';
 
 const BookingCabinCard = ({
   cabinImg,
@@ -35,12 +40,21 @@ const BookingCabinCard = ({
   isDisabled?: boolean;
 }) => {
   const { selectedCabin } = useAppSelector(state => state.bookingsForm);
-
+  const bookedDates = useAppSelector(
+    state =>
+      state.bookingsDates.bookedDates[
+        name as keyof typeof state.bookingsDates.bookedDates
+      ]
+  );
+  const firstAvailableDates = findFirstAvailableTwoNights(
+    parseDateStrings(bookedDates)
+  );
   const dispatch = useDispatch();
 
   const isSelectedCabin = name === selectedCabin;
   const onClickHandler = () => {
     if (!isSelectedCabin) {
+      dispatch(setSelectedDates(firstAvailableDates));
       dispatch(setSelectedCabin(name));
       dispatch(setSelectedCabinName(cabinName));
       dispatch(setBookingStep(2));

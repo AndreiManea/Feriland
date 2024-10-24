@@ -8,7 +8,7 @@ import {
   setSelectedDates,
   setSelectedNights,
 } from '../../../../redux/slices/bookingsFormSlice';
-import { addDays, isSameDay, parse } from 'date-fns';
+import { addDays, isSameDay } from 'date-fns';
 import {
   Box,
   Heading,
@@ -20,6 +20,8 @@ import {
 import { enGB } from 'date-fns/locale';
 import {
   findFirstAvailableTwoNights,
+  normalizeDate,
+  parseDateStrings,
   renderDayContent,
 } from '../../../../utils/calendar';
 
@@ -57,12 +59,6 @@ const CalendarSection = ({
     `${formatDate(startDate)} - ${formatDate(endDate)}`
   );
 
-  const parseDateStrings = (dateStrings: string[]) => {
-    return dateStrings?.map(dateString =>
-      parse(dateString, 'MMMM d, yyyy', new Date())
-    );
-  };
-
   const disabledDates = parseDateStrings(bookedDates);
 
   const toast = useToast(); // Chakra UI Toast for feedback
@@ -89,7 +85,7 @@ const CalendarSection = ({
           duration: 3000,
           isClosable: true,
         });
-        const isNextDayDisabled = disabledDates.some(disabledDate =>
+        const isNextDayDisabled = disabledDates?.some(disabledDate =>
           isSameDay(disabledDate, addDays(endDate, 1))
         );
         dispatch(
@@ -129,7 +125,32 @@ const CalendarSection = ({
   };
 
   useEffect(() => {
-    dispatch(setSelectedDates(findFirstAvailableTwoNights(disabledDates)));
+    const firstAvailableDates = findFirstAvailableTwoNights(disabledDates);
+    if (selectedDates && firstAvailableDates) {
+      // Compare startDate and endDate with firstAvailableDates
+      const { startDate: selectedStartDate, endDate: selectedEndDate } =
+        selectedDates;
+      const { startDate: availableStartDate, endDate: availableEndDate } =
+        firstAvailableDates;
+      // Normalize both selected and available dates to strip out the time part
+      const normalizedSelectedStartDate = normalizeDate(
+        selectedStartDate as string
+      );
+      const normalizedSelectedEndDate = normalizeDate(
+        selectedEndDate as string
+      );
+      const normalizedAvailableStartDate = normalizeDate(availableStartDate);
+      const normalizedAvailableEndDate = normalizeDate(availableEndDate);
+
+      // Check if either the selected startDate or endDate is earlier than available startDate or endDate
+      if (
+        normalizedSelectedStartDate < normalizedAvailableStartDate ||
+        normalizedSelectedEndDate < normalizedAvailableEndDate
+      ) {
+        // Dispatch action to update selectedDates if the condition is met
+        dispatch(setSelectedDates(firstAvailableDates));
+      }
+    }
   }, []);
 
   return (

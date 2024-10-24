@@ -3,7 +3,10 @@ import BookingStepButtons from './BookingStepButtons';
 import BookingSummaryLeftInfo from './BookingSummaryLeftInfo';
 import BookingSummaryRightInfo from './BookingSummaryRightInfo';
 import { useState } from 'react';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { resetApplication } from '../../redux/store';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { setBookedDates } from '../../redux/slices/bookingsDatesSlice';
 const BookingStep4 = () => {
   const [showError, setShowError] = useState(false); // State for showing the error
   const [isChecked, setIsChecked] = useState(false);
@@ -17,6 +20,10 @@ const BookingStep4 = () => {
   const totalPrice =
     (selectedCabin !== 'masterVilla' ? 1000 : 1500) * selectedNights; //
   const toast = useToast();
+  const navigate = useNavigate();
+  const location = useLocation(); // Get the current location from react-router-dom
+  const isHomePage = location.pathname === '/';
+  const dispatch = useAppDispatch();
   const handleProceed = () => {
     if (!isChecked) {
       setShowError(true); // Show error if checkbox is not checked
@@ -25,7 +32,7 @@ const BookingStep4 = () => {
       toast({
         title: `Payment can happen now for ${totalPrice} RON`,
         status: 'success',
-        duration: 15000,
+        duration: 2000,
         isClosable: true,
       });
       fetch('https://feriland.onrender.com/reservations', {
@@ -40,6 +47,21 @@ const BookingStep4 = () => {
           },
         }),
       });
+      setTimeout(() => {
+        resetApplication();
+        if (isHomePage) {
+          const fetchDates = async () => {
+            const request = await fetch(
+              'https://feriland.onrender.com/reservations'
+            );
+            const response = await request.json();
+            dispatch(setBookedDates(response.dates));
+          };
+          fetchDates();
+        } else {
+          navigate('/');
+        }
+      }, 2000);
     }
   };
   return (

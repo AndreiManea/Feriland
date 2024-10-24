@@ -8,24 +8,13 @@ import HomePage from './components/HomePage/HomePage';
 import BookingDrawer from './components/BookingDrawer/BookingDrawer';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
-import { useAppDispatch, useAppSelector } from './redux/hooks';
+import { useAppSelector } from './redux/hooks';
 import { Box } from '@chakra-ui/react';
-import { useEffect } from 'react';
-import { setBookedDates } from './redux/slices/bookingsDatesSlice';
 import { TermsAndConditionsPage } from './components/pages/TermsAndConditionsPage/TermsAndConditionsPage';
 import { PrivacyPolicyPage } from './components/pages/PrivacyPolicyPage/PrivacyPolicyPage';
 
 function App() {
   const { isLoading } = useAppSelector(state => state.loading);
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    const fetchDates = async () => {
-      const request = await fetch('https://feriland.onrender.com/reservations');
-      const response = await request.json();
-      dispatch(setBookedDates(response.dates));
-    };
-    fetchDates();
-  }, []);
 
   return (
     <Box overflow={isLoading ? 'hidden' : ''} height="100vh">

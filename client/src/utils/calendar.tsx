@@ -1,4 +1,4 @@
-import { addDays, isSameDay } from 'date-fns';
+import { addDays, isSameDay, parse } from 'date-fns';
 import { Tooltip } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
@@ -69,13 +69,13 @@ export const findFirstAvailableTwoNights = (
     const endDay = addDays(startDate, 2); // The day after nextDay
 
     // Check if startDate, nextDay, and endDay are not disabled
-    const isStartDateDisabled = disabledDates.some(disabledDate =>
+    const isStartDateDisabled = disabledDates?.some(disabledDate =>
       isSameDay(disabledDate, startDate)
     );
-    const isNextDayDisabled = disabledDates.some(disabledDate =>
+    const isNextDayDisabled = disabledDates?.some(disabledDate =>
       isSameDay(disabledDate, nextDay)
     );
-    const isEndDayDisabled = disabledDates.some(disabledDate =>
+    const isEndDayDisabled = disabledDates?.some(disabledDate =>
       isSameDay(disabledDate, endDay)
     );
 
@@ -91,4 +91,17 @@ export const findFirstAvailableTwoNights = (
 
   // Just in case, fallback to today and two days after
   return { startDate, endDate: addDays(startDate, 3) };
+};
+
+export const parseDateStrings = (dateStrings: string[]) => {
+  return dateStrings?.map(dateString =>
+    parse(dateString, 'MMMM d, yyyy', new Date())
+  );
+};
+
+// Helper function to normalize date (removes the time part)
+export const normalizeDate = (date: Date | string) => {
+  const normalizedDate = new Date(date);
+  normalizedDate.setHours(0, 0, 0, 0); // Strip time from the date
+  return normalizedDate;
 };
