@@ -1,13 +1,16 @@
-import { Heading, Text, Box, VStack } from '@chakra-ui/react';
+import { Heading, Text, Box, VStack, Link } from '@chakra-ui/react';
 
 export const TermsAndConditionsPage = () => {
   return (
-    <Box backgroundColor="rgb(234, 229, 223)" p={8}>
+    <Box
+      backgroundColor="rgb(234, 229, 223)"
+      p={{ base: '1.2rem 0.75rem', md: '1.5rem 1.25rem', lg: '2rem 1.5rem' }}
+    >
       <Heading
         as="h1"
-        fontSize={{ lg: '3rem' }}
+        fontSize={{ base: '1.75rem', md: '3rem' }}
         mb={4}
-        mt="12.5svh"
+        mt={{ base: '12.5svh', md: '7.5svh', lg: '12.5svh' }}
         textAlign="center"
       >
         Terms and Conditions
@@ -15,10 +18,10 @@ export const TermsAndConditionsPage = () => {
 
       {/* Company Information */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           1. Company Information
         </Heading>
-        <Text>
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           <strong>Company Name:</strong> FERI LAND CONSULTING S.R.L.
           <br />
           <strong>Company Registration Number:</strong> J2/1786/2023
@@ -36,10 +39,10 @@ export const TermsAndConditionsPage = () => {
 
       {/* Description of Services */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           2. Description of Services
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           Feriland is a luxury nature retreat offering bespoke accommodations
           such as cabins and villas, along with a range of wellness services
           like wood-fired hot tubs, saunas, and outdoor activities. Guests can
@@ -49,10 +52,10 @@ export const TermsAndConditionsPage = () => {
       </VStack>
       {/* Pricing and Currencies */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           3. Pricing and Currencies
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           Prices are displayed in RON. If payments can be made in other
           currencies, conversions will be based on the current exchange rates.
           Prices for bookings are subject to change without notice, but any
@@ -62,10 +65,10 @@ export const TermsAndConditionsPage = () => {
 
       {/* Booking and Payment Terms */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           4. Booking and Payment Terms
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           By making a booking, you confirm that you have read and accepted our
           terms and conditions. Payment is processed securely through our
           payment provider. You will be required to accept the terms and
@@ -74,10 +77,10 @@ export const TermsAndConditionsPage = () => {
       </VStack>
       {/* Cancellation and Refund Policy */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           5. Cancellation and Refund Policy
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           <strong>Cancellation by the guest:</strong> All bookings are
           non-refundable. Once a booking is confirmed, cancellations made at any
           time will not be eligible for a refund.
@@ -90,26 +93,50 @@ export const TermsAndConditionsPage = () => {
       </VStack>
       {/* Privacy Policy */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           6. Privacy Policy
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text
+          fontSize={{
+            base: '0.9rem',
+            md: '1.1rem',
+            lg: '1.2rem',
+          }}
+          mb="0"
+        >
           Your privacy is important to us. Please refer to our detailed{' '}
-          <a
-            href="/privacy-policy"
-            style={{ color: '#547C39', fontSize: '1.4rem' }}
+          <Link
+            href={'/privacy-policy'}
+            position="relative"
+            color={'#547c39'}
+            _after={{
+              content: '""',
+              position: 'absolute',
+              bottom: -1,
+              left: 0,
+              height: '1px',
+              bg: '#547c39',
+              width: '0%',
+              transition: 'width 0.4s ease-in-out',
+            }}
+            transition="0.3s ease-in-out"
+            _hover={{
+              _after: {
+                width: '100%',
+              },
+            }}
           >
             privacy policy{' '}
-          </a>
+          </Link>
           to understand how we collect, use, and protect your personal data.
         </Text>
       </VStack>
       {/* Complaints and Dispute Resolution */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           7. Complaints and Dispute Resolution
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           If you have any complaints or issues with your booking or stay at
           Feriland, please contact us at contact@feriland.ro/+40737515716. We
           are committed to resolving any issues promptly and fairly.
@@ -117,10 +144,10 @@ export const TermsAndConditionsPage = () => {
       </VStack>
       {/* Check-Out Process */}
       <VStack gap="0.5rem" alignItems="flex-start">
-        <Heading as="h2" size="lg" mt={6} mb={2}>
+        <Heading as="h2" size={{ base: 'md', md: 'lg' }} mt={6} mb={2}>
           8. Check-Out Process
         </Heading>
-        <Text fontSize="1.2rem">
+        <Text fontSize={{ base: '0.9rem', md: '1.2rem' }}>
           In order to proceed with your booking, you must accept our terms and
           conditions by ticking the checkbox provided on the check-out page. If
           the box is not checked, you will not be able to complete your booking.

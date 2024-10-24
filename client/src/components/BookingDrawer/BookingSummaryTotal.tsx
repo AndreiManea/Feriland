@@ -7,9 +7,9 @@ import {
   Checkbox,
   FormErrorMessage,
   Text,
+  Link,
 } from '@chakra-ui/react';
 import { useAppSelector } from '../../redux/hooks';
-import NormalLink from '../links/NormalLink';
 import { Dispatch, SetStateAction } from 'react';
 
 const BookingSummaryTotal = ({
@@ -75,15 +75,53 @@ const BookingSummaryTotal = ({
             onChange={handleCheckboxChange}
             colorScheme="teal"
             size="lg"
+            outline="none"
           />
-          <HStack alignItems="center">
-            <Text mb="0">I agree to the</Text>
-            <NormalLink
-              to="/terms-and-conditions"
-              isPayment
-              isGreen
-              title="terms and conditions."
-            />
+          <HStack alignItems="center" gap="0.3rem">
+            <Text
+              fontSize={{
+                base: '0.9rem',
+                md: '1.1rem',
+                lg: '1.2rem',
+              }}
+              mb="0"
+            >
+              I agree to the
+            </Text>
+            <Link
+              href={'/terms-and-conditions'}
+              position="relative"
+              color={'#547c39'}
+              _after={{
+                content: '""',
+                position: 'absolute',
+                bottom: -1,
+                left: 0,
+                height: '1px',
+                bg: '#547c39',
+                width: '0%',
+                transition: 'width 0.4s ease-in-out',
+              }}
+              transition="0.3s ease-in-out"
+              _hover={{
+                _after: {
+                  width: '100%',
+                },
+              }}
+            >
+              <Text
+                fontSize={{
+                  base: '0.9rem',
+                  md: '1.1rem',
+                  lg: '1.2rem',
+                }}
+                m="0"
+                letterSpacing="0"
+                fontWeight="800"
+              >
+                terms and conditions
+              </Text>
+            </Link>
           </HStack>
 
           {/* Error Message */}
