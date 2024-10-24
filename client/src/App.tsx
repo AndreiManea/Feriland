@@ -23,7 +23,10 @@ function App() {
         <Navbar />
         <BookingDrawer />
         <Routes>
-          <Route path="/master-villa" element={<MasterVillaPage />} />
+          <Route
+            path="/master-villa"
+            element={<MasterVillaPage pageName="masterVilla" />}
+          />
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditionsPage />}

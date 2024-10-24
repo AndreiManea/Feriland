@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import InputTextAreaField from '../InputTextAreaField/InputTextAreaField';
 import { setAdditionalNotes } from '../../redux/slices/bookingsFormSlice';
 import { Dispatch, SetStateAction } from 'react';
+import { camelCaseToTitleCase } from '../../utils/texts';
 
 const BookingSummaryRightInfo = ({
   showError,
@@ -23,7 +24,7 @@ const BookingSummaryRightInfo = ({
     selectedDates,
     selectedNights,
     selectedPersons,
-    selectedCabinName,
+    selectedCabin,
     bookingFormData,
   } = useAppSelector(state => state.bookingsForm);
   const startDate = new Date(selectedDates.startDate as string);
@@ -50,7 +51,7 @@ const BookingSummaryRightInfo = ({
         />
         <BookingSummaryField
           fieldTitle="Cabin & persons"
-          fieldValue={`${selectedCabinName} for ${selectedPersons.adults} 
+          fieldValue={`${camelCaseToTitleCase(selectedCabin)} for ${selectedPersons.adults} 
             ${selectedPersons.adults === 1 ? 'adult' : 'adults'}
             ${
               selectedPersons.children > 0

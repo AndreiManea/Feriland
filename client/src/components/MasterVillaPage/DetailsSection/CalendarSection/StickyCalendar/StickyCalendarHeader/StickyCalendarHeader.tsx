@@ -64,7 +64,11 @@ const StickyCalendarHeader = ({
             }}
           >
             <FormLabel sx={styles.formLabel}>Check-in</FormLabel>
-            <Input value={`${formatDate(startDate)}`} sx={styles.input} />
+            <Input
+              readOnly
+              value={`${formatDate(startDate)}`}
+              sx={styles.input}
+            />
           </FormControl>
           <FormControl
             id="check-out"
@@ -74,7 +78,11 @@ const StickyCalendarHeader = ({
             sx={styles.checkOutFormControl(isCalendarOpen)}
           >
             <FormLabel sx={styles.formLabel}>Checkout</FormLabel>
-            <Input value={`${formatDate(endDate)}`} sx={styles.input} />
+            <Input
+              readOnly
+              value={`${formatDate(endDate)}`}
+              sx={styles.input}
+            />
           </FormControl>
           <Box
             className="stickyCalendar"

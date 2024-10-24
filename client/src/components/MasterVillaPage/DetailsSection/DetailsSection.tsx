@@ -7,7 +7,7 @@ import { getAmenitiesFromEachCategory } from '../../../utils/helperFunctions.uti
 import { useTranslation } from 'react-i18next';
 import { AmenitiesByCategory, Feature } from '../../../utils/types';
 
-const DetailsSection: React.FC = () => {
+const DetailsSection = ({ pageName }: { pageName: string }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   useDarkNavbar(sectionRef);
@@ -45,7 +45,7 @@ const DetailsSection: React.FC = () => {
             amenities={amenitiesList}
             modalRef={modalRef}
           />
-          <StickyCalendar />
+          <StickyCalendar pageName={pageName} />
         </Grid>
       </Box>
     </>

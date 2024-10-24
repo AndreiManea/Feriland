@@ -3,23 +3,28 @@ import './stickyCalendar.css';
 import { useAppDispatch, useAppSelector } from '../../../../../redux/hooks';
 import StickyCalendarHeader from './StickyCalendarHeader/StickyCalendarHeader';
 import TotalPrice from './TotalPrice';
-import { setBookingStep } from '../../../../../redux/slices/bookingsFormSlice';
+import {
+  setBookingStep,
+  setSelectedCabin,
+} from '../../../../../redux/slices/bookingsFormSlice';
 import HoverButtonWrapper from '../../../../HoverButtonWrapper/HoverButtonWrapper';
 import { setBookingDrawerOpen } from '../../../../../redux/slices/bookingsDrawerSlice';
 
-const StickyCalendar = () => {
+const StickyCalendar = ({ pageName }: { pageName: string }) => {
   // Global state
-  const { selectedDates, selectedNights } = useAppSelector(
+  const { selectedDates, selectedNights, bookingStep } = useAppSelector(
     state => state.bookingsForm
   );
   const startDate = new Date(selectedDates.startDate as string);
   const endDate = new Date(selectedDates.endDate as string);
-
   const dispatch = useAppDispatch();
 
   const onReserve = () => {
+    dispatch(setSelectedCabin(pageName));
     dispatch(setBookingDrawerOpen(true));
-    dispatch(setBookingStep(3));
+    if (bookingStep < 3) {
+      dispatch(setBookingStep(3));
+    }
   };
 
   return (
